@@ -118,7 +118,41 @@ canvas.drag{cursor:grabbing}
 .note{position:absolute;left:14px;bottom:12px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:11.5px;color:var(--muted)}
 .close{float:right;border:0;background:none;font-size:18px;cursor:pointer;color:var(--muted);line-height:1}
 /* elementos solo móvil */
-.shh,#scrim,.fab,#mleg,#tSortW,.btn.mob{display:none}
+.shh,#scrim,.fab,#mleg,#tSortW,.btn.mob,#pick,#pickScrim{display:none}
+/* selector desplegable propio (móvil) */
+.dd{display:flex;align-items:center;gap:8px;width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;color:var(--ink);text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.dd .ddt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dd svg{flex:none;color:var(--muted)}
+.dd.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.dd.on .ddt{color:var(--accent);font-weight:600}
+.ddn{flex:none;background:var(--accent);color:#fff;border-radius:999px;min-width:22px;height:22px;padding:0 7px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+#pick{position:fixed;left:0;right:0;bottom:var(--tab);z-index:41;max-height:78vh;max-height:78dvh;background:#fff;border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.22);flex-direction:column;transform:translateY(calc(100% + var(--tab)));visibility:hidden;transition:transform .22s ease}
+#pick.open{transform:none;visibility:visible}
+#pickScrim{position:fixed;inset:0;bottom:var(--tab);background:rgba(20,25,30,.35);z-index:40}
+#pickScrim.on{display:block}
+.pkh{display:flex;align-items:center;gap:10px;padding:18px 16px 10px;position:relative;border-bottom:1px solid var(--line)}
+.pkh::before{content:"";position:absolute;top:6px;left:50%;width:38px;height:4px;margin-left:-19px;border-radius:2px;background:#d6d3cc}
+.pkh b{flex:1;font-size:16px}
+.pkh .btn{padding:6px 12px;font-size:14px}
+.pkh .close{font-size:28px;min-width:36px;min-height:36px}
+#pickQ{margin:10px 16px 4px;width:calc(100% - 32px)}
+#pickL{overflow-y:auto;padding:4px 8px;flex:1;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.po{display:flex;align-items:center;gap:12px;min-height:48px;padding:6px 8px;border-radius:10px;cursor:pointer;font-size:15px;-webkit-tap-highlight-color:transparent}
+.po:active{background:#f3f2ef}
+.po.on{background:#eef4fb}
+.po .pl{flex:1;min-width:0;line-height:1.3}
+.po .pl small{display:block;color:var(--muted);font-size:12px}
+.po .pn{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.po .d{width:11px;height:11px;border-radius:50%;flex:none}
+.po .d.hollow{background:#fff!important;border:2.5px solid var(--nd)}
+.pk{flex:none;width:22px;height:22px;border:2px solid #b9b5ad;background:#fff;position:relative}
+.pk.chk{border-radius:6px}.pk.rad{border-radius:50%}
+.po.on .pk{border-color:var(--accent);background:var(--accent)}
+.po.on .pk.chk::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.po.on .pk.rad{background:#fff}
+.po.on .pk.rad::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--accent)}
+.pkf{padding:10px 16px 12px;border-top:1px solid var(--line)}
+.pkf .btn{width:100%;justify-content:center;padding:12px}
 .fab{position:absolute;left:12px;bottom:14px;z-index:4;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;border:0;background:#1d2228;color:#fff;font:inherit;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.22);cursor:pointer}
 .fab .bdg{background:#6aa6ec;color:#10243d;border-radius:999px;min-width:20px;height:20px;padding:0 6px;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
 #mleg{position:absolute;top:10px;left:0;right:0;z-index:3;gap:6px;overflow-x:auto;padding:0 10px 4px;scrollbar-width:none}
@@ -170,6 +204,7 @@ canvas.drag{cursor:grabbing}
   /* panel */
   .pg{padding:12px 12px 24px}
   .slicers{display:block;width:100%;max-width:100%;padding:12px;overflow:hidden}
+  #pick{display:flex}
   .sl{display:block;width:100%;max-width:100%;margin-bottom:12px}
   .sl:last-child{margin-bottom:0}
   .sl>label{display:block;width:auto;padding:0;margin:0 0 6px!important}
@@ -271,6 +306,13 @@ canvas.drag{cursor:grabbing}
   <div class="card"><h3>Edificios<small id="tblInfo"></small></h3><div id="tSortW"><label class="sub" for="tSort">Ordenar por</label><select id="tSort"></select></div><div class="tw"><table class="t" id="tbl"></table></div><button class="btn mob" id="tMore" style="margin-top:10px;width:100%;justify-content:center"></button></div>
 </div></div>
 
+<div id="pickScrim"></div>
+<div id="pick" role="dialog" aria-modal="true" aria-labelledby="pickT">
+  <div class="pkh"><b id="pickT"></b><button class="btn" id="pickClr">Limpiar</button><button class="close" id="pickX" aria-label="Cerrar">×</button></div>
+  <input type="search" id="pickQ" placeholder="Buscar…">
+  <div id="pickL" role="listbox"></div>
+  <div class="pkf"><button class="btn primary" id="pickOk"></button></div>
+</div>
 <div class="view" id="view-informe"><div class="pg">
   <div class="rep">
     <div class="card">
@@ -625,6 +667,37 @@ function pfilter(except){return buildings.filter(b=>{for(const k in DIMS){if(k==
 function toggle(set,v){set.has(v)?set.delete(v):set.add(v);renderPanel()}
 const charts={};let chartOK=!!window.Chart;
 function chip(label,on,attrs,dot){return `<span class="chip${on?' on':''}" ${attrs}>${dot?`<i class="d" style="background:${dot}"></i>`:''}${esc(label)}</span>`}
+// ---------- Selectores del panel en móvil (multiselección / selección única) ----------
+let SLOPTS={},PICK=null;
+const SLDIMS=[['estado','Estado'],['dist','Distrito'],['tipo','Tipo'],['dec','Década'],['sub','Subtipo'],['fuente','Fuente']];
+const SINGLE=k=>k==='sub'||k==='fuente';
+const ddSel=k=>SINGLE(k)?(PF[k]?[PF[k]]:[]):[...PF[k]];
+function ddSummary(k){const sel=ddSel(k),o=SLOPTS[k]||[];if(!sel.length)return k==='sub'?'Todos los subtipos':k==='fuente'?'Todas las fuentes':'Todos';
+  const lab=v=>{const x=o.find(z=>z.v===v);return x?(k==='estado'?(SMAP[v].short):x.l):v};
+  const ord=o.map(z=>z.v).filter(v=>sel.includes(v));return ord.length<=2?ord.map(lab).join(', '):`${lab(ord[0])} y ${ord.length-1} más`}
+const DIMVALS={estado:b=>[b.s],dist:b=>[...b.dists],tipo:b=>[...b.tipos],dec:b=>[b.dec],sub:b=>[...b.subs],fuente:b=>[...b.fuentes]};
+function openPick(k){PICK={k,q:''};document.getElementById('pickT').textContent=SLDIMS.find(d=>d[0]===k)[1];
+  const q=document.getElementById('pickQ');q.value='';q.style.display=(SLOPTS[k]||[]).length>12?'':'none';
+  document.getElementById('pick').classList.add('open');document.getElementById('pickScrim').classList.add('on');renderPick();document.getElementById('pickL').scrollTop=0}
+function closePick(){PICK=null;document.getElementById('pick').classList.remove('open');document.getElementById('pickScrim').classList.remove('on')}
+function renderPick(){if(!PICK)return;const k=PICK.k,single=SINGLE(k),sel=ddSel(k);
+  const cnt=new Map();for(const b of pfilter(k))for(const v of DIMVALS[k](b))cnt.set(v,(cnt.get(v)||0)+1);
+  const qn=PICK.q.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const opts=(SLOPTS[k]||[]).filter(o=>!qn||(o.l+' '+(o.d||'')).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(qn));
+  const row=(v,l,on,extra='',n='')=>`<div class="po${on?' on':''}" role="option" aria-selected="${on}" data-v="${esc(v)}"><span class="pk ${single?'rad':'chk'}"></span>${extra}<span class="pl">${l}</span><span class="pn">${n}</span></div>`;
+  let h=single?row('',k==='sub'?'Todos los subtipos':'Todas las fuentes',!sel.length):'';
+  h+=opts.map(o=>row(o.v,esc(o.l)+(o.d?` <small>${esc(o.d)}</small>`:''),sel.includes(o.v),o.dot?`<i class="d${o.hollow?' hollow':''}" style="background:${o.dot}"></i>`:'',fmt(cnt.get(o.v)||0))).join('');
+  if(!opts.length)h+='<div class="sub" style="padding:14px 4px">Sin resultados</div>';
+  document.getElementById('pickL').innerHTML=h;
+  const clr=document.getElementById('pickClr');clr.style.visibility=sel.length?'visible':'hidden';
+  document.getElementById('pickOk').textContent=`Ver ${fmt(pfilter().length)} edificios`}
+document.getElementById('slicers').addEventListener('click',e=>{const d=e.target.closest('.dd');if(d)openPick(d.dataset.dim)});
+document.getElementById('pickL').addEventListener('click',e=>{const o=e.target.closest('.po');if(!o||!PICK)return;const k=PICK.k,v=o.dataset.v;
+  if(SINGLE(k)){PF[k]=v;renderPanel();closePick()}else toggle(PF[k],v)});
+document.getElementById('pickQ').addEventListener('input',e=>{if(PICK){PICK.q=e.target.value;renderPick()}});
+document.getElementById('pickClr').onclick=()=>{if(!PICK)return;const k=PICK.k;SINGLE(k)?PF[k]='':PF[k].clear();renderPanel()};
+document.getElementById('pickOk').onclick=closePick;document.getElementById('pickX').onclick=closePick;document.getElementById('pickScrim').onclick=closePick;
+window.matchMedia('(max-width:820px)').addEventListener('change',()=>{closePick();if(document.getElementById('view-panel').classList.contains('on'))renderPanel()});
 function renderSlicers(){
   const ds=[...new Set(buildings.flatMap(b=>[...b.dists]))].sort((a,b)=>a.localeCompare(b,'es'));
   const ts=[...new Set(buildings.flatMap(b=>[...b.tipos]))].filter(Boolean).sort((a,b)=>a.localeCompare(b,'es'));
@@ -633,6 +706,12 @@ function renderSlicers(){
   const subs=new Map();for(const b of buildings)for(const k of b.subs){const [tp,st]=k.split('|');if(!st||(PF.tipo.size&&!PF.tipo.has(tp)))continue;subs.set(k,(subs.get(k)||0)+1)}
   if(PF.sub&&!subs.has(PF.sub))PF.sub='';
   const sk=[...subs.keys()].sort((a,b)=>a.split('|')[1].localeCompare(b.split('|')[1],'es'));
+  SLOPTS={estado:STATES.map(s=>({v:s.k,l:s.lab,dot:s.c,hollow:s.hollow})),dist:ds.map(v=>({v,l:v})),tipo:ts.map(v=>({v,l:v})),dec:decs.map(v=>({v,l:v})),
+    sub:sk.map(k=>{const [tp,st]=k.split('|');return {v:k,l:st,d:PF.tipo.size===1?'':tp}}),fuente:fu.map(v=>({v,l:v}))};
+  if(isMobile()){
+    document.getElementById('slicers').innerHTML=SLDIMS.map(([k,l])=>`<div class="sl"><label>${l}</label><button class="dd${ddSel(k).length?' on':''}" data-dim="${k}" aria-haspopup="listbox"><span class="ddt">${esc(ddSummary(k))}</span>${ddSel(k).length>1?`<span class="ddn">${ddSel(k).length}</span>`:''}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button></div>`).join('');
+    if(PICK)renderPick();
+    return}
   const keepX=[...document.querySelectorAll('#slicers .chips')].map(c=>c.scrollLeft);
   document.getElementById('slicers').innerHTML=
    `<div class="sl"><label>Estado</label><div class="chips">${STATES.map(s=>chip(s.lab,PF.estado.has(s.k),`data-f="estado" data-v="${s.k}"`,s.c)).join('')}</div></div>
