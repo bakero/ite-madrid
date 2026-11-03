@@ -1,0 +1,2821 @@
+{
+	"@context": {
+		"c": "http://www.w3.org/2002/12/cal#",
+		"dcterms": "http://purl.org/dc/terms/",
+		"geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+		"loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+		"org": "http://purl.org/ctic/infraestructuras/organizacion#",
+		"vcard": "http://www.w3.org/2006/vcard/ns#",
+		"schema": "https://schema.org/",
+		"title": "vcard:fn",
+		"id": "dcterms:identifier",
+		"relation": "dcterms:relation",
+		"references": "dcterms:references",
+		"address": "vcard:adr",
+		"area": "loc:barrio",
+		"district": "loc:distrito",
+		"locality": "vcard:locality",
+		"postal-code": "vcard:postal-code",
+		"street-address": "vcard:street-address",
+		"location": "vcard:geo",
+		"latitude": "geo:lat",
+		"longitude": "geo:long",
+		"organization": "vcard:org",
+		"organization-desc": "dcterms:description",
+		"accesibility": "org:accesibilidad",
+		"services": "org:servicios",
+		"schedule": "org:horario",
+		"organization-name": "vcard:organization-name",
+		"description": "c:summary",
+		"link": "c:url",
+		"uid": "c:uid",
+		"dtstart": "c:dtstart",
+		"dtend": "c:dtend",
+		"time": "c:time",
+		"excluded-days": "c:exdate",
+		"event-location": "c:location",
+		"free": "schema:free",
+		"price": "c:resource",
+		"recurrence": "c:rrule",
+		"days": "c:byday",
+		"frequency": "c:freq",
+		"interval": "c:interval",
+		"audience": "dc:audience"
+	},
+	"@graph": [
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/187050-centro-integrado-ensenanzas-artisticas-musica-educacion-secundaria-federico-moreno-torroba.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "187050",
+		"title": "Centro Integrado de Enseñanzas Artísticas de Música y Educación Secundaria Federico Moreno Torroba",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=957748d20675e010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/PuertaBonita"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28025",
+			"street-address": "CALLE GENERAL RICARDOS 177"
+		},
+		"location": {
+			"latitude": 40.385197375260255,
+			"longitude": -3.7364997414123096
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZAS DE RÉGIMEN GENERAL:  - Educación Secundaria Obligatoria, primer y segundo ciclo.  - Bachillerato en Música.  ENSEÑANZAS ARTÍSTICAS DE MÚSICA:  - Grado Elemental de Música.  - Grado Medio de Música. METRO: Oporto BUS: 34, 35, 108, 118, 119",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Centro Integrado de Enseñanzas Artísticas de Música y Educación Secundaria Federico Moreno Torroba"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/101755-conservatorio-profesional-danza-carmen-amaya.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "101755",
+		"title": "Conservatorio Profesional de Danza Carmen Amaya",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5dc18899fc81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/LosRosales"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "AVENIDA FELICIDAD 27"
+		},
+		"location": {
+			"latitude": 40.35970210687039,
+			"longitude": -3.6890479990084355
+		},
+		"organization": {
+			"organization-desc": " Artísticas  Música y danza, Danza clásica, contemporánea y española. Metro: Ciudad de los Ángeles (línea 3).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Danza Carmen Amaya"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6681-conservatorio-profesional-danza-fortea.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6681",
+		"title": "Conservatorio Profesional de Danza Fortea",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=fb61a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CasaCampo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "PASEO COMANDANTE FORTEA 42"
+		},
+		"location": {
+			"latitude": 40.42754184442827,
+			"longitude": -3.7324112111503682
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:   Baile flamenco, danza clásica, danza española. Consultar los siguientes enlaces.",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Danza Fortea"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6697-conservatorio-profesional-musica-adolfo-salazar.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6697",
+		"title": "Conservatorio Profesional de Música Adolfo Salazar",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=b869a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Arguelles"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "CALLE FERRAZ 62"
+		},
+		"location": {
+			"latitude": 40.428091747176865,
+			"longitude": -3.7190223615783022
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Música y danza, música (LOE), Clarinete, Contrabajo, Fagot, Flauta travesera, Guitarra, Oboe, Percusión, Piano, Saxofón, Trombón, Trompa, Trompeta, Viola, Violín, Violoncello. Metro: Arg&amp;uuml;elles (líneas 3, 4 y 6), Ventura Rodríguez (línea 3).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Adolfo Salazar"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6672-conservatorio-profesional-musica-amaniel.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6672",
+		"title": "Conservatorio Profesional de Música Amaniel",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7cb9a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Universidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28015",
+			"street-address": "CALLE AMANIEL 2"
+		},
+		"location": {
+			"latitude": 40.42503902541332,
+			"longitude": -3.7091208409661056
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas  Música y danza, Música (LOE), Acordeón, Canto, Clarinete, Contrabajo, Fagot, Flauta travesera, Guitarra, Oboe, Percusión, Piano, Saxofón, Trombón, Trompa, Trompeta, Tuba, Viola, Violín, Violoncello. Metro: Noviciado (línea 2), Plaza de España (líneas 3 y 10).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Amaniel"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6689-conservatorio-profesional-musica-arturo-soria.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6689",
+		"title": "Conservatorio Profesional de Música Arturo Soria",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=61d9a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/SanJuanBautista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28043",
+			"street-address": "CALLE ARTURO SORIA 140"
+		},
+		"location": {
+			"latitude": 40.45152315200889,
+			"longitude": -3.6524320603700793
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Música y danza, Música (LOE), Acordeón, Arpa, Bajo eléctrico, Cante Flamenco, Canto, Clarinete, Clave, Contrabajo, Fagot, Flauta travesera, Flauta de pico, Guitarra, Guitarra eléctrica, Guitarra flamenca, Instrumentos de cuerda pulsada del Renacimiento y Barroco, Instrumentos de Púa, Oboe, Órgano, Percusión, Piano, Saxofón, Trombón, Trompa, Trompeta, Tuba, Viola, Viola da Gamba, Violín, Violoncello, Instrumentos de cuerda pulsada. Metro: Arturo Soria (línea 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Arturo Soria"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6693-conservatorio-profesional-musica-joaquin-turina.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6693",
+		"title": "Conservatorio Profesional de Música Joaquín Turina",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9299a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/Valdeacederas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE CEUTA 18"
+		},
+		"location": {
+			"latitude": 40.462194445399014,
+			"longitude": -3.6986526788629326
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:   Música y Danza, Música (LOE), Clarinete, Contrabajo, Fagot, Flauta travesera, Guitarra, Oboe, Piano, Saxofón, Trompa, Trompeta, Viola, Violín, Violoncello. Metro: Tetuán (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Joaquín Turina"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6694-conservatorio-profesional-musica-teresa-berganza.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6694",
+		"title": "Conservatorio Profesional de Música Teresa Berganza",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=87a9a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/Lucero"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28047",
+			"street-address": "CALLE PALMIPEDO 3"
+		},
+		"location": {
+			"latitude": 40.403539710636096,
+			"longitude": -3.744974327600288
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Música y Danza, Música (LOE), Acordeón, Canto, Clarinete, Contrabajo, Fagot, Flauta travesera, Guitarra, Oboe, Percusión, Piano, Saxofón, Trombón, Trompa, Trompeta, Tuba, Viola, Violín, Violoncello. Metro: Lucero (línea 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Teresa Berganza"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/101754-conservatorio-profesional-musica-victoria-angeles.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "101754",
+		"title": "Conservatorio Profesional de Música Victoria de los Ángeles",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=42e18899fc81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/LosRosales"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "AVENIDA FELICIDAD 27"
+		},
+		"location": {
+			"latitude": 40.35970210687039,
+			"longitude": -3.6890479990084355
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Música y Danza, Música (LOE), Canto, Clarinete, Contrabajo, Fagot, Flauta travesera, Guitarra, Oboe, Percusión, Piano, Saxofón, Trombón, Trompa, Trompeta, Tuba, Viola, Violín, Violoncello. Metro: Ciudad de los Ángeles (línea 3).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Profesional de Música Victoria de los Ángeles"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4631819-conservatorio-superior-danza-maria-avila.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "4631819",
+		"title": "Conservatorio Superior de Danza María de Ávila",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=70ac4048341b4110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/PuertaBonita"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28025",
+			"street-address": "CALLE GENERAL RICARDOS 177"
+		},
+		"location": {
+			"latitude": 40.385207193828954,
+			"longitude": -3.7364894865229403
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas Artísticas:     Coreografía e Interpretación, Coreografía, Interpretación, Pedagogía de la danza, Danza profesional. Metro: Vista Alegre (línea 5), Oporto (líneas 5 y 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Conservatorio Superior de Danza María de Ávila"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11749306-escuela-animacion-comunidad-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "11749306",
+		"title": "Escuela de Animación de la Comunidad de Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c6a54aad223c2810VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Goya"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28001",
+			"street-address": " "
+		},
+		"location": {
+			"latitude": 40.42800338506673,
+			"longitude": -3.6770780820573963
+		},
+		"organization": {
+			"organization-desc": "  Metro: Lista (línea 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Animación de la Comunidad de Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10325615-escuela-arte-madrid-n-3.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "10325615",
+		"title": "Escuela de Arte de Madrid n. 3",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=107ea0f51418b510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE ESTUDIOS 1"
+		},
+		"location": {
+			"latitude": 40.4121781003121,
+			"longitude": -3.7073090017047767
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas Artísticas:    Joyería de arte, Joyería artística, Orfebrería y Platería artísticas, Bistutería artística, Esmalte artístico al fuego sobre metales. Metro: Latina (línea 5), Tirso de Molina (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Arte de Madrid n. 3"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10325662-escuela-arte-madrid-n-10.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "10325662",
+		"title": "Escuela de Arte de Madrid n.10",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f201a0f51418b510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Pacifico"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28007",
+			"street-address": "AVENIDA CIUDAD DE BARCELONA 25"
+		},
+		"location": {
+			"latitude": 40.4042660633821,
+			"longitude": -3.680470006180471
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Comunicación gráfica y audiovisual, Animación, Gráfica interactiva, Fotografía, Ilustración, Gráfica impresa, Grabado y técnicas de estampación, Estilismo de indumentaria, Modelismo de indumentaria, Diseño industrial, Mobiliario, Modelismo y maquetismo, Modelismo industrial, Diseño de interiores, Arquitectura efímera, escaparatismo, Proyectos y dirección de obras de decoración. Metro: Menéndez Pelayo (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Arte de Madrid n.10"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/27188-escuela-arte-francisco-alcantara-ceramica.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "27188",
+		"title": "Escuela de Arte Francisco Alcántara Cerámica",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e6ae059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CasaCampo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "CALLE FRANCISCO Y JACINTO ALCANTARA 2"
+		},
+		"location": {
+			"latitude": 40.42679841840511,
+			"longitude": -3.724159779973538
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas artísticas:     Alfarería, Decoración cerámica, Cerámica artística, Modelismo y matricería cerámica, Recubrimientos cerámicos. Consulta los siguientes enlaces.",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Arte Francisco Alcántara Cerámica"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6674-escuela-arte-palma.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/CentrosFormacionProfesionalPublicos",
+		"id": "6674",
+		"title": "Escuela de Arte La Palma",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=db3ba4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Universidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE PALMA 46"
+		},
+		"location": {
+			"latitude": 40.42656819920333,
+			"longitude": -3.7059702232791585
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas artísticas:  Escultura, Técnicas escultóricas, Técnicas escultóricas en madera, Técnicas escultóricas en metal, Técnicas escultóricas en piedra, Escultura aplicada al espectáculo, Fundición artística, Artes aplicadas a la indumentaria, Artesanía de complementos de cuero, Artes aplicadas al muro. Metro: Noviciado (Línea 2) , Tribunal (Línea 1 y 10)",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Arte La Palma"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6690-escuela-ceramica-moncloa.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6690",
+		"title": "Escuela de Cerámica de la Moncloa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=009fa4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CasaCampo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "CALLE FRANCISCO Y JACINTO ALCÁNTARA 2"
+		},
+		"location": {
+			"latitude": 40.42670719570918,
+			"longitude": -3.7242795119747836
+		},
+		"organization": {
+			"organization-desc": " REQUISITOS DE ACCESO:   Bases de Enseñanza Cerámica (BEC)   1&amp;ordm; BEC: Título de Graduado en ESO, FP o equivalente.  2&amp;ordm; BEC (acceso directo): Tener 1&amp;ordm; BEC.    Talleres de Libre Creación (TLC)  Acceso directo con 2&amp;ordm; BEC. Prueba de acceso específico para cada taller.    Cursos Monográficos  Prueba de acceso: Entrevista personal (Curriculum Vitae).     Más información en:   Escuela de Cerámica de la Moncloa Metro: Príncipe Pío Bus: 74 , 21 , 41 , 46 , 75, 62",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 9 a 14 horas (atención al público).",
+			"services": "Biblioteca - Sala de exposiciones - Salón de actos",
+			"organization-name": "Escuela de Cerámica de la Moncloa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7407746-escuela-cine-television-madrid-septima-ars.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "7407746",
+		"title": "Escuela de Cine y Televisión de Madrid Séptima Ars",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8b0269ad47ef4410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Hispanoamerica"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28016",
+			"street-address": "CALLE FUENTE DEL SAZ 5"
+		},
+		"location": {
+			"latitude": 40.45369269524975,
+			"longitude": -3.68025132597766
+		},
+		"organization": {
+			"organization-desc": "  Metro: Colombia (línea 8 y 9), Concha Espina (línea 9).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "Diplomaturas y cursos de cine y televisión.",
+			"organization-name": "Escuela de Cine y Televisión de Madrid Séptima Ars"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190276-escuela-tiempo-libre-abancay.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190276",
+		"title": "Escuela de Tiempo Libre Abancay",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1891f5177659f010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/PenaGrande"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28035",
+			"street-address": "CALLE ISLAS CIES 22 PLANTA Bajo C"
+		},
+		"location": {
+			"latitude": 40.480074588141555,
+			"longitude": -3.720405744041395
+		},
+		"organization": {
+			"organization-desc": "  Metro: Avenida de la Ilustración (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Abancay"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/39592-escuela-tiempo-libre-acaya.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "39592",
+		"title": "Escuela de Tiempo Libre Acaya",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5b0c7589f451c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Prosperidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE CONSTANCIA 39"
+		},
+		"location": {
+			"latitude": 40.44281668239956,
+			"longitude": -3.6720393673644347
+		},
+		"organization": {
+			"organization-desc": "  Metro: Prosperidad (línea 4), Cartagena (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Acaya"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157908-escuela-tiempo-libre-acrescere.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157908",
+		"title": "Escuela de Tiempo Libre Acrescere",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=4f781e1fd8997510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Aravaca"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28023",
+			"street-address": "AVENIDA OSA MAYOR 19 PLANTA BAJO 1"
+		},
+		"location": {
+			"latitude": 40.45980060324054,
+			"longitude": -3.778225530036907
+		},
+		"organization": {
+			"organization-desc": "  Consulta los siguientes enlaces:",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Acrescere"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10514755-escuela-tiempo-libre-actua.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10514755",
+		"title": "Escuela de Tiempo Libre Actúa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e0e918b35b50f510VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Pavones"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE VALDEBERNARDO 26"
+		},
+		"location": {
+			"latitude": 40.40334887230539,
+			"longitude": -3.6309814393314848
+		},
+		"organization": {
+			"organization-desc": "  Metro: Pavones (línea 9)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Actúa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18595-escuela-tiempo-libre-arci-nature.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18595",
+		"title": "Escuela de Tiempo Libre Arci-Nature",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a81f059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Adelfas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28007",
+			"street-address": "CALLE LOS MESEJO 15"
+		},
+		"location": {
+			"latitude": 40.400054283514265,
+			"longitude": -3.66976832983095
+		},
+		"organization": {
+			"organization-desc": "  Metro: Portazgo (línea 1)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Arci-Nature"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157995-escuela-tiempo-libre-arpa4.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157995",
+		"title": "Escuela de Tiempo Libre Arpa4",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c3651e1fd8997510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE ANTONIO 29 PLANTA 5 Oficina 151"
+		},
+		"location": {
+			"latitude": 40.512478924435555,
+			"longitude": -3.6729334879475197
+		},
+		"organization": {
+			"organization-desc": "  Metro: Ventilla (Línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Arpa4"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4078-escuela-tiempo-libre-asde-insignia-madera.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "4078",
+		"title": "Escuela de Tiempo Libre ASDE - Insignia de Madera",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6a0da4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE HORTALEZA 19 PLANTA 1 Izquierda"
+		},
+		"location": {
+			"latitude": 40.42160426368212,
+			"longitude": -3.70023413561108
+		},
+		"organization": {
+			"organization-desc": "  Metro: Gran Vía (líneas 1 y 5), Chueca (línea 5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre ASDE - Insignia de Madera"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157362-escuela-tiempo-libre-aula-joven.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157362",
+		"title": "Escuela de Tiempo Libre Aula Joven",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=85229b2df0597510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/CiudadJardin"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE MARCENADO 34"
+		},
+		"location": {
+			"latitude": 40.44761623478615,
+			"longitude": -3.673370181252921
+		},
+		"organization": {
+			"organization-desc": "  Metro: Cruz del Rayo (línea 9)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Aula Joven"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10514428-escuela-tiempo-libre-caritas-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10514428",
+		"title": "Escuela de Tiempo Libre Cáritas de Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=63eeaf55a250f510VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Prosperidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE SANTA HORTENSIA 3"
+		},
+		"location": {
+			"latitude": 40.44569990003311,
+			"longitude": -3.669995163569375
+		},
+		"organization": {
+			"organization-desc": "  Metro: Alfonso XIII (línea 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Cáritas de Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190219-escuela-tiempo-libre-ceam.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190219",
+		"title": "Escuela de Tiempo Libre Ceam",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=bdb3c7202677f010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Ibiza"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28009",
+			"street-address": "CALLE DOCTOR CASTELO 14 PLANTA 2 Oficina 181"
+		},
+		"location": {
+			"latitude": 40.42037495866753,
+			"longitude": -3.6779428346337895
+		},
+		"organization": {
+			"organization-desc": "  Metro: O'Donell (Línea 6)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Ceam"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18568-escuela-tiempo-libre-censa.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18568",
+		"title": "Escuela de Tiempo Libre Censa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=757f059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/PalosMoguer"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE MARQUES DE LA VALDAVIA 2 PLANTA 2"
+		},
+		"location": {
+			"latitude": 40.406321835178936,
+			"longitude": -3.6960712522158685
+		},
+		"organization": {
+			"organization-desc": "  Metro: Estación del Arte (línea 1)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Censa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190387-escuela-tiempo-libre-ceyfe-salle.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190387",
+		"title": "Escuela de Tiempo Libre Ceyfe La Salle",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6a7cb8c8a659f010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Valdemarin"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28023",
+			"street-address": "CALLE LA SALLE 10"
+		},
+		"location": {
+			"latitude": 40.466248901592856,
+			"longitude": -3.7820082470461647
+		},
+		"organization": {
+			"organization-desc": "  Cercanías-Renfe: Aravaca (líneas C-7 y C-10).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Ceyfe La Salle"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157937-escuela-tiempo-libre-coeduca.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157937",
+		"title": "Escuela de Tiempo Libre Coeduca",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=77211e1fd8997510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Recoletos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28001",
+			"street-address": "CALLE VELÁZQUEZ 15 PLANTA 1"
+		},
+		"location": {
+			"latitude": 40.42271504443609,
+			"longitude": -3.684546505007804
+		},
+		"organization": {
+			"organization-desc": "  Metro: Retiro (línea 2), Velázquez (línea 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Coeduca"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7727834-escuela-tiempo-libre-cruz-roja-juventud.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7727834",
+		"title": "Escuela de Tiempo Libre Cruz Roja de la Juventud",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=bbf4532cd19a9410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Buenavista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28044",
+			"street-address": "CALLE MUGUET 7"
+		},
+		"location": {
+			"latitude": 40.36978132470484,
+			"longitude": -3.746567627527277
+		},
+		"organization": {
+			"organization-desc": "  Metro: Carabanchel Alto (línea 11), Estación San Francisco (línea 11)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Cruz Roja de la Juventud"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7727776-escuela-tiempo-libre-dinama.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7727776",
+		"title": "Escuela de Tiempo Libre Dinama",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1fba532cd19a9410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/Aluche"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28044",
+			"street-address": "CALLE MERCEDES RODRIGUEZ 11"
+		},
+		"location": {
+			"latitude": 40.367875041466135,
+			"longitude": -3.7551124517565775
+		},
+		"organization": {
+			"organization-desc": "  Metro: Aluche (línea 5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Dinama"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/29398-escuela-tiempo-libre-don-bosco.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "29398",
+		"title": "Escuela de Tiempo Libre Don Bosco",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9a9f059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CiudadUniversitaria"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28040",
+			"street-address": "CALLE MARIA AUXILIADORA 9"
+		},
+		"location": {
+			"latitude": 40.4578663330372,
+			"longitude": -3.7154022232737973
+		},
+		"organization": {
+			"organization-desc": "  Metro: Francos Rodríguez (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Don Bosco"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18583-escuela-tiempo-libre-ealyr.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18583",
+		"title": "Escuela de Tiempo Libre Ealyr",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2daf059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CiudadUniversitaria"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28040",
+			"street-address": "CALLE MARTIN FIERRO 7"
+		},
+		"location": {
+			"latitude": 40.4381730352489,
+			"longitude": -3.7325360017630174
+		},
+		"organization": {
+			"organization-desc": "  Consulta los siguientes enlaces:",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Ealyr"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190236-escuela-tiempo-libre-educadores-vallecas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190236",
+		"title": "Escuela de Tiempo Libre Educadores de Vallecas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8302f5177659f010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/PalomerasBajas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28018",
+			"street-address": "CALLE JAVIER DE MIGUEL 92 PLANTA 2 local 5"
+		},
+		"location": {
+			"latitude": 40.385417868312054,
+			"longitude": -3.656517575126389
+		},
+		"organization": {
+			"organization-desc": "  Metro: Buenos Aires (línea 1)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Educadores de Vallecas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18584-escuela-tiempo-libre-eduma.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18584",
+		"title": "Escuela de Tiempo Libre Eduma",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=bfbf059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Lista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28006",
+			"street-address": "CALLE ALCANTARA 34 PLANTA Bajo H"
+		},
+		"location": {
+			"latitude": 40.42908153990794,
+			"longitude": -3.673646943013638
+		},
+		"organization": {
+			"organization-desc": "  Metro: Lista (línea 4).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Eduma"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7727969-escuela-tiempo-libre-enforex.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7727969",
+		"title": "Escuela de Tiempo Libre Enforex",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9420e85fc39a9410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Universidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28015",
+			"street-address": "CALLE BALTASAR GRACIAN 4 PLANTA 2º 12"
+		},
+		"location": {
+			"latitude": 40.429594620172466,
+			"longitude": -3.7104817647177937
+		},
+		"organization": {
+			"organization-desc": "  Metro: San Bernardo (líneas 2 y 4), Arg&amp;uuml;elles (líneas 3, 4 y 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Enforex"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4079-escuela-tiempo-libre-euama.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "4079",
+		"title": "Escuela de Tiempo Libre Euama",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8e71a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "",
+			"street-address": "Calle Francisco Tomás y Valiente 3 PLANTA 5"
+		},
+		"organization": {
+			"organization-desc": "  Cercanías Renfe: Cantoblanco Universidad (C4a y C4b).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Euama"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5901006-escuela-tiempo-libre-francisco-giner-rios.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "5901006",
+		"title": "Escuela de Tiempo Libre Francisco Giner de los Ríos",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ddb8cce8aa30d210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/Almagro"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28010",
+			"street-address": "PASEO GENERAL MARTINEZ CAMPOS 14"
+		},
+		"location": {
+			"latitude": 40.434877495729964,
+			"longitude": -3.696810843113834
+		},
+		"organization": {
+			"organization-desc": "  Metro: Iglesia (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Francisco Giner de los Ríos"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7727952-escuela-tiempo-libre-garaje.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7727952",
+		"title": "Escuela de Tiempo Libre Garaje",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=be7de85fc39a9410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/PalomerasBajas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28018",
+			"street-address": "CALLE LA REINA DE AFRICA 6"
+		},
+		"location": {
+			"latitude": 40.38049138025438,
+			"longitude": -3.6630803481174907
+		},
+		"organization": {
+			"organization-desc": "  Metro: Buenos aires (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Garaje"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157571-escuela-tiempo-libre-gredos-san-diego.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157571",
+		"title": "Escuela de Tiempo Libre Gredos San Diego",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=19c271f0a2997510VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas/Barrio/EnsancheVallecas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28051",
+			"street-address": "CALLE JOSE GUTIERREZ MAROTO 26 PLANTA 1 B"
+		},
+		"location": {
+			"latitude": 40.366173759341564,
+			"longitude": -3.6033965524479097
+		},
+		"organization": {
+			"organization-desc": "  Metro: Las Suertes (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Gredos San Diego"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190323-escuela-tiempo-libre-ideotur.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190323",
+		"title": "Escuela de Tiempo Libre Ideotur",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=210cb8c8a659f010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Goya"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28009",
+			"street-address": "CALLE ALCALÁ 104 PLANTA 2 A"
+		},
+		"location": {
+			"latitude": 40.425216273946305,
+			"longitude": -3.6743748582296023
+		},
+		"organization": {
+			"organization-desc": "  Metro: Goya (líneas 2 y 4).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Ideotur"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7727944-escuela-tiempo-libre-isadia.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7727944",
+		"title": "Escuela de Tiempo Libre Isadia",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1efbe85fc39a9410VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE SIERRA DE ATAPUERCA 6"
+		},
+		"location": {
+			"latitude": 40.50058273249146,
+			"longitude": -3.6727188855589303
+		},
+		"organization": {
+			"organization-desc": "  Cercanías Renfe: Fuencarral (líneas C4a y C4b).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Isadia"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5900953-escuela-tiempo-libre-ise-jcmadrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "5900953",
+		"title": "Escuela de Tiempo Libre ISE-JCMadrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7173c25ab930d210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/Aluche"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28047",
+			"street-address": "CALLE OCA&amp;Ntilde;A 14"
+		},
+		"location": {
+			"latitude": 40.38394657080957,
+			"longitude": -3.754440693962786
+		},
+		"organization": {
+			"organization-desc": "  Metro: Eugenia de Montijo (línea 5).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre ISE-JCMadrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5901083-escuela-tiempo-libre-jeimaros.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "5901083",
+		"title": "Escuela de Tiempo Libre Jeímaros",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=70afcce8aa30d210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/BellasVistas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE ALMANSA 15 PLANTA 1 D"
+		},
+		"location": {
+			"latitude": 40.44867322998196,
+			"longitude": -3.7049986432731816
+		},
+		"organization": {
+			"organization-desc": "  Metro: Alvarado (línea 1), Cuatro Caminos (líneas 1, 2 y 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Jeímaros"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18578-escuela-tiempo-libre-escalera.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18578",
+		"title": "Escuela de Tiempo Libre La escalera",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f900059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/Gaztambide"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28015",
+			"street-address": "CALLE FERNANDO EL CATOLICO 64"
+		},
+		"location": {
+			"latitude": 40.43440052066234,
+			"longitude": -3.7141923339391005
+		},
+		"organization": {
+			"organization-desc": "  Metro: Moncloa (líneas 3 y 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre La escalera"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157414-escuela-tiempo-libre-frontera.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157414",
+		"title": "Escuela de Tiempo Libre La Frontera",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=52d6f6fb4b897510VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28034",
+			"street-address": "PLAZA TUBILLA 7"
+		},
+		"location": {
+			"latitude": 40.4903595458152,
+			"longitude": -3.685024432907573
+		},
+		"organization": {
+			"organization-desc": "  Consulta los siguientes enlaces:",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre La Frontera"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/7592895-escuela-tiempo-libre-maravillas-salle.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "7592895",
+		"title": "Escuela de Tiempo Libre Maravillas-La Salle",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5bdaa4e828c67410VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/ElViso"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE GUADALQUIVIR 9"
+		},
+		"location": {
+			"latitude": 40.44679555710997,
+			"longitude": -3.6872170161788795
+		},
+		"organization": {
+			"organization-desc": "  Metro: Nuevos Ministerios (líneas 6, 8 y 10).  Cercanías Renfe: Nuevos Ministerios (líneas C1, C2, C3, C4, C10 y Regional).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Maravillas-La Salle"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5900366-escuela-tiempo-libre-masi.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "5900366",
+		"title": "Escuela de Tiempo Libre Masi",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=41a57b86c030d210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/LosCarmenes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28047",
+			"street-address": "CALLE VIA CARPETANA 180 LOCAL"
+		},
+		"location": {
+			"latitude": 40.39745929209353,
+			"longitude": -3.7366542045503848
+		},
+		"organization": {
+			"organization-desc": "  Consulta los siguientes enlaces:",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Masi"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/23510-escuela-tiempo-libre-nuestra-senora-recuerdo.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "23510",
+		"title": "Escuela de Tiempo Libre Nuestra Señora del Recuerdo",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1cae7d448b51c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Castilla"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28036",
+			"street-address": "PLAZA DUQUE DE PASTRANA 5"
+		},
+		"location": {
+			"latitude": 40.46856646277293,
+			"longitude": -3.677651132076904
+		},
+		"organization": {
+			"organization-desc": "  Metro: Duque de Pastrana (línea 9).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Nuestra Señora del Recuerdo"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190305-escuela-tiempo-libre-padre-carlos.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190305",
+		"title": "Escuela de Tiempo Libre Padre Carlos",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=39acb8c8a659f010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/LaConcepcion"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28027",
+			"street-address": "CALLE VIRGEN DEL VAL 1"
+		},
+		"location": {
+			"latitude": 40.43592279311606,
+			"longitude": -3.6552330658298673
+		},
+		"organization": {
+			"organization-desc": "  Metro: Barrio de la Concepción (línea 7).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Padre Carlos"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190388-escuela-tiempo-libre-penas-blancas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190388",
+		"title": "Escuela de Tiempo Libre Peñas Blancas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=dfbcb8c8a659f010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/PuertaAngel"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28011",
+			"street-address": "AVENIDA PORTUGAL 99 Local izquierda"
+		},
+		"location": {
+			"latitude": 40.41321756507592,
+			"longitude": -3.7323851732335345
+		},
+		"organization": {
+			"organization-desc": "  Metro: Puerta del Angel (línea 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Peñas Blancas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190358-escuela-tiempo-libre-rastros.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "190358",
+		"title": "Escuela de Tiempo Libre Rastros",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=47dcb8c8a659f010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/BellasVistas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE TENERIFE 44"
+		},
+		"location": {
+			"latitude": 40.45166123769935,
+			"longitude": -3.7062129544099536
+		},
+		"organization": {
+			"organization-desc": "  Metro: Alvarado (línea 1).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Rastros"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10514654-escuela-tiempo-libre-santa-barbara.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10514654",
+		"title": "Escuela de Tiempo Libre Santa Bárbara",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c011208fa550f510VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Palacio"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28005",
+			"street-address": "PLAZA PAJA 4"
+		},
+		"location": {
+			"latitude": 40.41268606352974,
+			"longitude": -3.7114297234723304
+		},
+		"organization": {
+			"organization-desc": "  Metro: La Latina (línea 5).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Santa Bárbara"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/18572-escuela-tiempo-libre-scouts-madrid-msc.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "18572",
+		"title": "Escuela de Tiempo Libre Scouts de Madrid MSC",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5970059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/MediaLegua"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE ENTRE ARROYOS 19 BIS"
+		},
+		"location": {
+			"latitude": 40.408610350006086,
+			"longitude": -3.6545298027540856
+		},
+		"organization": {
+			"organization-desc": "  Metro: Vinateros (línea 9).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Scouts de Madrid MSC"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11452218-escuela-tiempo-libre-shema.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "11452218",
+		"title": "Escuela de Tiempo Libre Shema",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=fd58f70bdc26b710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Opanel"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28019",
+			"street-address": "CALLE GENERAL RICARDOS 21 PLANTA Bajo C"
+		},
+		"location": {
+			"latitude": 40.39638652905026,
+			"longitude": -3.7179281259542187
+		},
+		"organization": {
+			"organization-desc": "  Metro: Marqués de Vadillo (línea 5).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Shema"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10157486-escuela-tiempo-libre-sumamente.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "10157486",
+		"title": "Escuela de Tiempo Libre Sumamente",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=25b80ed4c2997510VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Pacifico"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28014",
+			"street-address": "CALLE FUENTERRABIA 13"
+		},
+		"location": {
+			"latitude": 40.40646409847169,
+			"longitude": -3.681601362523605
+		},
+		"organization": {
+			"organization-desc": "  Metro: Moncloa (líneas 3 y 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Sumamente"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/29408-escuela-tiempo-libre-tangente.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "29408",
+		"title": "Escuela de Tiempo Libre Tangente",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d4ef059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/Acacias"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28005",
+			"street-address": "PASEO ACACIAS 3"
+		},
+		"location": {
+			"latitude": 40.404560457190534,
+			"longitude": -3.7036681171752335
+		},
+		"organization": {
+			"organization-desc": "  Metro: Embajadores (línea 3).  Cercanías Renfe: Embajadores (C5).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre Tangente"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5901381-escuela-tiempo-libre-ymca.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasTiempoLibre",
+		"id": "5901381",
+		"title": "Escuela de Tiempo Libre YMCA",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=776049cbec30d210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/PuertaBonita"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28025",
+			"street-address": "CALLE ALBA DE TORMES 10"
+		},
+		"location": {
+			"latitude": 40.37784495243615,
+			"longitude": -3.743839410089264
+		},
+		"organization": {
+			"organization-desc": "  Metro: San Francisco (línea 11).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Tiempo Libre YMCA"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/160318-escuela-voluntariado-comunidad-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEscuelasVoluntariado",
+		"id": "160318",
+		"title": "Escuela de Voluntariado de la Comunidad de Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2dd0ac2e6481c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Goya"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28001",
+			"street-address": "CALLE ESPARTINAS 10"
+		},
+		"location": {
+			"latitude": 40.4241587242303,
+			"longitude": -3.6789308379045353
+		},
+		"organization": {
+			"organization-desc": "Formación para ciudadanos y entidades que quieran participar en actividades de voluntariado.  Metro: Goya (líneas 2, 4), Príncipe de Vergara (líneas 2, 9)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela de Voluntariado de la Comunidad de Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6825-escuela-diplomatica.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "6825",
+		"title": "Escuela Diplomática",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ee9da4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CiudadUniversitaria"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28040",
+			"street-address": "PASEO JUAN XXIII 5"
+		},
+		"location": {
+			"latitude": 40.44611945342036,
+			"longitude": -3.7189847319401963
+		},
+		"organization": {
+			"organization-desc": "En la Escuela Diplomática se desarrolla el proceso selectivo para el ingreso en la Carrera Diplomática, mediante el sistema consistente en una primera fase de oposición, seguida de una segunda fase que constituye un curso selectivo de carácter práctico. La Escuela Diplomática es asimismo centro de formación principal de los funcionarios de la Carrera Diplomática.  Metro: Vicente Aleixandre (línea 6)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Diplomática"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/81780-escuela-municipal-arte-dramatico.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "81780",
+		"title": "Escuela Municipal de Arte Dramático",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5b184291ae91f010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE MEJIA LEQUERICA 21"
+		},
+		"location": {
+			"latitude": 40.4280399538175,
+			"longitude": -3.699501702258276
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:   Alevín (único curso): Juego escénico  Infantil (1&amp;ordm; y 2&amp;ordm;): Interpretación infantil  Junior (1&amp;ordm;, 2&amp;ordm; y 3&amp;ordm;): Interpretación - Voz - Expresión corporal  Senior (1&amp;ordm;, 2&amp;ordm; y 3&amp;ordm;): Interpretación - Voz - Expresión corporal - Puesta en escena  Superior (1&amp;ordm;, 2&amp;ordm; y 3&amp;ordm;): Interpretación - Voz - Expresión corporal - Análisis de texto - Canto - Teatro clásico - Taller de escenografía - Taller de vestuario  Adultos (1&amp;ordm;, 2&amp;ordm; y 3&amp;ordm;): Interpretación - Voz - Expresión corporal - Puesta en escena    Requisitos de edad:   Alevín: de 6 a 8 años   Infantil: de 9 a 11 años   Junior: de 12 a 14 años   Senior: de 15 años en adelante   Superior: de 15 años en adelante   Adultos: a partir de los 20 años     Más información en:   Escuela Municipal de Arte Dramático Metro: Bilbao , Alonso Martínez , TribunalBus: 3 , 21 , 37 , 40 , 147 , 149",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 10 a 14 h y de 16 h a 20:30 h",
+			"services": "Es un centro de enseñanza no reglada para personas interesadas en las artes escénicas a partir de 6 años y sin límite de edad.",
+			"organization-name": "Escuela Municipal de Arte Dramático"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4569173-escuela-municipal-musica-almudena-cano-arganzuela-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "4569173",
+		"title": "Escuela Municipal de Música Almudena Cano (Arganzuela)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0e943e9343652110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/PalosMoguer"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28045",
+			"street-address": "PASAJE TORTOSA 4"
+		},
+		"location": {
+			"latitude": 40.405760767674415,
+			"longitude": -3.6926515865606193
+		},
+		"organization": {
+			"organization-desc": " Características de la escuela  La capacidad máxima es de 420 plazas. Cuenta con 10 aulas, de las que 3 se dedican a asignaturas teóricas y 7 a instrumentales. Tiene, asimismo, un Salón de Actos con capacidad para, aproximadamente, 150  personas.    Más información detallada  aquí METRO: Estación del Arte BUS: 19, 27, 34, 45, 47, 55, 247",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Almudena Cano (Arganzuela)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6685-escuela-municipal-musica-anton-garcia-abril-villaverde-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6685",
+		"title": "Escuela Municipal de Música Antón García Abril (Villaverde)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e8cfa4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/SanAndres"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28021",
+			"street-address": "CALLE DOCTOR MARTIN AREVALO 2"
+		},
+		"location": {
+			"latitude": 40.34636268334182,
+			"longitude": -3.708524395897377
+		},
+		"organization": {
+			"organization-desc": "  Bus: 86 , 22 , 79 , 130 , 131",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Antón García Abril (Villaverde)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6698-escuela-municipal-musica-antonio-machado-san-blas-canillejas-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6698",
+		"title": "Escuela Municipal de Música Antonio Machado (San Blas-Canillejas)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3fefa4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Arcos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28037",
+			"street-address": "CALLE SAN ROMAN DEL VALLE 8"
+		},
+		"location": {
+			"latitude": 40.42027705095574,
+			"longitude": -3.621741078700336
+		},
+		"organization": {
+			"organization-desc": "  Bus: 4 , 106, 140   Metro: Alsacia",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Antonio Machado (San Blas-Canillejas)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/125019-escuela-municipal-musica-carmelo-alonso-bernaola-fuencarral-pardo-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "125019",
+		"title": "Escuela Municipal de Música Carmelo Alonso Bernaola (Fuencarral-El Pardo)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9f368899fc81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28034",
+			"street-address": "AVENIDA SOTO PALACIOS 7"
+		},
+		"location": {
+			"latitude": 40.48876867947374,
+			"longitude": -3.6845918447368597
+		},
+		"organization": {
+			"organization-desc": "  Metro: Begoña Bus: 66 , 124 ,137",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Carmelo Alonso Bernaola (Fuencarral-El Pardo)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/190712-escuela-municipal-musica-duo-dinamico-vicalvaro-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "190712",
+		"title": "Escuela Municipal de Música Dúo Dinámico (Vicálvaro)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=fa838300a3a30110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/CascoHVicalvaro"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "BULEVAR INDALECIO PRIETO 16"
+		},
+		"location": {
+			"latitude": 40.40207320657617,
+			"longitude": -3.621090403479105
+		},
+		"organization": {
+			"organization-desc": "  Metro: ValdebernardoBus: 8 , 71 , 130",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Dúo Dinámico (Vicálvaro)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6031698-escuela-municipal-musica-capricho-barajas-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6031698",
+		"title": "Escuela Municipal de Música El Capricho (Barajas)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3e524bc86474f210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/AlamedaOsuna"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE DE LA RAMBLA 31"
+		},
+		"location": {
+			"latitude": 40.4585390582089,
+			"longitude": -3.5970304480275286
+		},
+		"organization": {
+			"organization-desc": "  BUS: 101 , 105, 151 METRO: El Capricho",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música El Capricho (Barajas)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6687-escuela-municipal-musica-federico-chueca-hortaleza-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6687",
+		"title": "Escuela Municipal de Música Federico Chueca (Hortaleza)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=db30a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Canillas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28043",
+			"street-address": "CALLE BENITA AVILA 23"
+		},
+		"location": {
+			"latitude": 40.46550570624769,
+			"longitude": -3.650596897631368
+		},
+		"organization": {
+			"organization-desc": "  Metro: Pinar del ReyBus: 73, 87",
+			"accesibility": "0",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Federico Chueca (Hortaleza)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4953904-escuela-municipal-musica-isaac-albeniz-carabanchel-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "4953904",
+		"title": "Escuela Municipal de Música Isaac Albéniz (Carabanchel)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c048bfcfa63ea110VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Buenavista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28054",
+			"street-address": "CALLE LONJA DE LA SEDA 4"
+		},
+		"location": {
+			"latitude": 40.366012559408354,
+			"longitude": -3.7553478337291613
+		},
+		"organization": {
+			"organization-desc": "  Metro: La PesetaBus: 35, 47",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Isaac Albéniz (Carabanchel)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6683-escuela-municipal-musica-maestro-barbieri-usera-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6683",
+		"title": "Escuela Municipal de Música Maestro Barbieri (Usera)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2260a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Orcasitas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE CESTONA 3"
+		},
+		"location": {
+			"latitude": 40.372710384742504,
+			"longitude": -3.7135708871039514
+		},
+		"organization": {
+			"organization-desc": "Instagram  Bus: 6 , 60 , 78 , 81 , 116 , 121 , 131",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Maestro Barbieri (Usera)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/80435-escuela-municipal-musica-manuel-alejandro-villa-vallecas-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "80435",
+		"title": "Escuela Municipal de Música Manuel Alejandro (Villa de Vallecas)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=00ee8ed67151c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas/Barrio/SantaEugenia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28031",
+			"street-address": "CALLE AGUSTIN GARCIA MALLA 4"
+		},
+		"location": {
+			"latitude": 40.38198119326615,
+			"longitude": -3.616358398702118
+		},
+		"organization": {
+			"organization-desc": "  Metro: Villa de VallecasBus: 54 , 58 , 63, 103 , 142",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Manuel Alejandro (Villa de Vallecas)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/141421-escuela-municipal-musica-manuel-vazquez-montalban-tetuan-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "141421",
+		"title": "Escuela Municipal de Música Manuel Vázquez Montalbán (Tetuán)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ff34ba61e681c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/BellasVistas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE FRANCOS RODRIGUEZ 67"
+		},
+		"location": {
+			"latitude": 40.45749513485957,
+			"longitude": -3.710539712535917
+		},
+		"organization": {
+			"organization-desc": "  Metro: Francos RodríguezBus: 44 , 64 , 126, 127 , 128 , 132",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música Manuel Vázquez Montalbán (Tetuán)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6699-escuela-municipal-musica-maria-rodrigo-chamartin-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6699",
+		"title": "Escuela Municipal de Música María Rodrigo (Chamartín)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7880a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/CiudadJardin"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE MANTUANO 51"
+		},
+		"location": {
+			"latitude": 40.44810636195716,
+			"longitude": -3.6762309620097398
+		},
+		"organization": {
+			"organization-desc": "  Metro: Concha Espina y ProsperidadBus: 9, 73, 16, 19, 29, 52",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música María Rodrigo (Chamartín)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4953973-escuela-municipal-musica-danza-placido-domingo-retiro-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "4953973",
+		"title": "Escuela Municipal de Música y Danza Plácido Domingo (Retiro)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c833bfcfa63ea110VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Pacifico"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28007",
+			"street-address": "CALLE TELLEZ 31"
+		},
+		"location": {
+			"latitude": 40.401299659267984,
+			"longitude": -3.678578804960757
+		},
+		"organization": {
+			"organization-desc": "  Metro: PacíficoBus: 24, 37, 54, 57, 141",
+			"accesibility": "1",
+			"schedule": "De lunes a viernes de 17 a 20 horas. Durante el mes de agosto la Escuela de Música permanecerá cerrada.",
+			"services": "",
+			"organization-name": "Escuela Municipal de Música y Danza Plácido Domingo (Retiro)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4620440-escuela-oficial-idiomas-madrid-barajas-extension-escuela-oficial-idiomas-madrid-ciudad-lineal-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "4620440",
+		"title": "Escuela Oficial de Idiomas de Madrid - Barajas (extensión de la Escuela Oficial de Idiomas de Madrid - Ciudad Lineal)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f594cb42d3704110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/AlamedaOsuna"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE ANTONIO SANCHA 11"
+		},
+		"location": {
+			"latitude": 40.46028043276948,
+			"longitude": -3.5888239638691575
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, japonés Metro: Alameda de Osuna (línea 5)",
+			"accesibility": "1",
+			"schedule": "De 16:30 a 21:30 horas",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Barajas (extensión de la Escuela Oficial de Idiomas de Madrid - Ciudad Lineal)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6616-escuela-oficial-idiomas-madrid-carabanchel.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6616",
+		"title": "Escuela Oficial de Idiomas de Madrid - Carabanchel",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=82c0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Opanel"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28019",
+			"street-address": "CALLE PORTALEGRE 52"
+		},
+		"location": {
+			"latitude": 40.38833496989179,
+			"longitude": -3.724624690546643
+		},
+		"organization": {
+			"organization-desc": " Alemán, árabe, francés, italiano, inglés, español (como lengua extranjera) y That's english Metro: Opañel (línea 6)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Carabanchel"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6118469-escuela-oficial-idiomas-madrid-ciudad-lineal.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6118469",
+		"title": "Escuela Oficial de Idiomas de Madrid - Ciudad Lineal",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=738247f979fd0310VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/SanPascual"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28027",
+			"street-address": "CALLE CARLOTA O'NEILL 15"
+		},
+		"location": {
+			"latitude": 40.44330327662568,
+			"longitude": -3.649978808203324
+		},
+		"organization": {
+			"organization-desc": " Alemán, español, francés, inglés, italiano, portugués Metro: Barrio de la Concepción (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Ciudad Lineal"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5726383-escuela-oficial-idiomas-madrid-espinillo-extension-escuela-oficial-idiomas-madrid-villaverde-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "5726383",
+		"title": "Escuela Oficial de Idiomas de Madrid - El Espinillo (extensión de la Escuela Oficial de Idiomas de Madrid - Villaverde)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0d397a9d2a549210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/LosRosales"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE ALIANZA 20 - 22"
+		},
+		"location": {
+			"latitude": 40.357580981429265,
+			"longitude": -3.6873547090837024
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, alemán, That&amp;rsquo;s English Metro: Ciudad de los Angeles (línea 3)  Cercanias Renfe: Villaverde Bajo (líneas C3, C4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - El Espinillo (extensión de la Escuela Oficial de Idiomas de Madrid - Villaverde)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6662-escuela-oficial-idiomas-madrid-embajadores.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6662",
+		"title": "Escuela Oficial de Idiomas de Madrid - Embajadores",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a7e0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE EMBAJADORES 68"
+		},
+		"location": {
+			"latitude": 40.40637302823684,
+			"longitude": -3.7034397413317492
+		},
+		"organization": {
+			"organization-desc": " Alemán, español, francés, inglés Metro: Embajadores (línea 3), Acacias (línea 5)  Cercanías Renfe: Embajadores (línea C5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Embajadores"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6114038-escuela-oficial-idiomas-madrid-jesus-maestro.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6114038",
+		"title": "Escuela Oficial de Idiomas de Madrid - Jesús Maestro",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=38724d106f6b0310VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/Vallehermoso"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28003",
+			"street-address": "CALLE JESUS MAESTRO 5"
+		},
+		"location": {
+			"latitude": 40.44054494271324,
+			"longitude": -3.7114002528924153
+		},
+		"organization": {
+			"organization-desc": " Alemán, árabe, catalán, chino, danés, español, euskera, finés, francés, gallego, griego, húngaro, inglés, That&amp;rsquo;s English, italiano, japonés, neerlandés, polaco, portugués, rumano, ruso, sueco Metro: Islas Filipinas (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Jesús Maestro"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6661-escuela-oficial-idiomas-madrid-moratalaz.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6661",
+		"title": "Escuela Oficial de Idiomas de Madrid - Moratalaz",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5f11a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Pavones"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE VALDEBERNARDO 3"
+		},
+		"location": {
+			"latitude": 40.39850646593625,
+			"longitude": -3.6330456469604
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, italiano Metro: Pavones (línea 9)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Moratalaz"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4620845-escuela-oficial-idiomas-madrid-puente-vallecas-extension-escuela-oficial-idiomas-madrid-moratalaz-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "4620845",
+		"title": "Escuela Oficial de Idiomas de Madrid - Puente de Vallecas (extensión de la Escuela Oficial de Idiomas de Madrid - Moratalaz)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=cba45af5f1614110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/Entrevias"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28053",
+			"street-address": "RONDA SUR 229"
+		},
+		"location": {
+			"latitude": 40.37337339266918,
+			"longitude": -3.665475648304398
+		},
+		"organization": {
+			"organization-desc": " Francés, inglés Renfe: El Pozo (C2, C7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Puente de Vallecas (extensión de la Escuela Oficial de Idiomas de Madrid - Moratalaz)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6617-escuela-oficial-idiomas-madrid-san-blas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6617",
+		"title": "Escuela Oficial de Idiomas de Madrid - San Blas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e131a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Distrito"
+			},
+			"locality": "MADRID",			
+			"postal-code": "",
+			"street-address": "CALLE CONSERVEROS "
+		},
+		"location": {
+			"latitude": 40.42496711923816,
+			"longitude": -3.619941264976055
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, That&amp;rsquo;s English Metro: San Blas (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - San Blas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6663-escuela-oficial-idiomas-madrid-tribunal.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6663",
+		"title": "Escuela Oficial de Idiomas de Madrid - Tribunal",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3af0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE SANTA BRIGIDA 10"
+		},
+		"location": {
+			"latitude": 40.424461958362706,
+			"longitude": -3.699887133397163
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, alemán, italiano, español, That&amp;rsquo;s English Metro: Tribunal (líneas 1 y 10), Alonso Martínez (Linea 10, 5 y 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Tribunal"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6618-escuela-oficial-idiomas-madrid-valdezarza.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6618",
+		"title": "Escuela Oficial de Idiomas de Madrid - Valdezarza",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7441a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/PenaGrande"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28035",
+			"street-address": "CALLE FERMIN CABALLERO 92"
+		},
+		"location": {
+			"latitude": 40.47818438186267,
+			"longitude": -3.7215242514441575
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, italiano, chino, coreano y That&amp;rsquo;s English Metro: Avenida de la Ilustración (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Valdezarza"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6650-escuela-oficial-idiomas-madrid-villaverde.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6650",
+		"title": "Escuela Oficial de Idiomas de Madrid - Villaverde",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0751a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Orcasur"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE FERNANDO ORTIZ 2"
+		},
+		"location": {
+			"latitude": 40.36726447837039,
+			"longitude": -3.70278869828606
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, That&amp;rsquo;s English Cercanías Renfe: Orcasitas (línea C5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Villaverde"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6673-escuela-superior-canto-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6673",
+		"title": "Escuela Superior de Canto de Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=06a1a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Universidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28015",
+			"street-address": "CALLE SAN BERNARDO 44"
+		},
+		"location": {
+			"latitude": 40.42448920807723,
+			"longitude": -3.707296602812826
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:  Música y danza, Música (LOE), Interpretación, Canto, canto, Master en Interpretación e investigación performativa del repertorio vocal español. Metro: Noviciado (línea 2).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Superior de Canto de Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6695-escuela-superior-conservacion-restauracion-bienes-culturales.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "6695",
+		"title": "Escuela Superior de Conservación y Restauración de Bienes Culturales",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=98b1a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Palacio"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28013",
+			"street-address": "CALLE GUILLERMO ROLLAND 2"
+		},
+		"location": {
+			"latitude": 40.42019452653149,
+			"longitude": -3.7105119414782277
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas artísticas:   Bienes arqueológicos, Documento gráfico, Escultura, Pintura, Conservación y restauración de bienes culturales en Europa. Metro: Santo Domingo (línea 2).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Superior de Conservación y Restauración de Bienes Culturales"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6677-escuela-superior-diseno.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/Universidades/OtrosCentrosUniversitarios",
+		"id": "6677",
+		"title": "Escuela Superior de Diseño",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=492ba4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Marroquina"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE CAMINO DE LOS VINATEROS 106"
+		},
+		"location": {
+			"latitude": 40.409090881121266,
+			"longitude": -3.6488257296912585
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas artísticas:   Diseño gráfico, Diseño de producto, Diseño de interiores, Diseño de moda, Diseño de espacios comerciales, Diseño interactivo. Metro: Vinateros (línea 9).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Superior de Diseño"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6840-icex-campus-formacion-internacionalizacion-empresas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "6840",
+		"title": "ICEX Campus. Formación en internacionalización de empresas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1fdab0c40971c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Castilla"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28046",
+			"street-address": "PASEO CASTELLANA 278"
+		},
+		"location": {
+			"latitude": 40.475683578311994,
+			"longitude": -3.686260251300786
+		},
+		"organization": {
+			"organization-desc": "  Metro: Chamartín (líneas 1 y 10).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "Consulta catálogo de cursos en el siguiente enlace.",
+			"organization-name": "ICEX Campus. Formación en internacionalización de empresas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6826-instituto-salud-carlos-iii-centro-nacional-epidemiologia.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/AdministracionCentral/AgenciasOrganismosEmpresas",
+		"id": "6826",
+		"title": "Instituto de Salud Carlos III. Centro Nacional de Epidemiología",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0b90a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/LaPaz"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28029",
+			"street-address": "AVENIDA MONFORTE DE LEMOS 5"
+		},
+		"location": {
+			"latitude": 40.475476558696364,
+			"longitude": -3.6900419862500202
+		},
+		"organization": {
+			"organization-desc": "Ofrece asistencia científico-técnica en el ámbito de la epidemiología a la Administración General del Estado, a las Comunidades Autónomas y al Sistema Nacional de Salud (SNS), contribuyendo así a la gestión y control de las enfermedades y la promoción de la salud pública en España  Consulta los siguientes enlaces",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Instituto de Salud Carlos III. Centro Nacional de Epidemiología"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/136647-instituto-cine-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaEspecializada",
+		"id": "136647",
+		"title": "Instituto del Cine Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=866d5f463b81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Arguelles"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "CALLE EDUARDO BENOT 2"
+		},
+		"location": {
+			"latitude": 40.422074442972935,
+			"longitude": -3.718224610037922
+		},
+		"organization": {
+			"organization-desc": "  Metro: Príncipe Pío (líneas 6, 10 y Ramal).  Cercanías Renfe: Príncipe Pío (líneas C1, C7 y C10).",
+			"accesibility": "3",
+			"schedule": "Lunes a viernes de 8 a 22 horas. Sábado y domingo: Cerrado",
+			"services": "Diplomaturas, Másteres, cursos y talleres.",
+			"organization-name": "Instituto del Cine Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6692-real-conservatorio-profesional-danza-mariemma.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6692",
+		"title": "Real Conservatorio Profesional de Danza Mariemma",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=06c142be9971c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/PuertaBonita"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28025",
+			"street-address": "CALLE PADRE AMIGO 5"
+		},
+		"location": {
+			"latitude": 40.3795692417791,
+			"longitude": -3.739703996300138
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas artísticas:   Danza clásica, Danza contemporánea, Danza española. Metro: Pan Bendito (línea 11).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Real Conservatorio Profesional de Danza Mariemma"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6688-real-conservatorio-superior-musica-madrid.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6688",
+		"title": "Real Conservatorio Superior de Música de Madrid",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=11b142be9971c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE DOCTOR MATA 2"
+		},
+		"location": {
+			"latitude": 40.40911851656591,
+			"longitude": -3.694381844306605
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas Artísticas Superiroes (LOE):  Musicología, Composición, Dirección, Pedagogía, Interpretación, Arpa, Clarinete, Contrabajo, Fagot, Flauta, Oboe, Percusión, Saxofón, Trombón, Trompa, Trompeta, Trombón, Tuba, Viola, Violín, Violoncello, Piano, Guitarra, Acordeón, Flauta de pico, Traverso barroco, Violín barroco, Viola da Gamba, Violoncello barroco, Clave, Órgano, Instrumentos de cuerda pulsada del Renacimiento y del Barroco, Producción y gestión, Sonología.  Máster en enseñanzas artísticas:  Didáctica del lenguaje musical, Interpretación sinfónica, Interpretación de la Música antigua e investigación y recuperación sonora del patrimonio Ibérico, Pianista acompañante y repertorista, Interpretación e investigación performativa de música española, Nuevas tecnologías de la música actual: creación e interpretación. Metro: Estación del Arte (línea 1).  Cercanías Renfe: Madrid Puerta de Atocha (C1, C2, C3, C4, C4a, C4b, C5, C7, C8, C10).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Real Conservatorio Superior de Música de Madrid"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6680-real-escuela-superior-arte-dramatico-resad-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzasArtisticas/ConservatoriosEscuelasMusicaDanza",
+		"id": "6680",
+		"title": "Real Escuela Superior de Arte Dramático (RESAD)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=fad142be9971c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/NinoJesus"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28009",
+			"street-address": "AVENIDA NAZARET 2"
+		},
+		"location": {
+			"latitude": 40.410647702865404,
+			"longitude": -3.674600787014209
+		},
+		"organization": {
+			"organization-desc": " Enseñanzas:   Interpretación, Teatro de texto, Teatro del gesto, Teatro musical, Dirección escénica y dramaturgia, Escenografía. Metro: Conde de Casal (línea 6).",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Real Escuela Superior de Arte Dramático (RESAD)"
+		}
+	}	  
+  ]
+}

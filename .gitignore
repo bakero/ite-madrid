@@ -1,0 +1,9 @@
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.tmp
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+~$*.xlsx

@@ -1,0 +1,2277 @@
+{
+	"@context": {
+		"c": "http://www.w3.org/2002/12/cal#",
+		"dcterms": "http://purl.org/dc/terms/",
+		"geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+		"loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+		"org": "http://purl.org/ctic/infraestructuras/organizacion#",
+		"vcard": "http://www.w3.org/2006/vcard/ns#",
+		"schema": "https://schema.org/",
+		"title": "vcard:fn",
+		"id": "dcterms:identifier",
+		"relation": "dcterms:relation",
+		"references": "dcterms:references",
+		"address": "vcard:adr",
+		"area": "loc:barrio",
+		"district": "loc:distrito",
+		"locality": "vcard:locality",
+		"postal-code": "vcard:postal-code",
+		"street-address": "vcard:street-address",
+		"location": "vcard:geo",
+		"latitude": "geo:lat",
+		"longitude": "geo:long",
+		"organization": "vcard:org",
+		"organization-desc": "dcterms:description",
+		"accesibility": "org:accesibilidad",
+		"services": "org:servicios",
+		"schedule": "org:horario",
+		"organization-name": "vcard:organization-name",
+		"description": "c:summary",
+		"link": "c:url",
+		"uid": "c:uid",
+		"dtstart": "c:dtstart",
+		"dtend": "c:dtend",
+		"time": "c:time",
+		"excluded-days": "c:exdate",
+		"event-location": "c:location",
+		"free": "schema:free",
+		"price": "c:resource",
+		"recurrence": "c:rrule",
+		"days": "c:byday",
+		"frequency": "c:freq",
+		"interval": "c:interval",
+		"audience": "dc:audience"
+	},
+	"@graph": [
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/58241-escuela-infantil-municipal-agua-dulce.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "58241",
+		"title": "Escuela infantil municipal Agua Dulce",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2b0e8ed67151c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/BellasVistas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE LEÑEROS 25"
+		},
+		"location": {
+			"latitude": 40.45406088024461,
+			"longitude": -3.7093713617566357
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) BUS: 44 , 128",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Agua Dulce"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4549323-escuela-infantil-municipal-altair.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "4549323",
+		"title": "Escuela infantil municipal Altair",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f1bdba525ad91110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/LasAguilas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28044",
+			"street-address": "CALLE JOSE DE CADALSO 43"
+		},
+		"location": {
+			"latitude": 40.37813189249392,
+			"longitude": -3.7687005492302084
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 34, 117, 155",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Altair"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5299172-escuela-infantil-municipal-amanecer.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5299172",
+		"title": "Escuela infantil municipal Amanecer",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=eccf1e73b1f90210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/CascoHVicalvaro"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "CALLE TITANIO 7"
+		},
+		"location": {
+			"latitude": 40.40198995600377,
+			"longitude": -3.6010443459563537
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo). METRO: San Cipriano, Puerta de Arganda BUS: 4, 71, 100",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Amanecer"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633312-escuela-infantil-municipal-ana-austria.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633312",
+		"title": "Escuela infantil municipal Ana de Austria",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8d4006112d3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Valdefuentes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE ANA DE AUSTRIA 32"
+		},
+		"location": {
+			"latitude": 40.49552153813781,
+			"longitude": -3.655736850911649
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 172, 173",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal Ana de Austria"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11055694-escuela-infantil-municipal-antonio-mercero.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11055694",
+		"title": "Escuela infantil municipal Antonio Mercero",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=fdf343c4d873e610VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/CasaCampo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28008",
+			"street-address": "AVENIDA VALLADOLID 49"
+		},
+		"location": {
+			"latitude": 40.42943683896261,
+			"longitude": -3.731764974179636
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (primer ciclo) METRO:  Príncipe Pío   BUS: 41, 46, 75   CERCANÍAS: Príncipe Pío",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal Antonio Mercero"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4724002-escuela-infantil-municipal-campanilla.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "4724002",
+		"title": "Escuela infantil municipal Campanilla",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=635e47123dc77110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/CuatroCaminos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28020",
+			"street-address": "CALLE AVILA 4"
+		},
+		"location": {
+			"latitude": 40.452700492043,
+			"longitude": -3.7019980764784606
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) METRO: Alvarado BUS: 124, 128, 3, 64, 66,772, L1",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Campanilla"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5252087-escuela-infantil-municipal-cielo-azul.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5252087",
+		"title": "Escuela infantil municipal Cielo Azul",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a9a997bd1dd8f110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/CascoHVicalvaro"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "BULEVAR INDALECIO PRIETO 16"
+		},
+		"location": {
+			"latitude": 40.40182039479394,
+			"longitude": -3.6211941394147757
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) METRO: Valdebernardo BUS: 8, 71, 130",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Cielo Azul"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633339-escuela-infantil-municipal-dona-francisquita.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633339",
+		"title": "Escuela infantil municipal Doña Francisquita",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=22fa44dd9d3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Valdefuentes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE CAMBADOS 1"
+		},
+		"location": {
+			"latitude": 40.47868156347292,
+			"longitude": -3.6302312847478593
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 87",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Doña Francisquita"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/28779-escuela-infantil-municipal-alba.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "28779",
+		"title": "Escuela infantil municipal El Alba",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0b41059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/Acacias"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28005",
+			"street-address": "CALLE TOLEDO 181"
+		},
+		"location": {
+			"latitude": 40.4017650455756,
+			"longitude": -3.713512276375299
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Pirámides BUS: 18 , 23 , 34 , 35 , 36 , 116 , 118 , 119",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Alba"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5632719-escuela-infantil-municipal-barberillo-lavapies.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5632719",
+		"title": "Escuela infantil municipal El Barberillo de Lavapiés",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d96b9b6d163b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/Delicias"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28045",
+			"street-address": "CALLE GRANITO 32"
+		},
+		"location": {
+			"latitude": 40.39371756597044,
+			"longitude": -3.6901560198197485
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Arganzuela-Planetario, Legazpi BUS: 8, 19, 45, 47, 59, 62, 76, 85, 86, 247",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal El Barberillo de Lavapiés"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5632789-escuela-infantil-municipal-bateo.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5632789",
+		"title": "Escuela infantil municipal El Bateo",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=16ec2739d73b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/AlamedaOsuna"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE PINOS DE OSUNA 3"
+		},
+		"location": {
+			"latitude": 40.45115316018945,
+			"longitude": -3.5921656725702142
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: El Capricho BUS: 101, 114, 115, 151",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal El Bateo"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/172970-escuela-infantil-municipal-bosque.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "172970",
+		"title": "Escuela infantil municipal El Bosque",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c40ce0e1f181c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/PalosMoguer"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28045",
+			"street-address": "CALLE DELICIAS 32"
+		},
+		"location": {
+			"latitude": 40.4043520221113,
+			"longitude": -3.695544214066272
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Palos de la Frontera BUS: 6 , 8 , 19 , 27 , 45 , 47 , 55 , 59 , 85 , 86 , 102 , 247 CERCANÍAS RENFE: Atocha",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Bosque"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633412-escuela-infantil-municipal-caserio.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633412",
+		"title": "Escuela infantil municipal El Caserío",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6b381ec1fe3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/PalomerasBajas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28018",
+			"street-address": "CALLE MARIA TERESA ROBLEDO 3"
+		},
+		"location": {
+			"latitude": 40.3873926648154,
+			"longitude": -3.6577856265450226
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 310, 136, 10, 103",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal El Caserío"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/100359-escuela-infantil-municipal-duende.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "100359",
+		"title": "Escuela infantil municipal El Duende",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=db458899fc81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Universidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE PALMA 36"
+		},
+		"location": {
+			"latitude": 40.42646911249971,
+			"longitude": -3.7049381572879123
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Tribunal BUS: 3 , 21 , 40 , 147 , 149",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Duende"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10936384-escuela-infantil-municipal-fresno.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10936384",
+		"title": "Escuela infantil municipal El Fresno",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5ad8760f1be4a610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Mirasierra"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28049",
+			"street-address": "CALLE SENDA DEL INFANTE 46"
+		},
+		"location": {
+			"latitude": 40.493754014053536,
+			"longitude": -3.7257050333315007
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (primer ciclo) Transporte más próximo:     METRO:  Pitis, Arroyofresno, Mirasierra   BUS:  49, 64, 82   CERCANÍAS: C3, C8 y C7",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal El Fresno"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/58242-escuela-infantil-municipal-liron.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "58242",
+		"title": "Escuela infantil municipal El Lirón",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=713e8ed67151c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Fontarron"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE PICO DE LOS ARTILLEROS 123"
+		},
+		"location": {
+			"latitude": 40.40154142411511,
+			"longitude": -3.642568350981219
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) METRO: Artilleros BUS: 8 , 20 , 30 , 71 , 100",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor. Planes de mejora.",
+			"organization-name": "Escuela infantil municipal El Lirón"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10888967-escuela-infantil-municipal-mamut.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10888967",
+		"title": "Escuela infantil municipal El Mamut",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c47152fb94cd8610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/Butarque"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28021",
+			"street-address": "CALLE GANADOS DEL SALOBRAL 7"
+		},
+		"location": {
+			"latitude": 40.33746780068778,
+			"longitude": -3.6776394947920563
+		},
+		"organization": {
+			"organization-desc": " Educación infantil (primer ciclo) BUS: 85, 123",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Mamut"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4552951-escuela-infantil-municipal-manantial.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "4552951",
+		"title": "Escuela infantil municipal El Manantial",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c1011d02d25d1110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/LosCarmenes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28047",
+			"street-address": "CALLE CARLOS FUENTES 2"
+		},
+		"location": {
+			"latitude": 40.40278783515925,
+			"longitude": -3.7441981544259706
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Laguna BUS: 31 , 119 , 138 RENFE: Laguna",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal El Manantial"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5981488-escuela-infantil-municipal-olivar.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5981488",
+		"title": "Escuela infantil municipal El Olivar",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=b524df71cea7e210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE OLIVAR 48"
+		},
+		"location": {
+			"latitude": 40.40955901220526,
+			"longitude": -3.7015495991222993
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Lavapiés, Antón Martín  BUS: M1, 6, 26, 32",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal El Olivar"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5072-escuela-infantil-municipal-rocio.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5072",
+		"title": "Escuela infantil municipal El Rocío",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6fad13db5b71c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/SanAndres"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CARRETERA CARABANCHEL A VILLAVERDE 107"
+		},
+		"location": {
+			"latitude": 40.3509775884553,
+			"longitude": -3.7066886127927585
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) Bus: 131, 22, 86, 130  Renfe: Puente Alcocer",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Rocío"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5039-escuela-infantil-municipal-sol.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5039",
+		"title": "Escuela infantil municipal El Sol",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=afaea4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/NuevaEspana"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28016",
+			"street-address": "CALLE ENRIQUE JARDIEL PONCELA 8"
+		},
+		"location": {
+			"latitude": 40.46091554103502,
+			"longitude": -3.670320512563348
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) BUS: 7 , 11 , 40 , 52",
+			"accesibility": "2",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Sol"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/12683273-escuela-infantil-municipal-sol-letras.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "12683273",
+		"title": "Escuela infantil municipal El Sol de las Letras",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=98010a4dc80f4910VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Cortes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28014",
+			"street-address": "COSTANILLA DESAMPARADOS 15"
+		},
+		"location": {
+			"latitude": 40.41201484533784,
+			"longitude": -3.696612085925128
+		},
+		"organization": {
+			"organization-desc": "Apertura prevista para enero de 2026, quedando condicionada a la terminación de las obras. ENSEÑANZA: Educación infantil (Primer ciclo) ",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal El Sol de las Letras"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10888974-escuela-infantil-municipal-tren-arganda.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion",
+		"id": "10888974",
+		"title": "Escuela infantil municipal El Tren de Arganda",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=677352fb94cd8610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/NinoJesus"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28009",
+			"street-address": "PLAZA DOCTOR LAGUNA 11"
+		},
+		"location": {
+			"latitude": 40.41471562186326,
+			"longitude": -3.673091236764771
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) Transporte más próximo:    METRO: Sainz de Baranda.    BUS: 30, 56, 143, 156",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal El Tren de Arganda"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10889333-escuela-infantil-municipal-elena-fortun.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10889333",
+		"title": "Escuela infantil municipal Elena Fortún",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=db2ccb4d6c0e8610VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/ElGoloso"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28049",
+			"street-address": "AVENIDA MONASTERIO DE SILOS 57"
+		},
+		"location": {
+			"latitude": 40.504469655013494,
+			"longitude": -3.6968720755393782
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer ciclo) METRO: Montecarmelo BUS: 134, 178",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal Elena Fortún"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/8226010-escuela-infantil-municipal-escuelas-san-anton.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "8226010",
+		"title": "Escuela infantil municipal Escuelas de San Antón",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ae3e5438c4e10510VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE FARMACIA 13"
+		},
+		"location": {
+			"latitude": 40.42378301276458,
+			"longitude": -3.6987856754744657
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) Bus: 3, 37, 40, 149  Metro: Chueca, Tribunal",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor.",
+			"organization-name": "Escuela infantil municipal Escuelas de San Antón"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633199-escuela-infantil-municipal-fernando-catolico.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633199",
+		"title": "Escuela infantil municipal Fernando el Católico",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f87b0dde9b3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/Arapiles"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28015",
+			"street-address": "CALLE FERNANDO EL CATOLICO 16"
+		},
+		"location": {
+			"latitude": 40.434103689530446,
+			"longitude": -3.7097392943348284
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Quevedo BUS: 16, 61, 2, 202",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Fernando el Católico"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633259-escuela-infantil-municipal-gigantes-cabezudos.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633259",
+		"title": "Escuela infantil municipal Gigantes y Cabezudos",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=401e0dde9b3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/SanJuanBautista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28043",
+			"street-address": "CALLE RAFAEL BERGAMIN 28"
+		},
+		"location": {
+			"latitude": 40.450578924722464,
+			"longitude": -3.6599344009125048
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Avenida de La Paz BUS: 53, 9, 72, 73, 120",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Gigantes y Cabezudos"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/58239-escuela-infantil-municipal-hiedra.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "58239",
+		"title": "Escuela infantil municipal Hiedra",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c75e8ed67151c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Arcos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28037",
+			"street-address": "CALLE AMPOSTA 34"
+		},
+		"location": {
+			"latitude": 40.42289407876372,
+			"longitude": -3.6192425284922436
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) METRO: Simancas BUS: 38 , 48",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Comedor.",
+			"organization-name": "Escuela infantil municipal Hiedra"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11647681-escuela-infantil-municipal-jose-gomez-gil.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11647681",
+		"title": "Escuela infantil municipal José Gómez Gil",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e085e95a4b4ef710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas/Barrio/EnsancheVallecas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28051",
+			"street-address": "CALLE EMBALSE DE PINILLA 32"
+		},
+		"location": {
+			"latitude": 40.35832412722327,
+			"longitude": -3.596702462592952
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (primer ciclo) Transporte más próximo:     METRO:  Las Suertes / Valdecarros   BUS:  142, 145",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal José Gómez Gil"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633447-escuela-infantil-municipal-alegria-huerta.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633447",
+		"title": "Escuela infantil municipal La Alegría de la Huerta",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1dbc1ec1fe3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Rosas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28022",
+			"street-address": "CALLE HELSINKI 2"
+		},
+		"location": {
+			"latitude": 40.4244413057318,
+			"longitude": -3.602635166157978
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 38, 140, 153",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Alegría de la Huerta"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10904841-escuela-infantil-municipal-ardilla.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10904841",
+		"title": "Escuela infantil municipal La Ardilla",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f958fb0b31849610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Valdefuentes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE PRINCIPE CARLOS (C/V PINTOR IGNACIO ZULOAGA) 1"
+		},
+		"location": {
+			"latitude": 40.48584075407322,
+			"longitude": -3.651798143659265
+		},
+		"organization": {
+			"organization-desc": " Escuela infantil (Primer ciclo) ",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Ardilla"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10888979-escuela-infantil-municipal-bola-cristal.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10888979",
+		"title": "Escuela infantil municipal La Bola de Cristal",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=695552fb94cd8610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Valdezarza"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28039",
+			"street-address": "CALLE ISLAS BISAGOS 13"
+		},
+		"location": {
+			"latitude": 40.46769867537168,
+			"longitude": -3.7156569423684775
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Antonio Machado y Valdezarza.     BUS: 126, 127, 132",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor",
+			"organization-name": "Escuela infantil municipal La Bola de Cristal"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4552960-escuela-infantil-municipal-brisa.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "4552960",
+		"title": "Escuela infantil municipal La Brisa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d02ac6aa845d1110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/Almenara"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28029",
+			"street-address": "AVENIDA ASTURIAS 72"
+		},
+		"location": {
+			"latitude": 40.47333501609979,
+			"longitude": -3.698367154592483
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Ventilla BUS: 42 , 147",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal La Brisa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11184076-escuela-infantil-municipal-bruja-averia-lolo-rico.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11184076",
+		"title": "Escuela infantil municipal La Bruja Avería - Lolo Rico",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a9b3c5fe2a572710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28005",
+			"street-address": "CALLE RODAS 20"
+		},
+		"location": {
+			"latitude": 40.40809923624453,
+			"longitude": -3.706383215058181
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: La Latina, Puerta de Toledo, Embajadores, Lavapiés BUS: 17, 18, 23, 35, 41, 60, 148, C1, M1",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Bruja Avería - Lolo Rico"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5336-escuela-infantil-municipal-caracola.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5336",
+		"title": "Escuela infantil municipal La Caracola",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=b5dd13db5b71c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28034",
+			"street-address": "CALLE BELORADO 1"
+		},
+		"location": {
+			"latitude": 40.48807363495185,
+			"longitude": -3.6848207707128635
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Begoña BUS: 66 , 124",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Caracola"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5632722-escuela-infantil-municipal-chulapona.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5632722",
+		"title": "Escuela infantil municipal La Chulapona",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=457c9b6d163b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/Corralejos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE BAHIA DE POLLENSA 3"
+		},
+		"location": {
+			"latitude": 40.464346272894424,
+			"longitude": -3.5925288720620188
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Alameda de Osuna  BUS: 151, 105, 112, 115",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Chulapona"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/28783-escuela-infantil-municipal-colina.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "28783",
+		"title": "Escuela infantil municipal La Colina",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5171059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/CascoHBarajas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE NUESTRA SEÑORA DE ARACELI 2"
+		},
+		"location": {
+			"latitude": 40.47159015347659,
+			"longitude": -3.578814477331226
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 105 , 115",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Colina"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/84666-escuela-infantil-municipal-cornisa.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "84666",
+		"title": "Escuela infantil municipal La Cornisa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=2a56def5ab41c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Almendrales"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28026",
+			"street-address": "CALLE CRISTO DE LA VICTORIA 23"
+		},
+		"location": {
+			"latitude": 40.3811789921249,
+			"longitude": -3.7017852385259076
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer ciclo) BUS: 6 , 78 , 79 RENFE: Doce de Octubre",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor. Planes de mejora.",
+			"organization-name": "Escuela infantil municipal La Cornisa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633276-escuela-infantil-municipal-corte-faraon.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633276",
+		"title": "Escuela infantil municipal La Corte de Faraón",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=b8210dde9b3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/PenaGrande"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28035",
+			"street-address": "CALLE CHANTADA 41"
+		},
+		"location": {
+			"latitude": 40.47304239359628,
+			"longitude": -3.715280725332747
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Peñagrande BUS: 42, 46, 126, 128, 132, 137, 774",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Corte de Faraón"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633332-escuela-infantil-municipal-gran-via.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633332",
+		"title": "Escuela infantil municipal La Gran Vía",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=60e944dd9d3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Canillas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28043",
+			"street-address": "CALLE SILVANO 99"
+		},
+		"location": {
+			"latitude": 40.462802758823514,
+			"longitude": -3.634435221406373
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Canillas  BUS: 112, 120, 122, 153, 73",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal La Gran Vía"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/50199310-escuela-infantil-municipal-guinda-parque.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "50199310",
+		"title": "Escuela infantil municipal La Guinda del Parque",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=b407d038832db910VgnVCM200000f921e388RCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Guindalera"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28028",
+			"street-address": "CALLE PARRAL 3"
+		},
+		"location": {
+			"latitude": 40.439004899859015,
+			"longitude": -3.666495786481581
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer ciclo) ",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Guinda del Parque"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5073-escuela-infantil-municipal-luna.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5073",
+		"title": "Escuela infantil municipal La Luna",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0cfd13db5b71c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/SanCristobal"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28021",
+			"street-address": "CALLE BENIMAMET 109"
+		},
+		"location": {
+			"latitude": 40.344340447262475,
+			"longitude": -3.685296004324213
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) BUS: 59",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Luna"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10957922-escuela-infantil-municipal-melonera.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10957922",
+		"title": "Escuela infantil municipal La Melonera",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a86936d08b9ea610VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Arganzuela/Barrio/Legazpi"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28045",
+			"street-address": "CALLE EROS 2"
+		},
+		"location": {
+			"latitude": 40.39390298324836,
+			"longitude": -3.680551491708351
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Mendez Álvaro. Arganzuela-Planetario BUS: 148. 156.",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Melonera"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5299025-escuela-infantil-municipal-oliva.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5299025",
+		"title": "Escuela infantil municipal La Oliva",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5c73d901ede90210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Orcasitas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE GAINZA 46"
+		},
+		"location": {
+			"latitude": 40.36563722434557,
+			"longitude": -3.7151923280205694
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo). BUS: 6, 60, 131",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal La Oliva"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5341-escuela-infantil-municipal-paloma.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5341",
+		"title": "Escuela infantil municipal La Paloma",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=522e13db5b71c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Palacio"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28005",
+			"street-address": "CALLE TABERNILLAS 4"
+		},
+		"location": {
+			"latitude": 40.41065179506282,
+			"longitude": -3.7115802564668754
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) METRO: La Latina BUS: 17 , 18 , 23 , 35 , 60",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal La Paloma"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633158-escuela-infantil-municipal-patria-chica.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633158",
+		"title": "Escuela infantil municipal La Patria Chica",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=78e7a529393b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Buenavista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28054",
+			"street-address": "CALLE PATRIMONIO DE LA HUMANIDAD 31"
+		},
+		"location": {
+			"latitude": 40.36168337750411,
+			"longitude": -3.7629430009334297
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: La Peseta BUS: 35 , 155",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Patria Chica"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633600-escuela-infantil-municipal-revoltosa.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633600",
+		"title": "Escuela infantil municipal La Revoltosa",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f4c0999a414b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas/Barrio/CascoHVallecas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28051",
+			"street-address": "CALLE JOSE ANTONIO REBOLLEDO Y PALMA 18"
+		},
+		"location": {
+			"latitude": 40.36607876608522,
+			"longitude": -3.588947072838845
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Las Suertes, Valdecarros BUS: 145",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal La Revoltosa"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633294-escuela-infantil-municipal-rosa-azafran.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633294",
+		"title": "Escuela infantil municipal La Rosa del Azafrán",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d3670dde9b3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28034",
+			"street-address": "CALLE CUEVA DE MONTESINOS 2"
+		},
+		"location": {
+			"latitude": 40.50050331171224,
+			"longitude": -3.68829881383211
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Tres Olivos BUS: 66, 137",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Rosa del Azafrán"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633382-escuela-infantil-municipal-verbena-paloma.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633382",
+		"title": "Escuela infantil municipal La Verbena de la Paloma",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=533f44dd9d3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/LasAguilas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28044",
+			"street-address": "CALLE FUERTE DE NAVIDAD 17"
+		},
+		"location": {
+			"latitude": 40.380491665056326,
+			"longitude": -3.7660767346972173
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Aluche BUS: 17, 138, 155",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La Verbena de la Paloma"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633456-escuela-infantil-municipal-manojo-rosas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633456",
+		"title": "Escuela infantil municipal La del Manojo de Rosas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c49e1ec1fe3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Arcos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "CALLE RAVENA 12"
+		},
+		"location": {
+			"latitude": 40.41827932953887,
+			"longitude": -3.616265188601519
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 4, 106, 140",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La del Manojo de Rosas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633393-escuela-infantil-municipal-soto-parral.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633393",
+		"title": "Escuela infantil municipal La del Soto del Parral",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=979344dd9d3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Latina/Barrio/CuatroVientos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28054",
+			"street-address": "CALLE TROMPAS 19"
+		},
+		"location": {
+			"latitude": 40.37197319564591,
+			"longitude": -3.7681711768688495
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 34, 35, 155, 139, 47",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Educación de 0 a 3 años",
+			"organization-name": "Escuela infantil municipal La del Soto del Parral"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5298904-escuela-infantil-municipal-amapolas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5298904",
+		"title": "Escuela infantil municipal Las Amapolas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=367e5e391ae90210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Buenavista"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28054",
+			"street-address": "CALLE OBOLO 14"
+		},
+		"location": {
+			"latitude": 40.370623480071096,
+			"longitude": -3.741251804918924
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo). METRO: San Francisco BUS: 47, 118, 121, 131, 155",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Las Amapolas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5299104-escuela-infantil-municipal-azaleas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5299104",
+		"title": "Escuela infantil municipal Las Azaleas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=34cb3ab7e0f90210VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/PuebloNuevo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28017",
+			"street-address": "CALLE PORTUGALETE 6"
+		},
+		"location": {
+			"latitude": 40.42613036374425,
+			"longitude": -3.635469776500989
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo). BUS: 4, 38, 48, 70, 109 METRO: García Noblejas",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Las Azaleas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11647597-escuela-infantil-municipal-golondrinas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11647597",
+		"title": "Escuela infantil municipal Las Golondrinas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=6d80e95a4b4ef710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Canillejas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28022",
+			"street-address": "CALLE JOSEFA VALCARCEL 158"
+		},
+		"location": {
+			"latitude": 40.449158416350244,
+			"longitude": -3.6102123944771636
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (primer ciclo) METRO:  Canillejas   BUS: 77, 101, 140,151, 165",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal Las Golondrinas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633460-escuela-infantil-municipal-leandras.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633460",
+		"title": "Escuela infantil municipal Las Leandras",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=d29f1ec1fe3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "",
+			"street-address": "CARRETERA ACCESO A LA ESTACION DE O'DONNELL "
+		},
+		"location": {
+			"latitude": 40.442551699479736,
+			"longitude": -3.589224618793631
+		},
+		"organization": {
+			"organization-desc": "Educación de 0 a 3 años ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 77",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Las Leandras"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5252132-escuela-infantil-municipal-mercedes.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5252132",
+		"title": "Escuela infantil municipal Las Mercedes",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5ebbdb969ed8f110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/SanBlas-Canillejas/Barrio/Rejas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28022",
+			"street-address": "CALLE SAMANIEGO 22"
+		},
+		"location": {
+			"latitude": 40.442501078875445,
+			"longitude": -3.5804043676101007
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) BUS: 77",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Las Mercedes"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/132987-escuela-infantil-municipal-nubes.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "132987",
+		"title": "Escuela infantil municipal Las Nubes",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=96b66da0aa81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Pacifico"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28007",
+			"street-address": "CALLE ANTONIO NEBRIJA 7"
+		},
+		"location": {
+			"latitude": 40.40365358728283,
+			"longitude": -3.6842590892111273
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Menéndez Pelayo  BUS: 24 , 37 , 54 , 57 , 102 , 141, 152",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Las Nubes"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10957943-escuela-infantil-municipal-pleyades.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10957943",
+		"title": "Escuela infantil municipal Las Pléyades",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=947c36d08b9ea610VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Hortaleza/Barrio/Valdefuentes"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28055",
+			"street-address": "CALLE MANUEL GUTIERREZ MELLADO 21"
+		},
+		"location": {
+			"latitude": 40.49496785628896,
+			"longitude": -3.6201774927951726
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 171, 174",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Las Pléyades"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/132982-escuela-infantil-municipal-vinas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "132982",
+		"title": "Escuela infantil municipal Las Viñas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=ecd66da0aa81c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moncloa-Aravaca/Barrio/Aravaca"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28023",
+			"street-address": "CALLE ESTUDIO 6"
+		},
+		"location": {
+			"latitude": 40.460576198420775,
+			"longitude": -3.7857037462052063
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 160",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor. Planes de mejora.",
+			"organization-name": "Escuela infantil municipal Las Viñas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633582-escuela-infantil-municipal-gavilanes.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633582",
+		"title": "Escuela infantil municipal Los Gavilanes",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9c1d999a414b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/CuatroCaminos"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28020",
+			"street-address": "CALLE TIZIANO 7"
+		},
+		"location": {
+			"latitude": 40.4510850477906,
+			"longitude": -3.7024647767258325
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Alvarado, Estrecho BUS: 3, 64, 66, 124, 128, 772",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Los Gavilanes"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/28784-escuela-infantil-municipal-juncos.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "28784",
+		"title": "Escuela infantil municipal Los Juncos",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a791059cb751c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/Ambroz"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "PLAZA JUVENTUD 7"
+		},
+		"location": {
+			"latitude": 40.40912749404517,
+			"longitude": -3.605774962043424
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) BUS: 4 , 100 , 106 , 130",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Los Juncos"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5340-escuela-infantil-municipal-pinos.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5340",
+		"title": "Escuela infantil municipal Los Pinos",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a84e13db5b71c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/SanCristobal"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28021",
+			"street-address": "CALLE ROCAFORT 2"
+		},
+		"location": {
+			"latitude": 40.34123812234347,
+			"longitude": -3.69037444346592
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) Bus: 59, 79 Metro: San Cristóbal",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Los Pinos"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633604-escuela-infantil-municipal-sobrinos-capitan-grant.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633604",
+		"title": "Escuela infantil municipal Los Sobrinos del Capitán Grant",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8692999a414b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/VillaDeVallecas/Barrio/CascoHVallecas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28051",
+			"street-address": "AVENIDA LA GAVIA 22"
+		},
+		"location": {
+			"latitude": 40.37360084784636,
+			"longitude": -3.611617365195693
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 58, 63, 145 METRO: La Gavia, Congosto",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Los Sobrinos del Capitán Grant"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/187609-escuela-infantil-municipal-luis-bello.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "187609",
+		"title": "Escuela infantil municipal Luis Bello",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8a48d2bec675e010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamartin/Barrio/Prosperidad"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28002",
+			"street-address": "CALLE JUAN BAUTISTA DE TOLEDO 5"
+		},
+		"location": {
+			"latitude": 40.443633085040005,
+			"longitude": -3.6739692982111727
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) METRO: Prosperidad BUS: 1, 9, 72, 73",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Luis Bello"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633425-escuela-infantil-municipal-luisa-fernanda.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633425",
+		"title": "Escuela infantil municipal Luisa Fernanda",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=dbaa1ec1fe3b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/PalomerasSureste"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28031",
+			"street-address": "CALLE COCHERON DE LA VILLA 29"
+		},
+		"location": {
+			"latitude": 40.38152351850743,
+			"longitude": -3.635992893537739
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 54, 58, 103, 142, 143",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Luisa Fernanda"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11368108-escuela-infantil-municipal-margarita-salas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11368108",
+		"title": "Escuela infantil municipal Margarita Salas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=647fa8d65f0d8710VgnVCM2000001f4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Retiro/Barrio/Pacifico"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28007",
+			"street-address": "CALLE CAVANILLES 54"
+		},
+		"location": {
+			"latitude": 40.40438324670531,
+			"longitude": -3.6729005068427316
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 10, 56, 156 METRO. Conde de Casal. Pacífico.",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Margarita Salas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/12269488-escuela-infantil-municipal-maria-moliner.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "12269488",
+		"title": "Escuela infantil municipal María Moliner",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=cc0d0ea53f25d810VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Tetuan/Barrio/Valdeacederas"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28029",
+			"street-address": "PASEO DIRECCION 305"
+		},
+		"location": {
+			"latitude": 40.470079203938035,
+			"longitude": -3.7032397388198564
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) Autobus 49, 177",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal María Moliner"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5633596-escuela-infantil-municipal-molinos-viento.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "5633596",
+		"title": "Escuela infantil municipal Molinos de Viento",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7afe999a414b7210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/CascoHVicalvaro"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28032",
+			"street-address": "CAMINO FUENTE DE ARRIBA 4"
+		},
+		"location": {
+			"latitude": 40.40321377463398,
+			"longitude": -3.609917274177793
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Vicálvaro BUS: 4, 106, 100, 130",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal Molinos de Viento"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11647575-escuela-infantil-municipal-muneco-nieve.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11647575",
+		"title": "Escuela infantil municipal Muñeco de Nieve",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=51aee95a4b4ef710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Vicalvaro/Barrio/ElCanaveral"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28052",
+			"street-address": "CALLE ENRIQUE URQUIJO 56"
+		},
+		"location": {
+			"latitude": 40.39930206378953,
+			"longitude": -3.5605912170897724
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS: 159. E5. 290 (interurbano)",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal Muñeco de Nieve"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/187607-escuela-infantil-municipal-osa-menor.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "187607",
+		"title": "Escuela infantil municipal Osa Menor",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=c328d2bec675e010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE MEJIA LEQUERICA 21"
+		},
+		"location": {
+			"latitude": 40.4280399538175,
+			"longitude": -3.699501702258276
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (primer ciclo) METRO: Bilbao, Alonso Martínez, Tribunal BUS: 3, 21, 37, 40, 147, 149",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado Comedor",
+			"organization-name": "Escuela infantil municipal Osa Menor"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/11508438-escuela-infantil-municipal-parque-ingenieros.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "11508438",
+		"title": "Escuela infantil municipal Parque de Ingenieros",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=350a001964bcc710VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/Angeles"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE EL SANTO DE LA ISIDRA 2"
+		},
+		"location": {
+			"latitude": 40.354672479088904,
+			"longitude": -3.7047184178329884
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer Ciclo) Bus: 22, 76, 86, 130, 131. Metro: Villaverde Bajo Cruce. Renfe: Puente Alcocer",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Parque de Ingenieros"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10957917-escuela-infantil-municipal-pensamiento.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion",
+		"id": "10957917",
+		"title": "Escuela infantil municipal Pensamiento",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=9246bc22369ea610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Moscardo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28026",
+			"street-address": "CALLE MIRASIERRA 27"
+		},
+		"location": {
+			"latitude": 40.38943008851109,
+			"longitude": -3.7051307823732746
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) BUS:  6, 55, 70 y 78   METRO:  Usera",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela infantil municipal Pensamiento"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10904800-escuela-infantil-municipal-poeta-gloria-fuertes.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion",
+		"id": "10904800",
+		"title": "Escuela infantil municipal Poeta Gloria Fuertes",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=589695511b749610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/Valverde"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28050",
+			"street-address": "CALLE CASTILLO DE CANDANCHU 46"
+		},
+		"location": {
+			"latitude": 40.50444594533402,
+			"longitude": -3.67868023321698
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) METRO: Las Tablas   BUS:  172, 176, T61",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Poeta Gloria Fuertes"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/88758-escuela-infantil-municipal-ruiz-jimenez.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "88758",
+		"title": "Escuela infantil municipal Ruiz Jiménez",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7086def5ab41c010VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Salamanca/Barrio/Guindalera"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28028",
+			"street-address": "CALLE JOSE PICON 17"
+		},
+		"location": {
+			"latitude": 40.435092812438825,
+			"longitude": -3.672374874199507
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer ciclo) METRO: Diego de León BUS: 1 , 12 , 56 , 69 , 72 , 73 , 115",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Ruiz Jiménez"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/10888929-escuela-infantil-municipal-sabina.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "10888929",
+		"title": "Escuela infantil municipal Sabina",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=148a52fb94cd8610VgnVCM1000001d4a900aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Horcajo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE CAÑÓN DEL RIO LOBOS 4"
+		},
+		"location": {
+			"latitude": 40.40488549196435,
+			"longitude": -3.6320315642486043
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación infantil (Primer ciclo) METRO: Artilleros y Pavones.       BUS:  30, 100, 140",
+			"accesibility": "0",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Sabina"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/168220-escuela-infantil-municipal-tarabilla.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "168220",
+		"title": "Escuela infantil municipal Tarabilla",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=615ce0e1f181c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/PuebloNuevo"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28017",
+			"street-address": "CALLE GANDHI 14"
+		},
+		"location": {
+			"latitude": 40.42369169272075,
+			"longitude": -3.6349635101992215
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer ciclo)  Curso 2014-2015: Dirección de la escuela infantil calle Albarracín número 31 (Distrito San Blas-Canillejas) Curso 2015-2016: calle Gandhi número 14 (Distrito Ciudad Lineal) BUS: 4 , 28 , 38 , 48 , 70 , 105",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado. Comedor.",
+			"organization-name": "Escuela infantil municipal Tarabilla"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4552561-escuela-infantil-municipal-veoveo.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEducacion/EscuelasInfantilesPublicas",
+		"id": "4552561",
+		"title": "Escuela infantil municipal VeoVeo",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=8893f0d5edbb1110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/SanPascual"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28027",
+			"street-address": "CALLE CONDESA DE VENADITO 3"
+		},
+		"location": {
+			"latitude": 40.44410961610912,
+			"longitude": -3.6553313008969353
+		},
+		"organization": {
+			"organization-desc": " ENSEÑANZA: Educación Infantil (Primer Ciclo) BUS: 11, 53, 122",
+			"accesibility": "1",
+			"schedule": "",
+			"services": "Horario ampliado - Comedor",
+			"organization-name": "Escuela infantil municipal VeoVeo"
+		}
+	}	  
+  ]
+}

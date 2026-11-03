@@ -1,0 +1,392 @@
+{
+	"@context": {
+		"c": "http://www.w3.org/2002/12/cal#",
+		"dcterms": "http://purl.org/dc/terms/",
+		"geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+		"loc": "http://purl.org/ctic/infraestructuras/localizacion#",
+		"org": "http://purl.org/ctic/infraestructuras/organizacion#",
+		"vcard": "http://www.w3.org/2006/vcard/ns#",
+		"schema": "https://schema.org/",
+		"title": "vcard:fn",
+		"id": "dcterms:identifier",
+		"relation": "dcterms:relation",
+		"references": "dcterms:references",
+		"address": "vcard:adr",
+		"area": "loc:barrio",
+		"district": "loc:distrito",
+		"locality": "vcard:locality",
+		"postal-code": "vcard:postal-code",
+		"street-address": "vcard:street-address",
+		"location": "vcard:geo",
+		"latitude": "geo:lat",
+		"longitude": "geo:long",
+		"organization": "vcard:org",
+		"organization-desc": "dcterms:description",
+		"accesibility": "org:accesibilidad",
+		"services": "org:servicios",
+		"schedule": "org:horario",
+		"organization-name": "vcard:organization-name",
+		"description": "c:summary",
+		"link": "c:url",
+		"uid": "c:uid",
+		"dtstart": "c:dtstart",
+		"dtend": "c:dtend",
+		"time": "c:time",
+		"excluded-days": "c:exdate",
+		"event-location": "c:location",
+		"free": "schema:free",
+		"price": "c:resource",
+		"recurrence": "c:rrule",
+		"days": "c:byday",
+		"frequency": "c:freq",
+		"interval": "c:interval",
+		"audience": "dc:audience"
+	},
+	"@graph": [
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4620440-escuela-oficial-idiomas-madrid-barajas-extension-escuela-oficial-idiomas-madrid-ciudad-lineal-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "4620440",
+		"title": "Escuela Oficial de Idiomas de Madrid - Barajas (extensión de la Escuela Oficial de Idiomas de Madrid - Ciudad Lineal)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=f594cb42d3704110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Barajas/Barrio/AlamedaOsuna"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28042",
+			"street-address": "CALLE ANTONIO SANCHA 11"
+		},
+		"location": {
+			"latitude": 40.46028043276948,
+			"longitude": -3.5888239638691575
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, japonés Metro: Alameda de Osuna (línea 5)",
+			"accesibility": "1",
+			"schedule": "De 16:30 a 21:30 horas",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Barajas (extensión de la Escuela Oficial de Idiomas de Madrid - Ciudad Lineal)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6616-escuela-oficial-idiomas-madrid-carabanchel.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6616",
+		"title": "Escuela Oficial de Idiomas de Madrid - Carabanchel",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=82c0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Carabanchel/Barrio/Opanel"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28019",
+			"street-address": "CALLE PORTALEGRE 52"
+		},
+		"location": {
+			"latitude": 40.38833496989179,
+			"longitude": -3.724624690546643
+		},
+		"organization": {
+			"organization-desc": " Alemán, árabe, francés, italiano, inglés, español (como lengua extranjera) y That's english Metro: Opañel (línea 6)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Carabanchel"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6118469-escuela-oficial-idiomas-madrid-ciudad-lineal.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6118469",
+		"title": "Escuela Oficial de Idiomas de Madrid - Ciudad Lineal",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=738247f979fd0310VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/CiudadLineal/Barrio/SanPascual"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28027",
+			"street-address": "CALLE CARLOTA O'NEILL 15"
+		},
+		"location": {
+			"latitude": 40.44330327662568,
+			"longitude": -3.649978808203324
+		},
+		"organization": {
+			"organization-desc": " Alemán, español, francés, inglés, italiano, portugués Metro: Barrio de la Concepción (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Ciudad Lineal"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/5726383-escuela-oficial-idiomas-madrid-espinillo-extension-escuela-oficial-idiomas-madrid-villaverde-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "5726383",
+		"title": "Escuela Oficial de Idiomas de Madrid - El Espinillo (extensión de la Escuela Oficial de Idiomas de Madrid - Villaverde)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0d397a9d2a549210VgnVCM2000000c205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Villaverde/Barrio/LosRosales"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE ALIANZA 20 - 22"
+		},
+		"location": {
+			"latitude": 40.357580981429265,
+			"longitude": -3.6873547090837024
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, alemán, That&amp;rsquo;s English Metro: Ciudad de los Angeles (línea 3)  Cercanias Renfe: Villaverde Bajo (líneas C3, C4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - El Espinillo (extensión de la Escuela Oficial de Idiomas de Madrid - Villaverde)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6662-escuela-oficial-idiomas-madrid-embajadores.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6662",
+		"title": "Escuela Oficial de Idiomas de Madrid - Embajadores",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=a7e0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Embajadores"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28012",
+			"street-address": "CALLE EMBAJADORES 68"
+		},
+		"location": {
+			"latitude": 40.40637302823684,
+			"longitude": -3.7034397413317492
+		},
+		"organization": {
+			"organization-desc": " Alemán, español, francés, inglés Metro: Embajadores (línea 3), Acacias (línea 5)  Cercanías Renfe: Embajadores (línea C5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Embajadores"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6114038-escuela-oficial-idiomas-madrid-jesus-maestro.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6114038",
+		"title": "Escuela Oficial de Idiomas de Madrid - Jesús Maestro",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=38724d106f6b0310VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Chamberi/Barrio/Vallehermoso"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28003",
+			"street-address": "CALLE JESUS MAESTRO 5"
+		},
+		"location": {
+			"latitude": 40.44054494271324,
+			"longitude": -3.7114002528924153
+		},
+		"organization": {
+			"organization-desc": " Alemán, árabe, catalán, chino, danés, español, euskera, finés, francés, gallego, griego, húngaro, inglés, That&amp;rsquo;s English, italiano, japonés, neerlandés, polaco, portugués, rumano, ruso, sueco Metro: Islas Filipinas (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Jesús Maestro"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6661-escuela-oficial-idiomas-madrid-moratalaz.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6661",
+		"title": "Escuela Oficial de Idiomas de Madrid - Moratalaz",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=5f11a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Moratalaz/Barrio/Pavones"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28030",
+			"street-address": "CALLE VALDEBERNARDO 3"
+		},
+		"location": {
+			"latitude": 40.39850646593625,
+			"longitude": -3.6330456469604
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, italiano Metro: Pavones (línea 9)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Moratalaz"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/4620845-escuela-oficial-idiomas-madrid-puente-vallecas-extension-escuela-oficial-idiomas-madrid-moratalaz-.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "4620845",
+		"title": "Escuela Oficial de Idiomas de Madrid - Puente de Vallecas (extensión de la Escuela Oficial de Idiomas de Madrid - Moratalaz)",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=cba45af5f1614110VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/PuenteDeVallecas/Barrio/Entrevias"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28053",
+			"street-address": "RONDA SUR 229"
+		},
+		"location": {
+			"latitude": 40.37337339266918,
+			"longitude": -3.665475648304398
+		},
+		"organization": {
+			"organization-desc": " Francés, inglés Renfe: El Pozo (C2, C7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Puente de Vallecas (extensión de la Escuela Oficial de Idiomas de Madrid - Moratalaz)"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6617-escuela-oficial-idiomas-madrid-san-blas.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6617",
+		"title": "Escuela Oficial de Idiomas de Madrid - San Blas",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=e131a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Distrito"
+			},
+			"locality": "MADRID",			
+			"postal-code": "",
+			"street-address": "CALLE CONSERVEROS "
+		},
+		"location": {
+			"latitude": 40.42496711923816,
+			"longitude": -3.619941264976055
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, That&amp;rsquo;s English Metro: San Blas (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - San Blas"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6663-escuela-oficial-idiomas-madrid-tribunal.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6663",
+		"title": "Escuela Oficial de Idiomas de Madrid - Tribunal",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=3af0a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Centro/Barrio/Justicia"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28004",
+			"street-address": "CALLE SANTA BRIGIDA 10"
+		},
+		"location": {
+			"latitude": 40.424461958362706,
+			"longitude": -3.699887133397163
+		},
+		"organization": {
+			"organization-desc": " Inglés, francés, alemán, italiano, español, That&amp;rsquo;s English Metro: Tribunal (líneas 1 y 10), Alonso Martínez (Linea 10, 5 y 4)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Tribunal"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6618-escuela-oficial-idiomas-madrid-valdezarza.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6618",
+		"title": "Escuela Oficial de Idiomas de Madrid - Valdezarza",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7441a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Fuencarral-ElPardo/Barrio/PenaGrande"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28035",
+			"street-address": "CALLE FERMIN CABALLERO 92"
+		},
+		"location": {
+			"latitude": 40.47818438186267,
+			"longitude": -3.7215242514441575
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, italiano, chino, coreano y That&amp;rsquo;s English Metro: Avenida de la Ilustración (línea 7)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Valdezarza"
+		}
+	},
+	{
+		"@id": "https://datos.madrid.es/egob/catalogo/tipo/entidadesyorganismos/6650-escuela-oficial-idiomas-madrid-villaverde.json",
+		"@type": "https://datos.madrid.es/egob/kos/entidadesYorganismos/CentrosEnseñanzaIdiomas",
+		"id": "6650",
+		"title": "Escuela Oficial de Idiomas de Madrid - Villaverde",
+		"relation": "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=0751a4ea6871c010VgnVCM1000000b205a0aRCRD",		
+		"address": {
+			"district": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera"
+			},
+			"area": {
+				"@id": "https://datos.madrid.es/egob/kos/Provincia/Madrid/Municipio/Madrid/Distrito/Usera/Barrio/Orcasur"
+			},
+			"locality": "MADRID",			
+			"postal-code": "28041",
+			"street-address": "CALLE FERNANDO ORTIZ 2"
+		},
+		"location": {
+			"latitude": 40.36726447837039,
+			"longitude": -3.70278869828606
+		},
+		"organization": {
+			"organization-desc": " Alemán, francés, inglés, That&amp;rsquo;s English Cercanías Renfe: Orcasitas (línea C5)",
+			"accesibility": "3",
+			"schedule": "",
+			"services": "",
+			"organization-name": "Escuela Oficial de Idiomas de Madrid - Villaverde"
+		}
+	}	  
+  ]
+}
