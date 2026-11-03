@@ -40,6 +40,7 @@ nav a.on{color:#fff;border-bottom-color:#6aa6ec}
 .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .kpi .v{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .kpi .l{font-size:12px;color:var(--muted);margin-top:2px}
+.kpi .v .pc{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0;white-space:nowrap}
 .kpi .bar{height:4px;border-radius:2px;margin-top:8px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
@@ -168,16 +169,22 @@ canvas.drag{cursor:grabbing}
   dl{grid-template-columns:118px 1fr;font-size:13.5px}
   /* panel */
   .pg{padding:12px 12px 24px}
-  .slicers{padding:12px;gap:12px;overflow:clip}
-  .sl{flex-direction:column;gap:6px;align-items:stretch;flex-wrap:nowrap;min-width:0}
-  .sl>label{width:auto;padding:0;margin-left:0!important}
-  .chips{flex-wrap:nowrap;overflow-x:auto;min-width:0;margin:0 -12px;padding:0 12px 4px;scrollbar-width:none}
+  .slicers{display:block;width:100%;max-width:100%;padding:12px;overflow:hidden}
+  .sl{display:block;width:100%;max-width:100%;margin-bottom:12px}
+  .sl:last-child{margin-bottom:0}
+  .sl>label{display:block;width:auto;padding:0;margin:0 0 6px!important}
+  .chips{display:flex;flex-wrap:nowrap;width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
   .chip{flex:none;white-space:nowrap;padding:8px 12px;font-size:13.5px}
-  .sl select{min-width:0!important;width:100%}
-  .toolbar .sub{flex-basis:100%;order:3}
-  #view-panel .pg{display:flex;flex-direction:column}
-  #view-panel .toolbar{order:-1;margin-bottom:10px}
+  .sl select{display:block;min-width:0!important;width:100%!important;max-width:100%;margin-bottom:10px}
+  #pfLine{display:none}
+  #view-panel .pg{display:flex;flex-direction:column;padding-top:0}
+  #view-panel .pg>*{min-width:0;max-width:100%}
+  #view-panel .toolbar{order:-1;position:sticky;top:0;z-index:10;margin:0 -12px 10px;padding:10px 12px;padding-top:calc(10px + env(safe-area-inset-top));background:var(--bg);border-bottom:1px solid var(--line);flex-wrap:nowrap}
+  #view-panel .toolbar .btn{flex:1;justify-content:center}
+  .ch.est{height:330px}
+  .kpi .v .pc{font-size:12.5px}
+  table.t.stack .pill{white-space:normal}
   .btn.mob{display:inline-flex}
   #tMore[hidden]{display:none}
   .slicers.collapsed{display:none}
@@ -253,7 +260,7 @@ canvas.drag{cursor:grabbing}
   <div class="warn" id="chartWarn" style="display:none">No se ha podido cargar la librería de gráficos (Chart.js desde cdnjs). Los indicadores y la tabla funcionan; recarga la página para reintentar los gráficos.</div>
   <div class="legend" id="legend"></div>
   <div class="grid2">
-    <div class="card"><h3>Estado de la última ITE<small>edificios · pincha para filtrar</small></h3><div class="ch"><canvas id="cEstado"></canvas></div></div>
+    <div class="card"><h3>Estado de la última ITE<small>edificios y % sobre el total · pincha para filtrar</small></h3><div class="ch est"><canvas id="cEstado"></canvas></div></div>
     <div class="card"><h3>Año de construcción<small>edificios por década · pincha para filtrar</small></h3><div class="ch"><canvas id="cDec"></canvas></div></div>
   </div>
   <div class="grid2">
@@ -659,20 +666,20 @@ function renderPanel(){TLIM=50;
   const list=pfilter(null), K=kpiData(list);
   const nAct=['dist','tipo','estado','dec','sub','fuente'].filter(active).length;
   document.getElementById('pfLine').textContent=nAct?`${nAct} filtro(s) activo(s). Los gráficos muestran atenuado lo que queda fuera de la selección de su propia dimensión.`:'Sin filtros: todos los edificios del listado. Pincha en barras, sectores o chips para filtrar.';
-  const kp=(v,l,c,frac)=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div>${c?`<div class="bar" style="background:linear-gradient(90deg,${c} ${frac}%,#eceae5 ${frac}%)"></div>`:''}</div>`;
+  const kp=(v,l,c,frac,pc)=>`<div class="kpi"><div class="v">${v}${pc!=null?` <span class="pc">(${pc})</span>`:''}</div><div class="l">${l}</div>${c?`<div class="bar" style="background:linear-gradient(90deg,${c} ${frac}%,#eceae5 ${frac}%)"></div>`:''}</div>`;
   document.getElementById('kpis').innerHTML=
-    kp(fmt(K.n),`edificios (${fmt(K.cent)} centros)`)+
-    kp(fmt(K.conIte),'con ITE/IEE presentada','#1f5fa8',K.n?100*K.conIte/K.n:0)+
-    kp(pct(K.c.fav,K.conIte),'favorables sobre los que tienen ITE','#2f9e5b',K.conIte?100*K.c.fav/K.conIte:0)+
-    kp(fmt(K.c.desf),'desfavorables pendientes de subsanar','#d23f3f',K.n?100*K.c.desf/K.n:0)+
-    kp(fmt(K.c.sin),'sin ITE presentada','#9aa1a9',K.n?100*K.c.sin/K.n:0)+
-    kp(fmt(K.c.nd+K.c.pend),'sin dato (no consultable / error)','#c4c9ce',K.n?100*(K.c.nd+K.c.pend)/K.n:0);
+    kp(fmt(K.n),`edificios (${fmt(K.cent)} centros)${K.n<buildings.length?' · % sobre el total de Madrid':''}`,null,0,pct(K.n,buildings.length))+
+    kp(fmt(K.conIte),'con ITE/IEE presentada','#1f5fa8',K.n?100*K.conIte/K.n:0,pct(K.conIte,K.n))+
+    kp(fmt(K.c.fav),`favorables · ${pct(K.c.fav,K.conIte)} de los que tienen ITE`,'#2f9e5b',K.n?100*K.c.fav/K.n:0,pct(K.c.fav,K.n))+
+    kp(fmt(K.c.desf),'desfavorables pendientes de subsanar','#d23f3f',K.n?100*K.c.desf/K.n:0,pct(K.c.desf,K.n))+
+    kp(fmt(K.c.sin),'sin ITE presentada','#9aa1a9',K.n?100*K.c.sin/K.n:0,pct(K.c.sin,K.n))+
+    kp(fmt(K.c.nd+K.c.pend),'sin dato (no consultable / error)','#c4c9ce',K.n?100*(K.c.nd+K.c.pend)/K.n:0,pct(K.c.nd+K.c.pend,K.n));
   document.getElementById('legend').innerHTML=STATES.map(s=>`<span><i style="background:${s.c}"></i>${s.lab}</span>`).join('');
   if(chartOK){
     // estado (doughnut)
     const le=pfilter('estado'),ce=kpiData(le).c;
-    mkChart('cEstado',{type:'doughnut',data:{labels:STATES.map(s=>s.lab),datasets:[{data:STATES.map(s=>ce[s.k]),backgroundColor:STATES.map(s=>PF.estado.size&&!PF.estado.has(s.k)?s.c+'40':s.c),borderWidth:1,borderColor:'#fff'}]},
-      options:baseOpts({cutout:'58%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:11.5}}},tooltip:{callbacks:{label:i=>`${i.label}: ${fmt(i.raw)} (${pct(i.raw,le.length)})`}}},onClick:(e,els)=>{if(els[0])toggle(PF.estado,STATES[els[0].index].k)}})});
+    mkChart('cEstado',{type:'doughnut',data:{labels:STATES.map(s=>`${isMobile()?s.short:s.lab} · ${pct(ce[s.k],le.length)}`),datasets:[{data:STATES.map(s=>ce[s.k]),backgroundColor:STATES.map(s=>PF.estado.size&&!PF.estado.has(s.k)?s.c+'40':s.c),borderWidth:1,borderColor:'#fff'}]},
+      options:baseOpts({cutout:'58%',plugins:{legend:{position:isMobile()?'bottom':'right',labels:{boxWidth:10,font:{size:isMobile()?12.5:11.5},filter:(it,d)=>d.datasets[0].data[it.index]>0}},tooltip:{callbacks:{label:i=>`${STATES[i.dataIndex].lab}: ${fmt(i.raw)} (${pct(i.raw,le.length)})`}}},onClick:(e,els)=>{if(els[0])toggle(PF.estado,STATES[els[0].index].k)}})});
     // década
     const ld=pfilter('dec'),md=countBy(ld,b=>b.dec),kd=[...md.keys()].sort((a,b)=>decOrder(a)-decOrder(b));
     mkChart('cDec',{type:'bar',data:{labels:kd,datasets:stackedData(md,kd,'dec')},options:baseOpts({scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true}},onClick:(e,els)=>{if(els[0])toggle(PF.dec,kd[els[0].index])}})});
