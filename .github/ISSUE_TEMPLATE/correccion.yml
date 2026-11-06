@@ -1,0 +1,41 @@
+name: Corrección de ubicación o datos de un edificio
+description: Avisa de que un edificio está mal situado en el mapa o tiene datos incorrectos. Se revisa antes de cambiar nada.
+title: "Corrección: "
+labels: ["corrección ciudadana"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por avisar. Los datos vienen del Ayuntamiento de Madrid y del Registro de Edificios; revisaremos tu aviso antes de corregir nada en la aplicación.
+        **No incluyas datos personales** (este aviso es público).
+  - type: textarea
+    id: edificio
+    attributes:
+      label: Edificio
+      description: Se rellena solo al abrir el aviso desde la ficha del edificio.
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: ¿Qué está mal?
+      options:
+        - La ubicación en el mapa
+        - La dirección
+        - El estado de la ITE
+        - El nombre o el tipo de centro
+        - Otra cosa
+    validations:
+      required: true
+  - type: input
+    id: correcto
+    attributes:
+      label: Dato correcto
+      description: Por ejemplo, la dirección correcta («Calle Andaluces 7»).
+    validations:
+      required: true
+  - type: textarea
+    id: comentario
+    attributes:
+      label: Cómo lo sabes / comentarios
+      description: Cualquier detalle que ayude a comprobarlo (una foto del portal, un enlace…).

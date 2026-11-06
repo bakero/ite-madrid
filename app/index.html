@@ -119,6 +119,43 @@ canvas.drag{cursor:grabbing}
 .close{float:right;border:0;background:none;font-size:18px;cursor:pointer;color:var(--muted);line-height:1}
 /* elementos solo móvil */
 .shh,#scrim,.fab,#mleg,#tSortW,.btn.mob,#pick,#pickScrim{display:none}
+/* selects con estilo propio (no el del sistema) */
+select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7178' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;padding-right:34px!important;border-radius:10px!important;cursor:pointer}
+select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,95,168,.15)}
+.row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.row input,.row select{margin:0}
+.row select{width:auto;flex:none}
+.btn svg{flex:none}
+#nearCand .nc{display:block;width:100%;text-align:left;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;font-size:13px;margin-bottom:6px;cursor:pointer}
+#nearCand .nc:hover{border-color:var(--accent)}
+#nearInfo .nl{display:block;width:100%;text-align:left;padding:7px 4px;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;font-size:13px;cursor:pointer;display:flex;gap:8px;align-items:center}
+#nearInfo .nl:hover{background:#f6f5f2}
+#nearInfo .nl i{width:10px;height:10px;border-radius:50%;flex:none}
+#nearInfo .nl span{flex:1;min-width:0}
+#nearInfo .nl em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+#nearInfo .nh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:4px 0 6px;font-size:13px}
+#toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:#1d2228;color:#fff;padding:9px 14px;border-radius:10px;font-size:13.5px;z-index:8;opacity:0;pointer-events:none;transition:opacity .2s;max-width:86%;text-align:center}
+#toast.on{opacity:1}
+.pact{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.pact .btn{font-size:13px;padding:6px 10px}
+/* Lo más urgente */
+.urg h1{font-size:22px;margin:4px 0 4px}
+.ufil{display:flex;gap:8px;margin:12px 0}
+.ufil select{width:auto;min-width:200px;margin:0}
+.ukp{margin-bottom:12px}
+.ukp .kpi{cursor:pointer}
+.ukp .kpi.on{outline:2px solid var(--accent)}
+.ulist .ui{display:flex;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer;text-decoration:none;color:inherit}
+.ulist .ui:hover{background:#f6f5f2}
+.ulist .ui .ub{width:4px;border-radius:2px;flex:none}
+.ulist .ui .uc{flex:1;min-width:0}
+.ulist .ui .ut{font-weight:600;font-size:14px}
+.ulist .ui .um{font-size:12.5px;color:var(--muted);margin-top:2px}
+.ulist .ui .ux{font-size:12.5px;margin-top:3px}
+.ulist .ui .uv{flex:none;text-align:right;font-size:13px;font-weight:600;white-space:nowrap}
+.ulist .ui .uv small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.ulist .ue{padding:12px 4px;color:var(--muted);font-size:13px}
+.ulist .umore{margin-top:10px}
 /* selector desplegable propio (móvil) */
 .dd{display:flex;align-items:center;gap:8px;width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:15px;color:var(--ink);text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .dd .ddt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -172,7 +209,7 @@ canvas.drag{cursor:grabbing}
   nav{position:fixed;left:0;right:0;bottom:0;z-index:30;height:var(--tab);padding:0 0 env(safe-area-inset-bottom);gap:0}
   nav .brand{display:none}
   nav a{flex:1;flex-direction:column;justify-content:center;gap:3px;height:58px;padding:0;border:0;border-top:3px solid transparent;font-size:10.5px;font-weight:500;-webkit-tap-highlight-color:transparent}
-  nav a::after{content:attr(title)}
+  nav a::after{content:attr(data-t)}
   nav a.right{margin-left:0}
   nav a.on{border-top-color:#6aa6ec}
   /* mapa a pantalla completa */
@@ -182,6 +219,10 @@ canvas.drag{cursor:grabbing}
   .note{display:none}
   .zoom{top:auto;bottom:14px;right:12px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
   .zoom button{width:46px;height:44px;font-size:20px}
+  #toast{bottom:76px}
+  .ufil select{flex:1;min-width:0}
+  .ulist .ui .uv{font-size:12.5px}
+  .urg h1{font-size:20px}
   /* filtros como hoja inferior */
   aside{position:fixed;left:0;right:0;bottom:var(--tab);z-index:25;max-height:80vh;max-height:80dvh;border:0;border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.2);transform:translateY(calc(100% + var(--tab)));transition:transform .25s ease;visibility:hidden}
   aside.open{transform:none;visibility:visible}
@@ -253,7 +294,7 @@ canvas.drag{cursor:grabbing}
 </style>
 </head>
 <body>
-<nav><span class="brand">ITE · Edificios públicos de Madrid</span><a href="#mapa" data-v="mapa" title="Mapa" aria-label="Mapa"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></a><a href="#panel" data-v="panel" title="Panel" aria-label="Panel"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></a><a href="#informe" data-v="informe" title="Informe PDF" aria-label="Informe PDF"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></a><a href="#ayuda" data-v="ayuda" class="right" title="Ayuda y datos" aria-label="Ayuda y datos"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></a></nav>
+<nav><span class="brand">ITE · Edificios públicos de Madrid</span><a href="#mapa" data-v="mapa" data-t="Mapa" title="Mapa" aria-label="Mapa"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></a><a href="#urgente" data-v="urgente" data-t="Urgente" title="Lo más urgente" aria-label="Lo más urgente"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></a><a href="#panel" data-v="panel" data-t="Panel" title="Panel" aria-label="Panel"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></a><a href="#informe" data-v="informe" data-t="Informe" title="Informe PDF" aria-label="Informe PDF"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></a><a href="#ayuda" data-v="ayuda" data-t="Ayuda" class="right" title="Ayuda y datos" aria-label="Ayuda y datos"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></a></nav>
 <div class="view" id="view-mapa">
 <div id="app">
   <aside id="side">
@@ -272,12 +313,20 @@ canvas.drag{cursor:grabbing}
       <select id="fDist"><option value="">Todos los distritos</option></select>
       <select id="fTipo"><option value="">Todos los tipos de edificio</option></select>
       <select id="fSub"><option value="">Todos los subtipos</option></select>
+      <select id="fVenc"><option value="">Todos los plazos de ITE</option></select>
       <div class="sub" id="countLine"></div>
+    </div>
+    <div class="sec">
+      <h2>Cerca de…</h2>
+      <form class="row" id="nearF"><input type="search" id="nearQ" placeholder="Dirección, p. ej. Calle Andaluces 7" autocomplete="street-address"><button class="btn" type="submit">Buscar</button></form>
+      <div id="nearCand"></div>
+      <div class="row"><button class="btn" type="button" id="nearMe"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>Mi ubicación</button><select id="nearR" aria-label="Radio"><option value="250">250 m</option><option value="500" selected>500 m</option><option value="1000">1 km</option><option value="2000">2 km</option></select></div>
+      <div id="nearInfo"></div>
     </div>
   </aside>
   <main>
     <canvas id="map"></canvas>
-    <div class="zoom"><button id="zin" title="Acercar">+</button><button id="zout" title="Alejar">−</button><button id="zfit" title="Ver todo Madrid" style="font-size:14px">⤢</button></div>
+    <div class="zoom"><button id="zin" title="Acercar">+</button><button id="zout" title="Alejar">−</button><button id="zfit" title="Ver todo Madrid" style="font-size:14px">⤢</button><button id="zloc" title="Edificios cerca de mí" aria-label="Edificios cerca de mí"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg></button></div><div id="toast" role="status" aria-live="polite"></div>
     <div id="mleg"></div>
     <button class="fab" id="fBtn" aria-label="Filtros"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>Filtros<span class="bdg" id="fBdg" style="display:none"></span></button>
     <div id="tip"></div>
@@ -288,6 +337,16 @@ canvas.drag{cursor:grabbing}
 <div id="scrim"></div>
 </div>
 
+<div class="view" id="view-urgente"><div class="pg urg">
+  <h1>Lo más urgente</h1>
+  <div class="sub" id="uIntro"></div>
+  <div class="ufil"><select id="uDist" aria-label="Distrito"><option value="">Todos los distritos</option></select><select id="uTipo" aria-label="Tipo de edificio"><option value="">Todos los tipos</option></select></div>
+  <div class="kpis ukp" id="uKpis"></div>
+  <div class="card"><h3>Desfavorables sin subsanar<small>de la inspección más antigua a la más reciente</small></h3><div class="ulist" id="uDesf"></div></div>
+  <div class="card"><h3 id="uVencT">Plazo de ITE/IEE vencido</h3><div class="ulist" id="uVenc"></div></div>
+  <div class="card"><h3 id="uEsteT"></h3><div class="ulist" id="uEste"></div></div>
+  <div class="card"><h3 id="uProxT"></h3><div class="ulist" id="uProx"></div></div>
+</div></div>
 <div class="view" id="view-panel"><div class="pg">
   <div class="slicers" id="slicers"></div>
   <div class="toolbar"><button class="btn mob" id="slTog"></button><div class="sub" id="pfLine"></div><button class="btn" id="pfClear">Quitar filtros</button></div>
@@ -371,6 +430,14 @@ canvas.drag{cursor:grabbing}
   <p><b>Edificio = conjunto de centros con las mismas coordenadas.</b> Mapa, panel e informe cuentan edificios, no centros: un edificio con varios centros es un solo punto. Si sus centros tienen estados distintos, el edificio toma el más grave (desfavorable pendiente &gt; subsanado &gt; IEE &gt; favorable &gt; sin ITE &gt; sin dato). Por eso las cifras pueden diferir ligeramente del Excel, que cuenta direcciones. Hay <b id="ayEd"></b>.</p>
   <h3>Mapa</h3><p>Se dibuja en la propia página (sin mapas de fondo externos): contornos de los distritos, el trazado de las calles del callejero oficial (sin nombres; las secundarias aparecen al acercarse) y un punto por edificio con el color de su estado. Los filtros de estado, distrito, tipo, subtipo y la búsqueda actúan sobre los centros de cada edificio. Al pinchar un punto se ve la ficha de la última ITE y los centros del edificio. <span id="ayNoc"></span></p>
   <h3>Panel</h3><p>Indicadores y gráficos sobre los edificios que cumplen los filtros. Los filtros se combinan entre sí (Y); dentro de un mismo filtro, las opciones se suman (O). Pinchar en un gráfico filtra por ese valor; en el gráfico de esa misma dimensión lo no seleccionado se muestra atenuado. El porcentaje de favorables se calcula sobre los edificios con ITE/IEE presentada. La tabla muestra hasta 400 filas según el orden elegido.</p>
+  <h3>Lo más urgente</h3><p>Lista los edificios que necesitan atención, con filtros de distrito y tipo:</p><ul>
+   <li><b>Desfavorables sin subsanar</b>, ordenados por la fecha de presentación de esa inspección, de la más antigua a la más reciente.</li>
+   <li><b>Plazos de ITE/IEE</b>: se usa el «Año próxima ITE» que da el Registro y, si en su lugar indica «Aplica fecha IEE», el año de la «Fecha máx. IEE». Si un edificio tiene varias direcciones, cuenta la fecha más próxima. Se considera <b>vencido</b> si ese año es anterior al actual. Es una lectura del Registro a la fecha de descarga: si se ha presentado una inspección después, el edificio puede estar ya al día. El mismo criterio está disponible en el mapa como filtro «plazos de ITE».</li></ul>
+  <h3>Enlaces a un edificio</h3><p>Cada ficha tiene un botón «Compartir» que genera un enlace directo (<code>#edificio=latitud,longitud</code>). Al abrirlo, el mapa se centra en ese edificio y abre su ficha. El enlace sigue funcionando mientras el edificio mantenga sus coordenadas en futuras actualizaciones de los datos.</p>
+  <h3>Cerca de…</h3><p>Muestra los edificios a menos de una distancia (250 m a 2 km) de un punto, ordenados por cercanía, combinados con los demás filtros del mapa. El punto puede ser:</p><ul>
+   <li><b>Tu ubicación</b>: el navegador te pide permiso, y la posición se usa solo en tu dispositivo, no se envía a ningún servidor.</li>
+   <li><b>Una dirección</b>: el texto que escribes se envía al buscador de direcciones <b>CartoCiudad</b> (Instituto Geográfico Nacional) para obtener sus coordenadas.</li></ul>
+  <h3>Avisar de un error</h3><p>El botón «¿Ubicación o datos incorrectos?» de cada ficha abre un aviso en el repositorio público del proyecto en GitHub, con los datos del edificio ya rellenados. Hace falta una cuenta de GitHub y el aviso es público, así que no incluyas datos personales. Ningún aviso cambia la aplicación hasta que se revisa y se comprueba.</p>
   <h3>Informe PDF</h3><p>Se genera en tu navegador con los mismos datos y criterios que el panel, para todo Madrid o un distrito: indicadores, mapa, gráficos de barras, tabla resumen y listados de edificios. En el total de Madrid cada edificio se cuenta una vez, aunque figure en dos distritos.</p></div>
 
   <div class="card"><h2>4. Limitaciones</h2><ul>
@@ -389,6 +456,7 @@ canvas.drag{cursor:grabbing}
    <tr><td>jsPDF 2.5.1 + jsPDF-AutoTable 3.8.2</td><td>Generación del PDF</td><td>cdnjs.cloudflare.com</td></tr>
    <tr><td>Iconos Lucide (licencia ISC)</td><td>Iconos de las pestañas</td><td>lucide.dev, incrustados en la página (local)</td></tr>
    <tr><td>calles.js</td><td>Trazado de calles del callejero oficial</td><td>Propio (descargado del Geoportal), local</td></tr>
+   <tr><td>Buscador de direcciones CartoCiudad (IGN)</td><td>Coordenadas de la dirección escrita en «Cerca de…»</td><td>cartociudad.es, solo al buscar</td></tr>
    <tr><td>Tipografía Inter</td><td>Texto</td><td>Google Fonts (si no carga se usa la del sistema)</td></tr>
   </tbody></table></div>
 </div></div>
@@ -416,7 +484,9 @@ let COLS=window.ITE_COLS, ROWS=window.ITE_ROWS;
 const DIST=window.DISTRITOS;
 let C={}, buildings=[], centros=[], noCoords=0;
 const on=new Set(STATES.map(s=>s.k));
-let selected=null, hover=null;
+let selected=null, hover=null, KEYMAP=new Map(), NEAR=null;
+const Y0=new Date().getFullYear();
+const VENC={vencida:'Plazo de ITE/IEE vencido',este:`Vence en ${Y0}`,prox:`Vence en ${Y0+1}–${Y0+2}`,any:`Vencido o vence antes de ${Y0+3}`};
 
 function classify(est){
   est=(est||'').trim();
@@ -439,7 +509,7 @@ function build(){
     if(!lat||!lng){noCoords++;continue}
     const key=lat.toFixed(5)+','+lng.toFixed(5);
     let b=byKey.get(key);
-    if(!b){b={lat,lng,s,rows:[],cents:[]};byKey.set(key,b)}
+    if(!b){b={key,lat,lng,s,rows:[],cents:[]};byKey.set(key,b)}
     b.cents.push(ce);
     if(SEV[s]>SEV[b.s])b.s=s;
   }
@@ -450,11 +520,19 @@ function build(){
     const y=parseInt(b.main[C['Año de construcción']],10);b.year=y>1500&&y<2100?y:null;
     b.dec=b.year==null?'Sin dato':(b.year<1900?'Antes de 1900':(Math.floor(b.year/10)*10)+'s');
     const m=/(\d{4})\s*$/.exec(String(b.main[C['Fecha presentación']]||''));b.ypres=m?+m[1]:null;
-    b.addr=b.main[C['Dirección']];}
+    b.addr=b.main[C['Dirección']];
+    // plazo de la próxima ITE/IEE según el Registro (el más próximo de sus direcciones)
+    let yv=null;for(const c of b.cents){const a=String(c.r[C['Año próxima ITE']]||''),f=/(\d{4})\s*$/.exec(String(c.r[C['Fecha máx. IEE']]||''));
+      const y=/^\d{4}$/.test(a)?+a:(f?+f[1]:null);if(y&&(yv==null||y<yv))yv=y}
+    b.yv=yv;b.venc=yv==null?'':yv<Y0?'vencida':yv===Y0?'este':yv<=Y0+2?'prox':'';
+    const fp=/(\d\d)\/(\d\d)\/(\d{4})/.exec(String(b.main[C['Fecha presentación']]||''));b.fpres=fp?fp[3]+fp[2]+fp[1]:'';}
+  KEYMAP=new Map(buildings.map(b=>[b.key,b]));
   fillSelects(); applyFilters();
   if(window.APP_REFRESH)window.APP_REFRESH();
 }
-function fillSelects(){
+function fillVenc(){const cnt=k=>buildings.filter(b=>k==='any'?!!b.venc:b.venc===k).length;
+  document.getElementById('fVenc').innerHTML='<option value="">Todos los plazos de ITE</option>'+['any','vencida','este','prox'].map(k=>`<option value="${k}">${VENC[k]} (${fmt(cnt(k))})</option>`).join('')}
+function fillSelects(){fillVenc();
   const ds=[...new Set(ROWS.map(r=>r[C['Distrito']]))].sort((a,b)=>a.localeCompare(b,'es'));
   const ts=[...new Set(ROWS.map(r=>r[C['Tipo de edificio']]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
   const fd=document.getElementById('fDist'), ft=document.getElementById('fTipo');
@@ -476,8 +554,8 @@ function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt
 
 let visible=[];
 function applyFilters(){
-  const d=document.getElementById('fDist').value, t=document.getElementById('fTipo').value, sb=document.getElementById('fSub').value, q=document.getElementById('q').value.trim().toLowerCase();
-  const base=buildings.filter(b=>(!d||b.dists.has(d))&&(!t||b.tipos.has(t))&&(!sb||b.subs.has(sb))&&(!q||b.text.includes(q)));
+  const d=document.getElementById('fDist').value, t=document.getElementById('fTipo').value, sb=document.getElementById('fSub').value, q=document.getElementById('q').value.trim().toLowerCase(), vc=document.getElementById('fVenc').value;
+  const base=buildings.filter(b=>(!d||b.dists.has(d))&&(!t||b.tipos.has(t))&&(!sb||b.subs.has(sb))&&(!q||b.text.includes(q))&&(!vc||(vc==='any'?!!b.venc:b.venc===vc))&&(!NEAR||distM(b)<=NEAR.r));
   const counts={}; STATES.forEach(s=>counts[s.k]=0); base.forEach(b=>counts[b.s]++);
   visible=base.filter(b=>on.has(b.s));
   visible.sort((a,b)=>DRAW_ORDER.indexOf(a.s)-DRAW_ORDER.indexOf(b.s));
@@ -487,10 +565,11 @@ function applyFilters(){
   document.getElementById('countLine').textContent=`${visible.length.toLocaleString('es-ES')} edificios en el mapa (${nc.toLocaleString('es-ES')} centros). Los recuentos son de edificios: varios centros pueden compartir dirección.`;
   document.getElementById('note').textContent=`${noCoords} centros sin coordenadas no aparecen en el mapa`;
   document.getElementById('mleg').innerHTML=STATES.filter(s=>counts[s.k]>0).map(s=>`<span class="lg${on.has(s.k)?'':' off'}" data-k="${s.k}" role="button" aria-pressed="${on.has(s.k)}"><i class="${s.hollow?'hollow':''}" style="background:${s.c}"></i>${esc(s.short)} <b>${counts[s.k].toLocaleString('es-ES')}</b></span>`).join('');
-  const nf=[d,t,sb,q].filter(Boolean).length+(STATES.some(s=>counts[s.k]>0&&!on.has(s.k))?1:0);
+  const nf=[d,t,sb,q,vc,NEAR].filter(Boolean).length+(STATES.some(s=>counts[s.k]>0&&!on.has(s.k))?1:0);
   const bd=document.getElementById('fBdg');bd.textContent=nf;bd.style.display=nf?'':'none';
   document.getElementById('fDone').textContent=`Ver ${visible.length.toLocaleString('es-ES')} edificios`;
   if(selected&&!visible.includes(selected)){selected=null;showDetail(null)}
+  renderNear();
   draw();
 }
 // ---------- Controles móviles ----------
@@ -505,6 +584,7 @@ document.getElementById('states').addEventListener('change',e=>{const k=e.target
 document.getElementById('fDist').addEventListener('change',e=>{applyFilters();if(e.target.value)zoomToDistrict(e.target.value)});
 document.getElementById('fTipo').addEventListener('change',()=>{fillSub();applyFilters()});
 document.getElementById('fSub').addEventListener('change',applyFilters);
+document.getElementById('fVenc').addEventListener('change',applyFilters);
 document.getElementById('q').addEventListener('input',applyFilters);
 
 // ---------- Mapa (canvas, sin teselas externas) ----------
@@ -553,6 +633,9 @@ function draw(){
   // etiquetas
   ctx.font='600 11px Inter, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
   for(const d of distP){const fs=Math.min(15,Math.max(10,10*Math.sqrt(s/fitScale)));ctx.font=`600 ${fs}px Inter, sans-serif`;ctx.fillStyle='rgba(90,96,104,.55)';ctx.fillText(d.nom.toUpperCase(),X(d.cx),Y(d.cy))}
+  // círculo «cerca de»
+  if(NEAR){const [cx,cy]=proj(NEAR.lng,NEAR.lat),rp=NEAR.r/110540*s;ctx.beginPath();ctx.arc(X(cx),Y(cy),rp,0,7);ctx.fillStyle='rgba(31,95,168,.06)';ctx.fill();ctx.setLineDash([6,5]);ctx.strokeStyle='#1f5fa8';ctx.lineWidth=1.6;ctx.stroke();ctx.setLineDash([]);
+    ctx.beginPath();ctx.arc(X(cx),Y(cy),6,0,7);ctx.fillStyle='#1f5fa8';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2.5;ctx.stroke()}
   // puntos
   const r=radius();
   for(const b of visible){const [px,py]=b.p||(b.p=proj(b.lng,b.lat));const x=X(px),y=Y(py);if(x<-10||y<-10||x>W+10||y>H+10)continue;
@@ -576,7 +659,7 @@ cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();
   if(b){const n=b.cents.length;tip.innerHTML=`<b>${esc(b.cents[0].r[C['Centro']])}</b>${n>1?` y ${n-1} más`:''}<br>${esc(SMAP[b.s].lab)}`;tip.style.display='block';
     let x=e.clientX-r.left+14,y=e.clientY-r.top+14;if(x+280>W)x-=300;tip.style.left=x+'px';tip.style.top=y+'px';cv.style.cursor='pointer'}else{tip.style.display='none';cv.style.cursor=''}
 });
-function up(e){const r=cv.getBoundingClientRect();if(ptrs.size===1&&!moved){const b=pick(e.clientX-r.left,e.clientY-r.top,e.pointerType==='touch'?16:7);selected=b;showDetail(b);if(b)keepAbovePop(b);draw()}ptrs.delete(e.pointerId);if(ptrs.size<2)lastPinch=0;cv.classList.remove('drag')}
+function up(e){const r=cv.getBoundingClientRect();if(ptrs.size===1&&!moved){const b=pick(e.clientX-r.left,e.clientY-r.top,e.pointerType==='touch'?16:7);selected=b;showDetail(b);if(b)keepAbovePop(b);setHash(b?'#edificio='+b.key:'#mapa');draw()}ptrs.delete(e.pointerId);if(ptrs.size<2)lastPinch=0;cv.classList.remove('drag')}
 cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',e=>{ptrs.delete(e.pointerId);lastPinch=0});
 cv.addEventListener('pointerleave',()=>{if(hover){hover=null;draw()}tip.style.display='none'});
 document.getElementById('zin').onclick=()=>zoomAt(1.6,W/2,H/2);
@@ -604,14 +687,70 @@ function showDetail(b){
   pop.innerHTML=`<div class="ph"><div><div class="pt">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}</div>${head?`<div class="sub">${esc(head)}</div>`:''}
      <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div></div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
-   <div class="pb"><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
+   <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
    ${b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div>${C['Fuente']!=null?`<div class="m">Fuente: ${esc(x('Fuente'))}${x('Categoría datos.madrid.es')?' ('+esc(x('Categoría datos.madrid.es'))+')':''}${x('Otras fuentes')?' · también en: '+esc(x('Otras fuentes')):''}${x('Empresa gestora')?' · Gestora: '+esc(x('Empresa gestora')):''}</div>`:''}<div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}</div>${x('Ficha madrid.es')?`<div class="m"><a href="${esc(x('Ficha madrid.es'))}" target="_blank" rel="noopener">Ficha en madrid.es</a></div>`:''}</div>`}).join('')}
    <div class="sub" style="margin-top:8px">Coordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}</div></div>`;
   pop.style.display='flex';
-  document.getElementById('cl').onclick=()=>{selected=null;showDetail(null);draw()};
+  document.getElementById('cl').onclick=()=>{selected=null;showDetail(null);setHash('#mapa');draw()};
+  document.getElementById('pShare').onclick=()=>shareBuilding(b);
+  document.getElementById('pFix').href=fixUrl(b);
   placePop();
 }
+function setHash(h){if(location.hash!==h)history.replaceState(null,'',h===''?location.pathname:h)}
+let toastT=0;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2800)}
+// Centra el mapa en un edificio y abre su ficha (quita filtros si no está visible)
+function focusBuilding(b){if(!visible.includes(b)){document.getElementById('q').value='';['fDist','fTipo','fSub','fVenc'].forEach(id=>document.getElementById(id).value='');NEAR=null;STATES.forEach(s=>on.add(s.k));applyFilters()}
+  selected=b;s=Math.max(s,fitScale*14);const [px,py]=b.p||(b.p=proj(b.lng,b.lat));tx=W/2-s*px;ty=H/2-s*py;showDetail(b);keepAbovePop(b);draw()}
+const shareUrl=b=>location.origin+location.pathname+'#edificio='+b.key;
+function shareTitle(b){const n=[...new Set(b.cents.map(c=>c.r[C['Centro']]))];return n[0]+(n.length>1?` y ${n.length-1} más`:'')}
+async function shareBuilding(b){const url=shareUrl(b),title=shareTitle(b),text=`${title} · ${SMAP[b.s].lab} (ITE, Registro de Edificios de Madrid)`;
+  if(navigator.share){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);toast('Enlace copiado al portapapeles')}
+  catch(e){const ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}ta.remove();toast(ok?'Enlace copiado al portapapeles':'Copia este enlace: '+url)}}
+// Corrección ciudadana: abre un issue prellenado en GitHub (se revisa antes de cambiar nada)
+const REPO_ISSUES='https://github.com/bakero/ite-madrid/issues/new';
+function fixUrl(b){const p=new URLSearchParams({template:'correccion.yml',title:`Corrección: ${b.main[C['Dirección']]}`,
+  edificio:`${shareTitle(b)}\nDirección publicada: ${b.main[C['Dirección']]}\nCoordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}\nEnlace: ${shareUrl(b)}\nDatos de: ${window.ITE_GENERADO||''}`});
+  return REPO_ISSUES+'?'+p.toString()}
+// ---------- Cerca de… ----------
+const KXM=Math.cos(40.42*Math.PI/180)*111320;
+const distM=b=>Math.hypot((b.lng-NEAR.lng)*KXM,(b.lat-NEAR.lat)*110540);
+const inMadrid=(lat,lng)=>lat>40.30&&lat<40.65&&lng>-3.90&&lng<-3.50;
+function setNear(lat,lng,label){NEAR={lat,lng,r:+document.getElementById('nearR').value,label};document.getElementById('nearCand').innerHTML='';applyFilters();fitNear();
+  const n=visible.length,fil=['q','fDist','fTipo','fSub','fVenc'].some(id=>document.getElementById(id).value)||STATES.some(x=>!on.has(x.k)),cf=fil?' con los filtros aplicados':'';
+  toast(n?`${fmt(n)} edificio${n>1?'s':''} a menos de ${fmtR(NEAR.r)}${cf}`:`Ningún edificio a menos de ${fmtR(NEAR.r)}${cf}`)}
+const fmtR=r=>r>=1000?(r/1000).toLocaleString('es-ES')+' km':r+' m';
+function fitNear(){if(!NEAR)return;const [cx,cy]=proj(NEAR.lng,NEAR.lat),rr=NEAR.r/110540*1.25;fitBB([cx-rr,cy-rr,cx+rr,cy+rr],20);draw()}
+function clearNear(){NEAR=null;applyFilters()}
+function renderNear(){const el=document.getElementById('nearInfo');if(!NEAR){el.innerHTML='';return}
+  const list=visible.slice().sort((a,b)=>distM(a)-distM(b));
+  el.innerHTML=`<div class="nh"><span><b>${esc(NEAR.label)}</b> · ${fmt(list.length)} a menos de ${fmtR(NEAR.r)}</span><button class="btn" id="nearX">Quitar</button></div>`+
+    list.slice(0,15).map(b=>`<button class="nl" data-k="${esc(b.key)}"><i style="background:${SMAP[b.s].hollow?'#fff;border:2px solid #aeb4ba':SMAP[b.s].c}"></i><span>${esc(shareTitle(b))}</span><em>${fmtR(Math.round(distM(b)/10)*10)}</em></button>`).join('')+
+    (list.length>15?`<div class="sub" style="margin-top:6px">y ${fmt(list.length-15)} más en el mapa</div>`:'');
+  document.getElementById('nearX').onclick=clearNear}
+document.getElementById('nearInfo').addEventListener('click',e=>{const l=e.target.closest('.nl');if(!l)return;const b=KEYMAP.get(l.dataset.k);if(b){if(isMobile())sheet(false);focusBuilding(b);setHash('#edificio='+b.key)}});
+document.getElementById('nearR').onchange=()=>{if(NEAR){NEAR.r=+document.getElementById('nearR').value;applyFilters();fitNear()}};
+function locateMe(){if(!navigator.geolocation){toast('Tu navegador no permite obtener la ubicación');return}
+  toast('Obteniendo tu ubicación…');
+  navigator.geolocation.getCurrentPosition(p=>{const {latitude:lat,longitude:lng}=p.coords;if(!inMadrid(lat,lng)){toast('Tu ubicación está fuera del municipio de Madrid');return}
+    if(isMobile())sheet(false);setNear(lat,lng,'Tu ubicación')},
+    e=>toast(e.code===1?'Permiso de ubicación denegado':'No se ha podido obtener tu ubicación'),{enableHighAccuracy:true,timeout:12000,maximumAge:60000})}
+document.getElementById('nearMe').onclick=locateMe;document.getElementById('zloc').onclick=locateMe;
+// Geocodificación con CartoCiudad (IGN), por JSONP: la dirección escrita se envía a cartociudad.es
+function jsonp(url){return new Promise((res,rej)=>{const cb='cc'+Date.now()+Math.floor(Math.random()*1e4),sc=document.createElement('script');
+  const t=setTimeout(()=>{cleanup();rej(new Error('timeout'))},10000);
+  function cleanup(){clearTimeout(t);delete window[cb];sc.remove()}
+  window[cb]=d=>{cleanup();res(d)};sc.onerror=()=>{cleanup();rej(new Error('red'))};sc.src=url+(url.includes('?')?'&':'?')+'callback='+cb;document.head.appendChild(sc)})}
+document.getElementById('nearF').onsubmit=async e=>{e.preventDefault();const q=document.getElementById('nearQ').value.trim();const box=document.getElementById('nearCand');if(!q)return;
+  box.innerHTML='<div class="sub">Buscando…</div>';
+  try{const d=await jsonp('https://www.cartociudad.es/geocoder/api/geocoder/candidatesJsonp?limit=8&q='+encodeURIComponent(q+(/madrid/i.test(q)?'':', Madrid')));
+    const c=(Array.isArray(d)?d:[]).filter(x=>x.lat&&x.lng&&inMadrid(+x.lat,+x.lng)&&/^madrid$/i.test(String(x.muni||'').trim()));
+    if(!c.length){box.innerHTML='<div class="sub">No se ha encontrado esa dirección en Madrid.</div>';return}
+    if(c.length===1){setNear(+c[0].lat,+c[0].lng,c[0].address);return}
+    box.innerHTML=c.map((x,i)=>`<button class="nc" data-i="${i}">${esc(x.address)} <span class="sub">${esc(x.postalCode||'')}</span></button>`).join('');
+    box.onclick=ev=>{const bt=ev.target.closest('.nc');if(!bt)return;const x=c[+bt.dataset.i];setNear(+x.lat,+x.lng,x.address)}}
+  catch(err){box.innerHTML='<div class="sub">No se ha podido consultar el buscador de direcciones (CartoCiudad). Prueba con «Mi ubicación» o con el buscador de centros.</div>'}};
 // En móvil la ficha tapa la mitad inferior: desplaza el mapa para que el edificio quede visible encima
 function keepAbovePop(b){if(!isMobile())return;const ph=pop.offsetHeight,y=Y(b.p[1]),x=X(b.p[0]);const lim=H-ph-24;if(y>lim||y<60){ty+=Math.max(60,(H-ph)/2)-y}if(x<20||x>W-20)tx+=W/2-x}
 function placePop(){
@@ -645,11 +784,47 @@ const G=(b,k)=>b.main[C[k]]??'';
 // =====================================================================
 // Router
 // =====================================================================
-const VIEWS=['mapa','panel','informe','ayuda'];
-function route(){let v=(location.hash||'#mapa').slice(1);if(!VIEWS.includes(v))v='mapa';
+// =====================================================================
+// LO MÁS URGENTE
+// =====================================================================
+const ULIM={desf:10,vencida:10,este:10,prox:10};
+function uFilter(){const d=document.getElementById('uDist').value,t=document.getElementById('uTipo').value;return buildings.filter(b=>(!d||b.dists.has(d))&&(!t||b.tipos.has(t)))}
+function uItem(b,val,sub,extra){const st=SMAP[b.s];const tipos=[...b.tipos].filter(Boolean).join(', ');
+  return `<a class="ui" href="#edificio=${encodeURIComponent(b.key)}"><span class="ub" style="background:${st.hollow?'#c4c9ce':st.c}"></span><span class="uc"><div class="ut">${esc(shareTitle(b))}</div><div class="um">${esc(b.addr)} · ${esc([...b.dists].join(', '))}${tipos?' · '+esc(tipos):''}</div>${extra?`<div class="ux">${extra}</div>`:''}</span><span class="uv">${val}${sub?`<small>${sub}</small>`:''}</span></a>`}
+function uList(id,items,k,render){const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="ue">Ningún edificio con estos filtros.</div>';return}
+  el.innerHTML=items.slice(0,ULIM[k]).map(render).join('')+(items.length>ULIM[k]?`<button class="btn umore" data-k="${k}">Mostrar más (${fmt(items.length-ULIM[k])} restantes)</button>`:'')+
+    `<button class="btn umore" data-map="${k}" style="margin-left:8px">Ver en el mapa</button>`}
+function renderUrgente(){
+  const fd=document.getElementById('uDist'),ft=document.getElementById('uTipo');
+  if(fd.options.length<2){const ds=[...new Set(buildings.flatMap(b=>[...b.dists]))].sort((a,b)=>a.localeCompare(b,'es')),ts=[...new Set(buildings.flatMap(b=>[...b.tipos]))].filter(Boolean).sort((a,b)=>a.localeCompare(b,'es'));
+    fd.innerHTML+=ds.map(d=>`<option>${esc(d)}</option>`).join('');ft.innerHTML+=ts.map(t=>`<option>${esc(t)}</option>`).join('')}
+  document.getElementById('uIntro').textContent=`Edificios del listado que necesitan atención según el Registro de Edificios del Ayuntamiento (datos del ${(window.ITE_GENERADO||'').split('-').reverse().join('/')}). Los plazos se comparan con el año actual (${Y0}): si se ha presentado una ITE después de esa fecha, el edificio puede estar ya al día. Pulsa un edificio para ver su ficha.`;
+  const L=uFilter();
+  const desf=L.filter(b=>b.s==='desf').sort((a,b)=>(a.fpres||'99999999').localeCompare(b.fpres||'99999999'));
+  const byY=k=>L.filter(b=>b.venc===k).sort((a,b)=>a.yv-b.yv||SEV[b.s]-SEV[a.s]);
+  const venc=byY('vencida'),este=byY('este'),prox=byY('prox');
+  const kp=(v,l,c,k)=>`<div class="kpi" data-go="${k}"><div class="v">${fmt(v)} <span class="pc">(${pct(v,L.length)})</span></div><div class="l">${l}</div><div class="bar" style="background:linear-gradient(90deg,${c} ${L.length?100*v/L.length:0}%,#eceae5 0)"></div></div>`;
+  document.getElementById('uKpis').innerHTML=kp(desf.length,'desfavorables sin subsanar','#d23f3f','uDesf')+kp(venc.length,'con el plazo de ITE/IEE vencido','#8a1c1c','uVenc')+kp(este.length,`deben pasar ITE/IEE en ${Y0}`,'#e8912f','uEste')+kp(prox.length,`la deben pasar en ${Y0+1}–${Y0+2}`,'#d9b44a','uProx');
+  document.getElementById('uEsteT').textContent=`Deben pasar ITE/IEE en ${Y0}`;document.getElementById('uProxT').textContent=`Deben pasarla en ${Y0+1}–${Y0+2}`;
+  const G1=(b,k)=>b.main[C[k]]||'';
+  uList('uDesf',desf,'desf',b=>{const y=b.fpres?+b.fpres.slice(0,4):null,cause=G1(b,'Causa dictamen desfavorable'),ord=G1(b,'Estado orden de ejecución');
+    return uItem(b,y?`${y}`:'Sin fecha',y?(Y0-y<=0?'este año':`hace ${Y0-y} año${Y0-y>1?'s':''}`):'',[cause?'Causa: '+esc(cause):'',ord?'Orden de ejecución: '+esc(ord):''].filter(Boolean).join(' · '))});
+  const vRender=b=>uItem(b,`${b.yv}`,b.yv<Y0?`vencido hace ${Y0-b.yv} año${Y0-b.yv>1?'s':''}`:'plazo',`Estado actual: ${esc(SMAP[b.s].lab)}`);
+  uList('uVenc',venc,'vencida',vRender);uList('uEste',este,'este',vRender);uList('uProx',prox,'prox',vRender);
+}
+['uDist','uTipo'].forEach(id=>document.getElementById(id).onchange=()=>{Object.keys(ULIM).forEach(k=>ULIM[k]=10);renderUrgente()});
+document.getElementById('view-urgente').addEventListener('click',e=>{
+  const m=e.target.closest('.umore');
+  if(m&&m.dataset.k){ULIM[m.dataset.k]+=20;renderUrgente();return}
+  if(m&&m.dataset.map){const k=m.dataset.map;// lleva los filtros al mapa
+    document.getElementById('q').value='';document.getElementById('fDist').value=document.getElementById('uDist').value;document.getElementById('fTipo').value=document.getElementById('uTipo').value;fillSub();document.getElementById('fSub').value='';
+    document.getElementById('fVenc').value=k==='desf'?'':k;STATES.forEach(s=>k==='desf'?(s.k==='desf'?on.add(s.k):on.delete(s.k)):on.add(s.k));NEAR=null;applyFilters();location.hash='#mapa';setTimeout(()=>{fitAll();draw()},60);return}
+  const kp=e.target.closest('.kpi[data-go]');if(kp){document.getElementById(kp.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})}});
+const VIEWS=['mapa','urgente','panel','informe','ayuda'];
+function route(){let v=(location.hash||'#mapa').slice(1),ek=null;if(v.startsWith('edificio=')){ek=decodeURIComponent(v.slice(9));v='mapa'}if(!VIEWS.includes(v))v='mapa';
   VIEWS.forEach(x=>document.getElementById('view-'+x).classList.toggle('on',x===v));
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
-  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll()}}
+  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v==='urgente')renderUrgente();if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll();if(ek&&KEYMAP.has(ek)&&selected!==KEYMAP.get(ek))setTimeout(()=>focusBuilding(KEYMAP.get(ek)),60)}}
 window.addEventListener('hashchange',route);
 
 // =====================================================================
@@ -798,8 +973,7 @@ function renderTable(list){
   ts.innerHTML=TCOLS.map(([k,l])=>`<option value="${k}" ${k===TSORT.k?'selected':''}>${l}${k===TSORT.k?(TSORT.dir>0?' (ascendente)':' (descendente)'):''}</option>`).join('');
   ts.onchange=()=>{const k=ts.value;TSORT={k,dir:['sev','cent','year','ypres'].includes(k)?-1:1};TLIM=50;renderTable(list)};
   document.getElementById('tbl').onclick=e=>{const th=e.target.closest('th');if(th&&th.dataset.k){TSORT=TSORT.k===th.dataset.k?{k:TSORT.k,dir:-TSORT.dir}:{k:th.dataset.k,dir:th.dataset.k==='sev'?-1:1};renderTable(list);return}
-    const l=e.target.closest('.lnk');if(l){const b=rows[+l.dataset.i];location.hash='#mapa';setTimeout(()=>{if(!visible.includes(b)){document.getElementById('q').value='';['fDist','fTipo','fSub'].forEach(id=>document.getElementById(id).value='');STATES.forEach(s=>on.add(s.k));applyFilters()}
-      selected=b;s=fitScale*14;const [px,py]=b.p||(b.p=proj(b.lng,b.lat));tx=W/2-s*px;ty=H/2-s*py;showDetail(b);keepAbovePop(b);draw()},60)}};
+    const l=e.target.closest('.lnk');if(l){location.hash='#edificio='+rows[+l.dataset.i].key}};
 }
 
 // =====================================================================

@@ -2,11 +2,12 @@
 
 Este proyecto sitúa en un mapa del municipio de Madrid los centros e instalaciones públicas de los 21 distritos. Cada edificio se colorea según el estado de su **última Inspección Técnica de Edificios (ITE/IEE)** en el Registro municipal. Los edificios sin ITE aparecen en gris.
 
-La aplicación web es estática y está en `app/`. Tiene cuatro páginas:
+La aplicación web es estática y está en `app/`. Tiene cinco páginas:
 
 | Página | Qué hace |
 |---|---|
-| 🗺️ Mapa | Mapa con filtros (estado, distrito, tipo, subtipo, búsqueda). Al hacer clic en un edificio se abre un popup con toda su información. |
+| 🗺️ Mapa | Mapa con filtros (estado, distrito, tipo, subtipo, plazo de ITE, búsqueda) y «Cerca de…» (tu ubicación o una dirección, con radio). Al hacer clic en un edificio se abre su ficha, que se puede compartir con un enlace directo (`#edificio=lat,lng`) y desde la que se puede avisar de un error. |
+| ⚠️ Lo más urgente | Desfavorables sin subsanar (de la más antigua a la más reciente), plazos de ITE/IEE vencidos y los que vencen este año y los dos siguientes. |
 | 📊 Panel | Panel de tipo Power BI con segmentadores, KPIs, gráficos con filtrado cruzado y una tabla. |
 | 📄 Informe PDF | Informe descargable de un distrito o de todo Madrid. |
 | ❓ Ayuda y datos | Fuentes, tratamiento de los datos, limitaciones y fecha de la última descarga. |
@@ -105,6 +106,10 @@ Un edificio (centros agrupados por coordenadas redondeadas a 5 decimales) toma e
 
 Los datos del Registro **no tienen carácter de certificado**. Conviene comprobar la «Denominación en el Registro» para confirmar que la ficha corresponde al edificio del centro.
 
+## Avisos de errores (corrección ciudadana)
+
+El botón «¿Ubicación o datos incorrectos?» de cada ficha abre un issue con la plantilla `.github/ISSUE_TEMPLATE/correccion.yml` y los datos del edificio ya rellenados. Se revisa a mano. Las direcciones corregidas se añaden a la base de datos (como las coordenadas de `coordenadas_manual.py`) y se vuelve a consultar la ITE.
+
 ## Fuentes y licencias
 
 Datos del **Ayuntamiento de Madrid**, reutilizados según sus condiciones de uso (atribución, equivalente a CC BY 4.0):
@@ -113,6 +118,6 @@ Datos del **Ayuntamiento de Madrid**, reutilizados según sus condiciones de uso
 - [Registro de Edificios y Construcciones (ITE)](https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons).
 - [datos.madrid.es](https://datos.madrid.es): conjuntos 202311, 300614, 212790, 202318, 300307, 207037, 212904 y 300497 (distritos).
 - [Geoportal](https://geoportal.madrid.es): callejero oficial (viario) y límites de distrito.
-- [CartoCiudad](https://www.cartociudad.es) (IGN): geocodificación de 8 direcciones.
+- [CartoCiudad](https://www.cartociudad.es) (IGN): geocodificación de 8 direcciones y buscador de direcciones de «Cerca de…».
 
 Iconos: [Lucide](https://lucide.dev) (ISC).
