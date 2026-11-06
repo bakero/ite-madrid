@@ -420,7 +420,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <tr><td>datos.madrid.es · Empresas gestoras de escuelas infantiles (300307)</td><td>Empresa que gestiona cada escuela infantil municipal.</td><td>Descarga del CSV y asociación por nombre de la escuela.</td></tr>
    <tr><td><a href="https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons" target="_blank" rel="noopener">Registro de Edificios y Construcciones</a> (servpub.madrid.es)</td><td>Ficha del edificio en cada dirección: año de construcción, ITE/IEE presentadas, dictamen, deficiencias, situación administrativa, órdenes de ejecución…</td><td>Consulta automatizada del formulario público, dirección por dirección (tipo de vía → nombre → número → ficha). El Registro sirve las fichas de una en una; la consulta completa duró unas 10 horas.</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/300497-0-distritos-municipales-madrid" target="_blank" rel="noopener">Distritos municipales de Madrid</a> (Geoportal)</td><td>Contornos de los 21 distritos para dibujar el mapa.</td><td>Descarga del KML y simplificación de los contornos (tolerancia ≈ 6 m) para aligerar la página.</td></tr>
-   <tr><td><a href="https://geoportal.madrid.es/IDEAM_WBGEOPORTAL/dataset.iam?id=eb2a7429-2dd6-11e9-bd15-ecb1d752b636" target="_blank" rel="noopener">Callejero oficial · Geometrías de viario</a> (Geoportal, servicio sigma.madrid.es)</td><td>Trazado de las calles para orientarse en el mapa (sin nombres).</td><td>Consulta del servicio público del callejero (capa de ejes de viario a escala 1:1.000) con simplificación de ≈ 4 m. Las vías principales se destacan según las capas a escala 1:20.000 y 1:25.000.</td></tr>
+   <tr><td><a href="https://geoportal.madrid.es/IDEAM_WBGEOPORTAL/dataset.iam?id=eb2a7429-2dd6-11e9-bd15-ecb1d752b636" target="_blank" rel="noopener">Callejero oficial · Geometrías de viario</a> (Geoportal, servicio sigma.madrid.es)</td><td>Trazado y nombre de las calles para orientarse en el mapa.</td><td>Consulta del servicio público del callejero (capa de ejes de viario a escala 1:1.000, con el rótulo oficial de cada vía) con simplificación de ≈ 4 m. Las vías principales se destacan según las capas a escala 1:20.000 y 1:25.000.</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas" target="_blank" rel="noopener">Barrios municipales</a> (datos.madrid.es, Límites administrativos actuales)</td><td>Contornos de los 131 barrios: cada centro se asigna al barrio en el que caen sus coordenadas.</td><td>Descarga del SHP (ETRS89 UTM 30N), conversión a latitud/longitud y simplificación de los contornos (≈5 m).</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad" target="_blank" rel="noopener">IGUALA. Índice de vulnerabilidad territorial agregado</a> (datos.madrid.es)</td><td>Renta neta media por hogar de cada barrio (2020–2024) e Índice de Vulnerabilidad Territorial Agregado (IVTA) de cada distrito. El IVTA solo se publica por distrito; por barrio se usa la renta.</td><td>Descarga del fichero «Datos globales y por esferas para distritos» (hojas «Descriptivos barrios» y «Vul. esferas distritos»).</td></tr>
    <tr><td><a href="https://www.cartociudad.es" target="_blank" rel="noopener">CartoCiudad</a> (IGN)</td><td>Coordenadas de 9 direcciones que no las traían.</td><td>Búsqueda del portal exacto; solo se aceptan coincidencias de vía y número.</td></tr>
@@ -447,7 +447,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 
   <div class="card"><h2>3. Cómo se muestran los datos</h2>
   <p><b>Edificio = conjunto de centros con las mismas coordenadas.</b> Mapa, panel e informe cuentan edificios, no centros: un edificio con varios centros es un solo punto. Si sus centros tienen estados distintos, el edificio toma el más grave (desfavorable pendiente &gt; subsanado &gt; IEE &gt; favorable &gt; sin ITE &gt; sin dato). Por eso las cifras pueden diferir ligeramente del Excel, que cuenta direcciones. Hay <b id="ayEd"></b>.</p>
-  <h3>Mapa</h3><p>Se dibuja en la propia página (sin mapas de fondo externos): contornos de los distritos, el trazado de las calles del callejero oficial (sin nombres; las secundarias aparecen al acercarse) y un punto por edificio con el color de su estado. Los filtros de estado, distrito, tipo, subtipo y la búsqueda actúan sobre los centros de cada edificio. Al pinchar un punto se ve la ficha de la última ITE y los centros del edificio. <span id="ayNoc"></span></p>
+  <h3>Mapa</h3><p>Se dibuja en la propia página (sin mapas de fondo externos): contornos de los distritos, el trazado de las calles del callejero oficial (las secundarias aparecen al acercarse) con sus nombres, que se muestran también de forma gradual: primero las vías principales, después las secundarias y, con más zoom, el resto; solo donde el nombre cabe en el tramo y sin solaparse (el tipo de vía va abreviado: C/, Av., P.º, Pl.…) y un punto por edificio con el color de su estado. Los filtros de estado, distrito, tipo, subtipo y la búsqueda actúan sobre los centros de cada edificio. Al pinchar un punto se ve la ficha de la última ITE y los centros del edificio. <span id="ayNoc"></span></p>
   <h3>Panel</h3><p>Indicadores y gráficos sobre los edificios que cumplen los filtros. Los filtros se combinan entre sí (Y); dentro de un mismo filtro, las opciones se suman (O). Pinchar en un gráfico filtra por ese valor; en el gráfico de esa misma dimensión lo no seleccionado se muestra atenuado. El porcentaje de favorables se calcula sobre los edificios con ITE/IEE presentada. La tabla muestra hasta 400 filas según el orden elegido.</p>
   <h3>Lo más urgente</h3><p>Lista los edificios que necesitan atención, con filtros de distrito y tipo:</p><ul>
    <li><b>Desfavorables sin subsanar</b>, ordenados por la fecha de presentación de esa inspección, de la más antigua a la más reciente.</li>
@@ -636,10 +636,15 @@ const distP=DIST.map(d=>{const lines=d.lines.map(l=>l.map(p=>proj(p[0],p[1])));l
 let W=0,H=0,dpr=1, s=1, tx=0, ty=0, fitScale=1;
 // calles (callejero oficial): rutas proyectadas por jerarquía 0 secundaria, 1 principal, 2 vía de alta capacidad
 const STREETS=[[],[],[]];
+// Nombre corto para rotular: abrevia el tipo de vía y quita la partícula («Calle de Alcalá» → «C/ Alcalá»)
+const ABR=[['Calle','C/'],['Avenida','Av.'],['Paseo','P.º'],['Plaza','Pl.'],['Glorieta','Gta.'],['Carretera','Ctra.'],['Camino','Cno.'],['Ronda','Rda.'],['Travesía','Trv.'],['Costanilla','Cost.'],['Callejón','Cjón.'],['Pasaje','Pje.'],['Autovía','Autovía'],['Puente','Pte.'],['Cuesta','Cta.'],['Bulevar','Blvr.']];
+function shortName(n){if(!n)return '';for(const [a,b] of ABR){if(n.startsWith(a+' ')){let r=n.slice(a.length+1).replace(/^(de la |de los |de las |del |de )/,'');return b+' '+r}}return n}
 if(window.CALLES){const sc=CALLES.escala;CALLES.p.forEach((d,i)=>{let x=0,y=0;const pts=new Float32Array(d.length);for(let j=0;j<d.length;j+=2){x+=d[j];y+=d[j+1];const q=proj(x/sc,y/sc);pts[j]=q[0];pts[j+1]=q[1]}
   let bx0=1e9,by0=1e9,bx1=-1e9,by1=-1e9;for(let j=0;j<pts.length;j+=2){bx0=Math.min(bx0,pts[j]);bx1=Math.max(bx1,pts[j]);by0=Math.min(by0,pts[j+1]);by1=Math.max(by1,pts[j+1])}
   let len=0;for(let j=2;j<pts.length;j+=2)len+=Math.hypot(pts[j]-pts[j-2],pts[j+1]-pts[j-1]);
-  STREETS[CALLES.k[i]].push({pts,bb:[bx0,by0,bx1,by1],len})})}
+  const cum=new Float32Array(pts.length/2);for(let j=2,a=0;j<pts.length;j+=2){a+=Math.hypot(pts[j]-pts[j-2],pts[j+1]-pts[j-1]);cum[j/2]=a}
+  STREETS[CALLES.k[i]].push({pts,bb:[bx0,by0,bx1,by1],len,cum,name:CALLES.names?shortName(CALLES.names[CALLES.n[i]]):''})});
+  STREETS.forEach(a=>a.sort((x,y)=>y.len-x.len))}
 function drawStreets(g,Xf,Yf,zoom,view,px){ // zoom = escala relativa al encaje de todo Madrid; px = píxeles por unidad proyectada
   // Al alejarse se muestran menos calles: cada jerarquía exige una longitud mínima en pantalla que baja al acercarse.
   const thr=[zoom<1.6?Infinity:Math.max(0,140*(1-(zoom-1.6)/5)), Math.max(0,45*(1-(zoom-1)/3)), 0];
@@ -650,6 +655,38 @@ function drawStreets(g,Xf,Yf,zoom,view,px){ // zoom = escala relativa al encaje 
     for(const st of STREETS[k]){if(st.len*px<thr[k])continue;const b=st.bb;if(view&&(Xf(b[2])<view[0]||Xf(b[0])>view[2]||Yf(b[3])<view[1]||Yf(b[1])>view[3]))continue;
       const p=st.pts;g.moveTo(Xf(p[0]),Yf(p[1]));for(let j=2;j<p.length;j+=2)g.lineTo(Xf(p[j]),Yf(p[j+1]))}
     g.stroke()}
+}
+// Nombres de calles: aparecen por jerarquía al acercarse, solo si el nombre cabe en el tramo, sin solaparse
+const LBL=[{z:7,font:'400 10.5px Inter, sans-serif',col:'#7b7f86'},{z:3.2,font:'500 11px Inter, sans-serif',col:'#6b6f76'},{z:1.9,font:'600 11.5px Inter, sans-serif',col:'#5d6168'}];
+const twCache=new Map();
+function drawStreetLabels(g,Xf,Yf,zoom,px){
+  if(!STREETS[0].length||!STREETS[0][0].name)return;
+  const boxes=[],seen=new Map();g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';
+  const at=(st,d)=>{const c=st.cum,p=st.pts;let lo=0,hi=c.length-1;while(lo<hi-1){const m=(lo+hi)>>1;if(c[m]<d)lo=m;else hi=m}const seg=c[hi]-c[lo]||1,t=(d-c[lo])/seg;return [p[2*lo]+(p[2*hi]-p[2*lo])*t,p[2*lo+1]+(p[2*hi+1]-p[2*lo+1])*t]};
+  let n=0;
+  for(const k of [2,1,0]){const L=LBL[k];if(zoom<L.z)continue;g.font=L.font;
+    const fade=Math.min(1,(zoom-L.z)/(L.z*.35));
+    for(const st of STREETS[k]){if(!st.name)continue;if(st.len*px<60)break; // ordenadas por longitud
+      const b=st.bb;if(Xf(b[2])<0||Xf(b[0])>W||Yf(b[3])<0||Yf(b[1])>H)continue;
+      const key=k+'|'+st.name;let tw=twCache.get(key);if(tw==null){tw=g.measureText(st.name).width;twCache.set(key,tw)}
+      const half=(tw/2+6)/px;if(st.len<2.3*half)continue;
+      // posiciones candidatas a lo largo del tramo (en los largos, el nombre se repite cada ~360 px)
+      const nPos=Math.max(1,Math.floor(st.len*px/360)),cand=[];for(let i=0;i<nPos;i++)cand.push((i+.5)*st.len/nPos);
+      if(nPos===1)cand.push(st.len*.3,st.len*.7);
+      for(const mid of cand){if(mid-half<0||mid+half>st.len)continue;
+        const A=at(st,mid-half),B=at(st,mid+half);
+        if(Math.hypot(B[0]-A[0],B[1]-A[1])<1.85*half)continue; // demasiado curvo en ese punto
+        const cx=Xf((A[0]+B[0])/2),cy=Yf((A[1]+B[1])/2);if(cx<10||cy<10||cx>W-10||cy>H-10)continue;
+        let ang=Math.atan2(Yf(B[1])-Yf(A[1]),Xf(B[0])-Xf(A[0]));if(ang>Math.PI/2)ang-=Math.PI;if(ang<-Math.PI/2)ang+=Math.PI;
+        const ca=Math.abs(Math.cos(ang)),sa=Math.abs(Math.sin(ang)),hw=(tw/2+3)*ca+7*sa,hh=(tw/2+3)*sa+7*ca;
+        const bx=[cx-hw,cy-hh,cx+hw,cy+hh];
+        if(boxes.some(o=>bx[0]<o[2]&&bx[2]>o[0]&&bx[1]<o[3]&&bx[3]>o[1]))continue;
+        const prev=seen.get(st.name);if(prev&&prev.some(([x,y])=>Math.hypot(x-cx,y-cy)<300))continue;
+        boxes.push(bx);(prev||seen.set(st.name,[]).get(st.name)).push([cx,cy]);
+        g.save();g.translate(cx,cy);g.rotate(ang);g.globalAlpha=fade;
+        g.strokeStyle='rgba(255,255,255,.92)';g.lineWidth=3.2;g.strokeText(st.name,0,.5);g.fillStyle=L.col;g.fillText(st.name,0,.5);g.restore();
+        if(++n>450)return;
+        if(nPos===1)break}}}
 }
 function resize(){const r=cv.getBoundingClientRect();dpr=window.devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;draw()}
 function fitBB(bb,pad=30){const [x0,y0,x1,y1]=bb;s=Math.min((W-2*pad)/(x1-x0),(H-2*pad)/(y1-y0));tx=W/2-s*(x0+x1)/2;ty=H/2-s*(y0+y1)/2}
@@ -669,6 +706,7 @@ function draw(){
     for(const bp of BARP){if(!bp.q)continue;ctx.beginPath();for(const r of bp.rings)r.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.closePath();ctx.fillStyle=QCOL[+bp.q-1];ctx.fill('evenodd');ctx.strokeStyle='rgba(150,120,80,.35)';ctx.lineWidth=.7;ctx.stroke()}}
   // calles
   drawStreets(ctx,X,Y,s/fitScale,[-20,-20,W+20,H+20],s);
+  drawStreetLabels(ctx,X,Y,s/fitScale,s);
   for(const d of distP){ctx.beginPath();for(const l of d.lines){l.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])))}ctx.strokeStyle='#b9b5ad';ctx.lineWidth=1.1;ctx.stroke()}
   const fd=document.getElementById('fDist').value;
   if(fd){const d=distP.find(x=>x.nom===fd);if(d){ctx.beginPath();for(const l of d.lines){l.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])))}ctx.strokeStyle='#1f5fa8';ctx.lineWidth=2.2;ctx.stroke()}}

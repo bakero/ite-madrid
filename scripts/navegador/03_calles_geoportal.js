@@ -1,58 +1,59 @@
 /*
- * 03 · Calles (ejes de viario) del callejero oficial del Geoportal
- * ----------------------------------------------------------------
+ * 03 · Calles (ejes de viario) del callejero oficial, con su nombre
+ * -----------------------------------------------------------------
  * Descarga las geometrías de viario del servicio ArcGIS del Ayuntamiento y
- * genera calles_madrid_viario_ejes_1000.js con el formato que usa la app:
+ * genera el fichero que usa la app (app/calles.js):
  *
- *   window.CALLES = { fuente, escala: 1e5, k: [jerarquía por línea], p: [líneas] }
- *   - k: 0 = calle local (solo se dibuja con zoom), 1 = secundaria, 2 = principal
- *   - p: cada línea es [x0,y0, dx1,dy1, dx2,dy2, ...] en enteros (lng/lat × 1e5),
- *        primer punto absoluto y el resto como diferencias con el anterior.
+ *   window.CALLES = { fuente, escala: 1e5, k: [...], p: [...], n: [...], names: [...] }
+ *   - p: cada línea es [x0,y0, dx1,dy1, ...] en enteros (lng/lat × 1e5),
+ *        con el primer punto absoluto y el resto como diferencias.
+ *   - k: jerarquía de la línea: 2 = la vía figura en la capa 1:25.000,
+ *        1 = en la capa 1:20.000, 0 = resto.
+ *   - n: índice del nombre de la vía en `names` (rótulo oficial DEN_TX_ETIQUETA).
  *
- * Uso: abrir https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer
- *      en el navegador, consola (F12), pegar este archivo. Copiar el .js
- *      descargado a app/calles.js (y a datos/ como referencia).
+ * Geometría: capa 0 (VIARIO_EJES_1000). Las capas 2 (VIARIO_EJES_20000) y
+ * 3 (VIARIO_EJES_25000) solo se usan para saber qué vías son principales.
  *
- * IMPORTANTE: el reparto capa → jerarquía de CAPAS es el que se usó en la
- * extracción (capas 0, 2 y 3). Antes de regenerar, revisar en la página del
- * MapServer el nombre de cada capa y ajustar CAPAS si el servicio ha cambiado.
+ * Uso: abrir https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer?f=json
+ *      en el navegador, consola (F12), pegar este archivo. Se descarga
+ *      calles_madrid_con_nombres.json (el contenido es JavaScript): copiarlo
+ *      como app/calles.js (y en datos/ como referencia).
  */
 (async () => {
-  const BASE = 'https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer';
-  const CAPAS = [{ id: 3, k: 0 }, { id: 2, k: 1 }, { id: 0, k: 2 }];   // revisar (ver nota)
+  const B = 'https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer';
   const ESC = 1e5, PAGE = 2000;
-
-  for (const c of CAPAS) {
-    const meta = await (await fetch(`${BASE}/${c.id}?f=json`)).json();
-    console.log('capa', c.id, '→ jerarquía', c.k, ':', meta.name, meta.geometryType);
-  }
-
-  const k = [], p = [];
-  for (const c of CAPAS) {
+  async function query(id, geo) {
+    const out = [];
     for (let off = 0; ; off += PAGE) {
-      const q = new URLSearchParams({
-        where: '1=1', outFields: '', returnGeometry: 'true', outSR: '4326', f: 'json',
-        maxAllowableOffset: '0.00004', geometryPrecision: '5',
-        resultOffset: String(off), resultRecordCount: String(PAGE)
-      });
-      const j = await (await fetch(`${BASE}/${c.id}/query?${q}`)).json();
-      const feats = j.features || [];
-      for (const f of feats) for (const path of (f.geometry?.paths || [])) {
-        if (path.length < 2) continue;
-        let px = 0, py = 0; const d = [];
-        for (const [lng, lat] of path) { const x = Math.round(lng * ESC), y = Math.round(lat * ESC); d.push(x - px, y - py); px = x; py = y; }
-        k.push(c.k); p.push(d);
-      }
-      console.log('capa', c.id, 'offset', off, '+', feats.length);
-      if (feats.length < PAGE && !j.exceededTransferLimit) break;
+      const q = new URLSearchParams({ where: '1=1', outFields: 'DEN_TX_ETIQUETA', returnGeometry: geo ? 'true' : 'false', outSR: '4326', f: 'json',
+        maxAllowableOffset: '0.00004', geometryPrecision: '5', resultOffset: String(off), resultRecordCount: String(PAGE) });
+      const j = await (await fetch(`${B}/${id}/query?${q}`)).json();
+      const fs = j.features || []; out.push(...fs);
+      console.log('capa', id, 'offset', off, '+', fs.length);
+      if (fs.length < PAGE && !j.exceededTransferLimit) break;
+    }
+    return out;
+  }
+  const L0 = await query(0, true);
+  const n20 = new Set((await query(2, false)).map(f => f.attributes.DEN_TX_ETIQUETA));
+  const n25 = new Set((await query(3, false)).map(f => f.attributes.DEN_TX_ETIQUETA));
+
+  const k = [], p = [], n = [], names = [], idx = new Map();
+  for (const f of L0) {
+    const nm = f.attributes.DEN_TX_ETIQUETA || '';
+    const kk = n25.has(nm) ? 2 : n20.has(nm) ? 1 : 0;
+    for (const path of (f.geometry?.paths || [])) {
+      if (path.length < 2) continue;
+      let px = 0, py = 0; const d = [];
+      for (const [lng, lat] of path) { const x = Math.round(lng * ESC), y = Math.round(lat * ESC); d.push(x - px, y - py); px = x; py = y; }
+      if (!idx.has(nm)) { idx.set(nm, names.length); names.push(nm); }
+      k.push(kk); p.push(d); n.push(idx.get(nm));
     }
   }
-
-  const fuente = 'Ayuntamiento de Madrid, Geoportal - Callejero oficial, geometrías de viario (VIARIO_EJES_1000)';
-  const js = 'window.CALLES=' + JSON.stringify({ fuente, escala: ESC, k, p }) + ';';
+  const C = { fuente: 'Ayuntamiento de Madrid, Geoportal - Callejero oficial, geometrías de viario (VIARIO_EJES_1000) con nombre de vía (DEN_TX_ETIQUETA)', escala: ESC, k, p, n, names };
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([js], { type: 'text/javascript' }));
-  a.download = 'calles_madrid_viario_ejes_1000.json';   // .json: el navegador bloquea a veces la descarga de .js; renombrar a .js
+  a.href = URL.createObjectURL(new Blob(['window.CALLES=' + JSON.stringify(C) + ';'], { type: 'application/json' }));
+  a.download = 'calles_madrid_con_nombres.json';   // .json: el navegador bloquea a veces la descarga de .js; renombrar a calles.js
   a.click();
-  console.log('líneas:', p.length);
+  console.log('líneas:', p.length, '· vías con nombre:', names.length);
 })();

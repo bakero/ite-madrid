@@ -12,13 +12,13 @@ Por eso cada script se ejecuta **en la consola del navegador (F12 → Consola)**
 |---|---|---|---|
 | `01_listados_madrid_es.js` | https://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Distritos/ | `madrid_listados_21distritos.json` | `datos/` (fuente del Excel de centros) |
 | `02_consulta_ite_registro.js` | https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons | `ite_resultados_AAAAMMDD_HHMM.json` | `scripts/sync.sh` o `ingest_export.py` |
-| `03_calles_geoportal.js` | https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer | `calles_madrid_viario_ejes_1000.json` (renombrar a `.js`) | `app/calles.js` |
+| `03_calles_geoportal.js` | https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer?f=json | `calles_madrid_con_nombres.json` (es JavaScript: renombrar a `calles.js`) | `app/calles.js` |
 | `04_distritos_kml.js` | https://geoportal.madrid.es/ | `distritos_madrid_simpl.json` | `datos/` |
 
 Notas sobre cada script:
 
 - **02 (Registro ITE):** pide elegir `datos/pendientes_ite.json`. El servidor puede tardar mucho (la primera pasada completa llevó varias horas). El progreso se guarda en `localStorage`, así que si se recarga la página y se vuelve a pegar el script, continúa donde lo dejó. Con `ITE.descargar()` se descarga un volcado parcial en cualquier momento.
-- **03 (calles):** revisa el reparto capa → jerarquía (`CAPAS`) antes de regenerar el archivo.
+- **03 (calles):** descarga el trazado (capa 1:1.000) con el nombre oficial de cada vía; la jerarquía sale de las capas 1:20.000 y 1:25.000.
 - **Descargas en `.tmp`:** algunos navegadores dejan la descarga como `.tmp` hasta que se confirma. `sync.sh` también busca esos archivos.
 
 ## Conjuntos de datos abiertos (descarga directa a `datos/`)
