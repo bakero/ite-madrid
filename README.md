@@ -46,6 +46,7 @@ scripts/
   ingest_export.py         Carga un volcado ITE en la BD y regenera el Excel y app/data.js
   reclasificacion.py       Reglas de corrección de tipo/subtipo de edificio
   coordenadas_manual.py    Coordenadas geocodificadas a mano (CartoCiudad) para centros sin ellas
+  vulnerabilidad.py        Barrios (contornos) e IGUALA: asigna barrio a cada centro, renta por barrio, IVTA por distrito
   sync.sh                  Busca el volcado ITE más completo en Descargas y lo carga
   navegador/               Extracción web: scripts para pegar en la consola del navegador
 ```
@@ -60,6 +61,9 @@ scripts/
 | `centros` | Centros (6.388) con tipo/subtipo, tipo original, categoría de datos.madrid.es, fuente y `excluido` (50 sin dirección ni coordenadas, que no son edificios) |
 | `ite` | Resultado de la consulta al Registro por dirección: estado calculado, dictamen, expediente, órdenes de ejecución, fechas, `origen` |
 | `coordenadas_manual` | 8 coordenadas obtenidas con CartoCiudad |
+| `barrios` | 131 barrios con su contorno simplificado; `centros.cod_barrio` indica el barrio de cada centro por coordenadas |
+| `barrios_indicadores` | Renta neta media por hogar y otros descriptivos por barrio y año (IGUALA, 2020–2024) |
+| `distritos_vulnerabilidad` | IVTA y sus 5 esferas por distrito y año (IGUALA, 2020–2024) |
 | vista `v_centros_ite` | `centros` LEFT JOIN `ite` |
 
 Ejemplo:
@@ -81,6 +85,7 @@ Las webs del Ayuntamiento solo se pueden consultar desde un navegador (formulari
 4. **Consultar la ITE:** ejecuta `02_consulta_ite_registro.js` en servpub.madrid.es y elige `pendientes_ite.json`. Obtienes `ite_resultados_AAAAMMDD_HHMM.json`.
 5. **Cargar y regenerar:** `python3 scripts/ingest_export.py datos/ite_resultados_….json` (o `scripts/sync.sh`). Actualiza la BD, `centros_ite_madrid.xlsx` y `app/data.js`.
 6. **Calles y distritos** (rara vez): ejecuta `03_calles_geoportal.js` y `04_distritos_kml.js`.
+7. **Barrios y vulnerabilidad** (una vez al año): descarga de datos.madrid.es el SHP de barrios ([Límites administrativos actuales](https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas)) y el fichero «Datos globales y por esferas para distritos» de [IGUALA](https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad) en `datos/vulnerabilidad/`. Después ejecuta `python3 scripts/vulnerabilidad.py datos/vulnerabilidad/barrios_shp.zip datos/vulnerabilidad/iguala_ivta_global.xlsx` y luego `ingest_export.py`. Requiere `pyshp` y `pyproj`.
 
 `ingest_export.py` aplica, en este orden:
 
@@ -118,6 +123,7 @@ Datos del **Ayuntamiento de Madrid**, reutilizados según sus condiciones de uso
 - [Registro de Edificios y Construcciones (ITE)](https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons).
 - [datos.madrid.es](https://datos.madrid.es): conjuntos 202311, 300614, 212790, 202318, 300307, 207037, 212904 y 300497 (distritos).
 - [Geoportal](https://geoportal.madrid.es): callejero oficial (viario) y límites de distrito.
+- [datos.madrid.es](https://datos.madrid.es): barrios municipales (900012) e IGUALA (300577): renta neta media por hogar por barrio e Índice de Vulnerabilidad Territorial Agregado por distrito.
 - [CartoCiudad](https://www.cartociudad.es) (IGN): geocodificación de 8 direcciones y buscador de direcciones de «Cerca de…».
 
 Iconos: [Lucide](https://lucide.dev) (ISC).

@@ -123,6 +123,13 @@ canvas.drag{cursor:grabbing}
 select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7178' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;padding-right:34px!important;border-radius:10px!important;cursor:pointer}
 select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,95,168,.15)}
 .row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.lyleg{display:flex;flex-direction:column;gap:3px;margin:6px 0 0 28px;font-size:12px;color:var(--muted)}
+.lyleg span{display:flex;gap:7px;align-items:center}
+.lyleg i{width:14px;height:10px;border-radius:2px;border:1px solid rgba(150,120,80,.4);flex:none}
+.pbar{margin-top:3px;line-height:1.4}
+.rnote{margin-top:8px;line-height:1.7}
+.rnote .rq{display:inline-flex;align-items:center;gap:5px;margin-right:10px;white-space:nowrap}
+.rnote .rq i{width:12px;height:10px;border-radius:2px;border:1px solid rgba(150,120,80,.4)}
 .row input,.row select{margin:0}
 .row select{width:auto;flex:none}
 .btn svg{flex:none}
@@ -220,7 +227,9 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
   .zoom{top:auto;bottom:14px;right:12px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
   .zoom button{width:46px;height:44px;font-size:20px}
   #toast{bottom:76px}
-  .ufil select{flex:1;min-width:0}
+  .ufil{flex-wrap:wrap}
+  .ufil select{flex:1 1 45%;min-width:0}
+  .ufil #uRenta{flex-basis:100%}
   .ulist .ui .uv{font-size:12.5px}
   .urg h1{font-size:20px}
   /* filtros como hoja inferior */
@@ -307,6 +316,11 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
       <h2>Estado de la última ITE</h2>
       <div id="states"></div>
     </div>
+    <div class="sec" id="secCapa">
+      <h2>Capa de barrios</h2>
+      <label class="st"><input type="checkbox" id="lyRenta"><span class="lab">Colorear los barrios por renta media por hogar <span class="sub" id="lyY"></span></span></label>
+      <div id="lyLeg" class="lyleg"></div>
+    </div>
     <div class="sec">
       <h2>Filtros</h2>
       <input type="search" id="q" placeholder="Buscar centro o dirección…">
@@ -340,7 +354,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 <div class="view" id="view-urgente"><div class="pg urg">
   <h1>Lo más urgente</h1>
   <div class="sub" id="uIntro"></div>
-  <div class="ufil"><select id="uDist" aria-label="Distrito"><option value="">Todos los distritos</option></select><select id="uTipo" aria-label="Tipo de edificio"><option value="">Todos los tipos</option></select></div>
+  <div class="ufil"><select id="uDist" aria-label="Distrito"><option value="">Todos los distritos</option></select><select id="uTipo" aria-label="Tipo de edificio"><option value="">Todos los tipos</option></select><select id="uRenta" aria-label="Renta del barrio"><option value="">Todos los barrios</option></select></div>
   <div class="kpis ukp" id="uKpis"></div>
   <div class="card"><h3>Desfavorables sin subsanar<small>de la inspección más antigua a la más reciente</small></h3><div class="ulist" id="uDesf"></div></div>
   <div class="card"><h3 id="uVencT">Plazo de ITE/IEE vencido</h3><div class="ulist" id="uVenc"></div></div>
@@ -361,7 +375,10 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
     <div class="card"><h3>Por distrito<small>edificios · pincha para filtrar</small></h3><div class="ch tall"><canvas id="cDist"></canvas></div></div>
     <div class="card"><h3>Por tipo de edificio<small>edificios · pincha para filtrar</small></h3><div class="ch tall"><canvas id="cTipo"></canvas></div></div>
   </div>
-  <div class="card" style="margin-bottom:14px"><h3>ITE/IEE presentadas por año<small>última inspección de cada edificio, según dictamen</small></h3><div class="ch"><canvas id="cAnio"></canvas></div></div>
+  <div class="grid2">
+    <div class="card"><h3>ITE/IEE presentadas por año<small>última inspección de cada edificio, según dictamen</small></h3><div class="ch"><canvas id="cAnio"></canvas></div></div>
+    <div class="card" id="cardRenta"><h3>Según la renta del barrio<small>barrios en 5 grupos iguales por renta media por hogar · pincha para filtrar</small></h3><div class="ch"><canvas id="cRenta"></canvas></div><div class="sub rnote" id="rentaNote"></div></div>
+  </div>
   <div class="card"><h3>Edificios<small id="tblInfo"></small></h3><div id="tSortW"><label class="sub" for="tSort">Ordenar por</label><select id="tSort"></select></div><div class="tw"><table class="t" id="tbl"></table></div><button class="btn mob" id="tMore" style="margin-top:10px;width:100%;justify-content:center"></button></div>
 </div></div>
 
@@ -404,6 +421,8 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <tr><td><a href="https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons" target="_blank" rel="noopener">Registro de Edificios y Construcciones</a> (servpub.madrid.es)</td><td>Ficha del edificio en cada dirección: año de construcción, ITE/IEE presentadas, dictamen, deficiencias, situación administrativa, órdenes de ejecución…</td><td>Consulta automatizada del formulario público, dirección por dirección (tipo de vía → nombre → número → ficha). El Registro sirve las fichas de una en una; la consulta completa duró unas 10 horas.</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/300497-0-distritos-municipales-madrid" target="_blank" rel="noopener">Distritos municipales de Madrid</a> (Geoportal)</td><td>Contornos de los 21 distritos para dibujar el mapa.</td><td>Descarga del KML y simplificación de los contornos (tolerancia ≈ 6 m) para aligerar la página.</td></tr>
    <tr><td><a href="https://geoportal.madrid.es/IDEAM_WBGEOPORTAL/dataset.iam?id=eb2a7429-2dd6-11e9-bd15-ecb1d752b636" target="_blank" rel="noopener">Callejero oficial · Geometrías de viario</a> (Geoportal, servicio sigma.madrid.es)</td><td>Trazado de las calles para orientarse en el mapa (sin nombres).</td><td>Consulta del servicio público del callejero (capa de ejes de viario a escala 1:1.000) con simplificación de ≈ 4 m. Las vías principales se destacan según las capas a escala 1:20.000 y 1:25.000.</td></tr>
+   <tr><td><a href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas" target="_blank" rel="noopener">Barrios municipales</a> (datos.madrid.es, Límites administrativos actuales)</td><td>Contornos de los 131 barrios: cada centro se asigna al barrio en el que caen sus coordenadas.</td><td>Descarga del SHP (ETRS89 UTM 30N), conversión a latitud/longitud y simplificación de los contornos (≈5 m).</td></tr>
+   <tr><td><a href="https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad" target="_blank" rel="noopener">IGUALA. Índice de vulnerabilidad territorial agregado</a> (datos.madrid.es)</td><td>Renta neta media por hogar de cada barrio (2020–2024) e Índice de Vulnerabilidad Territorial Agregado (IVTA) de cada distrito. El IVTA solo se publica por distrito; por barrio se usa la renta.</td><td>Descarga del fichero «Datos globales y por esferas para distritos» (hojas «Descriptivos barrios» y «Vul. esferas distritos»).</td></tr>
    <tr><td><a href="https://www.cartociudad.es" target="_blank" rel="noopener">CartoCiudad</a> (IGN)</td><td>Coordenadas de 9 direcciones que no las traían.</td><td>Búsqueda del portal exacto; solo se aceptan coincidencias de vía y número.</td></tr>
   </tbody></table></div>
 
@@ -433,6 +452,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
   <h3>Lo más urgente</h3><p>Lista los edificios que necesitan atención, con filtros de distrito y tipo:</p><ul>
    <li><b>Desfavorables sin subsanar</b>, ordenados por la fecha de presentación de esa inspección, de la más antigua a la más reciente.</li>
    <li><b>Plazos de ITE/IEE</b>: se usa el «Año próxima ITE» que da el Registro y, si en su lugar indica «Aplica fecha IEE», el año de la «Fecha máx. IEE». Si un edificio tiene varias direcciones, cuenta la fecha más próxima. Se considera <b>vencido</b> si ese año es anterior al actual. Es una lectura del Registro a la fecha de descarga: si se ha presentado una inspección después, el edificio puede estar ya al día. El mismo criterio está disponible en el mapa como filtro «plazos de ITE».</li></ul>
+  <h3>Barrio y renta</h3><p>Cada edificio se asigna al barrio en el que caen sus coordenadas, que puede ser de un distrito distinto al del listado de madrid.es en el que aparece el centro: algunos listados de distrito incluyen centros situados en otros distritos. Los 131 barrios se reparten en <b>5 grupos iguales</b> (unos 26 barrios cada uno) según su renta neta media por hogar del último año disponible: el grupo 1 son los barrios con la renta más baja. El panel muestra cuántos edificios hay en cada grupo y qué porcentaje tiene una ITE desfavorable sin subsanar. Es una comparación descriptiva: no implica que la renta sea la causa. La ficha de cada edificio muestra además el IVTA de su distrito, donde un valor más alto indica más vulnerabilidad.</p>
   <h3>Enlaces a un edificio</h3><p>Cada ficha tiene un botón «Compartir» que genera un enlace directo (<code>#edificio=latitud,longitud</code>). Al abrirlo, el mapa se centra en ese edificio y abre su ficha. El enlace sigue funcionando mientras el edificio mantenga sus coordenadas en futuras actualizaciones de los datos.</p>
   <h3>Cerca de…</h3><p>Muestra los edificios a menos de una distancia (250 m a 2 km) de un punto, ordenados por cercanía, combinados con los demás filtros del mapa. El punto puede ser:</p><ul>
    <li><b>Tu ubicación</b>: el navegador te pide permiso, y la posición se usa solo en tu dispositivo, no se envía a ningún servidor.</li>
@@ -482,6 +502,18 @@ const DRAW_ORDER=['pend','nd','sin','fav','iee','subs','desf'];
 const SEV={desf:6,subs:5,iee:4,fav:3,sin:2,nd:1,pend:0};
 let COLS=window.ITE_COLS, ROWS=window.ITE_ROWS;
 const DIST=window.DISTRITOS;
+// Barrios y vulnerabilidad (IGUALA, Ayuntamiento de Madrid)
+const VUL=window.VULNERABILIDAD||null;
+const BARR=new Map((VUL?VUL.barrios:[]).map(b=>[String(b.cod),b]));
+const RY=VUL?Math.max(...VUL.barrios.flatMap(b=>Object.keys(b.renta).map(Number))):null;
+const rentaOf=c=>{const b=BARR.get(String(c));return b&&b.renta[RY]!=null?+b.renta[RY]:null};
+const RQ=(()=>{const v=[...BARR.values()].map(b=>b.renta[RY]).filter(x=>x!=null).map(Number).sort((a,b)=>a-b);if(!v.length)return [];return [.2,.4,.6,.8].map(q=>v[Math.floor(q*v.length)]).concat([v[0],v[v.length-1]])})();
+const quint=r=>r==null||!RQ.length?'':String(1+RQ.slice(0,4).filter(t=>r>=t).length);
+const fmtEur=v=>Math.round(v).toLocaleString('es-ES')+' €';
+const k$=v=>(Math.round(v/1000)).toLocaleString('es-ES')+' k€';
+const QLAB=q=>{if(!RQ.length)return q;const t=RQ.slice(0,4),lo=[RQ[4],...t][q-1],hi=[...t,RQ[5]][q-1];return `${['1 · renta más baja','2','3','4','5 · renta más alta'][q-1]} (${k$(lo)}–${k$(hi)})`};
+const QCOL=['#e3b98a','#ecd0ac','#f3e2c9','#f8eee0','#fcf8f1'];
+const ivtaOf=cd=>{const v=VUL&&VUL.ivta[cd];if(!v)return null;const y=Math.max(...Object.keys(v).map(Number));return {y,v:v[y][0],m:v[y][1]}};
 let C={}, buildings=[], centros=[], noCoords=0;
 const on=new Set(STATES.map(s=>s.k));
 let selected=null, hover=null, KEYMAP=new Map(), NEAR=null;
@@ -521,6 +553,8 @@ function build(){
     b.dec=b.year==null?'Sin dato':(b.year<1900?'Antes de 1900':(Math.floor(b.year/10)*10)+'s');
     const m=/(\d{4})\s*$/.exec(String(b.main[C['Fecha presentación']]||''));b.ypres=m?+m[1]:null;
     b.addr=b.main[C['Dirección']];
+    if(C['Código barrio']!=null){const cb=(b.cents.find(c=>c.r===b.main)||b.cents[0]).r[C['Código barrio']]||b.cents.map(c=>c.r[C['Código barrio']]).find(Boolean)||'';
+      b.barrio=cb?String(cb):'';const bb=BARR.get(b.barrio);b.barrioNom=bb?bb.nom:'';b.cd=bb?bb.cd:null;b.renta=rentaOf(b.barrio);b.rq=quint(b.renta)}
     // plazo de la próxima ITE/IEE según el Registro (el más próximo de sus direcciones)
     let yv=null;for(const c of b.cents){const a=String(c.r[C['Año próxima ITE']]||''),f=/(\d{4})\s*$/.exec(String(c.r[C['Fecha máx. IEE']]||''));
       const y=/^\d{4}$/.test(a)?+a:(f?+f[1]:null);if(y&&(yv==null||y<yv))yv=y}
@@ -585,6 +619,11 @@ document.getElementById('fDist').addEventListener('change',e=>{applyFilters();if
 document.getElementById('fTipo').addEventListener('change',()=>{fillSub();applyFilters()});
 document.getElementById('fSub').addEventListener('change',applyFilters);
 document.getElementById('fVenc').addEventListener('change',applyFilters);
+if(!BARR.size)document.getElementById('secCapa').style.display='none';
+document.getElementById('lyY').textContent=RY?`(${RY})`:'';
+document.getElementById('lyLeg').innerHTML=RQ.length?[1,2,3,4,5].map(q=>`<span><i style="background:${QCOL[q-1]}"></i>${QLAB(q)}</span>`).join(''):'';
+document.getElementById('lyRenta').addEventListener('change',e=>{document.getElementById('lyLeg').style.display=e.target.checked?'':'none';draw()});
+document.getElementById('lyLeg').style.display='none';
 document.getElementById('q').addEventListener('input',applyFilters);
 
 // ---------- Mapa (canvas, sin teselas externas) ----------
@@ -625,6 +664,9 @@ function draw(){
   ctx.lineJoin='round';
   for(const d of distP){ctx.beginPath();for(const l of d.lines){l.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])))}
     ctx.fillStyle='#ffffff';ctx.fill('evenodd');ctx.strokeStyle='#b9b5ad';ctx.lineWidth=1.1;ctx.stroke()}
+  // capa de barrios por renta
+  if(document.getElementById('lyRenta').checked&&BARR.size){if(!window.BARP)window.BARP=[...BARR.values()].map(b=>({q:quint(b.renta[RY]),rings:b.lines.map(r=>r.map(p=>proj(p[0],p[1])))}));
+    for(const bp of BARP){if(!bp.q)continue;ctx.beginPath();for(const r of bp.rings)r.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.closePath();ctx.fillStyle=QCOL[+bp.q-1];ctx.fill('evenodd');ctx.strokeStyle='rgba(150,120,80,.35)';ctx.lineWidth=.7;ctx.stroke()}}
   // calles
   drawStreets(ctx,X,Y,s/fitScale,[-20,-20,W+20,H+20],s);
   for(const d of distP){ctx.beginPath();for(const l of d.lines){l.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])))}ctx.strokeStyle='#b9b5ad';ctx.lineWidth=1.1;ctx.stroke()}
@@ -685,7 +727,7 @@ function showDetail(b){
     return `${byAddr.size>1?`<div class="pa">${esc(g('Dirección'))}</div>`:''}${badge}<dl>${ITE_FIELDS.map(([k,l])=>{const v=g(k);return v!==''&&v!=null&&v!=='-'?`<dt>${esc(l||k)}</dt><dd>${esc(v)}</dd>`:''}).join('')}</dl>`};
   const head=b.main[C['Denominación en el Registro']];
   pop.innerHTML=`<div class="ph"><div><div class="pt">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}</div>${head?`<div class="sub">${esc(head)}</div>`:''}
-     <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div></div>
+     <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
    <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
@@ -751,6 +793,8 @@ document.getElementById('nearF').onsubmit=async e=>{e.preventDefault();const q=d
     box.innerHTML=c.map((x,i)=>`<button class="nc" data-i="${i}">${esc(x.address)} <span class="sub">${esc(x.postalCode||'')}</span></button>`).join('');
     box.onclick=ev=>{const bt=ev.target.closest('.nc');if(!bt)return;const x=c[+bt.dataset.i];setNear(+x.lat,+x.lng,x.address)}}
   catch(err){box.innerHTML='<div class="sub">No se ha podido consultar el buscador de direcciones (CartoCiudad). Prueba con «Mi ubicación» o con el buscador de centros.</div>'}};
+function barrioHtml(b){if(!b.barrioNom)return '';const iv=b.cd!=null?ivtaOf(b.cd):null;
+  return `<div class="sub pbar">Barrio <b>${esc(b.barrioNom)}</b>${b.renta?` · renta media por hogar ${fmtEur(b.renta)} (${RY}; grupo ${b.rq} de 5${b.rq==='1'?', de los más bajos de Madrid':b.rq==='5'?', de los más altos':''})`:''}${iv?` · vulnerabilidad del distrito (IVTA ${iv.y}) ${iv.v.toLocaleString('es-ES',{maximumFractionDigits:2})}, media de Madrid ${iv.m.toLocaleString('es-ES',{maximumFractionDigits:2})}`:''}</div>`}
 // En móvil la ficha tapa la mitad inferior: desplaza el mapa para que el edificio quede visible encima
 function keepAbovePop(b){if(!isMobile())return;const ph=pop.offsetHeight,y=Y(b.p[1]),x=X(b.p[0]);const lim=H-ph-24;if(y>lim||y<60){ty+=Math.max(60,(H-ph)/2)-y}if(x<20||x>W-20)tx+=W/2-x}
 function placePop(){
@@ -788,16 +832,17 @@ const G=(b,k)=>b.main[C[k]]??'';
 // LO MÁS URGENTE
 // =====================================================================
 const ULIM={desf:10,vencida:10,este:10,prox:10};
-function uFilter(){const d=document.getElementById('uDist').value,t=document.getElementById('uTipo').value;return buildings.filter(b=>(!d||b.dists.has(d))&&(!t||b.tipos.has(t)))}
+function uFilter(){const d=document.getElementById('uDist').value,t=document.getElementById('uTipo').value,q=document.getElementById('uRenta').value;return buildings.filter(b=>(!d||b.dists.has(d))&&(!t||b.tipos.has(t))&&(!q||b.rq===q))}
 function uItem(b,val,sub,extra){const st=SMAP[b.s];const tipos=[...b.tipos].filter(Boolean).join(', ');
-  return `<a class="ui" href="#edificio=${encodeURIComponent(b.key)}"><span class="ub" style="background:${st.hollow?'#c4c9ce':st.c}"></span><span class="uc"><div class="ut">${esc(shareTitle(b))}</div><div class="um">${esc(b.addr)} · ${esc([...b.dists].join(', '))}${tipos?' · '+esc(tipos):''}</div>${extra?`<div class="ux">${extra}</div>`:''}</span><span class="uv">${val}${sub?`<small>${sub}</small>`:''}</span></a>`}
+  return `<a class="ui" href="#edificio=${encodeURIComponent(b.key)}"><span class="ub" style="background:${st.hollow?'#c4c9ce':st.c}"></span><span class="uc"><div class="ut">${esc(shareTitle(b))}</div><div class="um">${esc(b.addr)} · ${esc([...b.dists].join(', '))}${b.barrioNom?' · barrio '+esc(b.barrioNom)+(b.rq?' (renta grupo '+b.rq+')':''):''}${tipos?' · '+esc(tipos):''}</div>${extra?`<div class="ux">${extra}</div>`:''}</span><span class="uv">${val}${sub?`<small>${sub}</small>`:''}</span></a>`}
 function uList(id,items,k,render){const el=document.getElementById(id);if(!items.length){el.innerHTML='<div class="ue">Ningún edificio con estos filtros.</div>';return}
   el.innerHTML=items.slice(0,ULIM[k]).map(render).join('')+(items.length>ULIM[k]?`<button class="btn umore" data-k="${k}">Mostrar más (${fmt(items.length-ULIM[k])} restantes)</button>`:'')+
     `<button class="btn umore" data-map="${k}" style="margin-left:8px">Ver en el mapa</button>`}
 function renderUrgente(){
   const fd=document.getElementById('uDist'),ft=document.getElementById('uTipo');
   if(fd.options.length<2){const ds=[...new Set(buildings.flatMap(b=>[...b.dists]))].sort((a,b)=>a.localeCompare(b,'es')),ts=[...new Set(buildings.flatMap(b=>[...b.tipos]))].filter(Boolean).sort((a,b)=>a.localeCompare(b,'es'));
-    fd.innerHTML+=ds.map(d=>`<option>${esc(d)}</option>`).join('');ft.innerHTML+=ts.map(t=>`<option>${esc(t)}</option>`).join('')}
+    fd.innerHTML+=ds.map(d=>`<option>${esc(d)}</option>`).join('');ft.innerHTML+=ts.map(t=>`<option>${esc(t)}</option>`).join('');
+    const fr=document.getElementById('uRenta');if(RQ.length)fr.innerHTML+=['1','2','3','4','5'].map(q=>`<option value="${q}">Renta del barrio: grupo ${QLAB(+q)}</option>`).join('');else fr.style.display='none'}
   document.getElementById('uIntro').textContent=`Edificios del listado que necesitan atención según el Registro de Edificios del Ayuntamiento (datos del ${(window.ITE_GENERADO||'').split('-').reverse().join('/')}). Los plazos se comparan con el año actual (${Y0}): si se ha presentado una ITE después de esa fecha, el edificio puede estar ya al día. Pulsa un edificio para ver su ficha.`;
   const L=uFilter();
   const desf=L.filter(b=>b.s==='desf').sort((a,b)=>(a.fpres||'99999999').localeCompare(b.fpres||'99999999'));
@@ -812,12 +857,12 @@ function renderUrgente(){
   const vRender=b=>uItem(b,`${b.yv}`,b.yv<Y0?`vencido hace ${Y0-b.yv} año${Y0-b.yv>1?'s':''}`:'plazo',`Estado actual: ${esc(SMAP[b.s].lab)}`);
   uList('uVenc',venc,'vencida',vRender);uList('uEste',este,'este',vRender);uList('uProx',prox,'prox',vRender);
 }
-['uDist','uTipo'].forEach(id=>document.getElementById(id).onchange=()=>{Object.keys(ULIM).forEach(k=>ULIM[k]=10);renderUrgente()});
+['uDist','uTipo','uRenta'].forEach(id=>document.getElementById(id).onchange=()=>{Object.keys(ULIM).forEach(k=>ULIM[k]=10);renderUrgente()});
 document.getElementById('view-urgente').addEventListener('click',e=>{
   const m=e.target.closest('.umore');
   if(m&&m.dataset.k){ULIM[m.dataset.k]+=20;renderUrgente();return}
   if(m&&m.dataset.map){const k=m.dataset.map;// lleva los filtros al mapa
-    document.getElementById('q').value='';document.getElementById('fDist').value=document.getElementById('uDist').value;document.getElementById('fTipo').value=document.getElementById('uTipo').value;fillSub();document.getElementById('fSub').value='';
+    document.getElementById('q').value='';document.getElementById('fDist').value=document.getElementById('uDist').value;if(document.getElementById('uRenta').value)toast('El filtro de renta no se traslada al mapa: activa la capa de barrios para verlo');document.getElementById('fTipo').value=document.getElementById('uTipo').value;fillSub();document.getElementById('fSub').value='';
     document.getElementById('fVenc').value=k==='desf'?'':k;STATES.forEach(s=>k==='desf'?(s.k==='desf'?on.add(s.k):on.delete(s.k)):on.add(s.k));NEAR=null;applyFilters();location.hash='#mapa';setTimeout(()=>{fitAll();draw()},60);return}
   const kp=e.target.closest('.kpi[data-go]');if(kp){document.getElementById(kp.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})}});
 const VIEWS=['mapa','urgente','panel','informe','ayuda'];
@@ -830,12 +875,13 @@ window.addEventListener('hashchange',route);
 // =====================================================================
 // PANEL
 // =====================================================================
-const PF={dist:new Set(),tipo:new Set(),estado:new Set(),dec:new Set(),sub:'',fuente:''};
+const PF={dist:new Set(),tipo:new Set(),estado:new Set(),dec:new Set(),renta:new Set(),sub:'',fuente:''};
 const DIMS={
   dist:b=>[...b.dists].some(d=>PF.dist.has(d)),
   tipo:b=>[...b.tipos].some(t=>PF.tipo.has(t)),
   estado:b=>PF.estado.has(b.s),
   dec:b=>PF.dec.has(b.dec),
+  renta:b=>PF.renta.has(b.rq),
   sub:b=>b.subs.has(PF.sub),
   fuente:b=>b.fuentes.has(PF.fuente)};
 const active=k=>k==='sub'||k==='fuente'?!!PF[k]:PF[k].size>0;
@@ -845,13 +891,13 @@ const charts={};let chartOK=!!window.Chart;
 function chip(label,on,attrs,dot){return `<span class="chip${on?' on':''}" ${attrs}>${dot?`<i class="d" style="background:${dot}"></i>`:''}${esc(label)}</span>`}
 // ---------- Selectores del panel en móvil (multiselección / selección única) ----------
 let SLOPTS={},PICK=null;
-const SLDIMS=[['estado','Estado'],['dist','Distrito'],['tipo','Tipo'],['dec','Década'],['sub','Subtipo'],['fuente','Fuente']];
+const SLDIMS=[['estado','Estado'],['dist','Distrito'],['tipo','Tipo'],['dec','Década'],['renta','Renta del barrio'],['sub','Subtipo'],['fuente','Fuente']];
 const SINGLE=k=>k==='sub'||k==='fuente';
 const ddSel=k=>SINGLE(k)?(PF[k]?[PF[k]]:[]):[...PF[k]];
 function ddSummary(k){const sel=ddSel(k),o=SLOPTS[k]||[];if(!sel.length)return k==='sub'?'Todos los subtipos':k==='fuente'?'Todas las fuentes':'Todos';
   const lab=v=>{const x=o.find(z=>z.v===v);return x?(k==='estado'?(SMAP[v].short):x.l):v};
   const ord=o.map(z=>z.v).filter(v=>sel.includes(v));return ord.length<=2?ord.map(lab).join(', '):`${lab(ord[0])} y ${ord.length-1} más`}
-const DIMVALS={estado:b=>[b.s],dist:b=>[...b.dists],tipo:b=>[...b.tipos],dec:b=>[b.dec],sub:b=>[...b.subs],fuente:b=>[...b.fuentes]};
+const DIMVALS={renta:b=>b.rq?[b.rq]:[],estado:b=>[b.s],dist:b=>[...b.dists],tipo:b=>[...b.tipos],dec:b=>[b.dec],sub:b=>[...b.subs],fuente:b=>[...b.fuentes]};
 function openPick(k){PICK={k,q:''};document.getElementById('pickT').textContent=SLDIMS.find(d=>d[0]===k)[1];
   const q=document.getElementById('pickQ');q.value='';q.style.display=(SLOPTS[k]||[]).length>12?'':'none';
   document.getElementById('pick').classList.add('open');document.getElementById('pickScrim').classList.add('on');renderPick();document.getElementById('pickL').scrollTop=0}
@@ -882,7 +928,7 @@ function renderSlicers(){
   const subs=new Map();for(const b of buildings)for(const k of b.subs){const [tp,st]=k.split('|');if(!st||(PF.tipo.size&&!PF.tipo.has(tp)))continue;subs.set(k,(subs.get(k)||0)+1)}
   if(PF.sub&&!subs.has(PF.sub))PF.sub='';
   const sk=[...subs.keys()].sort((a,b)=>a.split('|')[1].localeCompare(b.split('|')[1],'es'));
-  SLOPTS={estado:STATES.map(s=>({v:s.k,l:s.lab,dot:s.c,hollow:s.hollow})),dist:ds.map(v=>({v,l:v})),tipo:ts.map(v=>({v,l:v})),dec:decs.map(v=>({v,l:v})),
+  SLOPTS={estado:STATES.map(s=>({v:s.k,l:s.lab,dot:s.c,hollow:s.hollow})),dist:ds.map(v=>({v,l:v})),tipo:ts.map(v=>({v,l:v})),dec:decs.map(v=>({v,l:v})),renta:RQ.length?['1','2','3','4','5'].map(v=>({v,l:QLAB(+v)})):[],
     sub:sk.map(k=>{const [tp,st]=k.split('|');return {v:k,l:st,d:PF.tipo.size===1?'':tp}}),fuente:fu.map(v=>({v,l:v}))};
   if(isMobile()){
     document.getElementById('slicers').innerHTML=SLDIMS.map(([k,l])=>`<div class="sl"><label>${l}</label><button class="dd${ddSel(k).length?' on':''}" data-dim="${k}" aria-haspopup="listbox"><span class="ddt">${esc(ddSummary(k))}</span>${ddSel(k).length>1?`<span class="ddn">${ddSel(k).length}</span>`:''}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button></div>`).join('');
@@ -894,13 +940,14 @@ function renderSlicers(){
     <div class="sl"><label>Distrito</label><div class="chips">${ds.map(d=>chip(d,PF.dist.has(d),`data-f="dist" data-v="${esc(d)}"`)).join('')}</div></div>
     <div class="sl"><label>Tipo</label><div class="chips">${ts.map(t=>chip(t,PF.tipo.has(t),`data-f="tipo" data-v="${esc(t)}"`)).join('')}</div></div>
     <div class="sl"><label>Década</label><div class="chips">${decs.map(d=>chip(d,PF.dec.has(d),`data-f="dec" data-v="${esc(d)}"`)).join('')}</div></div>
+    ${RQ.length?`<div class="sl"><label>Renta del barrio</label><div class="chips">${['1','2','3','4','5'].map(q=>chip(QLAB(+q),PF.renta.has(q),`data-f="renta" data-v="${q}"`,QCOL[+q-1])).join('')}</div></div>`:''}
     <div class="sl"><label>Subtipo</label><select id="pfSub"><option value="">Todos los subtipos</option>${sk.map(k=>{const [tp,st]=k.split('|');return `<option value="${esc(k)}" ${k===PF.sub?'selected':''}>${esc(st)}${PF.tipo.size===1?'':' ('+esc(tp)+')'} · ${subs.get(k)} edif.</option>`}).join('')}</select>
       <label style="width:auto;margin-left:14px">Fuente</label><select id="pfFu" style="min-width:160px"><option value="">Todas</option>${fu.map(f=>`<option ${f===PF.fuente?'selected':''}>${esc(f)}</option>`).join('')}</select></div>`;
   document.querySelectorAll('#slicers .chips').forEach((c,i)=>c.scrollLeft=keepX[i]||0);
 }
 document.getElementById('slicers').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;toggle(PF[c.dataset.f],c.dataset.v)});
 document.getElementById('slicers').addEventListener('change',e=>{if(e.target.id==='pfSub'){PF.sub=e.target.value;renderPanel()}if(e.target.id==='pfFu'){PF.fuente=e.target.value;renderPanel()}});
-document.getElementById('pfClear').onclick=()=>{['dist','tipo','estado','dec'].forEach(k=>PF[k].clear());PF.sub='';PF.fuente='';renderPanel()};
+document.getElementById('pfClear').onclick=()=>{['dist','tipo','estado','dec','renta'].forEach(k=>PF[k].clear());PF.sub='';PF.fuente='';renderPanel()};
 
 function stackedData(map,keys,dim){
   const sel=PF[dim];
@@ -919,7 +966,7 @@ function renderPanel(){TLIM=50;
   if(chartOK){Chart.defaults.font.family='Inter, system-ui, sans-serif';Chart.defaults.color='#646c75'}
   renderSlicers();
   const list=pfilter(null), K=kpiData(list);
-  const nAct=['dist','tipo','estado','dec','sub','fuente'].filter(active).length;
+  const nAct=['dist','tipo','estado','dec','renta','sub','fuente'].filter(active).length;
   document.getElementById('pfLine').textContent=nAct?`${nAct} filtro(s) activo(s). Los gráficos muestran atenuado lo que queda fuera de la selección de su propia dimensión.`:'Sin filtros: todos los edificios del listado. Pincha en barras, sectores o chips para filtrar.';
   const kp=(v,l,c,frac,pc)=>`<div class="kpi"><div class="v">${v}${pc!=null?` <span class="pc">(${pc})</span>`:''}</div><div class="l">${l}</div>${c?`<div class="bar" style="background:linear-gradient(90deg,${c} ${frac}%,#eceae5 ${frac}%)"></div>`:''}</div>`;
   document.getElementById('kpis').innerHTML=
@@ -935,6 +982,12 @@ function renderPanel(){TLIM=50;
     const le=pfilter('estado'),ce=kpiData(le).c;
     mkChart('cEstado',{type:'doughnut',data:{labels:STATES.map(s=>`${isMobile()?s.short:s.lab} · ${pct(ce[s.k],le.length)}`),datasets:[{data:STATES.map(s=>ce[s.k]),backgroundColor:STATES.map(s=>PF.estado.size&&!PF.estado.has(s.k)?s.c+'40':s.c),borderWidth:1,borderColor:'#fff'}]},
       options:baseOpts({cutout:'58%',plugins:{legend:{position:isMobile()?'bottom':'right',labels:{boxWidth:10,font:{size:isMobile()?12.5:11.5},filter:(it,d)=>d.datasets[0].data[it.index]>0}},tooltip:{callbacks:{label:i=>`${STATES[i.dataIndex].lab}: ${fmt(i.raw)} (${pct(i.raw,le.length)})`}}},onClick:(e,els)=>{if(els[0])toggle(PF.estado,STATES[els[0].index].k)}})});
+    // renta del barrio
+    if(RQ.length){const lr=pfilter('renta'),mr=countBy(lr,b=>b.rq||null),kr=['1','2','3','4','5'];
+      mkChart('cRenta',{type:'bar',data:{labels:kr.map(q=>isMobile()?`G${q}`:QLAB(+q).replace(/ \(.*$/,'')),datasets:stackedData(mr,kr,'renta')},options:baseOpts({scales:{x:{stacked:true,grid:{display:false},ticks:{font:{size:11}}},y:{stacked:true}},
+        plugins:{tooltip:{callbacks:{title:it=>'Renta del barrio: grupo '+QLAB(+kr[it[0].dataIndex])}}},onClick:(e,els)=>{if(els[0])toggle(PF.renta,kr[els[0].index])}})});
+      document.getElementById('rentaNote').innerHTML='<b>Desfavorables sin subsanar sobre los edificios con ITE/IEE presentada:</b> '+kr.map(q=>{const o=mr.get(q);const n=o?o.fav+o.desf+o.subs+o.iee:0;return `<span class="rq"><i style="background:${QCOL[+q-1]}"></i>grupo ${q}: ${n?pct(o.desf,n):'–'}</span>`}).join(' ')+'<br>Comparación descriptiva: los grupos difieren también en antigüedad de los edificios y en el porcentaje sin dato.'}
+    else document.getElementById('cardRenta').style.display='none';
     // década
     const ld=pfilter('dec'),md=countBy(ld,b=>b.dec),kd=[...md.keys()].sort((a,b)=>decOrder(a)-decOrder(b));
     mkChart('cDec',{type:'bar',data:{labels:kd,datasets:stackedData(md,kd,'dec')},options:baseOpts({scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true}},onClick:(e,els)=>{if(els[0])toggle(PF.dec,kd[els[0].index])}})});
@@ -954,7 +1007,7 @@ function renderPanel(){TLIM=50;
 let TSORT={k:'sev',dir:-1},TLIM=50;
 const slicersEl=document.getElementById('slicers');if(isMobile())slicersEl.classList.add('collapsed');
 document.getElementById('slTog').onclick=()=>{slicersEl.classList.toggle('collapsed');updSlTog()};
-function updSlTog(){const n=['dist','tipo','estado','dec','sub','fuente'].filter(active).length;
+function updSlTog(){const n=['dist','tipo','estado','dec','renta','sub','fuente'].filter(active).length;
   document.getElementById('slTog').textContent=(slicersEl.classList.contains('collapsed')?'Mostrar filtros':'Ocultar filtros')+(n?` (${n})`:'')}
 // Copia el texto de cada cabecera a data-l de sus celdas (para mostrar las tablas como tarjetas en móvil)
 function labelCells(t){t.classList.add('stack');const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.replace(/ [▲▼]$/,'').trim());t.querySelectorAll('tbody tr').forEach(tr=>[...tr.cells].forEach((td,i)=>td.dataset.l=hs[i]??''))}

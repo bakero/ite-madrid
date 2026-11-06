@@ -54,12 +54,12 @@ COLS = ['Distrito', 'Centro', 'Dirección', 'Teléfono', 'Tipo de edificio', 'Su
         'Causa dictamen desfavorable', 'Situación administrativa', 'Dependencia actual', 'Nº expediente',
         'Fecha presentación', 'Estado orden de ejecución', 'Fecha resolución', 'Resolución', 'Deficiencias subsanadas',
         'Año próxima ITE', 'Fecha máx. IEE', 'ITE/IEE anteriores', 'Denominación en el Registro', 'Dirección en el Registro',
-        'Resultado consulta Registro', 'Fecha consulta', 'Latitud', 'Longitud', 'Ficha madrid.es']
+        'Resultado consulta Registro', 'Fecha consulta', 'Latitud', 'Longitud', 'Ficha madrid.es', 'Código barrio']
 SQL = """SELECT distrito, nombre, direccion, telefono, tipo_edificio, subtipo, categoria_origen, fuente, otras_fuentes, empresa_gestora,
   COALESCE(estado_inspeccion,'Pendiente de consulta'), anio_construccion, tipo_expediente, dictamen, parcial_total,
   causa_desfavorable, situacion_administrativa, dependencia_actual, n_expediente, fecha_presentacion, estado_orden,
   fecha_resolucion, resolucion, deficiencias_subsanadas, anio_proxima_ite, fecha_max_iee, ite_anteriores, denominacion,
-  vial_registro, resultado_consulta, fecha_consulta, lat, lng, url_ficha FROM v_centros_ite WHERE COALESCE(excluido,'')='' ORDER BY distrito, nombre"""
+  vial_registro, resultado_consulta, fecha_consulta, lat, lng, url_ficha, cod_barrio FROM v_centros_ite WHERE COALESCE(excluido,'')='' ORDER BY distrito, nombre"""
 
 def fix_distritos(con):
     """Asigna distrito por coordenadas a los centros sin distrito válido (algunos de datos.madrid.es)."""
@@ -134,14 +134,23 @@ def export(con):
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import reclasificacion
     reclasificacion.aplicar(con)
+    import vulnerabilidad
+    if 'cod_barrio' not in [r[1] for r in con.execute('PRAGMA table_info(centros)')]:
+        con.execute('ALTER TABLE centros ADD COLUMN cod_barrio INTEGER')
+    vulnerabilidad.asignar(con)
+    vul = vulnerabilidad.export_js(con)
+    # fecha de los datos = última consulta al Registro (no la fecha de ejecución)
+    fecha_datos = con.execute("SELECT max(fecha_consulta) FROM ite WHERE fecha_consulta LIKE '____-__-__'").fetchone()[0] or HOY
     rows =[['' if v is None else v for v in r] for r in con.execute(SQL)]
     dist = [{'cod': c, 'nom': n, 'lines': json.loads(l)} for c, n, l in con.execute('SELECT cod,nombre,contorno_json FROM distritos')]
     os.makedirs(os.path.join(ROOT, 'app'), exist_ok=True)
     with open(os.path.join(ROOT, 'app', 'data.js'), 'w', encoding='utf-8') as f:
-        f.write('window.ITE_GENERADO=' + json.dumps(HOY) + ';\n')
+        f.write('window.ITE_GENERADO=' + json.dumps(fecha_datos) + ';\n')
         f.write('window.ITE_COLS=' + json.dumps(COLS, ensure_ascii=False) + ';\n')
         f.write('window.ITE_ROWS=' + json.dumps(rows, ensure_ascii=False, separators=(',', ':')) + ';\n')
         f.write('window.DISTRITOS=' + json.dumps(dist, ensure_ascii=False, separators=(',', ':')) + ';\n')
+        if vul:
+            f.write('window.VULNERABILIDAD=' + json.dumps(vul, ensure_ascii=False, separators=(',', ':')) + ';\n')
     # Excel
     wb = openpyxl.Workbook(); ws = wb.active; ws.title = 'Centros + ITE'
     ws.append(COLS)
