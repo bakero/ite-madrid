@@ -1189,7 +1189,7 @@ function fuentesHtml(b){
     add(`Licitación ${c.exp} en la Plataforma de Contratación`,c.url||null,`${esc(c.cats.map(x=>CATL[x]||x).join(', '))} · ${esc(c.empresa)}${c.url?' · pliegos, adjudicación y prórrogas':' · sin enlace público localizado'}`)}}
   if(b.barrioNom)add(`IGUALA, índice de vulnerabilidad territorial (renta del barrio ${b.barrioNom})`,'https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad','renta media por hogar');
   add('Ubicación en OpenStreetMap',`https://www.openstreetmap.org/?mlat=${b.lat.toFixed(5)}&mlon=${b.lng.toFixed(5)}#map=19/${b.lat.toFixed(5)}/${b.lng.toFixed(5)}`,`${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}`);
-  add('Catastro (consulta por coordenadas)',`https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?latitud=${b.lat.toFixed(6)}&longitud=${b.lng.toFixed(6)}&zoom=19`,'parcela y referencia catastral');
+  add('Catastro: buscador de parcelas','https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?buscar=S',`buscar por coordenadas ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)} para ver la parcela y su referencia catastral`);
   return `<details><summary>Fuentes de este edificio (${L.length})</summary><ul>${L.join('')}</ul></details>`;
 }
 function renderFicha(b){
