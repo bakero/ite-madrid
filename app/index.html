@@ -104,6 +104,29 @@ dl{margin:0;display:grid;grid-template-columns:130px 1fr;gap:5px 10px;font-size:
 dt{color:var(--muted)}dd{margin:0;word-break:break-word}
 .cent{border-top:1px solid var(--line);padding:9px 0;font-size:13px}
 .inv{font-size:13px}
+.an .anh{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px}
+.an h1{font-size:21px;margin:0 0 4px}
+.an .anh p{max-width:640px;margin:0}
+.an .anf{display:flex;gap:10px;flex-wrap:wrap}
+.an .anf label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.an .anf select{font:inherit;font-size:14px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;min-width:200px}
+.an .kpi .cmpv{font-size:11.5px;color:var(--muted);margin-top:3px}
+.an .kpi .cmpv b{color:var(--ink)}
+.an .up{color:#2f7d4f!important}.an .dn{color:#b3412f!important}
+.tw{overflow-x:auto}
+.at th{cursor:pointer;white-space:nowrap}
+.at th.on{color:var(--ink)}
+.at tr.sel td{background:#eef4fb;font-weight:600}
+.at tbody tr{cursor:pointer}
+.at tbody tr:hover td{background:#f6f5f2}
+.hb{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:3px 8px;align-items:center;font-size:12.5px;margin:4px 0}
+.hb .bars{display:flex;flex-direction:column;gap:2px}
+.hb .bars i{display:block;height:8px;border-radius:2px;min-width:1px}
+.hb b{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;font-weight:600}
+.hb .sub{font-size:11px}
+.lg2{display:flex;gap:12px;font-size:11px;color:var(--muted);margin-bottom:6px}.lg2 i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.tl a{color:var(--accent)}
+@media (max-width:820px){.an .anf select{min-width:0;width:100%}.an .anf,.an .anf label{width:100%}}
 .ficha{max-width:1000px}
 .ficha .fh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin:6px 0 10px}
 .ficha h1{font-size:22px;margin:0 0 4px}
@@ -213,6 +236,9 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 #toast.on{opacity:1}
 .pact{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
 .pact .btn{font-size:13px;padding:6px 10px}
+.pact{display:flex;flex-wrap:wrap;gap:6px}
+.pact .btn.primary{font-weight:600;box-shadow:0 1px 3px rgba(31,95,168,.35)}
+.btn.primary.full{font-weight:600;font-size:14px;padding:10px 12px;box-shadow:0 1px 3px rgba(31,95,168,.35)}
 /* Lo más urgente */
 .urg h1{font-size:22px;margin:4px 0 4px}
 .ufil{display:flex;gap:8px;margin:12px 0}
@@ -371,7 +397,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 </style>
 </head>
 <body>
-<nav><span class="brand">ITE · Edificios públicos de Madrid</span><a href="#mapa" data-v="mapa" data-t="Mapa" title="Mapa" aria-label="Mapa"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></a><a href="#urgente" data-v="urgente" data-t="Urgente" title="Lo más urgente" aria-label="Lo más urgente"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></a><a href="#panel" data-v="panel" data-t="Panel" title="Panel" aria-label="Panel"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></a><a href="#informe" data-v="informe" data-t="Informe" title="Informe PDF" aria-label="Informe PDF"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></a><a href="#ayuda" data-v="ayuda" data-t="Ayuda" class="right" title="Ayuda y datos" aria-label="Ayuda y datos"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></a></nav>
+<nav><span class="brand">ITE · Edificios públicos de Madrid</span><a href="#mapa" data-v="mapa" data-t="Mapa" title="Mapa" aria-label="Mapa"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></a><a href="#urgente" data-v="urgente" data-t="Urgente" title="Lo más urgente" aria-label="Lo más urgente"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></a><a href="#panel" data-v="panel" data-t="Panel" title="Panel" aria-label="Panel"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></a><a href="#inversion" data-v="inversion" data-t="Inversión" title="Inversión y servicios por distrito" aria-label="Inversión y servicios por distrito"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg></a><a href="#informe" data-v="informe" data-t="Informe" title="Informe PDF" aria-label="Informe PDF"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></a><a href="#ayuda" data-v="ayuda" data-t="Ayuda" class="right" title="Ayuda y datos" aria-label="Ayuda y datos"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></a></nav>
 <div class="view" id="view-mapa">
 <div id="app">
   <aside id="side">
@@ -507,6 +533,21 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
   </div>
 </div></div>
 
+<div class="view" id="view-inversion"><div class="pg an">
+  <div class="anh"><div><h1>Inversión y servicios por distrito</h1><p class="sub">Lo que el Ayuntamiento ha invertido en sus edificios y lo que cuestan los servicios de limpieza, seguridad, auxiliares y mantenimiento de las Juntas de Distrito, comparado con el conjunto de Madrid.</p></div>
+   <div class="anf"><label>Distrito <select id="aDist"><option value="">Todo Madrid</option></select></label><label>Tipo de edificio <select id="aTipo"><option value="">Todos</option></select></label></div></div>
+  <div class="kpis" id="aKpis"></div>
+  <div class="grid2">
+    <div class="card"><h3 id="aYT">Inversión pagada por año</h3><div id="aYear"></div></div>
+    <div class="card"><h3 id="aTipoT">Inversión por edificio según su tipo</h3><div id="aTipos"></div></div>
+  </div>
+  <div class="card" style="margin-bottom:14px"><h3>Los 21 distritos<small>pincha una cabecera para ordenar, o un distrito para verlo</small></h3><div class="tw"><table class="cmp at" id="aTab"></table></div></div>
+  <div class="grid2">
+    <div class="card"><h3 id="aSvT">Servicios contratados por las Juntas de Distrito</h3><div id="aServ"></div></div>
+    <div class="card"><h3 id="aTopT">Edificios con más inversión pagada</h3><div id="aTop"></div></div>
+  </div>
+  <p class="sub" id="aNote"></p>
+</div></div>
 <div class="view" id="view-ficha"><div class="pg ficha" id="fichaBody"></div></div>
 <div class="view" id="view-ayuda"><div class="pg help">
   <h1 style="font-size:24px;margin:6px 0 4px">Ayuda y transparencia del dato</h1>
@@ -968,9 +1009,9 @@ function showDetail(b){
   pop.innerHTML=`<div class="ph"><div><div class="pt">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}</div>${head?`<div class="sub">${esc(head)}</div>`:''}
      <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
-   <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" href="#ficha=${encodeURIComponent(b.key)}" title="Toda la información, comparativa y fuentes">Ficha completa</a><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
+   <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn primary" href="#ficha=${encodeURIComponent(b.key)}" title="Toda la información, comparativa y fuentes"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>Ficha completa</a><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
    ${invHtml(b)}${servHtml(b)}
-   <a class="btn full" href="#ficha=${encodeURIComponent(b.key)}">Ver la ficha completa del edificio, con comparativa y fuentes</a>
+   <a class="btn primary full" href="#ficha=${encodeURIComponent(b.key)}">Ver la ficha completa del edificio, con comparativa y fuentes</a>
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
    ${b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div>${C['Fuente']!=null?`<div class="m">Fuente: ${esc(x('Fuente'))}${x('Categoría datos.madrid.es')?' ('+esc(x('Categoría datos.madrid.es'))+')':''}${x('Otras fuentes')?' · también en: '+esc(x('Otras fuentes')):''}${x('Empresa gestora')?' · Gestora: '+esc(x('Empresa gestora')):''}</div>`:''}<div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}</div>${x('Ficha madrid.es')?`<div class="m"><a href="${esc(x('Ficha madrid.es'))}" target="_blank" rel="noopener">Ficha en madrid.es</a></div>`:''}</div>`}).join('')}
    <div class="sub" style="margin-top:8px">Coordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}</div></div>`;
@@ -1140,6 +1181,70 @@ function placePop(){
 }
 
 // =====================================================================
+// ANÁLISIS DE INVERSIÓN Y SERVICIOS POR DISTRITO (#inversion)
+// =====================================================================
+let ASORT={k:'pag',d:-1},AINIT=false;
+const pctD=(v,r)=>r?`${v>=r?'+':''}${Math.round(100*(v-r)/r).toLocaleString('es-ES')} %`:'';
+function aGroup(cd,tipo){return buildings.filter(b=>(cd==null||b.cd===cd)&&(!tipo||tipoOf(b)===tipo))}
+function aStats(bs){let pag=0,con=0,nI=0;const Y=new Map();
+  for(const b of bs){const d=INV&&INV.edificios[b.key];if(!d)continue;pag+=d.t[1]||0;con+=d.t[2]||0;if((d.t[1]||0)>0)nI++;
+    for(const r of d.y||[]){const o=Y.get(r[0])||[r[0],0,0];o[1]+=r[2];o[2]+=r[3];Y.set(r[0],o)}}
+  return {n:bs.length,pag,con,nI,Y}}
+function aServ(dn){const C=(EMP&&EMP.contratos||[]).filter(c=>c.vig&&(!dn||c.d===dn));const by={};const emp=new Map();
+  for(const c of C){const k=c.cat;by[k]=(by[k]||0)+(c.anual||0);const e=emp.get(c.emp)||{v:0,cats:new Set()};e.v+=c.anual||0;e.cats.add(k);emp.set(c.emp,e)}
+  return {by,tot:Object.values(by).reduce((a,b)=>a+b,0),n:C.length,emp:[...emp.entries()].sort((a,b)=>b[1].v-a[1].v)}}
+function renderAnalisis(){
+  const sd=document.getElementById('aDist'),st=document.getElementById('aTipo');
+  if(!AINIT){AINIT=true;sd.innerHTML='<option value="">Todo Madrid</option>'+DIST.slice().sort((a,b)=>a.nom.localeCompare(b.nom,'es')).map(d=>`<option value="${d.cod}">${esc(d.nom)}</option>`).join('');
+    const ts=[...new Set(buildings.map(tipoOf))].sort((a,b)=>a.localeCompare(b,'es'));st.innerHTML='<option value="">Todos</option>'+ts.map(t=>`<option>${esc(t)}</option>`).join('');
+    sd.onchange=st.onchange=renderAnalisis;
+    document.getElementById('aTab').addEventListener('click',e=>{const th=e.target.closest('th[data-k]');if(th){ASORT={k:th.dataset.k,d:ASORT.k===th.dataset.k?-ASORT.d:-1};renderAnalisis();return}
+      const tr=e.target.closest('tr[data-cd]');if(tr){sd.value=sd.value===tr.dataset.cd?'':tr.dataset.cd;renderAnalisis();window.scrollTo({top:0,behavior:'smooth'})}})}
+  const cd=sd.value?+sd.value:null,tipo=st.value,dn=cd!=null?DISTN[cd]:null,nm=dn||'Madrid';
+  const all=aStats(aGroup(null,tipo)),cur=cd!=null?aStats(aGroup(cd,tipo)):all;
+  const mPer=all.n?all.pag/all.n:0,cPer=cur.n?cur.pag/cur.n:0;
+  const sv=aServ(dn),svAll=aServ(null);const svMedia=svAll.tot/21;
+  const cmp=(v,ref,lab)=>cd==null?'':`<div class="cmpv">${lab}: <b>${ref}</b> · <span class="${v>=0?'up':'dn'}">${v>=0?'+':''}${Math.round(v).toLocaleString('es-ES')} %</span></div>`;
+  const rel=(a,b)=>b?100*(a-b)/b:0;
+  document.getElementById('aKpis').innerHTML=[
+    [eurS(cur.pag),`Inversión pagada 2014–2025${tipo?' · '+esc(tipo):''}`,cmp(rel(cur.pag,all.pag/21),eurS(all.pag/21),'media por distrito')],
+    [eurS(cPer),'Por edificio (media)',cmp(rel(cPer,mPer),eurS(mPer),'Madrid')],
+    [eurS(cur.pag/12),'Al año (media 2014–2025)',cmp(rel(cur.pag,all.pag/21),eurS(all.pag/21/12),'media por distrito')],
+    [`${cur.nI.toLocaleString('es-ES')} <span class="pc">de ${cur.n.toLocaleString('es-ES')}</span>`,'Edificios con inversión registrada',cd==null?'':`<div class="cmpv">${cur.n?Math.round(100*cur.nI/cur.n):0} % frente a <b>${all.n?Math.round(100*all.nI/all.n):0} %</b> en Madrid</div>`],
+    [eurS(cur.con),'Contratos de obra y mantenimiento 2015–2026',cmp(rel(cur.con,all.con/21),eurS(all.con/21),'media por distrito')],
+    tipo?null:[eurS(sv.tot)+'<span class="pc">/año</span>',`Servicios vigentes de ${cd!=null?'la Junta':'las 21 Juntas'}`,cmp(rel(sv.tot,svMedia),eurS(svMedia),'media por distrito')],
+  ].filter(Boolean).map(([v,l,c])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div>${c}</div>`).join('');
+  // serie anual: distrito frente a la media de los distritos
+  document.getElementById('aYT').innerHTML=`Inversión pagada por año<small>${cd!=null?esc(nm)+' y media de los 21 distritos':'todo Madrid'}</small>`;
+  const ys=[...new Set([...cur.Y.keys(),...all.Y.keys()])].filter(y=>y>=2014&&y<=2025).sort();
+  const rows=ys.map(y=>cd!=null?[y,(cur.Y.get(y)||[0,0])[1],(all.Y.get(y)||[0,0])[1]/21]:[y,(all.Y.get(y)||[0,0])[1]]);
+  document.getElementById('aYear').innerHTML=barChart(rows,cd!=null?[{n:nm,c:'#1f5fa8',i:1},{n:'Media de los distritos',c:'#b8c2cc',i:2}]:[{n:'Todo Madrid',c:'#1f5fa8',i:1}],{title:'Inversión por año'})||'<p class="sub">Sin datos.</p>';
+  // por tipo de edificio: inversión media por edificio, distrito frente a Madrid
+  document.getElementById('aTipoT').innerHTML=`Inversión pagada por edificio, según su tipo<small>media 2014–2025${cd!=null?' · '+esc(nm)+' frente a Madrid':''}</small>`;
+  const tipos=[...new Set(buildings.map(tipoOf))];const TR=tipos.map(t=>{const a=aStats(aGroup(null,t)),c=cd!=null?aStats(aGroup(cd,t)):a;return {t,c:c.n?c.pag/c.n:0,m:a.n?a.pag/a.n:0,n:c.n}}).filter(x=>x.n>0&&(x.c>0||x.m>0)).sort((a,b)=>b.c-a.c);
+  const tmx=Math.max(1,...TR.map(x=>Math.max(x.c,x.m)));
+  document.getElementById('aTipos').innerHTML=(cd!=null?`<div class="lg2"><span><i style="background:#1f5fa8"></i>${esc(nm)}</span><span><i style="background:#b8c2cc"></i>Madrid</span></div>`:'')+TR.map(x=>`<div class="hb"><span>${esc(x.t)} <span class="sub">(${x.n})</span></span><span class="bars"><i style="width:${(100*x.c/tmx).toFixed(1)}%;background:#1f5fa8"></i>${cd!=null?`<i style="width:${(100*x.m/tmx).toFixed(1)}%;background:#b8c2cc"></i>`:''}</span><b>${eurS(x.c)}${cd!=null?`<span class="sub" style="display:block;font-weight:400">${pctD(x.c,x.m)}</span>`:''}</b></div>`).join('');
+  // tabla de distritos
+  const T=DIST.map(d=>{const a=aStats(aGroup(+d.cod,tipo)),v=aServ(d.nom);return {cd:+d.cod,nom:d.nom,n:a.n,pag:a.pag,per:a.n?a.pag/a.n:0,con:a.con,nI:a.n?100*a.nI/a.n:0,sv:v.tot,svn:v.n}});
+  T.sort((a,b)=>ASORT.d*((a[ASORT.k]>b[ASORT.k])-(a[ASORT.k]<b[ASORT.k]))||a.nom.localeCompare(b.nom,'es'));
+  const H=[['nom','Distrito'],['n','Edificios'],['pag','Inversión pagada'],['per','Por edificio'],['nI','% con inversión'],['con','Contratos de obra'],...(tipo?[]:[['sv','Servicios vigentes (€/año)']])];
+  const med=k=>{const v=T.map(x=>x[k]);return v.reduce((a,b)=>a+b,0)/v.length};
+  const fm={n:v=>v.toLocaleString('es-ES'),pag:eurS,per:eurS,nI:v=>Math.round(v)+' %',con:eurS,sv:eurS};
+  document.getElementById('aTab').innerHTML=`<thead><tr>${H.map(([k,l])=>`<th data-k="${k}" class="${ASORT.k===k?'on':''}">${l}${ASORT.k===k?(ASORT.d<0?' ↓':' ↑'):''}</th>`).join('')}</tr></thead><tbody>${T.map(x=>`<tr data-cd="${x.cd}" class="${x.cd===cd?'sel':''}"><td>${esc(x.nom)}</td>${H.slice(1).map(([k])=>`<td><b>${fm[k](x[k])}</b>${k!=='n'?`<span class="sub ${x[k]>=med(k)?'up':'dn'}">${pctD(x[k],med(k))}</span>`:''}</td>`).join('')}</tr>`).join('')}</tbody><tfoot><tr><td><b>Media por distrito</b></td>${H.slice(1).map(([k])=>`<td><b>${fm[k](med(k))}</b></td>`).join('')}</tr></tfoot>`;
+  // servicios: por categoría, distrito frente a la media; empresas
+  document.getElementById('aSvT').innerHTML=`Servicios contratados por ${cd!=null?'la Junta de '+esc(nm):'las Juntas de Distrito'}<small>contratos vigentes, coste anual</small>`;
+  const cats=['limpieza','seguridad','auxiliares','mantenimiento'];const smx=Math.max(1,...cats.map(k=>Math.max(sv.by[k]||0,(svAll.by[k]||0)/21)));
+  document.getElementById('aServ').innerHTML=(tipo?'<p class="sub">Los servicios se contratan para todos los edificios de la Junta: no se pueden separar por tipo de edificio.</p>':'')+(cd!=null?`<div class="lg2"><span><i style="background:#16a34a"></i>${esc(nm)}</span><span><i style="background:#b8c2cc"></i>Media por distrito</span></div>`:'')+cats.map(k=>`<div class="hb"><span>${CATL[k]}</span><span class="bars"><i style="width:${(100*(cd!=null?sv.by[k]||0:(svAll.by[k]||0)/21)/smx).toFixed(1)}%;background:#16a34a"></i>${cd!=null?`<i style="width:${(100*(svAll.by[k]||0)/21/smx).toFixed(1)}%;background:#b8c2cc"></i>`:''}</span><b>${eurS(cd!=null?sv.by[k]||0:(svAll.by[k]||0))}/año${cd!=null?`<span class="sub" style="display:block;font-weight:400">${pctD(sv.by[k]||0,(svAll.by[k]||0)/21)}</span>`:''}</b></div>`).join('')
+    +`<h3 style="margin:14px 0 6px">Empresas${cd!=null?'':' (todo Madrid)'}</h3>`+sv.emp.slice(0,10).map(([e,o])=>`<div class="hb"><span>${esc(e)}</span><span class="sub">${[...o.cats].map(k=>CATL[k]||k).join(', ')}</span><b>${eurS(o.v)}/año</b></div>`).join('')
+    +`<p class="sub">Si un distrito no tiene contrato vigente de un servicio, cuenta como 0. <a href="#mapa" id="aEmp">Ver el mapa de empresas por distrito</a></p>`;
+  const ae=document.getElementById('aEmp');if(ae)ae.onclick=()=>{setTimeout(()=>{const c=document.getElementById('lyEmp');if(c&&!c.checked){c.checked=true;c.dispatchEvent(new Event('change'))}},120)};
+  // edificios con más inversión
+  document.getElementById('aTopT').innerHTML=`Edificios con más inversión pagada<small>2014–2025 · ${esc(nm)}${tipo?' · '+esc(tipo):''}</small>`;
+  const top=aGroup(cd,tipo).map(b=>({b,v:(INV&&INV.edificios[b.key]||{t:[0,0,0]}).t[1]||0})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v).slice(0,12);const tm=top.length?top[0].v:1;
+  document.getElementById('aTop').innerHTML=top.map(x=>`<div class="hb tl"><a href="#ficha=${encodeURIComponent(x.b.key)}">${esc(shareTitle(x.b))}</a><span class="bars"><i style="width:${(100*x.v/tm).toFixed(1)}%;background:#1f5fa8"></i></span><b>${eurS(x.v)}</b></div>`).join('')||'<p class="sub">Sin datos.</p>';
+  document.getElementById('aNote').innerHTML=`Inversión: pagos por proyecto de inversión (ejecución presupuestaria 2014–2025) y contratos de obra y mantenimiento (2015–2026) que se pueden atribuir a un único edificio del mapa; lo que se invierte en varios edificios a la vez, en vía pública o en edificios que no están en el listado no cuenta, así que los totales son menores que la inversión real del Ayuntamiento. Las dos fuentes se solapan y no se suman. Servicios: contratos vigentes de las Juntas de Distrito, coste anual = importe adjudicado / duración; no incluye los que contratan otras áreas ni la Comunidad de Madrid. Las comparaciones no tienen en cuenta la población ni el número de edificios de cada distrito salvo en «por edificio». <a href="#ayuda">Más información</a>`;
+}
+// =====================================================================
 // FICHA COMPLETA DE UN EDIFICIO (#ficha=lat,lng): toda la información, comparativa con su tipo y fuentes
 // =====================================================================
 const median=a=>{if(!a.length)return null;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2};
@@ -1201,7 +1306,7 @@ function renderFicha(b){
   const head=b.main[C['Denominación en el Registro']];
   el.innerHTML=`<div class="fh"><div><h1>${esc(shareTitle(b))}</h1><div class="sub">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}${head?' · '+esc(head):''}</div>
      <div class="sub">${esc([...b.dists].join(' · '))} · ${esc(tipoOf(b))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
-     <div class="acts"><a class="btn" href="#edificio=${encodeURIComponent(b.key)}">Ver en el mapa</a><button class="btn" id="fShare">Compartir</button><button class="btn" id="fPrint">Imprimir</button><a class="btn" href="${esc(fixUrl(b))}" target="_blank" rel="noopener">¿Datos incorrectos?</a></div></div>
+     <div class="acts"><button class="btn primary" id="fBack">← Volver</button><a class="btn" href="#edificio=${encodeURIComponent(b.key)}">Ver en el mapa</a><button class="btn" id="fShare">Compartir</button><button class="btn" id="fPrint">Imprimir</button><a class="btn" href="${esc(fixUrl(b))}" target="_blank" rel="noopener">¿Datos incorrectos?</a></div></div>
    <div class="card"><h2>Inspección técnica de edificios</h2>${ite}</div>
    <div class="card">${invHtml(b,true)||'<h2>Inversión registrada</h2><p class="sub">Sin datos.</p>'}</div>
    ${SERVc(b)?`<div class="card">${servHtml(b,true)}</div>`:''}
@@ -1210,6 +1315,7 @@ function renderFicha(b){
    <div class="card">${fuentesHtml(b)}</div>`;
   document.getElementById('fShare').onclick=()=>{const u=location.origin+location.pathname+'#ficha='+b.key;if(navigator.share)navigator.share({title:shareTitle(b),url:u}).catch(()=>{});else navigator.clipboard.writeText(u).then(()=>toast('Enlace copiado al portapapeles'))};
   document.getElementById('fPrint').onclick=()=>window.print();
+  document.getElementById('fBack').onclick=()=>{location.hash=PREV_HASH&&!PREV_HASH.startsWith('#ficha=')?PREV_HASH:'#edificio='+b.key};
   el.querySelectorAll('.inv .more').forEach(bt=>bt.onclick=()=>{bt.closest('.inv').querySelectorAll('.ev.hid').forEach(e=>e.classList.remove('hid'));bt.remove()});
   document.title=shareTitle(b)+' · ITE Madrid';
 }
@@ -1271,12 +1377,12 @@ document.getElementById('view-urgente').addEventListener('click',e=>{
     document.getElementById('q').value='';document.getElementById('fDist').value=document.getElementById('uDist').value;if(document.getElementById('uRenta').value)toast('El filtro de renta no se traslada al mapa: activa la capa de barrios para verlo');document.getElementById('fTipo').value=document.getElementById('uTipo').value;fillSub();document.getElementById('fSub').value='';
     document.getElementById('fVenc').value=k==='desf'?'':k;STATES.forEach(s=>k==='desf'?(s.k==='desf'?on.add(s.k):on.delete(s.k)):on.add(s.k));NEAR=null;applyFilters();location.hash='#mapa';setTimeout(()=>{fitAll();draw()},60);return}
   const kp=e.target.closest('.kpi[data-go]');if(kp){document.getElementById(kp.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})}});
-const VIEWS=['mapa','urgente','panel','informe','ayuda','ficha'];const TITLE0=document.title;
+const VIEWS=['mapa','urgente','panel','inversion','informe','ayuda','ficha'];const TITLE0=document.title;
 function route(){let v=(location.hash||'#mapa').slice(1),ek=null;if(v.startsWith('edificio=')){ek=decodeURIComponent(v.slice(9));v='mapa'}if(v.startsWith('ficha=')){ek=decodeURIComponent(v.slice(6));v=KEYMAP.has(ek)?'ficha':'mapa'}if(!VIEWS.includes(v))v='mapa';
   VIEWS.forEach(x=>document.getElementById('view-'+x).classList.toggle('on',x===v));
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
-  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v!=='ficha')document.title=TITLE0;if(v==='urgente')renderUrgente();if(v==='ficha'){renderFicha(KEYMAP.get(ek));window.scrollTo(0,0)}if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll();if(ek&&KEYMAP.has(ek)&&selected!==KEYMAP.get(ek))setTimeout(()=>focusBuilding(KEYMAP.get(ek)),60)}}
-window.addEventListener('hashchange',route);
+  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v!=='ficha')document.title=TITLE0;if(v==='urgente')renderUrgente();if(v==='inversion')renderAnalisis();if(v==='ficha'){renderFicha(KEYMAP.get(ek));window.scrollTo(0,0)}if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll();if(ek&&KEYMAP.has(ek)&&selected!==KEYMAP.get(ek))setTimeout(()=>focusBuilding(KEYMAP.get(ek)),60)}}
+let PREV_HASH='';window.addEventListener('hashchange',e=>{try{PREV_HASH=new URL(e.oldURL).hash}catch(_){PREV_HASH=''}route()});
 
 // =====================================================================
 // PANEL
