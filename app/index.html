@@ -103,6 +103,21 @@ select,input[type=search]{width:100%;padding:8px 10px;border:1px solid var(--lin
 dl{margin:0;display:grid;grid-template-columns:130px 1fr;gap:5px 10px;font-size:12.8px}
 dt{color:var(--muted)}dd{margin:0;word-break:break-word}
 .cent{border-top:1px solid var(--line);padding:9px 0;font-size:13px}
+.inv{font-size:13px}
+.inv .tot{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:4px 0 10px}
+.inv .tot div{border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.inv .tot b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
+.inv .tot span{color:var(--muted);font-size:11px;line-height:1.25;display:block}
+.inv .ev{display:grid;grid-template-columns:38px 1fr auto;gap:2px 8px;padding:6px 0;border-top:1px solid var(--line)}
+.inv .ev .y{font-variant-numeric:tabular-nums;color:var(--muted)}
+.inv .ev .i{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.inv .ev .f{grid-column:2/4;font-size:11px;color:var(--muted)}
+.inv .tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:999px;margin-right:4px;border:1px solid var(--line)}
+.inv .note{color:var(--muted);font-size:11.5px;margin:8px 0 0}
+.inv .more{margin-top:6px}
+.inv .ev.hid{display:none}
+@media (max-width:820px){.inv .tot{grid-template-columns:1fr 1fr 1fr}.inv .tot b{font-size:13px}}
+
 .cent:first-of-type{border-top:none}
 .cent b{font-weight:600}
 .cent .m{color:var(--muted);font-size:12px;margin-top:2px}
@@ -423,6 +438,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <tr><td><a href="https://geoportal.madrid.es/IDEAM_WBGEOPORTAL/dataset.iam?id=eb2a7429-2dd6-11e9-bd15-ecb1d752b636" target="_blank" rel="noopener">Callejero oficial · Geometrías de viario</a> (Geoportal, servicio sigma.madrid.es)</td><td>Trazado y nombre de las calles para orientarse en el mapa.</td><td>Consulta del servicio público del callejero (capa de ejes de viario a escala 1:1.000, con el rótulo oficial de cada vía) con simplificación de ≈ 4 m. Las vías principales se destacan según las capas a escala 1:20.000 y 1:25.000.</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas" target="_blank" rel="noopener">Barrios municipales</a> (datos.madrid.es, Límites administrativos actuales)</td><td>Contornos de los 131 barrios: cada centro se asigna al barrio en el que caen sus coordenadas.</td><td>Descarga del SHP (ETRS89 UTM 30N), conversión a latitud/longitud y simplificación de los contornos (≈5 m).</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad" target="_blank" rel="noopener">IGUALA. Índice de vulnerabilidad territorial agregado</a> (datos.madrid.es)</td><td>Renta neta media por hogar de cada barrio (2020–2024) e Índice de Vulnerabilidad Territorial Agregado (IVTA) de cada distrito. El IVTA solo se publica por distrito; por barrio se usa la renta.</td><td>Descarga del fichero «Datos globales y por esferas para distritos» (hojas «Descriptivos barrios» y «Vul. esferas distritos»).</td></tr>
+   <tr><td><a href="https://datos.madrid.es/dataset/211496-0-ejecucion-presupuestaria-histori" target="_blank" rel="noopener">Presupuestos. Ejecución anual histórico</a>, <a href="https://datos.madrid.es/dataset/216876-0-contratos-actividad" target="_blank" rel="noopener">actividad contractual</a> y <a href="https://datos.madrid.es/dataset/300253-0-contratos-actividad-menores" target="_blank" rel="noopener">contratos menores</a> (datos.madrid.es); <a href="https://www.boe.es/buscar/anboe.php" target="_blank" rel="noopener">anuncios del BOE</a></td><td>Historial de inversión de los edificios de Puente de Vallecas (prueba piloto): pagos por proyecto 2014–2025, contratos 2015–2026 y anuncios de contratación 1995–2014.</td><td>Descarga de los ficheros anuales y de 619 anuncios del BOE; asignación a cada edificio por nombre o dirección exacta.</td></tr>
    <tr><td><a href="https://www.cartociudad.es" target="_blank" rel="noopener">CartoCiudad</a> (IGN)</td><td>Coordenadas de 9 direcciones que no las traían.</td><td>Búsqueda del portal exacto; solo se aceptan coincidencias de vía y número.</td></tr>
   </tbody></table></div>
 
@@ -453,6 +469,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <li><b>Desfavorables sin subsanar</b>, ordenados por la fecha de presentación de esa inspección, de la más antigua a la más reciente.</li>
    <li><b>Plazos de ITE/IEE</b>: se usa el «Año próxima ITE» que da el Registro y, si en su lugar indica «Aplica fecha IEE», el año de la «Fecha máx. IEE». Si un edificio tiene varias direcciones, cuenta la fecha más próxima. Se considera <b>vencido</b> si ese año es anterior al actual. Es una lectura del Registro a la fecha de descarga: si se ha presentado una inspección después, el edificio puede estar ya al día. El mismo criterio está disponible en el mapa como filtro «plazos de ITE».</li></ul>
   <h3>Barrio y renta</h3><p>Cada edificio se asigna al barrio en el que caen sus coordenadas, que puede ser de un distrito distinto al del listado de madrid.es en el que aparece el centro: algunos listados de distrito incluyen centros situados en otros distritos. Los 131 barrios se reparten en <b>5 grupos iguales</b> (unos 26 barrios cada uno) según su renta neta media por hogar del último año disponible: el grupo 1 son los barrios con la renta más baja. El panel muestra cuántos edificios hay en cada grupo y qué porcentaje tiene una ITE desfavorable sin subsanar. Es una comparación descriptiva: no implica que la renta sea la causa. La ficha de cada edificio muestra además el IVTA de su distrito, donde un valor más alto indica más vulnerabilidad.</p>
+  <h3>Inversión registrada (Puente de Vallecas)</h3><p>Prueba piloto, por ahora solo para los edificios del distrito de Puente de Vallecas. La ficha reúne tres fuentes públicas: los <b>pagos por proyecto de inversión</b> del Ayuntamiento (2014–2025, ejecución presupuestaria: lo que se pagó de verdad), los <b>contratos de obra y mantenimiento</b> (2015–2026, incluidos los contratos menores y los basados en acuerdos marco; importe adjudicado) y los <b>anuncios de contratación del BOE</b> (1995–2014; importe adjudicado o, si falta, de licitación). Cada registro se asigna a un edificio por su nombre o por su dirección exacta; se descartan los que afectan a varios edificios a la vez y los de vía pública o vivienda. En una revisión a mano de 36 asignaciones acertaron 35. Los importes de las tres fuentes se solapan y no se suman. Antes de 2014 solo constan los contratos grandes: las obras pequeñas se hacían con contratos anuales para todos los edificios del distrito y no se pueden repartir. La fecha y el precio de compra del suelo no están en los datos abiertos.</p>
   <h3>Enlaces a un edificio</h3><p>Cada ficha tiene un botón «Compartir» que genera un enlace directo (<code>#edificio=latitud,longitud</code>). Al abrirlo, el mapa se centra en ese edificio y abre su ficha. El enlace sigue funcionando mientras el edificio mantenga sus coordenadas en futuras actualizaciones de los datos.</p>
   <h3>Cerca de…</h3><p>Muestra los edificios a menos de una distancia (250 m a 2 km) de un punto, ordenados por cercanía, combinados con los demás filtros del mapa. El punto puede ser:</p><ul>
    <li><b>Tu ubicación</b>: el navegador te pide permiso, y la posición se usa solo en tu dispositivo, no se envía a ningún servidor.</li>
@@ -483,6 +500,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 
 <script src="data.js"></script>
 <script src="calles.js"></script>
+<script src="inversiones.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -768,6 +786,7 @@ function showDetail(b){
      <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
    <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
+   ${invHtml(b)}
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
    ${b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div>${C['Fuente']!=null?`<div class="m">Fuente: ${esc(x('Fuente'))}${x('Categoría datos.madrid.es')?' ('+esc(x('Categoría datos.madrid.es'))+')':''}${x('Otras fuentes')?' · también en: '+esc(x('Otras fuentes')):''}${x('Empresa gestora')?' · Gestora: '+esc(x('Empresa gestora')):''}</div>`:''}<div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}</div>${x('Ficha madrid.es')?`<div class="m"><a href="${esc(x('Ficha madrid.es'))}" target="_blank" rel="noopener">Ficha en madrid.es</a></div>`:''}</div>`}).join('')}
    <div class="sub" style="margin-top:8px">Coordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}</div></div>`;
@@ -775,6 +794,7 @@ function showDetail(b){
   document.getElementById('cl').onclick=()=>{selected=null;showDetail(null);setHash('#mapa');draw()};
   document.getElementById('pShare').onclick=()=>shareBuilding(b);
   document.getElementById('pFix').href=fixUrl(b);
+  const im=document.getElementById('invMore');if(im)im.onclick=()=>{document.querySelectorAll('#pop .ev.hid').forEach(e=>e.classList.remove('hid'));im.remove()};
   placePop();
 }
 function setHash(h){if(location.hash!==h)history.replaceState(null,'',h===''?location.pathname:h)}
@@ -831,6 +851,23 @@ document.getElementById('nearF').onsubmit=async e=>{e.preventDefault();const q=d
     box.innerHTML=c.map((x,i)=>`<button class="nc" data-i="${i}">${esc(x.address)} <span class="sub">${esc(x.postalCode||'')}</span></button>`).join('');
     box.onclick=ev=>{const bt=ev.target.closest('.nc');if(!bt)return;const x=c[+bt.dataset.i];setNear(+x.lat,+x.lng,x.address)}}
   catch(err){box.innerHTML='<div class="sub">No se ha podido consultar el buscador de direcciones (CartoCiudad). Prueba con «Mi ubicación» o con el buscador de centros.</div>'}};
+// Historial de inversión (por ahora solo Puente de Vallecas): BOE 1995-2014, ejecución de inversiones 2014-2025, contratos 2015-2026
+const INV=window.INVERSIONES||null, INV_LIM=8;
+const eurS=v=>v==null?'—':(Math.abs(v)>=1e6?(v/1e6).toLocaleString('es-ES',{maximumFractionDigits:2})+' M€':Math.round(v).toLocaleString('es-ES')+' €');
+function invHtml(b){
+  if(!INV)return '';
+  const cubre=b.cd!=null&&INV.distritos.includes(+b.cd);
+  const h=`<h2 style="margin-top:14px">Inversión registrada</h2>`;
+  if(!cubre)return `${h}<p class="inv note">Por ahora el historial de inversión solo está cruzado para el distrito de Puente de Vallecas.</p>`;
+  const d=INV.edificios[b.key];
+  if(!d)return `${h}<p class="inv note">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (BOE 1995–2014, ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
+  const FL=['BOE','Inversión','Contrato'],TL=['pagado','adjudicado','adjudicado','licitación'];
+  const [tb,tp,tc]=d.t;
+  return `${h}<div class="inv"><div class="tot"><div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div><div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>
+   ${d.ev.map((e,i)=>`<div class="ev${i>=INV_LIM?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}</span></div>`).join('')}
+   ${d.ev.length>INV_LIM?`<button class="btn more" id="invMore">Ver los ${d.ev.length} registros</button>`:''}
+   <p class="note">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. Antes de 2014 solo constan los contratos grandes publicados en el BOE. <a href="#ayuda">Cómo se obtiene</a></p></div>`;
+}
 function barrioHtml(b){if(!b.barrioNom)return '';const iv=b.cd!=null?ivtaOf(b.cd):null;
   return `<div class="sub pbar">Barrio <b>${esc(b.barrioNom)}</b>${b.renta?` · renta media por hogar ${fmtEur(b.renta)} (${RY}; grupo ${b.rq} de 5${b.rq==='1'?', de los más bajos de Madrid':b.rq==='5'?', de los más altos':''})`:''}${iv?` · vulnerabilidad del distrito (IVTA ${iv.y}) ${iv.v.toLocaleString('es-ES',{maximumFractionDigits:2})}, media de Madrid ${iv.m.toLocaleString('es-ES',{maximumFractionDigits:2})}`:''}</div>`}
 // En móvil la ficha tapa la mitad inferior: desplaza el mapa para que el edificio quede visible encima

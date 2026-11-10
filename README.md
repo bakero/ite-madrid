@@ -127,3 +127,21 @@ Datos del **Ayuntamiento de Madrid**, reutilizados según sus condiciones de uso
 - [CartoCiudad](https://www.cartociudad.es) (IGN): geocodificación de 8 direcciones y buscador de direcciones de «Cerca de…».
 
 Iconos: [Lucide](https://lucide.dev) (ISC).
+
+## Historial de inversión (prueba piloto: Puente de Vallecas)
+
+La ficha de cada edificio de Puente de Vallecas muestra lo que consta de inversión en él, a partir de tres fuentes:
+
+| Fuente | Periodo | Importe |
+|---|---|---|
+| Ejecución presupuestaria, fichero «Inversiones» (datos.madrid.es 211496) | 2014–2025 | pagado (obligaciones reconocidas) |
+| Actividad contractual y contratos menores (datos.madrid.es 216876 y 300253) | 2015–2026 | adjudicado |
+| Anuncios de contratación del BOE (Sección V-A) | 1995–2014 | adjudicado o, si falta, licitación |
+
+Scripts en `scripts/inversiones/` y datos de entrada en `datos/inversiones/`:
+
+1. `normaliza.py`: unifica los ficheros de contratos (`contratos_vallecas_filtrados.json` → `contratos_norm.json`).
+2. `boe_parse.py`: extrae objeto, expediente e importe de los anuncios del BOE (`boe_vallecas_1995_2014.json` → `boe_match.json`).
+3. `historial.py`: asigna cada registro a un edificio (`edificios.py`: por nombre, con el tipo de centro delante si el nombre es también el de una calle o barrio, o por dirección exacta) y genera `datos/inversiones/historial_pv.json` y `app/inversiones.js`.
+
+Los registros que afectan a varios edificios se descartan. Las tres fuentes se solapan y no se suman. Antes de 2014 solo hay contratos grandes del BOE.
