@@ -61,7 +61,7 @@ for f in sorted(glob.glob(os.path.join(sys.argv[1],'*.csv'))):
         o={k:g(r,k) for k in ['obj','der','cen','org','tip','adj','cif','plazo','exp']}
         if I['cend'] is not None:o['cen']=g(r,'cend') or o['cen']
         o['imp']=num(g(r,'imp'));o['kind']=kind;o['f']=name
-        o['fecha']=fecha(g(r,'fform')) or fecha(g(r,'fadj')) or fecha(g(r,'finsc'))
+        o['fecha']=(fecha(g(r,'fform')) or fecha(g(r,'finsc'))) if kind=='prorroga' else (fecha(g(r,'fform')) or fecha(g(r,'fadj')) or fecha(g(r,'finsc')))
         if not o['fecha'] and g(r,'anio').isdigit():o['fecha']=g(r,'anio')+'-01-01'
         if not (o['obj'] or o['der']):continue
         out.append(o);cnt[kind]+=1

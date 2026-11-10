@@ -22,7 +22,10 @@ for x in S:
 for x in S:
     if x['kind']!='prorroga':continue
     for c in C.values():
-        if c['exp']==x['exp'] and x['fecha'] and c['fecha'] and x['fecha']>c['fecha']:c['prorrogado']=True
+        if c['exp']==x['exp'] and x['fecha'] and c['fecha'] and x['fecha']>c['fecha'] and (not c['lote'] or re.match(r'\s*Lote\s*'+c['lote']+r'\b',x['obj'],re.I) or not re.match(r'\s*Lote',x['obj'],re.I)):
+            c['prorrogado']=True;c.setdefault('prorrogas',[])
+            p={'fecha':x['fecha'],'meses':meses(x['plazo']),'importe':x['imp'] or 0}
+            if p not in c['prorrogas']:c['prorrogas'].append(p)
 # 2) reparto por edificio con los pliegos
 LOTE={'300/2024/00115':lambda g:'1' if g and g.upper().startswith('COLEGIOS') else '2'}
 MET={'300/2025/00051':'horas de limpieza del pliego (anexo III)','300/2022/00668':'horas anuales de limpieza del estudio económico',
@@ -47,20 +50,26 @@ for c in C.values():
 Y0=datetime.date.today().year
 # contrato más reciente de cada servicio con reparto por edificio (limpieza de edificios, limpieza de colegios, seguridad, mantenimiento)
 ULTIMOS={'300/2025/00051','300/2022/00668','300/2023/00637','300/2024/00115'}
+def fin(c):
+    if not c['fecha'] or not c['meses']:return None
+    y,m=int(c['fecha'][:4]),int(c['fecha'][5:7]);f=y*12+m+c['meses']
+    for p in c.get('prorrogas',[]):f+=p['meses'] or 0
+    return f
 def vigente(c):
-    if not c['fecha'] or not c['meses']:return False
-    y,m=int(c['fecha'][:4]),int(c['fecha'][5:7]);fin=y*12+m+c['meses']
-    t=datetime.date.today();return fin>=t.year*12+t.month
+    f=fin(c)
+    if f is None:return False
+    fin_=f
+    t=datetime.date.today();return fin_>=t.year*12+t.month
 CL=sorted(C.values(),key=lambda c:c['fecha'] or '')
 idx={id(c):i for i,c in enumerate(CL)}
 contratos=[{'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
-  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS} for c in CL]
+  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS} for c in CL]
 edif={}
 for k,L in ED.items():
     rows=[];anual=collections.defaultdict(float)
     for x in sorted(L,key=lambda x:x['c']['fecha'] or '',reverse=True):
         c=x['c'];rows.append([idx[id(c)],round(x['cuota'],2)])
-        if c['exp'] in ULTIMOS and c['meses']:
+        if vigente(c) and c['meses']:
             for cat in c['cats'][:1]:anual[cat]+=x['cuota']*12/c['meses']
     edif[k]={'s':rows,'anual':{k2:round(v,2) for k2,v in anual.items()},'tot_anual':round(sum(anual.values()),2)}
 js={'generado':datetime.date.today().isoformat(),'distritos':[13],'cats':CATS,'contratos':contratos,'edificios':edif}
