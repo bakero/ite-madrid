@@ -163,6 +163,14 @@ Empresas de limpieza, seguridad, auxiliares de información y mantenimiento que 
 
 En Puente de Vallecas el importe de cada edificio es una estimación proporcional a los pesos del pliego. En los demás distritos la ficha dice en qué contratos figura el edificio y el coste anual del contrato completo, sin repartirlo: los pesos que se pueden leer de forma automática no coinciden con los del pliego (comprobado con los cinco contratos de Puente de Vallecas). En una muestra de 40 asignaciones de otros distritos, 36 eran correctas.
 
+## Inversión y servicios por distrito, con contexto socioeconómico
+
+Pestaña `#inversion` (enlace compartible: `#inversion?d=13&t=Educativo`, `i=1` para incluir infraestructuras de toda la ciudad). Compara cada distrito con la media de los 21: inversión total, por habitante y por edificio (media y mediana), % de ITE desfavorable, servicios por habitante, y el contexto del distrito.
+
+`scripts/socio/indicadores.py [acumulado.csv]` → `app/socio.js`: último valor de cada indicador del Panel de indicadores de distritos y barrios (datos.madrid.es 300087): habitantes, superficie, densidad, renta por hogar y por persona, paro, edad media, mayores, menores, población migrante, IVTA, año y valor catastral de las viviendas, zonas verdes y equipamientos municipales.
+
+Las librerías (Chart.js y jsPDF) se sirven desde `app/vendor/` (licencia MIT) para no depender de un CDN.
+
 ## Ficha completa del edificio
 
 `#ficha=lat,lng` abre una página con toda la información de un edificio: ITE, gráfico de inversión por año (`inversiones.js`, campo `y`: `[año, BOE, pagado, contratos]`), servicios (gráfico de coste estimado en Puente de Vallecas, cronograma de contratos en el resto), comparativa con los edificios del mismo tipo en el distrito y en Madrid, y un desplegable con los enlaces a las fuentes de ese edificio (cada registro de `inversiones.js` lleva su referencia: proyecto, expediente o anuncio del BOE).

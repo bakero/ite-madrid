@@ -90,7 +90,7 @@ for v in out:
     ev=[]
     for e in sorted(v['ev'],key=lambda e:(-e['anio'],-(e['importe'] or 0))):
         t=re.sub(r'\s+',' ',e['texto']).strip()
-        ev.append([e['anio'],FU.index(e['fuente']),t[:220],round(e['importe'],2) if e['importe'] else None,TI.index(e['importe_tipo']) if e['importe_tipo'] in TI else -1,e.get('ref') or '',1 if e.get('tipo_contrato')=='menor' else 0])
+        ev.append([e['anio'],FU.index(e['fuente']),t[:220],round(e['importe'],2) if e['importe'] else None,TI.index(e['importe_tipo']) if e['importe_tipo'] in TI else -1,e.get('ref') or '',1 if e.get('tipo_contrato')=='menor' else 0,[[int(y),round(x)] for y,x in (e.get('pagos') or {}).items()] if len(e.get('pagos') or {})>1 else []])
     # importe por año: [año, BOE, pagado, contratos]; lo pagado va al año del pago
     PY=collections.defaultdict(lambda:[0,0,0])
     for e in v['ev']:
