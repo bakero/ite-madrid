@@ -7,9 +7,9 @@ con=sqlite3.connect(DB)
 # ---- edificios + año de construcción / ITE
 info={}
 for b in E.B.values():
-    info[b['key']]={'key':b['key'],'nombres':sorted(set(b['cents'])),'dir':b['addr'],'tipos':sorted(b['tipos']),'ev':[]}
+    info[b['key']]={'key':b['key'],'cd':b['cd'],'nombres':sorted(set(b['cents'])),'dir':b['addr'],'tipos':sorted(b['tipos']),'ev':[]}
 rows=con.execute("""select c.lat,c.lng,i.anio_construccion,i.fecha_presentacion,i.estado_inspeccion,i.dictamen from centros c left join ite i on i.direccion=c.direccion
- where c.lat is not null and c.cod_barrio in (select cod from barrios where cod_distrito=13)""").fetchall()
+ where c.lat is not null and c.lng is not null""").fetchall()
 for lat,lng,ac,fp,est,dic in rows:
     k=f'{round(lat,5):.5f},{round(lng,5):.5f}'
     if k in info and ac and str(ac).strip().isdigit():info[k]['anio_construccion']=int(ac)
@@ -18,17 +18,18 @@ def add(k,ev):
     if k in info:info[k]['ev'].append(ev)
 # ---- A) inversiones (ejecución presupuestaria, pagos reales) 2014-2025
 f=lambda s:float((s or '0').replace('.','').replace(',','.') or 0)
-d=json.load(open('inversiones_pv_2014_2025.json'))
+d=json.load(open('inversiones_2014_2025.json'))
 agg=collections.defaultdict(lambda:{'obl':0,'cd':0,'anios':set()})
+MEMO={}
 def cat(t):
     if re.search(r'ADQUISICI.N (DE )?SUELO|ADQUISICI.N$|\. ADQUISICI.N|EXPROPIACI',t):return 'suelo / compra'
     if re.search(r'CONSTRUCCI.N|NUEVA PLANTA|AMPLIACI',t) and not re.search(r'EQUIPAMIENTO|MOBILIARIO',t):return 'construcción / ampliación'
     if re.search(r'EQUIPAMIENTO|MOBILIARIO|EQUIPOS|ENSERES|APLICACIONES|VEH.CULO|INSTALACIONES BOMBEROS',t):return 'equipamiento'
     return 'obras / reforma'
 for anio,proj,tit,dist,lin,sub,prog,subc,cd,obl in d['rows']:
-    if dist not in('PUENTE DE VALLECAS','VARIOS DISTRITOS'):continue
-    t=E.nrm(tit);pv=dist=='PUENTE DE VALLECAS' or 'VALLECAS' in t
-    h=E.match(t,pv)
+    t=E.nrm(tit);dc=E.cod_distrito(dist)
+    if (t,dc) in MEMO:h=MEMO[(t,dc)]
+    else:h=MEMO[(t,dc)]=E.match(t,dc)
     if len(h)!=1:continue
     a=agg[(h[0][0],proj,tit)];a['obl']+=f(obl);a['cd']+=f(cd);a['anios'].add(anio);a['why']=h[0][1]
 for (k,proj,tit),a in agg.items():
@@ -36,17 +37,17 @@ for (k,proj,tit),a in agg.items():
     y0=int(proj[:4]) if proj[:4].isdigit() else min(a['anios'])
     add(k,{'fuente':'inversiones','anio':min(a['anios']),'anio_proyecto':y0,'anios':sorted(a['anios']),'texto':tit,'importe':round(a['obl'],2),'importe_tipo':'pagado','credito':round(a['cd'],2),'cat':cat(E.nrm(tit)),'ref':proj,'why':a['why']})
 # ---- B) contratos 2015-2026 (actividad contractual + menores)
-C=json.load(open('contratos_norm.json'))
+C=json.load(open('contratos_obras.json'))
 INV=r'\bOBRA|REFORMA|REHABILIT|ACONDICION|IMPERMEABILIZ|CUBIERTA|SUSTITUC|ACCESIBILID|CLIMATIZ|CALEFACC|CALDERA|ASCENSOR|VENTANA|CARPINTER|FACHADA|PAVIMENT|REPARAC|MEJORA|ADECUACI|DEMOLIC|CONSTRUCC|AMPLIAC|PINTURA|SANEAMIENTO|ILUMINAC|ELECTRIC|FONTANER|EFICIENCIA ENERG|PATOLOG|EMERGENCIA|SEGURIDAD ESTRUCTURAL'
 seen=set()
 for c in C:
     txt=E.nrm(c['der'] if (c['der'] or '').strip() else c['obj'])
-    pv=('PUENTE DE VALLECAS' in txt or 'PUENTE VALLECAS' in txt or 'PUENTE DE VALLECAS' in E.nrm(c['centro']+' '+c['org']))
+    cd=E.distrito_de(E.nrm(c['centro']+' | '+c['org'])) or E.distrito_de(txt)
     if re.search(E.NOEDIF,txt):continue
     if not (re.search(INV,txt) or E.nrm(c['tipo']).startswith('OBRA')):continue
     if re.search(r'COORDINACI.N (EN MATERIA )?DE SEGURIDAD Y SALUD|DIRECCI.N FACULTATIVA|REDACCI.N DE(L)? PROYECTO|ASISTENCIA T.CNICA|CONTROL DE CALIDAD',txt):cat2='servicios técnicos de obra'
     else:cat2='obras / reforma / mantenimiento'
-    h=E.match(txt,pv)
+    h=E.match(txt,cd)
     if len(h)!=1:continue
     sig=(h[0][0],round(c['imp'] or 0),c['year'])
     if sig in seen:continue
@@ -65,7 +66,7 @@ for v in out:
     v['tot_contratos']=round(sum(e['importe'] or 0 for e in v['ev'] if e['fuente']=='contratos'),2)
     v['tot_boe']=round(sum(e['importe'] or 0 for e in v['ev'] if e['fuente']=='BOE'),2)
     v['primer_dato']=v['ev'][0]['anio'] if v['ev'] else None
-json.dump(out,open('historial_pv.json','w'),ensure_ascii=False)
+json.dump([v for v in out if v['ev']],open('historial.json','w'),ensure_ascii=False)
 con_ev=[v for v in out if v['ev']]
 print('edificios:',len(out),'con algún dato:',len(con_ev))
 print('por fuente:',collections.Counter(e['fuente'] for v in out for e in v['ev']))
@@ -91,6 +92,6 @@ for v in out:
         t=re.sub(r'\s+',' ',e['texto']).strip()
         ev.append([e['anio'],FU.index(e['fuente']),t[:220],round(e['importe'],2) if e['importe'] else None,TI.index(e['importe_tipo']) if e['importe_tipo'] in TI else -1])
     ED[v['key']]={'t':[v['tot_boe'],v['tot_pagado'],v['tot_contratos']],'ev':ev}
-js={'generado':datetime.date.today().isoformat(),'distritos':[13],'fuentes':FU,'tipos':TI,'edificios':ED}
+js={'generado':datetime.date.today().isoformat(),'distritos':sorted({info[k]['cd'] for k in ED}),'boe_distritos':[13],'fuentes':FU,'tipos':TI,'edificios':ED}
 open(E.BASE/'app'/'inversiones.js','w',encoding='utf-8').write('window.INVERSIONES='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
 print('app/inversiones.js:',len(ED),'edificios',sum(len(x['ev']) for x in ED.values()),'registros')

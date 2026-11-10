@@ -20,7 +20,7 @@ def col(h,*pats,excl=()):
         for i,X in enumerate(H):
             if re.search(p,X) and not any(re.search(e,X) for e in excl):return i
 def num(s):
-    s=str(s).replace('€','').replace('¿','').replace(' ','').strip()
+    s=str(s).replace('€','').replace('¿','').replace('?','').replace('\xa0','').replace(' ','').strip()
     if not s:return None
     if re.match(r'^-?\d{1,3}(\.\d{3})*(,\d+)?$',s) or (',' in s and '.' in s and s.rfind(',')>s.rfind('.')):s=s.replace('.','').replace(',','.')
     elif ',' in s:s=s.replace(',','.')

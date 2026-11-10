@@ -362,20 +362,19 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
       <div id="lyLeg" class="lyleg"></div>
     </div>
     <div class="sec" id="secInv">
-      <h2>Inversión y servicios por edificio <span class="sub">(Puente de Vallecas)</span></h2>
+      <h2>Inversión y servicios por edificio</h2>
       <label class="st"><input type="checkbox" id="lyInv"><span class="lab">Mostrar círculos proporcionales al importe</span></label>
       <select id="lyInvM" aria-label="Importe que se representa">
         <option value="1">Inversión pagada 2014–2025</option>
         <option value="2">Contratos de obra y mantenimiento 2015–2026</option>
-        <option value="0">Contratos en el BOE 1995–2014</option>
+        <option value="0">Contratos en el BOE 1995–2014 (solo Puente de Vallecas)</option>
         <option value="s">Servicios: coste anual estimado (limpieza, seguridad, mantenimiento)</option>
       </select>
       <div id="invBox" style="display:none">
         <div class="invleg" id="invLeg"></div>
-        <div class="invtabs" role="tablist"><button class="on" data-g="calle">Por calle</button><button data-g="barrio">Por barrio</button><button data-g="tipo">Por tipo</button><button data-g="edif">Por edificio</button><button data-g="emp" id="tabEmp" style="display:none">Por empresa</button></div>
+        <div class="invtabs" role="tablist"><button class="on" data-g="calle">Por calle</button><button data-g="dist">Por distrito</button><button data-g="barrio">Por barrio</button><button data-g="tipo">Por tipo</button><button data-g="edif">Por edificio</button><button data-g="emp" id="tabEmp" style="display:none">Por empresa</button></div>
         <div id="invRank"></div>
         <p class="sub" id="invNote"></p>
-        <button class="btn" id="invZoom" style="margin-top:6px">Ver el distrito</button>
       </div>
     </div>
     <div class="sec" id="secEmp">
@@ -582,6 +581,7 @@ const DRAW_ORDER=['pend','nd','sin','fav','iee','subs','desf'];
 const SEV={desf:6,subs:5,iee:4,fav:3,sin:2,nd:1,pend:0};
 let COLS=window.ITE_COLS, ROWS=window.ITE_ROWS;
 const DIST=window.DISTRITOS;
+const DISTN=Object.fromEntries(DIST.map(d=>[+d.cod,d.nom]));
 // Barrios y vulnerabilidad (IGUALA, Ayuntamiento de Madrid)
 const VUL=window.VULNERABILIDAD||null;
 const BARR=new Map((VUL?VUL.barrios:[]).map(b=>[String(b.cod),b]));
@@ -703,7 +703,7 @@ if(!BARR.size)document.getElementById('secCapa').style.display='none';
 document.getElementById('lyY').textContent=RY?`(${RY})`:'';
 document.getElementById('lyLeg').innerHTML=RQ.length?[1,2,3,4,5].map(q=>`<span><i style="background:${QCOL[q-1]}"></i>${QLAB(q)}</span>`).join(''):'';
 document.getElementById('lyRenta').addEventListener('change',e=>{document.getElementById('lyLeg').style.display=e.target.checked?'':'none';draw()});
-// ---- capa de inversión por edificio (Puente de Vallecas)
+// ---- capa de inversión y servicios por edificio (todo Madrid)
 const INV=window.INVERSIONES||null, INV_LIM=8;
 const eurS=v=>v==null?'—':(Math.abs(v)>=1e6?(v/1e6).toLocaleString('es-ES',{maximumFractionDigits:2})+' M€':Math.round(v).toLocaleString('es-ES')+' €');
 let INVG='calle';
@@ -726,7 +726,7 @@ function invPanel(){
     const rows=[...g.entries()].sort((a,b)=>b[1].v-a[1].v),m0=rows.length?rows[0][1].v:1;
     document.getElementById('invRank').innerHTML=rows.map(([k,o])=>`<div class="ir"><span>${esc(k)} <span class="sub">(${[...o.cats].join(', ')} · ${o.n.size} edificios)</span></span><b>${eurS(o.v)}/año</b><div class="bar" style="width:${(100*o.v/m0).toFixed(1)}%"></div></div>`).join('');
     document.getElementById('invNote').innerHTML=`Coste anual estimado de los contratos vigentes de cada servicio, repartido por edificio según los pliegos. <a href="#ayuda">Más información</a>`;return}
-  const key={calle:calleOf,barrio:b=>b.barrioNom||'—',tipo:tipoOf,edif:nomOf}[INVG];
+  const key={calle:calleOf,dist:b=>b.cd!=null&&DISTN[b.cd]||'—',barrio:b=>b.barrioNom||'—',tipo:tipoOf,edif:nomOf}[INVG];
   const g=new Map();for(const b of bs){const k=key(b);const o=g.get(k)||{v:0,n:0,b};o.v+=invVal(b);o.n++;g.set(k,o)}
   const rows=[...g.entries()].sort((a,b)=>b[1].v-a[1].v),tot=rows.reduce((t,r)=>t+r[1].v,0),top=rows.slice(0,10),m0=top.length?top[0][1].v:1;
   document.getElementById('invRank').innerHTML=top.map(([k,o])=>`<div class="ir${INVG==='edif'?' ck':''}" data-k="${INVG==='edif'?esc(o.b.key):''}"><span>${esc(k)}${INVG!=='edif'&&o.n>1?` <span class="sub">(${o.n} edificios)</span>`:''}</span><b>${eurS(o.v)}${isS?'/año':''}</b><div class="bar" style="width:${(100*o.v/m0).toFixed(1)}%"></div></div>`).join('')||'<p class="sub">Sin importes en esta fuente.</p>';
@@ -737,7 +737,6 @@ document.getElementById('lyInv').addEventListener('change',()=>{invPanel();draw(
 document.getElementById('lyInvM').addEventListener('change',()=>{if(!document.getElementById('lyInv').checked)document.getElementById('lyInv').checked=true;invPanel();draw()});
 document.querySelector('.invtabs').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;INVG=t.dataset.g;document.querySelectorAll('.invtabs button').forEach(x=>x.classList.toggle('on',x===t));invPanel()});
 document.getElementById('invRank').addEventListener('click',e=>{const r=e.target.closest('.ir.ck');if(!r)return;const b=KEYMAP.get(r.dataset.k);if(b){if(isMobile())sheet(false);focusBuilding(b);setHash('#edificio='+b.key)}});
-document.getElementById('invZoom').addEventListener('click',()=>{if(isMobile())sheet(false);zoomToDistrict('Puente de Vallecas')});
 if(!INV&&!SERV)document.getElementById('secInv').style.display='none';
 
 // ---- capa de empresas de servicios por distrito (todo Madrid)
@@ -1005,20 +1004,21 @@ document.getElementById('nearF').onsubmit=async e=>{e.preventDefault();const q=d
     box.innerHTML=c.map((x,i)=>`<button class="nc" data-i="${i}">${esc(x.address)} <span class="sub">${esc(x.postalCode||'')}</span></button>`).join('');
     box.onclick=ev=>{const bt=ev.target.closest('.nc');if(!bt)return;const x=c[+bt.dataset.i];setNear(+x.lat,+x.lng,x.address)}}
   catch(err){box.innerHTML='<div class="sub">No se ha podido consultar el buscador de direcciones (CartoCiudad). Prueba con «Mi ubicación» o con el buscador de centros.</div>'}};
-// Historial de inversión (por ahora solo Puente de Vallecas): BOE 1995-2014, ejecución de inversiones 2014-2025, contratos 2015-2026
+// Historial de inversión: ejecución de inversiones 2014-2025 y contratos 2015-2026 (todo Madrid); BOE 1995-2014 (Puente de Vallecas)
 function invHtml(b){
   if(!INV)return '';
   const cubre=b.cd!=null&&INV.distritos.includes(+b.cd);
   const h=`<h2 style="margin-top:14px">Inversión registrada</h2>`;
-  if(!cubre)return `${h}<p class="inv inote">Por ahora el historial de inversión solo está cruzado para el distrito de Puente de Vallecas.</p>`;
+  if(!cubre)return `${h}<p class="inv inote">No hay datos de inversión cruzados para este edificio.</p>`;
+  const boe=(INV.boe_distritos||[]).includes(+b.cd);
   const d=INV.edificios[b.key];
-  if(!d)return `${h}<p class="inv inote">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (BOE 1995–2014, ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
+  if(!d)return `${h}<p class="inv inote">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (${boe?'BOE 1995–2014, ':''}ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
   const FL=['BOE','Inversión','Contrato'],TL=['pagado','adjudicado','adjudicado','licitación'];
   const [tb,tp,tc]=d.t;
-  return `${h}<div class="inv"><div class="tot"><div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div><div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>
+  return `${h}<div class="inv"><div class="tot">${boe?`<div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div>`:''}<div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>
    ${d.ev.map((e,i)=>`<div class="ev${i>=INV_LIM?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}</span></div>`).join('')}
    ${d.ev.length>INV_LIM?`<button class="btn more" id="invMore">Ver los ${d.ev.length} registros</button>`:''}
-   <p class="inote">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. Antes de 2014 solo constan los contratos grandes publicados en el BOE. <a href="#ayuda">Cómo se obtiene</a></p></div>`;
+   <p class="inote">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. ${boe?'Antes de 2014 solo constan los contratos grandes publicados en el BOE.':'Los datos empiezan en 2014; los contratos anteriores publicados en el BOE solo están cruzados, por ahora, para Puente de Vallecas.'} <a href="#ayuda">Cómo se obtiene</a></p></div>`;
 }
 // Servicios contratados (limpieza, seguridad, auxiliares, mantenimiento) con reparto por edificio según los pliegos
 const CATL={'limpieza':'Limpieza','seguridad':'Seguridad','auxiliares':'Auxiliares de información','mantenimiento':'Mantenimiento','jardinería':'Jardinería','control de plagas':'Control de plagas'};
