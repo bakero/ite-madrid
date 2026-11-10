@@ -104,6 +104,34 @@ dl{margin:0;display:grid;grid-template-columns:130px 1fr;gap:5px 10px;font-size:
 dt{color:var(--muted)}dd{margin:0;word-break:break-word}
 .cent{border-top:1px solid var(--line);padding:9px 0;font-size:13px}
 .inv{font-size:13px}
+.ficha{max-width:1000px}
+.ficha .fh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin:6px 0 10px}
+.ficha h1{font-size:22px;margin:0 0 4px}
+.ficha .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.ficha .card>h2:first-child{margin-top:0!important}
+.ficha .acts{display:flex;gap:6px;flex-wrap:wrap}
+.ficha .acts .btn{text-decoration:none}
+.ficha dl{display:grid;grid-template-columns:200px 1fr;gap:3px 12px;font-size:13px;margin:8px 0}
+.ficha dt{color:var(--muted)}
+.cmp{width:100%;border-collapse:collapse;font-size:13px}
+.cmp th,.cmp td{padding:6px 8px;border-top:1px solid var(--line);text-align:right;vertical-align:top}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp thead th{border-top:0;font-size:11.5px;color:var(--muted);font-weight:600}
+.cmp td b{font-variant-numeric:tabular-nums}
+.cmp .sub{display:block;font-size:11px}
+.cmp tr.sec td{background:#f6f5f2;font-weight:600;text-align:left}
+.ficha details{font-size:13px}
+.ficha details summary{cursor:pointer;font-weight:600;font-size:14px}
+.ficha details li{margin:5px 0;line-height:1.45}
+@media (max-width:820px){.ficha dl{grid-template-columns:1fr}.ficha dt{margin-top:6px}.cmp th,.cmp td{padding:5px 4px}.cmp{font-size:12px}}
+@media print{nav,.ficha .acts,.ficha .more{display:none!important}.ficha .ev.hid{display:grid!important}.ficha .card{break-inside:avoid}.view{display:none!important}#view-ficha{display:block!important}}
+.chart{margin:6px 0 8px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .ax{font-size:10px;fill:#646c75;font-family:Inter,system-ui,sans-serif}
+.chart .gl{font-size:10px;fill:#fff;font-family:Inter,system-ui,sans-serif;font-weight:600;paint-order:stroke;stroke:rgba(0,0,0,.25);stroke-width:2px}
+.chart figcaption{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:var(--muted);margin-top:2px}
+.chart figcaption i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.btn.full{display:block;text-align:center;margin:12px 0 4px;text-decoration:none;white-space:normal;height:auto;line-height:1.35;padding:8px 10px}
 .inv .tot{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:4px 0 10px}
 .inv .tot div{border:1px solid var(--line);border-radius:8px;padding:6px 8px}
 .inv .tot b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
@@ -479,6 +507,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
   </div>
 </div></div>
 
+<div class="view" id="view-ficha"><div class="pg ficha" id="fichaBody"></div></div>
 <div class="view" id="view-ayuda"><div class="pg help">
   <h1 style="font-size:24px;margin:6px 0 4px">Ayuda y transparencia del dato</h1>
   <div class="kpi" style="display:inline-block;margin:6px 0 12px"><div class="l">Última descarga de datos</div><div class="v" style="font-size:20px" id="ayFecha"></div></div>
@@ -527,6 +556,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <li><b>Plazos de ITE/IEE</b>: se usa el «Año próxima ITE» que da el Registro y, si en su lugar indica «Aplica fecha IEE», el año de la «Fecha máx. IEE». Si un edificio tiene varias direcciones, cuenta la fecha más próxima. Se considera <b>vencido</b> si ese año es anterior al actual. Es una lectura del Registro a la fecha de descarga: si se ha presentado una inspección después, el edificio puede estar ya al día. El mismo criterio está disponible en el mapa como filtro «plazos de ITE».</li></ul>
   <h3>Barrio y renta</h3><p>Cada edificio se asigna al barrio en el que caen sus coordenadas, que puede ser de un distrito distinto al del listado de madrid.es en el que aparece el centro: algunos listados de distrito incluyen centros situados en otros distritos. Los 131 barrios se reparten en <b>5 grupos iguales</b> (unos 26 barrios cada uno) según su renta neta media por hogar del último año disponible: el grupo 1 son los barrios con la renta más baja. El panel muestra cuántos edificios hay en cada grupo y qué porcentaje tiene una ITE desfavorable sin subsanar. Es una comparación descriptiva: no implica que la renta sea la causa. La ficha de cada edificio muestra además el IVTA de su distrito, donde un valor más alto indica más vulnerabilidad.</p>
   <h3>Inversión registrada</h3><p>Para los edificios de los 21 distritos. La ficha reúne tres fuentes públicas: los <b>pagos por proyecto de inversión</b> del Ayuntamiento (2014–2025, ejecución presupuestaria: lo que se pagó de verdad), los <b>contratos de obra y mantenimiento</b> (2015–2026, incluidos los contratos menores y los basados en acuerdos marco; importe adjudicado) y, por ahora solo en Puente de Vallecas, los <b>anuncios de contratación del BOE</b> (1995–2014; importe adjudicado o, si falta, de licitación). Cada registro se asigna a un edificio por su nombre o por su dirección exacta, buscando solo entre los edificios del distrito cuando el registro dice de qué distrito es; se descartan los que afectan a varios edificios a la vez y los de vía pública o vivienda. En una revisión a mano de 36 asignaciones de Puente de Vallecas acertaron 35, y en una muestra de 40 de otros distritos, 37 (los fallos eran de compras de material o de un contrato para dos edificios). Los importes de las tres fuentes se solapan y no se suman. Antes de 2014 solo constan los contratos grandes: las obras pequeñas se hacían con contratos anuales para todos los edificios del distrito y no se pueden repartir. La fecha y el precio de compra del suelo no están en los datos abiertos.</p><h3>Servicios contratados</h3><p>La ficha muestra también qué empresas prestan los servicios de <b>limpieza, seguridad, auxiliares de información y mantenimiento</b> en el edificio, y cuánto cuestan. En todos los distritos se buscan los edificios del distrito en los pliegos y estudios económicos de los contratos de su Junta (descargados de la Plataforma de Contratación): si el edificio figura en el pliego, la ficha muestra el contrato, la empresa, su vigencia y su coste anual completo. En Puente de Vallecas, además, se ha leído el detalle de cada pliego para estimar la parte de cada edificio. Estos contratos los firma la Junta de Distrito para todos sus edificios a la vez, así que el importe de cada edificio en Puente de Vallecas es una <b>estimación</b>: el importe adjudicado del contrato se reparte según lo que el pliego o el estudio económico asigna a cada edificio (horas de limpieza, coste de vigilancia o metros cuadrados construidos en el mantenimiento). El «coste anual estimado» usa el contrato vigente de cada servicio (incluidas sus prórrogas) y divide su importe por su duración. Se han revisado los pliegos de seis contratos (limpieza de edificios 2025–2027, limpieza de colegios 2023–2025, seguridad 2024–2026, mantenimiento 2021–2023 y 2025–2027); los anteriores aparecen sin reparto. Las prórrogas aparecen en la ficha con su importe y fecha de fin; los contratos de limpieza de colegios (hasta noviembre de 2027) y de seguridad (hasta mayo de 2028) siguen vigentes por prórroga, al mismo precio. Los servicios que contratan otras áreas municipales o la Comunidad de Madrid (por ejemplo, en los centros de salud o los institutos) no están incluidos.</p>
+  <h3>Ficha completa de un edificio</h3><p>Desde la ficha del mapa, «Ficha completa» abre una página con toda la información del edificio (<code>#ficha=latitud,longitud</code>, se puede compartir e imprimir): la ITE de cada dirección, el gráfico y la lista completa de inversiones y contratos, los servicios contratados, los centros que alberga y una <b>comparativa</b> con los demás edificios del mismo tipo en su distrito y en todo Madrid (año de construcción, renta del barrio, inversión, contratos, servicios y reparto de estados de la ITE). Para cada dato se da la media del grupo (la mediana en el año de construcción), cuántos edificios entran y qué porcentaje del grupo tiene un valor menor que este edificio. Los edificios sin registros de inversión cuentan con 0 €. Al final, un desplegable reúne los enlaces a cada fuente con información de ese edificio: su ficha en madrid.es, la consulta del Registro de Edificios, los proyectos de inversión y expedientes de contrato, los anuncios del BOE, las licitaciones en la Plataforma de Contratación, el índice de vulnerabilidad del barrio y su ubicación en OpenStreetMap y el Catastro.</p><p>En la ficha del mapa, la inversión se muestra como un gráfico de importe por año (lo pagado, en el año del pago; los contratos, en el de adjudicación) y los servicios, como un gráfico de coste estimado por año en Puente de Vallecas o, en el resto de distritos, como un cronograma de los contratos en los que figura el edificio.</p>
   <h3>Empresas de servicios por distrito (todo Madrid)</h3><p>La sección «Empresas de servicios por distrito» colorea cada uno de los 21 distritos según la empresa que presta el servicio elegido (limpieza, seguridad, auxiliares de información o mantenimiento) en los edificios de su Junta de Distrito: colegios públicos, centros culturales, centros de mayores, polideportivos y oficinas. El color es el de la empresa con más importe anual en el distrito; si hay varios lotes, la lista los muestra todos. Los datos salen del registro de contratos del Ayuntamiento (datos.madrid.es): contratos formalizados desde 2015 y sus prórrogas. Un contrato está <b>vigente</b> si su plazo, sumadas las prórrogas inscritas, llega al mes actual; si en un distrito no hay ninguno vigente se muestra rayado el último conocido. El coste anual es el importe adjudicado dividido por la duración del contrato. Cuando el registro solo da el nombre del lote («Lote 1 - Colegios»), el servicio se toma del título de la licitación en la Plataforma de Contratación del Sector Público. Cada contrato enlaza a su ficha pública en la Plataforma, donde están los pliegos, la adjudicación y las prórrogas, cuando se ha encontrado allí por su número de expediente. No incluye los contratos centralizados de otras áreas municipales (por ejemplo, la limpieza de las oficinas centrales) ni los servicios de la Comunidad de Madrid.</p>
   <p>En el mapa, la sección «Inversión y servicios por edificio» dibuja un círculo proporcional al importe de cada edificio (su área crece con el importe) y ordena dónde se invierte más por calle, por barrio, por tipo de edificio o por edificio. Se puede elegir la fuente: inversión pagada 2014–2025, contratos de obra y mantenimiento 2015–2026, contratos del BOE 1995–2014 o el coste anual estimado de los servicios; con los servicios se puede ordenar también por empresa. La calle es la de la dirección del edificio.</p>
   <h3>Enlaces a un edificio</h3><p>Cada ficha tiene un botón «Compartir» que genera un enlace directo (<code>#edificio=latitud,longitud</code>). Al abrirlo, el mapa se centra en ese edificio y abre su ficha. El enlace sigue funcionando mientras el edificio mantenga sus coordenadas en futuras actualizaciones de los datos.</p>
@@ -938,8 +968,9 @@ function showDetail(b){
   pop.innerHTML=`<div class="ph"><div><div class="pt">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}</div>${head?`<div class="sub">${esc(head)}</div>`:''}
      <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
-   <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
+   <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" href="#ficha=${encodeURIComponent(b.key)}" title="Toda la información, comparativa y fuentes">Ficha completa</a><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
    ${invHtml(b)}${servHtml(b)}
+   <a class="btn full" href="#ficha=${encodeURIComponent(b.key)}">Ver la ficha completa del edificio, con comparativa y fuentes</a>
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
    ${b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div>${C['Fuente']!=null?`<div class="m">Fuente: ${esc(x('Fuente'))}${x('Categoría datos.madrid.es')?' ('+esc(x('Categoría datos.madrid.es'))+')':''}${x('Otras fuentes')?' · también en: '+esc(x('Otras fuentes')):''}${x('Empresa gestora')?' · Gestora: '+esc(x('Empresa gestora')):''}</div>`:''}<div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}</div>${x('Ficha madrid.es')?`<div class="m"><a href="${esc(x('Ficha madrid.es'))}" target="_blank" rel="noopener">Ficha en madrid.es</a></div>`:''}</div>`}).join('')}
    <div class="sub" style="margin-top:8px">Coordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}</div></div>`;
@@ -947,7 +978,7 @@ function showDetail(b){
   document.getElementById('cl').onclick=()=>{selected=null;showDetail(null);setHash('#mapa');draw()};
   document.getElementById('pShare').onclick=()=>shareBuilding(b);
   document.getElementById('pFix').href=fixUrl(b);
-  const im=document.getElementById('invMore');if(im)im.onclick=()=>{document.querySelectorAll('#pop .ev.hid').forEach(e=>e.classList.remove('hid'));im.remove()};
+  pop.querySelectorAll('.inv .more').forEach(bt=>bt.onclick=()=>{bt.closest('.inv').querySelectorAll('.ev.hid').forEach(e=>e.classList.remove('hid'));bt.remove()});
   placePop();
 }
 function setHash(h){if(location.hash!==h)history.replaceState(null,'',h===''?location.pathname:h)}
@@ -1005,7 +1036,7 @@ document.getElementById('nearF').onsubmit=async e=>{e.preventDefault();const q=d
     box.onclick=ev=>{const bt=ev.target.closest('.nc');if(!bt)return;const x=c[+bt.dataset.i];setNear(+x.lat,+x.lng,x.address)}}
   catch(err){box.innerHTML='<div class="sub">No se ha podido consultar el buscador de direcciones (CartoCiudad). Prueba con «Mi ubicación» o con el buscador de centros.</div>'}};
 // Historial de inversión: ejecución de inversiones 2014-2025 y contratos 2015-2026 (todo Madrid); BOE 1995-2014 (Puente de Vallecas)
-function invHtml(b){
+function invHtml(b,full=false){
   if(!INV)return '';
   const cubre=b.cd!=null&&INV.distritos.includes(+b.cd);
   const h=`<h2 style="margin-top:14px">Inversión registrada</h2>`;
@@ -1015,16 +1046,64 @@ function invHtml(b){
   if(!d)return `${h}<p class="inv inote">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (${boe?'BOE 1995–2014, ':''}ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
   const FL=['BOE','Inversión','Contrato'],TL=['pagado','adjudicado','adjudicado','licitación'];
   const [tb,tp,tc]=d.t;
-  return `${h}<div class="inv"><div class="tot">${boe?`<div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div>`:''}<div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>
-   ${d.ev.map((e,i)=>`<div class="ev${i>=INV_LIM?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}</span></div>`).join('')}
-   ${d.ev.length>INV_LIM?`<button class="btn more" id="invMore">Ver los ${d.ev.length} registros</button>`:''}
-   <p class="inote">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. ${boe?'Antes de 2014 solo constan los contratos grandes publicados en el BOE.':'Los datos empiezan en 2014; los contratos anteriores publicados en el BOE solo están cruzados, por ahora, para Puente de Vallecas.'} <a href="#ayuda">Cómo se obtiene</a></p></div>`;
+  const tot=`<div class="tot">${boe?`<div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div>`:''}<div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>`;
+  const ser=[{n:'Inversión pagada',c:'#1f5fa8',i:2},{n:'Contratos adjudicados',c:'#e8912f',i:3}];if(boe&&tb)ser.push({n:'BOE (adjudicado)',c:'#8a8f96',i:1});
+  const chart=barChart(d.y||[],ser,{title:'Importe por año'});
+  const lista=d.ev.map((e,i)=>`<div class="ev${!full||i>=15?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}${full&&e[5]?' · '+refLink(e):''}</span></div>`).join('');
+  return `${h}<div class="inv">${tot}${chart}
+   ${lista}${!full||d.ev.length>15?`<button class="btn more">Ver los ${d.ev.length} registros</button>`:''}
+   <p class="inote">Las barras se solapan: muchos contratos se pagan con los mismos proyectos de inversión, así que no se suman. La inversión pagada se asigna al año del pago; los contratos, al año de adjudicación. ${boe?'Antes de 2014 solo constan los contratos grandes publicados en el BOE.':'Los datos empiezan en 2014; los contratos anteriores publicados en el BOE solo están cruzados, por ahora, para Puente de Vallecas.'} <a href="#ayuda">Cómo se obtiene</a></p></div>`;
 }
+// Gráfico de barras agrupadas por año. rows: [[año, v1, v2, ...]]; ser: [{n,c,i}] (i = índice en la fila)
+function barChart(rows,ser,o={}){
+  rows=rows.filter(r=>ser.some(x=>r[x.i]>0));if(!rows.length)return '';
+  const y0=Math.min(...rows.map(r=>r[0])),y1=Math.max(...rows.map(r=>r[0])),Y=[];for(let y=y0;y<=y1;y++)Y.push(y);
+  const by=new Map(rows.map(r=>[r[0],r]));const mx=o.stack?Math.max(...rows.map(r=>ser.reduce((t,x)=>t+(r[x.i]||0),0))):Math.max(...rows.flatMap(r=>ser.map(x=>r[x.i]||0)));
+  const W=560,H=150,L=44,B=20,T=8,cw=(W-L-6)/Y.length,bw=o.stack?Math.max(3,Math.min(26,cw-4)):Math.max(2,Math.min(14,(cw-3)/ser.length));
+  const nice=v=>{const p=Math.pow(10,Math.floor(Math.log10(v)));const m=v/p;return (m<=1?1:m<=2?2:m<=5?5:10)*p};const top=nice(mx);
+  const sy=v=>T+(H-T-B)*(1-v/top);
+  let g=`<line x1="${L}" x2="${W}" y1="${sy(0)}" y2="${sy(0)}" stroke="#c9c6bf"/>`;
+  for(const f of [.5,1]){const v=top*f;g+=`<line x1="${L}" x2="${W}" y1="${sy(v)}" y2="${sy(v)}" stroke="#ecebe7"/><text x="${L-4}" y="${sy(v)+3}" text-anchor="end" class="ax">${eurS(v).replace(' €','')}</text>`}
+  Y.forEach((y,k)=>{const x=L+k*cw+(cw-bw*(o.stack?1:ser.length))/2;const r=by.get(y);let acc=0;
+    if(o.stack)ser.forEach(sr=>{const v=r?r[sr.i]||0:0;if(v>0){g+=`<rect x="${x.toFixed(1)}" y="${sy(acc+v).toFixed(1)}" width="${(bw-1).toFixed(1)}" height="${(sy(acc)-sy(acc+v)).toFixed(1)}" fill="${sr.c}"><title>${y} · ${sr.n}: ${eurS(v)}</title></rect>`;acc+=v}});
+    else ser.forEach((sr,j)=>{const v=r?r[sr.i]||0:0;if(v>0)g+=`<rect x="${(x+j*bw).toFixed(1)}" y="${sy(v).toFixed(1)}" width="${(bw-1).toFixed(1)}" height="${(sy(0)-sy(v)).toFixed(1)}" fill="${sr.c}" rx="1"><title>${y} · ${sr.n}: ${eurS(v)}</title></rect>`});
+    const step=Y.length>16?Math.ceil(Y.length/12):1;if(k%step===0||y===y1)g+=`<text x="${(L+k*cw+cw/2).toFixed(1)}" y="${H-5}" text-anchor="middle" class="ax">${Y.length>10?String(y).slice(2):y}</text>`});
+  return `<figure class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.title||'Gráfico')}">${g}</svg><figcaption>${ser.map(x=>`<span><i style="background:${x.c}"></i>${esc(x.n)}</span>`).join('')}${o.unit?`<span class="sub">${esc(o.unit)}</span>`:''}</figcaption></figure>`;
+}
+// Cronograma de contratos (sin importe por edificio): una barra por contrato entre su inicio y su fin
+function ganttChart(items){
+  if(!items.length)return '';
+  const ym=f=>+f.slice(0,4)+(+f.slice(5,7)-1)/12;
+  const t0=Math.floor(Math.min(...items.map(x=>ym(x.ini)))),t1=Math.ceil(Math.max(...items.map(x=>ym(x.fin))));
+  const now=new Date(),tn=now.getFullYear()+now.getMonth()/12;
+  const W=560,L=18,R=18,rh=30,T=2,H=T+items.length*rh+20,sx=t=>L+(W-L-R)*(t-t0)/Math.max(1,t1-t0);
+  let g='';for(let y=t0;y<=t1;y++){g+=`<line x1="${sx(y)}" x2="${sx(y)}" y1="${T}" y2="${H-18}" stroke="#ecebe7"/>`;if((t1-t0)<=12||y%2===0)g+=`<text x="${sx(y)}" y="${H-5}" text-anchor="middle" class="ax">${y}</text>`}
+  if(tn>=t0&&tn<=t1)g+=`<line x1="${sx(tn)}" x2="${sx(tn)}" y1="${T}" y2="${H-18}" stroke="#1d2228" stroke-dasharray="3 3"/>`;
+  items.forEach((x,k)=>{const a=sx(ym(x.ini)),bb=Math.max(a+3,sx(ym(x.fin)));const yy=T+k*rh+2;
+    g+=`<text x="${Math.max(L,Math.min(a,W-330)).toFixed(1)}" y="${yy+9}" class="ax" style="fill:#1d2228">${esc(x.l)}</text><rect x="${a.toFixed(1)}" y="${yy+13}" width="${(bb-a).toFixed(1)}" height="10" rx="3" fill="${x.c}" opacity="${x.vig?1:.4}"><title>${esc(x.t)}</title></rect>`});
+  return `<figure class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cronograma de contratos">${g}</svg></figure>`;
+}
+const SCOL={'limpieza':'#2563eb','seguridad':'#dc2626','auxiliares':'#16a34a','mantenimiento':'#d97706','jardinería':'#65a30d','control de plagas':'#7c3aed'};
+// Enlace a la fuente de un registro de inversión: [año, fuente, texto, importe, tipo, ref, menor]
+function refLink(e){const r=e[5];if(!r)return '';
+  if(e[1]===0)return `<a href="https://www.boe.es/diario_boe/txt.php?id=${encodeURIComponent(r)}" target="_blank" rel="noopener">anuncio ${esc(r)} en el BOE</a>`;
+  if(e[1]===1)return `proyecto de inversión ${esc(r)} (<a href="https://datos.madrid.es/dataset/211496-0-ejecucion-presupuestaria-histori" target="_blank" rel="noopener">ejecución presupuestaria</a>)`;
+  return `exp. ${esc(r)} (<a href="https://datos.madrid.es/dataset/${e[6]?'300253-0-contratos-actividad-menores':'216876-0-contratos-actividad'}" target="_blank" rel="noopener">${e[6]?'contratos menores':'actividad contractual'}</a>)`}
 // Servicios contratados (limpieza, seguridad, auxiliares, mantenimiento) con reparto por edificio según los pliegos
 const CATL={'limpieza':'Limpieza','seguridad':'Seguridad','auxiliares':'Auxiliares de información','mantenimiento':'Mantenimiento','jardinería':'Jardinería','control de plagas':'Control de plagas'};
 const fmtMes=f=>{if(!f)return '';const [y,m]=f.split('-');return ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][+m-1]+' '+y};
 const finMes=(f,n)=>{if(!f||!n)return '';let y=+f.slice(0,4),m=+f.slice(5,7)+Math.round(n);y+=Math.floor((m-1)/12);m=((m-1)%12)+1;return fmtMes(`${y}-${String(m).padStart(2,'0')}`)};
-function servHtml(b){
+// Inicio y fin (AAAA-MM) de un contrato de servicios, con sus prórrogas
+const ymAdd=(f,n)=>{let y=+f.slice(0,4),m=+f.slice(5,7)+Math.round(n);y+=Math.floor((m-1)/12);m=((m-1)%12)+1;return `${y}-${String(m).padStart(2,'0')}`};
+const cFin=c=>c.fin||(c.fecha&&c.meses?ymAdd(c.fecha,c.meses+(c.prorroga_meses||0)):null);
+function servData(b){const d=SERV&&SERV.edificios[b.key];if(!d)return null;
+  return d.s.map(([ci,cuota])=>{const c=SERV.contratos[ci];return {c,cuota,ini:(c.fecha||'').slice(0,7),fin:cFin(c)}}).filter(x=>x.ini&&x.fin)}
+// € por año por servicio (solo contratos con importe estimado para el edificio)
+function servYears(items){const cats=[...new Set(items.filter(x=>x.cuota!=null).map(x=>x.c.cats[0]))];const Y=new Map();
+  for(const x of items){if(x.cuota==null||!x.c.meses)continue;const an=x.cuota*12/x.c.meses;let [y,m]=x.ini.split('-').map(Number);const [fy,fm]=x.fin.split('-').map(Number);
+    while(y<fy||(y===fy&&m<fm)){const r=Y.get(y)||[y,...cats.map(()=>0)];r[1+cats.indexOf(x.c.cats[0])]+=an/12;Y.set(y,r);m++;if(m>12){m=1;y++}}}
+  return {cats,rows:[...Y.values()].sort((a,b)=>a[0]-b[0])}}
+function servHtml(b,full=false){
   if(!SERV)return '';
   if(!(b.cd!=null&&SERV.distritos.includes(+b.cd)))return '';
   const h=`<h2 style="margin-top:14px">Servicios contratados</h2>`;
@@ -1032,15 +1111,19 @@ function servHtml(b){
   if(!d)return `${h}<p class="inv inote">Este edificio no aparece en los pliegos revisados de los contratos de limpieza, seguridad, auxiliares y mantenimiento de su Junta de Distrito. Puede tener servicios contratados por otra área municipal o por otra administración. <a href="#ayuda">Más información</a></p>`;
   const tot=Object.entries(d.anual).sort((a,b)=>b[1]-a[1]);
   const top=tot.length?`<div class="tot">${tot.slice(0,3).map(([k,v])=>`<div><b>${eurS(v)}</b><span>${CATL[k]||k}<br>al año (estimado)</span></div>`).join('')}</div>`:'';
+  const it=servData(b)||[];
+  const sy=servYears(it);
+  const chart=sy.rows.length?barChart(sy.rows,sy.cats.map((k,i)=>({n:CATL[k]||k,c:SCOL[k]||'#888',i:i+1})),{stack:true,title:'Coste estimado por año',unit:'€ al año estimados para este edificio'})
+    :ganttChart(it.slice().sort((a,b)=>a.ini.localeCompare(b.ini)).map(x=>({ini:x.ini,fin:x.fin,c:SCOL[x.c.cats[0]]||'#888',vig:x.c.vigente,l:`${CATL[x.c.cats[0]]||x.c.cats[0]} · ${x.c.empresa.slice(0,34)}`,t:`${x.c.empresa} · ${fmtMes(x.ini)} – ${fmtMes(x.fin)} · ${eurS(x.c.anual||(x.c.meses?x.c.importe*12/x.c.meses:null))}/año el contrato completo`})));
   let conReparto=false,sinReparto=false;
   const rows=d.s.map(([ci,cuota])=>{const c=SERV.contratos[ci];const sr=cuota==null;if(sr)sinReparto=true;else conReparto=true;
-    const fin=c.fin?fmtMes(c.fin):(c.meses?finMes(c.fecha,c.meses+(c.prorroga_meses||0)):'');
-    const per=`${esc(fmtMes(c.fecha))}${fin?' – '+esc(fin):''}`;
+    const fin=cFin(c);
+    const per=`${esc(fmtMes(c.fecha))}${fin?' – '+esc(fmtMes(fin)):''}`;
     const cuerpo=sr?`${per}${c.prorroga_meses?' (con prórrogas)':''} · contrato de ${eurS(c.anual)}/año para ${c.n_edif} edificios del pliego`
       :`${per} · contrato de ${eurS(c.importe)} para ${c.n_edif} edificios${c.prorroga_meses?` · prorrogado${c.prorroga_importe&&c.importe?` por ${eurS(c.prorroga_importe)} más (${eurS(cuota*c.prorroga_importe/c.importe)} para este edificio)`:''}`:''}`;
-    return `<div class="ev"><span class="y">${(c.fecha||'').slice(0,4)}</span><span><b>${esc(c.empresa)}</b> · ${esc(c.cats.map(x=>CATL[x]||x).join(', '))}${c.lote?' · lote '+esc(c.lote):''}<br><span class="sub">${cuerpo}</span></span><span class="i">${sr?'':eurS(cuota)}</span><span class="f"><span class="tag">${c.vigente?'vigente':'terminado'}</span>${sr?'el edificio figura en el pliego':'parte estimada del contrato inicial para este edificio · '+esc(c.reparto||'')} · exp. ${esc(c.exp)}${c.url?` · <a class="plat" href="${esc(c.url)}" target="_blank" rel="noopener">Ver en la Plataforma de Contratación</a>`:''}</span></div>`}).join('');
-  const nota=`<p class="inote">Los contratos de limpieza, seguridad, auxiliares y mantenimiento son de todo el distrito.${conReparto?' Donde aparece un importe para el edificio es una <b>estimación</b>: el del contrato repartido según las horas, el coste o los metros cuadrados que el pliego asigna a cada edificio.':''}${sinReparto?' Para este distrito solo se indica en qué contratos figura el edificio y el coste anual del contrato completo: los pliegos no se han leído con el detalle necesario para repartirlo por edificio.':''} <a href="#ayuda">Cómo se calcula</a></p>`;
-  return `${h}<div class="inv">${top}${rows}${nota}</div>`;
+    return `<div class="ev${full?'':' hid'}"><span class="y">${(c.fecha||'').slice(0,4)}</span><span><b>${esc(c.empresa)}</b> · ${esc(c.cats.map(x=>CATL[x]||x).join(', '))}${c.lote?' · lote '+esc(c.lote):''}<br><span class="sub">${cuerpo}</span></span><span class="i">${sr?'':eurS(cuota)}</span><span class="f"><span class="tag">${c.vigente?'vigente':'terminado'}</span>${sr?'el edificio figura en el pliego':'parte estimada del contrato inicial para este edificio · '+esc(c.reparto||'')} · exp. ${esc(c.exp)}${c.url?` · <a class="plat" href="${esc(c.url)}" target="_blank" rel="noopener">Ver en la Plataforma de Contratación</a>`:''}</span></div>`}).join('');
+  const nota=`<p class="inote">Los contratos de limpieza, seguridad, auxiliares y mantenimiento son de todo el distrito.${conReparto?' El gráfico y los importes del edificio son una <b>estimación</b>: el importe del contrato repartido según las horas, el coste o los metros cuadrados que el pliego asigna a cada edificio, y distribuido por meses de vigencia (con las prórrogas).':''}${sinReparto&&!conReparto?' Para este distrito solo se sabe en qué contratos figura el edificio: el gráfico muestra cuándo estuvo o está vigente cada uno (en gris claro, los terminados); el coste anual que se indica es el del contrato completo, no el de este edificio.':''} <a href="#ayuda">Cómo se calcula</a></p>`;
+  return `${h}<div class="inv">${top}${chart}${rows}${full?'':`<button class="btn more">Ver los ${d.s.length} contratos</button>`}${nota}</div>`;
 }
 function barrioHtml(b){if(!b.barrioNom)return '';const iv=b.cd!=null?ivtaOf(b.cd):null;
   return `<div class="sub pbar">Barrio <b>${esc(b.barrioNom)}</b>${b.renta?` · renta media por hogar ${fmtEur(b.renta)} (${RY}; grupo ${b.rq} de 5${b.rq==='1'?', de los más bajos de Madrid':b.rq==='5'?', de los más altos':''})`:''}${iv?` · vulnerabilidad del distrito (IVTA ${iv.y}) ${iv.v.toLocaleString('es-ES',{maximumFractionDigits:2})}, media de Madrid ${iv.m.toLocaleString('es-ES',{maximumFractionDigits:2})}`:''}</div>`}
@@ -1056,6 +1139,80 @@ function placePop(){
   pop.style.left=l+'px';pop.style.top=t+'px';pop.style.right='';pop.style.bottom='';
 }
 
+// =====================================================================
+// FICHA COMPLETA DE UN EDIFICIO (#ficha=lat,lng): toda la información, comparativa con su tipo y fuentes
+// =====================================================================
+const median=a=>{if(!a.length)return null;const s=[...a].sort((x,y)=>x-y),m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2};
+const mean=a=>a.length?a.reduce((t,x)=>t+x,0)/a.length:null;
+// Métricas comparables de un edificio; null = no hay dato o la fuente no cubre el edificio
+const INVc=b=>INV&&b.cd!=null&&INV.distritos.includes(+b.cd);
+const SERVc=b=>SERV&&b.cd!=null&&SERV.distritos.includes(+b.cd);
+const MET=[
+  {k:'year',sec:'Edificio',l:'Año de construcción',f:b=>b.year,fmt:v=>String(Math.round(v)),med:true},
+  {k:'renta',sec:'Edificio',l:'Renta media por hogar del barrio',f:b=>b.renta,fmt:v=>fmtEur(v)},
+  {k:'pag',sec:'Inversión',l:'Inversión pagada 2014–2025',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[1]||0):null,fmt:eurS},
+  {k:'pagA',sec:'Inversión',l:'Inversión pagada por año (media 2014–2025)',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[1]||0)/12:null,fmt:v=>eurS(v)+'/año'},
+  {k:'con',sec:'Inversión',l:'Contratos de obra y mantenimiento 2015–2026',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[2]||0):null,fmt:eurS},
+  {k:'nreg',sec:'Inversión',l:'Registros de inversión y contratos',f:b=>INVc(b)?((INV.edificios[b.key]||{ev:[]}).ev.length):null,fmt:v=>v.toLocaleString('es-ES',{maximumFractionDigits:1})},
+  {k:'nsv',sec:'Servicios',l:'Contratos de servicios vigentes en los que figura',f:b=>SERVc(b)?((SERV.edificios[b.key]||{s:[]}).s.filter(([ci])=>SERV.contratos[ci].vigente).length):null,fmt:v=>v.toLocaleString('es-ES',{maximumFractionDigits:1})},
+  {k:'sva',sec:'Servicios',l:'Coste anual estimado de servicios (solo Puente de Vallecas)',f:b=>SERV&&+b.cd===13?((SERV.edificios[b.key]||{}).tot_anual||0):null,fmt:v=>eurS(v)+'/año'},
+];
+function grupoStats(bs,m){const v=bs.map(m.f).filter(x=>x!=null&&!Number.isNaN(x));return {n:v.length,mean:mean(v),med:median(v),v}}
+const pctl=(v,arr)=>arr.length?Math.round(100*arr.filter(x=>x<v).length/arr.length):null;
+function cmpHtml(b){
+  const tipo=tipoOf(b),dn=b.cd!=null?DISTN[b.cd]:null;
+  const gD=buildings.filter(x=>x!==b&&x.cd===b.cd&&tipoOf(x)===tipo),gM=buildings.filter(x=>x!==b&&tipoOf(x)===tipo);
+  let sec='',rows='';
+  for(const m of MET){const v=m.f(b);if(m.k==='sva'&&v==null)continue;const sd=grupoStats(gD,m),sm=grupoStats(gM,m);if(v==null&&!sd.n&&!sm.n)continue;
+    if(m.sec!==sec){sec=m.sec;rows+=`<tr class="sec"><td colspan="4">${esc(sec)}</td></tr>`}
+    const cell=(st)=>st.n?`<b>${m.fmt(m.med?st.med:st.mean)}</b><span class="sub">${m.med?'mediana':'media'} de ${st.n} edificios${v!=null?` · este edificio supera al ${pctl(v,st.v)} %`:''}</span>`:'<span class="sub">sin datos</span>';
+    rows+=`<tr><td>${esc(m.l)}</td><td><b>${v!=null?m.fmt(v):'—'}</b></td><td>${cell(sd)}</td><td>${cell(sm)}</td></tr>`}
+  // ITE: estado del edificio y reparto de estados en cada grupo
+  const ks=['fav','desf','subs','iee','sin'];const dist=g=>{const n=g.length;return ks.map(k=>n?100*g.filter(x=>x.s===k).length/n:0)};
+  const dD=dist(gD),dM=dist(gM);
+  rows+=`<tr class="sec"><td colspan="4">Inspección técnica (ITE)</td></tr>`+ks.map((k,i)=>`<tr><td>${esc(SMAP[k].lab)}</td><td>${b.s===k?'<b>sí</b>':'—'}</td><td><b>${dD[i].toLocaleString('es-ES',{maximumFractionDigits:0})} %</b><span class="sub">de ${gD.length} edificios</span></td><td><b>${dM[i].toLocaleString('es-ES',{maximumFractionDigits:0})} %</b><span class="sub">de ${gM.length} edificios</span></td></tr>`).join('');
+  return `<h2>Comparativa con edificios del mismo tipo</h2><p class="sub">Tipo: <b>${esc(tipo)}</b>. Se compara con los demás edificios de ese tipo en ${dn?esc(dn):'el distrito'} y en todo Madrid. Los importes cuentan con 0 € los edificios sin registros, siempre que la fuente cubra su distrito. «Supera al X %» es el porcentaje de edificios del grupo con un valor menor.</p>
+   <table class="cmp"><thead><tr><th></th><th>Este edificio</th><th>${dn?esc(dn):'Distrito'}</th><th>Todo Madrid</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function fuentesHtml(b){
+  const L=[];const add=(t,u,d)=>L.push(`<li>${u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`:esc(t)}${d?` — <span class="sub">${d}</span>`:''}</li>`);
+  for(const c of b.cents){const x=k=>c.r[C[k]];if(x('Ficha madrid.es'))add(`Ficha de «${x('Centro')}» en madrid.es`,x('Ficha madrid.es'),'nombre, dirección, teléfono y tipo de centro')}
+  const exps=[...new Set(b.cents.map(c=>c.r[C['Nº expediente']]).filter(Boolean))];
+  add('Registro de Edificios y Construcciones del Ayuntamiento (consulta de ITE)','https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons',`buscar por la dirección ${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']]||'')}${exps.length?` (expediente ${exps.map(esc).join(', ')})`:''}`);
+  const d=INV&&INV.edificios[b.key];
+  if(d){const pr=[...new Set(d.ev.filter(e=>e[1]===1&&e[5]).map(e=>e[5]))],cx=[...new Set(d.ev.filter(e=>e[1]===2&&e[5]).map(e=>e[5]))],bo=[...new Set(d.ev.filter(e=>e[1]===0&&e[5]).map(e=>e[5]))];
+    if(pr.length)add('Ejecución presupuestaria de inversiones (datos.madrid.es)','https://datos.madrid.es/dataset/211496-0-ejecucion-presupuestaria-histori',`proyectos ${pr.slice(0,40).map(esc).join(', ')}${pr.length>40?'…':''}`);
+    if(cx.length)add('Actividad contractual y contratos menores (datos.madrid.es)','https://datos.madrid.es/dataset/216876-0-contratos-actividad',`expedientes ${cx.slice(0,40).map(esc).join(', ')}${cx.length>40?'…':''}; los menores, en el conjunto <a href="https://datos.madrid.es/dataset/300253-0-contratos-actividad-menores" target="_blank" rel="noopener">300253</a>`);
+    for(const r of bo)add(`Anuncio ${r} del BOE`,`https://www.boe.es/diario_boe/txt.php?id=${encodeURIComponent(r)}`,'contrato de obra anterior a 2014')}
+  const sv=SERV&&SERV.edificios[b.key];
+  if(sv){const seen=new Set();for(const [ci] of sv.s){const c=SERV.contratos[ci];if(seen.has(c.exp))continue;seen.add(c.exp);
+    add(`Licitación ${c.exp} en la Plataforma de Contratación`,c.url||null,`${esc(c.cats.map(x=>CATL[x]||x).join(', '))} · ${esc(c.empresa)}${c.url?' · pliegos, adjudicación y prórrogas':' · sin enlace público localizado'}`)}}
+  if(b.barrioNom)add(`IGUALA, índice de vulnerabilidad territorial (renta del barrio ${b.barrioNom})`,'https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad','renta media por hogar');
+  add('Ubicación en OpenStreetMap',`https://www.openstreetmap.org/?mlat=${b.lat.toFixed(5)}&mlon=${b.lng.toFixed(5)}#map=19/${b.lat.toFixed(5)}/${b.lng.toFixed(5)}`,`${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}`);
+  add('Catastro (consulta por coordenadas)',`https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?latitud=${b.lat.toFixed(6)}&longitud=${b.lng.toFixed(6)}&zoom=19`,'parcela y referencia catastral');
+  return `<details><summary>Fuentes de este edificio (${L.length})</summary><ul>${L.join('')}</ul></details>`;
+}
+function renderFicha(b){
+  const el=document.getElementById('fichaBody');if(!b){el.innerHTML='<p>Edificio no encontrado.</p>';return}
+  const byAddr=new Map();for(const c of b.cents){const a=c.r[C['Dirección']];if(!byAddr.has(a))byAddr.set(a,c)}
+  const ite=[...byAddr.values()].map(c=>{const g=k=>c.r[C[k]];const cs=SMAP[c.s];const est=g('Estado de la inspección');
+    return `${byAddr.size>1?`<h3>${esc(g('Dirección'))}</h3>`:''}${cs.hollow?`<span class="badge nd">${esc(est||cs.lab)}</span>`:`<span class="badge" style="background:${cs.c}">${esc(est)}</span>`}<dl>${ITE_FIELDS.map(([k,l])=>{const v=g(k);return v!==''&&v!=null&&v!=='-'?`<dt>${esc(l||k)}</dt><dd>${esc(v)}</dd>`:''}).join('')}</dl>`}).join('');
+  const cents=b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div><div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}${x('Empresa gestora')?' · gestión: '+esc(x('Empresa gestora')):''}</div></div>`}).join('');
+  const head=b.main[C['Denominación en el Registro']];
+  el.innerHTML=`<div class="fh"><div><h1>${esc(shareTitle(b))}</h1><div class="sub">${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']])}${head?' · '+esc(head):''}</div>
+     <div class="sub">${esc([...b.dists].join(' · '))} · ${esc(tipoOf(b))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
+     <div class="acts"><a class="btn" href="#edificio=${encodeURIComponent(b.key)}">Ver en el mapa</a><button class="btn" id="fShare">Compartir</button><button class="btn" id="fPrint">Imprimir</button><a class="btn" href="${esc(fixUrl(b))}" target="_blank" rel="noopener">¿Datos incorrectos?</a></div></div>
+   <div class="card"><h2>Inspección técnica de edificios</h2>${ite}</div>
+   <div class="card">${invHtml(b,true)||'<h2>Inversión registrada</h2><p class="sub">Sin datos.</p>'}</div>
+   ${SERVc(b)?`<div class="card">${servHtml(b,true)}</div>`:''}
+   <div class="card">${cmpHtml(b)}</div>
+   <div class="card"><h2>Centros en este edificio (${b.cents.length})</h2>${cents}</div>
+   <div class="card">${fuentesHtml(b)}</div>`;
+  document.getElementById('fShare').onclick=()=>{const u=location.origin+location.pathname+'#ficha='+b.key;if(navigator.share)navigator.share({title:shareTitle(b),url:u}).catch(()=>{});else navigator.clipboard.writeText(u).then(()=>toast('Enlace copiado al portapapeles'))};
+  document.getElementById('fPrint').onclick=()=>window.print();
+  el.querySelectorAll('.inv .more').forEach(bt=>bt.onclick=()=>{bt.closest('.inv').querySelectorAll('.ev.hid').forEach(e=>e.classList.remove('hid'));bt.remove()});
+  document.title=shareTitle(b)+' · ITE Madrid';
+}
 // =====================================================================
 // Utilidades comunes a Panel e Informe
 // =====================================================================
@@ -1114,11 +1271,11 @@ document.getElementById('view-urgente').addEventListener('click',e=>{
     document.getElementById('q').value='';document.getElementById('fDist').value=document.getElementById('uDist').value;if(document.getElementById('uRenta').value)toast('El filtro de renta no se traslada al mapa: activa la capa de barrios para verlo');document.getElementById('fTipo').value=document.getElementById('uTipo').value;fillSub();document.getElementById('fSub').value='';
     document.getElementById('fVenc').value=k==='desf'?'':k;STATES.forEach(s=>k==='desf'?(s.k==='desf'?on.add(s.k):on.delete(s.k)):on.add(s.k));NEAR=null;applyFilters();location.hash='#mapa';setTimeout(()=>{fitAll();draw()},60);return}
   const kp=e.target.closest('.kpi[data-go]');if(kp){document.getElementById(kp.dataset.go).scrollIntoView({behavior:'smooth',block:'start'})}});
-const VIEWS=['mapa','urgente','panel','informe','ayuda'];
-function route(){let v=(location.hash||'#mapa').slice(1),ek=null;if(v.startsWith('edificio=')){ek=decodeURIComponent(v.slice(9));v='mapa'}if(!VIEWS.includes(v))v='mapa';
+const VIEWS=['mapa','urgente','panel','informe','ayuda','ficha'];const TITLE0=document.title;
+function route(){let v=(location.hash||'#mapa').slice(1),ek=null;if(v.startsWith('edificio=')){ek=decodeURIComponent(v.slice(9));v='mapa'}if(v.startsWith('ficha=')){ek=decodeURIComponent(v.slice(6));v=KEYMAP.has(ek)?'ficha':'mapa'}if(!VIEWS.includes(v))v='mapa';
   VIEWS.forEach(x=>document.getElementById('view-'+x).classList.toggle('on',x===v));
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
-  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v==='urgente')renderUrgente();if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll();if(ek&&KEYMAP.has(ek)&&selected!==KEYMAP.get(ek))setTimeout(()=>focusBuilding(KEYMAP.get(ek)),60)}}
+  if(v==='panel')renderPanel();if(v==='informe')renderInforme();if(v==='ayuda')renderAyuda();if(v!=='ficha')document.title=TITLE0;if(v==='urgente')renderUrgente();if(v==='ficha'){renderFicha(KEYMAP.get(ek));window.scrollTo(0,0)}if(v==='mapa'){resize();if(!(fitScale>0)||fitScale===1)fitAll();if(ek&&KEYMAP.has(ek)&&selected!==KEYMAP.get(ek))setTimeout(()=>focusBuilding(KEYMAP.get(ek)),60)}}
 window.addEventListener('hashchange',route);
 
 // =====================================================================

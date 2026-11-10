@@ -19,7 +19,7 @@ def add(k,ev):
 # ---- A) inversiones (ejecución presupuestaria, pagos reales) 2014-2025
 f=lambda s:float((s or '0').replace('.','').replace(',','.') or 0)
 d=json.load(open('inversiones_2014_2025.json'))
-agg=collections.defaultdict(lambda:{'obl':0,'cd':0,'anios':set()})
+agg=collections.defaultdict(lambda:{'obl':0,'cd':0,'anios':set(),'pa':collections.Counter()})
 MEMO={}
 def cat(t):
     if re.search(r'ADQUISICI.N (DE )?SUELO|ADQUISICI.N$|\. ADQUISICI.N|EXPROPIACI',t):return 'suelo / compra'
@@ -31,11 +31,11 @@ for anio,proj,tit,dist,lin,sub,prog,subc,cd,obl in d['rows']:
     if (t,dc) in MEMO:h=MEMO[(t,dc)]
     else:h=MEMO[(t,dc)]=E.match(t,dc)
     if len(h)!=1:continue
-    a=agg[(h[0][0],proj,tit)];a['obl']+=f(obl);a['cd']+=f(cd);a['anios'].add(anio);a['why']=h[0][1]
+    a=agg[(h[0][0],proj,tit)];a['obl']+=f(obl);a['cd']+=f(cd);a['anios'].add(anio);a['pa'][anio]+=f(obl);a['why']=h[0][1]
 for (k,proj,tit),a in agg.items():
     if a['obl']<=0 and a['cd']<=0:continue
     y0=int(proj[:4]) if proj[:4].isdigit() else min(a['anios'])
-    add(k,{'fuente':'inversiones','anio':min(a['anios']),'anio_proyecto':y0,'anios':sorted(a['anios']),'texto':tit,'importe':round(a['obl'],2),'importe_tipo':'pagado','credito':round(a['cd'],2),'cat':cat(E.nrm(tit)),'ref':proj,'why':a['why']})
+    add(k,{'fuente':'inversiones','anio':min(a['anios']),'anio_proyecto':y0,'anios':sorted(a['anios']),'texto':tit,'importe':round(a['obl'],2),'importe_tipo':'pagado','credito':round(a['cd'],2),'pagos':{y:round(x,2) for y,x in sorted(a['pa'].items()) if x},'cat':cat(E.nrm(tit)),'ref':proj,'why':a['why']})
 # ---- B) contratos 2015-2026 (actividad contractual + menores)
 C=json.load(open('contratos_obras.json'))
 INV=r'\bOBRA|REFORMA|REHABILIT|ACONDICION|IMPERMEABILIZ|CUBIERTA|SUSTITUC|ACCESIBILID|CLIMATIZ|CALEFACC|CALDERA|ASCENSOR|VENTANA|CARPINTER|FACHADA|PAVIMENT|REPARAC|MEJORA|ADECUACI|DEMOLIC|CONSTRUCC|AMPLIAC|PINTURA|SANEAMIENTO|ILUMINAC|ELECTRIC|FONTANER|EFICIENCIA ENERG|PATOLOG|EMERGENCIA|SEGURIDAD ESTRUCTURAL'
@@ -52,7 +52,7 @@ for c in C:
     sig=(h[0][0],round(c['imp'] or 0),c['year'])
     if sig in seen:continue
     seen.add(sig)
-    add(h[0][0],{'fuente':'contratos','anio':c['year'],'texto':(c['der'] or c['obj']).strip()[:300],'importe':c['imp'],'importe_tipo':'adjudicado','cat':cat2,'tipo_contrato':c['kind'],'adj':(c['adj'] or '')[:80],'why':h[0][1]})
+    add(h[0][0],{'fuente':'contratos','anio':c['year'],'texto':(c['der'] or c['obj']).strip()[:300],'importe':c['imp'],'importe_tipo':'adjudicado','cat':cat2,'tipo_contrato':c['kind'],'adj':(c['adj'] or '')[:80],'ref':(c.get('exp') or '').strip(),'why':h[0][1]})
 # ---- C) BOE 1995-2014
 for r in json.load(open('boe_match.json')):
     if len(r['hits'])!=1:continue
@@ -90,8 +90,14 @@ for v in out:
     ev=[]
     for e in sorted(v['ev'],key=lambda e:(-e['anio'],-(e['importe'] or 0))):
         t=re.sub(r'\s+',' ',e['texto']).strip()
-        ev.append([e['anio'],FU.index(e['fuente']),t[:220],round(e['importe'],2) if e['importe'] else None,TI.index(e['importe_tipo']) if e['importe_tipo'] in TI else -1])
-    ED[v['key']]={'t':[v['tot_boe'],v['tot_pagado'],v['tot_contratos']],'ev':ev}
+        ev.append([e['anio'],FU.index(e['fuente']),t[:220],round(e['importe'],2) if e['importe'] else None,TI.index(e['importe_tipo']) if e['importe_tipo'] in TI else -1,e.get('ref') or '',1 if e.get('tipo_contrato')=='menor' else 0])
+    # importe por año: [año, BOE, pagado, contratos]; lo pagado va al año del pago
+    PY=collections.defaultdict(lambda:[0,0,0])
+    for e in v['ev']:
+        if e['fuente']=='inversiones':
+            for y,x in (e.get('pagos') or {e['anio']:e['importe']}).items():PY[int(y)][1]+=x
+        elif e['importe']:PY[int(e['anio'])][0 if e['fuente']=='BOE' else 2]+=e['importe']
+    ED[v['key']]={'t':[v['tot_boe'],v['tot_pagado'],v['tot_contratos']],'ev':ev,'y':[[y]+[round(x) for x in PY[y]] for y in sorted(PY)]}
 js={'generado':datetime.date.today().isoformat(),'distritos':sorted({info[k]['cd'] for k in ED}),'boe_distritos':[13],'fuentes':FU,'tipos':TI,'edificios':ED}
 open(E.BASE/'app'/'inversiones.js','w',encoding='utf-8').write('window.INVERSIONES='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
 print('app/inversiones.js:',len(ED),'edificios',sum(len(x['ev']) for x in ED.values()),'registros')

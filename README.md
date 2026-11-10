@@ -163,6 +163,10 @@ Empresas de limpieza, seguridad, auxiliares de información y mantenimiento que 
 
 En Puente de Vallecas el importe de cada edificio es una estimación proporcional a los pesos del pliego. En los demás distritos la ficha dice en qué contratos figura el edificio y el coste anual del contrato completo, sin repartirlo: los pesos que se pueden leer de forma automática no coinciden con los del pliego (comprobado con los cinco contratos de Puente de Vallecas). En una muestra de 40 asignaciones de otros distritos, 36 eran correctas.
 
+## Ficha completa del edificio
+
+`#ficha=lat,lng` abre una página con toda la información de un edificio: ITE, gráfico de inversión por año (`inversiones.js`, campo `y`: `[año, BOE, pagado, contratos]`), servicios (gráfico de coste estimado en Puente de Vallecas, cronograma de contratos en el resto), comparativa con los edificios del mismo tipo en el distrito y en Madrid, y un desplegable con los enlaces a las fuentes de ese edificio (cada registro de `inversiones.js` lleva su referencia: proyecto, expediente o anuncio del BOE).
+
 ## Empresas de servicios por distrito (todo Madrid)
 
 Qué empresa presta la limpieza, la seguridad, los auxiliares de información y el mantenimiento de los edificios de cada Junta de Distrito, con el coste anual y el enlace público a cada licitación.
