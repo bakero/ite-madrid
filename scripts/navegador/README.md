@@ -14,6 +14,7 @@ Por eso cada script se ejecuta **en la consola del navegador (F12 → Consola)**
 | `02_consulta_ite_registro.js` | https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons | `ite_resultados_AAAAMMDD_HHMM.json` | `scripts/sync.sh` o `ingest_export.py` |
 | `03_calles_geoportal.js` | https://sigma.madrid.es/hosted/rest/services/CALLEJERO/CALLEJERO_ROTULACION_GEOMETRIAS/MapServer?f=json | `calles_madrid_con_nombres.json` (es JavaScript: renombrar a `calles.js`) | `app/calles.js` |
 | `04_distritos_kml.js` | https://geoportal.madrid.es/ | `distritos_madrid_simpl.json` | `datos/` |
+| `05_plataforma_enlaces.js` | https://contrataciondelestado.es (Licitaciones → Formulario de búsqueda) | `enlaces.json` (antes asignar `window.EXPS`) | `datos/servicios/` |
 
 Notas sobre cada script:
 

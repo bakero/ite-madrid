@@ -38,6 +38,9 @@ app/                       Web estática (lo que se publica)
   index.html               Aplicación completa (HTML + CSS + JS)
   data.js                  Centros + ITE + contornos de distrito (generado por ingest_export.py)
   calles.js                Ejes de viario del callejero oficial (generado por 03_calles_geoportal.js)
+  inversiones.js           Historial de inversión por edificio (Puente de Vallecas)
+  servicios.js             Servicios contratados por edificio (Puente de Vallecas)
+  empresas.js              Empresas de servicios por distrito (todo Madrid)
 ite_madrid.sqlite          Base de datos con toda la información
 centros_ite_madrid.xlsx    Exportación a Excel (Centros + ITE, Resumen por distrito, Fuentes)
 datos/                     Datos de origen descargados y volcados intermedios
@@ -153,6 +156,16 @@ Empresas e importes de limpieza, seguridad, auxiliares de información y manteni
 1. `scripts/servicios/normaliza_todo.py <carpeta_csv> todos.json`: lee todos los CSV de actividad contractual (216876) y contratos menores (300253).
 2. `scripts/servicios/servicios.py todos.json servicios_pv.json`: selecciona los contratos de servicios de edificios que afectan a Puente de Vallecas.
 3. `scripts/servicios/reparto.py <carpeta_pliegos>`: lee los pliegos y estudios económicos (texto de `pdftotext -layout`) y obtiene el peso de cada edificio (horas, coste o m²) → `reparto.json`.
-4. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json` → `app/servicios.js`.
+4. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json [enlaces.json]` → `app/servicios.js`.
 
-El importe de cada edificio es una estimación proporcional; el coste anual usa el último contrato de cada servicio. Datos intermedios en `datos/servicios/`.
+El importe de cada edificio es una estimación proporcional; el coste anual usa el contrato vigente de cada servicio, con sus prórrogas. Datos intermedios en `datos/servicios/`.
+
+## Empresas de servicios por distrito (todo Madrid)
+
+Qué empresa presta la limpieza, la seguridad, los auxiliares de información y el mantenimiento de los edificios de cada Junta de Distrito, con el coste anual y el enlace público a cada licitación.
+
+1. `scripts/servicios/empresas_distritos.py todos.json empresas_distritos.json [enlaces.json]`: contratos de servicios de edificios de las 21 Juntas de Distrito, con prórrogas, fecha de fin, vigencia y coste anual. Si el objeto inscrito es solo el nombre del lote, la categoría sale del título de la licitación (`enlaces.json`).
+2. `enlaces.json` (`{expediente: [[idEvl, texto de la fila]]}`) se obtiene buscando cada expediente en el buscador de licitaciones de la Plataforma de Contratación del Sector Público (`scripts/navegador/05_plataforma_enlaces.js`, para pegar en la consola del navegador en el formulario de búsqueda).
+3. `scripts/servicios/empresas_app.py empresas_distritos.json enlaces.json` → `app/empresas.js`.
+
+Enlace público: `https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=<idEvl>`.

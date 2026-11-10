@@ -1,5 +1,5 @@
 """Categorías y utilidades comunes de los contratos de servicios."""
-import re,sys,pathlib
+import re,sys,pathlib,urllib.parse
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'inversiones'))
 import edificios as E
 CAT=[('limpieza',r'\bLIMPIEZA'),
@@ -17,3 +17,12 @@ def emp(a):
     a=re.sub(r'^\([A-Z0-9]{8,10}\)\s*','',a);a=re.sub(r'\s+',' ',a).strip(' ,.;')
     return a
 def empkey(a):return re.sub(r'[^A-Z0-9]','',re.sub(r'\b(S\.?A\.?U?|S\.?L\.?U?|SOCIEDAD ANONIMA|SL|SA|SAU|SLU)\b','',E.nrm(a)))
+PLAT='https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl='
+def _pal(s):return {w for w in re.findall(r'[A-Z]{4,}',E.nrm(s))}-{'CONTRATO','SERVICIO','SERVICIOS','DISTRITO','PARA','LOTE','LOTES','LOS','LAS','DEL'}
+def plataforma_url(L,exp,texto=''):
+    """Enlace público a la licitación en la Plataforma de Contratación (enlaces.json: exp -> [[idEvl, texto de la fila]])."""
+    c=L.get(exp)
+    if not isinstance(c,list) or not c:return None
+    if len(c)==1:return PLAT+urllib.parse.quote(c[0][0],safe='')
+    pal=_pal(texto);best=max(c,key=lambda r:len(pal&_pal(r[1])))
+    return PLAT+urllib.parse.quote(best[0],safe='')

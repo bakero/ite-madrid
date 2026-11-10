@@ -1,9 +1,12 @@
 """Une los contratos de servicios (servicios_pv.json) con el reparto por edificio de los pliegos
-(reparto.json) y genera app/servicios.js. Uso: python servicios_app.py <servicios_pv.json> <reparto.json>"""
+(reparto.json) y genera app/servicios.js. Uso: python servicios_app.py <servicios_pv.json> <reparto.json> [enlaces.json]"""
 import json,re,sys,pathlib,collections,datetime
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'inversiones'))
 import edificios as E
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
+from comun import plataforma_url
 S=json.load(open(sys.argv[1]));R=json.load(open(sys.argv[2]))
+L=json.load(open(sys.argv[3])) if len(sys.argv)>3 else {}
 def meses(p):
     try:return float(str(p).replace(',','.'))
     except ValueError:return None
@@ -63,7 +66,7 @@ def vigente(c):
 CL=sorted(C.values(),key=lambda c:c['fecha'] or '')
 idx={id(c):i for i,c in enumerate(CL)}
 contratos=[{'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
-  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS} for c in CL]
+  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS,'url':plataforma_url(L,c['exp'],c['objeto'])} for c in CL]
 edif={}
 for k,L in ED.items():
     rows=[];anual=collections.defaultdict(float)
