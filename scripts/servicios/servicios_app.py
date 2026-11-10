@@ -1,5 +1,9 @@
 """Une los contratos de servicios (servicios_pv.json) con el reparto por edificio de los pliegos
-(reparto.json) y genera app/servicios.js. Uso: python servicios_app.py <servicios_pv.json> <reparto.json> [enlaces.json]"""
+(reparto.json) y genera app/servicios.js. Uso:
+  python servicios_app.py <servicios_pv.json> <reparto.json> [enlaces.json] [empresas_distritos.json reparto_madrid.json]
+Puente de Vallecas: importe estimado por edificio con los pesos de sus pliegos.
+Resto de distritos: contratos de servicios de cada Junta (empresas_distritos.json) y edificios que figuran en sus
+pliegos (reparto_madrid.json, de reparto_generico.py), sin repartir el importe por edificio."""
 import json,re,sys,pathlib,collections,datetime
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'inversiones'))
 import edificios as E
@@ -7,6 +11,8 @@ sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
 from comun import plataforma_url
 S=json.load(open(sys.argv[1]));R=json.load(open(sys.argv[2]))
 L=json.load(open(sys.argv[3])) if len(sys.argv)>3 else {}
+EDI=json.load(open(sys.argv[4])) if len(sys.argv)>4 else []
+RG=json.load(open(sys.argv[5])) if len(sys.argv)>5 else {}
 def meses(p):
     try:return float(str(p).replace(',','.'))
     except ValueError:return None
@@ -68,14 +74,43 @@ idx={id(c):i for i,c in enumerate(CL)}
 contratos=[{'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
   'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS,'url':plataforma_url(L,c['exp'],c['objeto'])} for c in CL]
 edif={}
-for k,L in ED.items():
+for k,LL in ED.items():
     rows=[];anual=collections.defaultdict(float)
-    for x in sorted(L,key=lambda x:x['c']['fecha'] or '',reverse=True):
+    for x in sorted(LL,key=lambda x:x["c"]["fecha"] or "",reverse=True):
         c=x['c'];rows.append([idx[id(c)],round(x['cuota'],2)])
         if vigente(c) and c['meses']:
             for cat in c['cats'][:1]:anual[cat]+=x['cuota']*12/c['meses']
     edif[k]={'s':rows,'anual':{k2:round(v,2) for k2,v in anual.items()},'tot_anual':round(sum(anual.values()),2)}
-js={'generado':datetime.date.today().isoformat(),'distritos':[13],'cats':CATS,'contratos':contratos,'edificios':edif}
+# ---- resto de distritos: edificios citados en los pliegos de los contratos de cada Junta
+TB={b['key']:b['tipos'] for b in E.B.values()}
+DIS=set()
+def lote_ok(c,e):
+    """¿El edificio e (del pliego) es del lote del contrato c?"""
+    if not c['lote']:return True
+    if e.get('lote'):return e['lote']==c['lote']
+    o=E.nrm(c['objeto']);edu='Educativo' in TB.get(e['key'],())
+    if re.search(r'COLEGIO|EDUCATIV|ESCUELA|DOCENTE|C\.?E\.?I\.?P',o) and not re.search(r'EDIFICIOS? Y|DEPORTIV|CENTROS? CULTURAL',o):return edu
+    if re.search(r'EDIFICIOS|DEPORTIV|CULTURAL|MAYORES|SOCIALES|SEDE|JUNTA',o) and not re.search(r'COLEGIO',o):return not edu
+    return True
+for c in EDI:
+    cd=E.cod_distrito(c['distrito'])
+    if cd in (None,13):continue
+    r=RG.get(c['exp'])
+    if not r:continue
+    ok=[e for e in r['edif'] if lote_ok(c,e)]
+    if not ok:continue
+    DIS.add(cd)
+    meses_p=sum((p['meses'] or 0) for p in c.get('prorrogas',[]))
+    i=len(contratos)
+    contratos.append({'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
+      'importe':round(c['importe'],2),'ambito':'distrito','reparto':None,'n_edif':len({e['key'] for e in ok}),'prorrogado':bool(c.get('prorrogas')),
+      'prorroga_meses':meses_p,'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
+      'url':plataforma_url(L,c['exp'],c['objeto']),'anual':c['anual'],'fin':c['fin'],'cd':cd,'sin_reparto':True})
+    for k in sorted({e['key'] for e in ok}):
+        d=edif.setdefault(k,{'s':[],'anual':{},'tot_anual':0})
+        d['s'].append([i,None])
+for d in edif.values():d['s'].sort(key=lambda x:-(int((contratos[x[0]]['fecha'] or '0')[:4])))
+js={'generado':datetime.date.today().isoformat(),'distritos':sorted({13}|DIS),'cats':CATS,'contratos':contratos,'edificios':edif}
 out=E.BASE/'app'/'servicios.js'
 open(out,'w',encoding='utf-8').write('window.SERVICIOS='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
 print('contratos',len(contratos),'vigentes',sum(c['vigente'] for c in contratos),'· edificios con reparto',len(edif))

@@ -131,41 +131,44 @@ Datos del **Ayuntamiento de Madrid**, reutilizados según sus condiciones de uso
 
 Iconos: [Lucide](https://lucide.dev) (ISC).
 
-## Historial de inversión (prueba piloto: Puente de Vallecas)
+## Historial de inversión (todo Madrid)
 
-La ficha de cada edificio de Puente de Vallecas muestra lo que consta de inversión en él, a partir de tres fuentes:
+La ficha de cada edificio muestra lo que consta de inversión en él, a partir de tres fuentes:
 
-| Fuente | Periodo | Importe |
-|---|---|---|
-| Ejecución presupuestaria, fichero «Inversiones» (datos.madrid.es 211496) | 2014–2025 | pagado (obligaciones reconocidas) |
-| Actividad contractual y contratos menores (datos.madrid.es 216876 y 300253) | 2015–2026 | adjudicado |
-| Anuncios de contratación del BOE (Sección V-A) | 1995–2014 | adjudicado o, si falta, licitación |
+| Fuente | Periodo | Ámbito | Importe |
+|---|---|---|---|
+| Ejecución presupuestaria, fichero «Inversiones» (datos.madrid.es 211496) | 2014–2025 | 21 distritos | pagado (obligaciones reconocidas) |
+| Actividad contractual y contratos menores (datos.madrid.es 216876 y 300253) | 2015–2026 | 21 distritos | adjudicado |
+| Anuncios de contratación del BOE (Sección V-A) | 1995–2014 | Puente de Vallecas | adjudicado o, si falta, licitación |
 
 Scripts en `scripts/inversiones/` y datos de entrada en `datos/inversiones/`:
 
-1. `normaliza.py`: unifica los ficheros de contratos (`contratos_vallecas_filtrados.json` → `contratos_norm.json`).
-2. `boe_parse.py`: extrae objeto, expediente e importe de los anuncios del BOE (`boe_vallecas_1995_2014.json` → `boe_match.json`).
-3. `historial.py`: asigna cada registro a un edificio (`edificios.py`: por nombre, con el tipo de centro delante si el nombre es también el de una calle o barrio, o por dirección exacta) y genera `datos/inversiones/historial_pv.json` y `app/inversiones.js`.
+1. `descarga_inversiones.py`: descarga los CSV «Inversiones. AAAA» → `inversiones_2014_2025.json`.
+2. `contratos_obras.py todos.json`: de todos los contratos (salida de `scripts/servicios/normaliza_todo.py`) se queda con las obras, reformas y mejoras → `contratos_obras.json`.
+3. `boe_parse.py`: anuncios del BOE de Puente de Vallecas → `boe_match.json`.
+4. `historial.py`: asigna cada registro a un edificio con `edificios.py` y genera `datos/inversiones/historial.json` y `app/inversiones.js`.
 
-Los registros que afectan a varios edificios se descartan. Las tres fuentes se solapan y no se suman. Antes de 2014 solo hay contratos grandes del BOE.
+`edificios.py` cruza textos con los 5.211 edificios del mapa: por nombre (con el tipo de centro delante si el nombre es también el de una calle, un barrio o un distrito) o por dirección exacta. Si el registro dice de qué distrito es (campo distrito, «Distrito de X», «Junta Municipal de X»), solo busca entre los edificios de ese distrito. Los nombres del tipo «Centro Deportivo Municipal Puente de Vallecas» o «Junta Municipal del Distrito de Usera» solo cuentan si el texto dice el tipo seguido del distrito. Los registros que citan varios edificios se descartan. Las tres fuentes se solapan y no se suman.
 
-## Servicios contratados (prueba piloto: Puente de Vallecas)
+## Servicios contratados por edificio (todo Madrid)
 
-Empresas e importes de limpieza, seguridad, auxiliares de información y mantenimiento de los edificios del distrito.
+Empresas de limpieza, seguridad, auxiliares de información y mantenimiento que trabajan en cada edificio.
 
 1. `scripts/servicios/normaliza_todo.py <carpeta_csv> todos.json`: lee todos los CSV de actividad contractual (216876) y contratos menores (300253).
-2. `scripts/servicios/servicios.py todos.json servicios_pv.json`: selecciona los contratos de servicios de edificios que afectan a Puente de Vallecas.
-3. `scripts/servicios/reparto.py <carpeta_pliegos>`: lee los pliegos y estudios económicos (texto de `pdftotext -layout`) y obtiene el peso de cada edificio (horas, coste o m²) → `reparto.json`.
-4. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json [enlaces.json]` → `app/servicios.js`.
+2. `scripts/servicios/servicios.py todos.json servicios_pv.json`: contratos de servicios que afectan a Puente de Vallecas (incluidos los de otras áreas).
+3. `scripts/servicios/reparto.py <carpeta_pliegos>`: Puente de Vallecas, peso de cada edificio en sus pliegos (horas, coste o m²) → `reparto.json`.
+4. `scripts/servicios/descarga_pliegos.py <lista.json> <carpeta>`: descarga de la Plataforma de Contratación el pliego de prescripciones técnicas y los estudios económicos y anexos de los contratos de las Juntas y los pasa a texto.
+5. `scripts/servicios/reparto_generico.py <carpeta_txt> empresas_distritos.json reparto_madrid.json`: edificios de cada distrito citados en los pliegos de sus contratos, por lote cuando el pliego lo indica (si no, colegios para los lotes de colegios y el resto para los de edificios).
+6. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json enlaces.json empresas_distritos.json reparto_madrid.json` → `app/servicios.js`.
 
-El importe de cada edificio es una estimación proporcional; el coste anual usa el contrato vigente de cada servicio, con sus prórrogas. Datos intermedios en `datos/servicios/`.
+En Puente de Vallecas el importe de cada edificio es una estimación proporcional a los pesos del pliego. En los demás distritos la ficha dice en qué contratos figura el edificio y el coste anual del contrato completo, sin repartirlo: los pesos que se pueden leer de forma automática no coinciden con los del pliego (comprobado con los cinco contratos de Puente de Vallecas). En una muestra de 40 asignaciones de otros distritos, 36 eran correctas.
 
 ## Empresas de servicios por distrito (todo Madrid)
 
 Qué empresa presta la limpieza, la seguridad, los auxiliares de información y el mantenimiento de los edificios de cada Junta de Distrito, con el coste anual y el enlace público a cada licitación.
 
 1. `scripts/servicios/empresas_distritos.py todos.json empresas_distritos.json [enlaces.json]`: contratos de servicios de edificios de las 21 Juntas de Distrito, con prórrogas, fecha de fin, vigencia y coste anual. Si el objeto inscrito es solo el nombre del lote, la categoría sale del título de la licitación (`enlaces.json`).
-2. `enlaces.json` (`{expediente: [[idEvl, texto de la fila]]}`) se obtiene buscando cada expediente en el buscador de licitaciones de la Plataforma de Contratación del Sector Público (`scripts/navegador/05_plataforma_enlaces.js`, para pegar en la consola del navegador en el formulario de búsqueda).
+2. `enlaces.json` (`{expediente: [[idEvl, texto de la fila]]}`) se obtiene buscando cada expediente en el buscador de licitaciones de la Plataforma de Contratación del Sector Público (`scripts/servicios/enlaces_plataforma.py expedientes.json enlaces.json`, o `scripts/navegador/05_plataforma_enlaces.js` desde la consola del navegador en el formulario de búsqueda).
 3. `scripts/servicios/empresas_app.py empresas_distritos.json enlaces.json` → `app/empresas.js`.
 
 Enlace público: `https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=<idEvl>`.

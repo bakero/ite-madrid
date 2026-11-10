@@ -16,7 +16,9 @@ for o in T:
     if not c:continue
     distPV='PUENTE DE VALLECAS' in cen
     ment=bool(re.search(PVDIST,txt))
-    h=E.match(E.nrm(o['der'] or o['obj']),distPV or ment) if (distPV or ment or True) else []
+    h=E.match(E.nrm(o['der'] or o['obj']),13 if (distPV or ment) else None)
+    CD={b['key']:b['cd'] for b in E.B.values()} if 'CD' not in globals() else CD
+    h=[x for x in h if CD.get(x[0])==13]  # solo edificios de Puente de Vallecas
     if len(h)>3:h=[]
     if not (distPV or ment or h):continue
     # ámbito

@@ -64,7 +64,7 @@ TYPEW = {'Educativo': r'COLEGIO|C\.?E\.?I\.?P|ESCUELA|INSTITUTO|I\.?E\.?S\b|EDUC
  'Cultural': r'CULTURAL|BIBLIOTECA|AUDITORIO|SALA DE ESTUDIO|TEATRO',
  'Servicios sociales': r'MAYORES|CENTRO DE DIA|SERVICIOS SOCIALES|ESPACIO DE IGUALDAD|CENTRO JUVENIL|FAMILIA|INFANCIA',
  'Administración y servicios públicos': r'JUNTA MUNICIPAL|SEDE|OFICINA|EDIFICIO',
- 'Zona verde': r'PARQUE|JARDIN|ZONA VERDE', 'Sanitario': r'CENTROS? DE SALUD|AMBULATORIO|SANITARI|HOSPITAL|C\.?S\.?\b', 'Seguridad y emergencias': r'BOMBEROS|POLICIA|SAMUR|COMISARIA', 'Comercio': r'MERCADO|MERCADILLO'}
+ 'Zona verde': r'PARQUE|JARDIN|ZONA VERDE', 'Sanitario': r'CENTROS? DE SALUD|AMBULATORIO|SANITARI|HOSPITAL|(?<![A-Z.])C\.?S\.?(?![A-Z.])', 'Seguridad y emergencias': r'BOMBEROS|POLICIA|SAMUR|COMISARIA', 'Comercio': r'MERCADO|MERCADILLO'}
 
 def _strip_dist(core, cd):
     for v in sorted(DVAR[cd] | {'VALLECAS'} if cd == 13 else DVAR[cd], key=len, reverse=True):

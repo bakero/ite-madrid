@@ -27,7 +27,7 @@
 "empresa": "INTEGRA MANTENIMIENTO GESTION Y SERVICIOS INTEGRADOS CEE, S.L",
 "fecha": "2019-05-31",
 "meses": 24.0,
-"importe": 0,
+"importe": 992330.38,
 "prorrogas": [
 {
 "fecha": "2021-04-09",
@@ -37,7 +37,7 @@
 ],
 "fin": "2023-05",
 "vigente": false,
-"anual": null,
+"anual": 496165.19,
 "sustituido": "300/2022/00401"
 },
 {
@@ -226,7 +226,7 @@
 "empresa": "C P I INTEGRATED SERVICES, S. A",
 "fecha": "2019-09-10",
 "meses": 30.0,
-"importe": 0,
+"importe": 1607304.01,
 "prorrogas": [
 {
 "fecha": "2022-02-22",
@@ -236,7 +236,7 @@
 ],
 "fin": "2024-09",
 "vigente": false,
-"anual": null
+"anual": 642921.6
 },
 {
 "distrito": "ARGANZUELA",
@@ -266,11 +266,11 @@
 "empresa": "ALCOR SEGURIDAD, S.L",
 "fecha": "2018-06-28",
 "meses": 2.63,
-"importe": 0,
+"importe": 32810.95,
 "prorrogas": [],
 "fin": "2018-09",
 "vigente": false,
-"anual": null
+"anual": 149707.76
 },
 {
 "distrito": "ARGANZUELA",
@@ -283,11 +283,11 @@
 "empresa": "ALCOR SEGURIDAD, S.L",
 "fecha": "2019-06-14",
 "meses": 3.0,
-"importe": 0,
+"importe": 49583.74,
 "prorrogas": [],
 "fin": "2019-09",
 "vigente": false,
-"anual": null
+"anual": 198334.96
 },
 {
 "distrito": "ARGANZUELA",
@@ -369,7 +369,7 @@
 "empresa": "VALORIZA CENTRO ESPECIAL DE EMPLEO, S. L. U",
 "fecha": "2019-10-15",
 "meses": 24.0,
-"importe": 0,
+"importe": 582434.81,
 "prorrogas": [
 {
 "fecha": "2021-09-23",
@@ -384,7 +384,7 @@
 ],
 "fin": "2023-10",
 "vigente": false,
-"anual": null,
+"anual": 291217.41,
 "sustituido": "300/2023/00217"
 },
 {
@@ -460,9 +460,27 @@
 "importe": 583904.0
 }
 ],
-"fin": "2026-05",
+"fin": "2025-09",
 "vigente": false,
 "anual": 987356.96,
+"sustituido": "300/2024/01423"
+},
+{
+"distrito": "BARAJAS",
+"exp": "300/2024/01423",
+"lote": "1",
+"objeto": "Lote 1 - Lote 1. Colegios e Instalaciones Deportivas.",
+"cats": [
+"limpieza"
+],
+"empresa": "OPTIMA FACILITY SERVICES, S.L",
+"fecha": "2025-09-18",
+"meses": 48.0,
+"importe": 1480062.1,
+"prorrogas": [],
+"fin": "2029-09",
+"vigente": true,
+"anual": 370015.53,
 "sustituido": "300/2025/02814"
 },
 {
@@ -538,7 +556,42 @@
 "prorrogas": [],
 "fin": "2025-12",
 "vigente": false,
-"anual": 565783.7
+"anual": 565783.7,
+"sustituido": "300/2025/00468"
+},
+{
+"distrito": "BARAJAS",
+"exp": "300/2025/00468",
+"lote": "1",
+"objeto": "Lote 1 - COLEGIOS Y CENTROS EDUCATIVOS",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CLECE FS, S.A",
+"fecha": "2025-12-22",
+"meses": 24.0,
+"importe": 578837.48,
+"prorrogas": [],
+"fin": "2027-12",
+"vigente": true,
+"anual": 289418.74
+},
+{
+"distrito": "BARAJAS",
+"exp": "300/2025/00468",
+"lote": "2",
+"objeto": "Lote 2 - EDIFICIOS E INSTALACIONES DEL DISTRITO",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ELSAMEX GESTIÓN DE INFRAESTRUCTURAS, S.L",
+"fecha": "2025-12-23",
+"meses": 24.0,
+"importe": 691862.48,
+"prorrogas": [],
+"fin": "2027-12",
+"vigente": true,
+"anual": 345931.24
 },
 {
 "distrito": "BARAJAS",
@@ -568,7 +621,7 @@
 "empresa": "GRUPO CONTROL EMPRESA DE SEGURIDAD, S.A",
 "fecha": "2019-03-01",
 "meses": 24.0,
-"importe": 0,
+"importe": 247203.0,
 "prorrogas": [
 {
 "fecha": "2021-02-09",
@@ -578,7 +631,7 @@
 ],
 "fin": "2021-03",
 "vigente": false,
-"anual": null,
+"anual": 123601.5,
 "sustituido": "300/2019/00408"
 },
 {
@@ -592,11 +645,11 @@
 "empresa": "ALCOR SEGURIDAD, S.L",
 "fecha": "2019-08-30",
 "meses": 16.0,
-"importe": 0,
+"importe": 89540.0,
 "prorrogas": [],
 "fin": "2020-12",
 "vigente": false,
-"anual": null
+"anual": 67155.0
 },
 {
 "distrito": "BARAJAS",
@@ -746,9 +799,56 @@
 "importe": 3274170.47
 }
 ],
+"fin": "2024-07",
+"vigente": false,
+"anual": 4427120.76,
+"sustituido": "300/2024/00101"
+},
+{
+"distrito": "CARABANCHEL",
+"exp": "300/2024/00101",
+"lote": "1",
+"objeto": "Lote 1 - Colegios y Escuelas",
+"cats": [
+"limpieza"
+],
+"empresa": "LIMPIEZAS CRESPO, S.A",
+"fecha": "2024-07-29",
+"meses": 12.0,
+"importe": 3112424.71,
+"prorrogas": [
+{
+"fecha": "2025-07-18",
+"meses": 24.0,
+"importe": 6376658.26
+}
+],
 "fin": "2027-07",
 "vigente": true,
-"anual": 4427120.76
+"anual": 3112424.71
+},
+{
+"distrito": "CARABANCHEL",
+"exp": "300/2024/00101",
+"lote": "2",
+"objeto": "Lote 2 - Edificios e Instalaciones Deportivas",
+"cats": [
+"limpieza"
+],
+"empresa": "LIMPIEZAS CRESPO, S.A",
+"fecha": "2024-11-11",
+"meses": 12.0,
+"importe": 1992448.78,
+"prorrogas": [
+{
+"fecha": "2025-11-03",
+"meses": 20.66,
+"importe": 3586669.31
+}
+],
+"fin": "2027-08",
+"vigente": true,
+"anual": 1992448.78
 },
 {
 "distrito": "CARABANCHEL",
@@ -840,11 +940,11 @@
 "empresa": "EULEN SEGURIDAD, S.A",
 "fecha": "2018-11-28",
 "meses": 12.0,
-"importe": 0,
+"importe": 331159.5,
 "prorrogas": [],
 "fin": "2019-11",
 "vigente": false,
-"anual": null
+"anual": 331159.5
 },
 {
 "distrito": "CARABANCHEL",
@@ -953,11 +1053,11 @@
 "empresa": "UZIPEN SLU",
 "fecha": "2019-03-25",
 "meses": 12.0,
-"importe": 0,
+"importe": 150572.86,
 "prorrogas": [],
 "fin": "2020-03",
 "vigente": false,
-"anual": null,
+"anual": 150572.86,
 "sustituido": "300/2019/00068"
 },
 {
@@ -971,11 +1071,11 @@
 "empresa": "INTEGRA MANTENIMIENTO GESTION Y SERVICIOS INTEGRADOS CEE, S.L",
 "fecha": "2019-08-13",
 "meses": 12.0,
-"importe": 0,
+"importe": 234593.36,
 "prorrogas": [],
 "fin": "2020-08",
 "vigente": false,
-"anual": null
+"anual": 234593.36
 },
 {
 "distrito": "CENTRO",
@@ -1157,9 +1257,44 @@
 "importe": 270336.78
 }
 ],
-"fin": "2027-03",
+"fin": "2024-11",
+"vigente": false,
+"anual": 1810491.85,
+"sustituido": "300/2024/00069"
+},
+{
+"distrito": "CENTRO",
+"exp": "300/2024/00069",
+"lote": "2",
+"objeto": "Lote 2 - Centros de Serv. Soc., Centros Cult., Centros de Mayores, Centros de Día, C.A.I., Centros Adm. Centro Poliv.Barceló, Loc. e I.D.M.",
+"cats": [
+"limpieza"
+],
+"empresa": "ORTIZ CONSTRUCCIONES Y PROYECTOS, S.A",
+"fecha": "2024-11-18",
+"meses": 24.0,
+"importe": 3225801.27,
+"prorrogas": [],
+"fin": "2026-11",
 "vigente": true,
-"anual": 1810491.85
+"anual": 1612900.64
+},
+{
+"distrito": "CENTRO",
+"exp": "300/2024/00069",
+"lote": "1",
+"objeto": "Lote 1 - Colegios de Educación Infantil y Primaria, Escuela Infantil La Paloma",
+"cats": [
+"limpieza"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2024-11-22",
+"meses": 24.0,
+"importe": 2087938.52,
+"prorrogas": [],
+"fin": "2026-11",
+"vigente": true,
+"anual": 1043969.26
 },
 {
 "distrito": "CENTRO",
@@ -1221,9 +1356,44 @@
 "importe": 351963.1
 }
 ],
+"fin": "2026-05",
+"vigente": false,
+"anual": 338091.87,
+"sustituido": "300/2024/00883"
+},
+{
+"distrito": "CENTRO",
+"exp": "300/2024/00883",
+"lote": "1",
+"objeto": "Lote 1 - Edificios Educativos",
+"cats": [
+"mantenimiento"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2025-03-20",
+"meses": 24.0,
+"importe": 748929.5,
+"prorrogas": [],
 "fin": "2027-03",
 "vigente": true,
-"anual": 338091.87
+"anual": 374464.75
+},
+{
+"distrito": "CENTRO",
+"exp": "300/2024/00883",
+"lote": "2",
+"objeto": "Lote 2 - Complejo Polivalente Barceló",
+"cats": [
+"mantenimiento"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2025-03-20",
+"meses": 24.0,
+"importe": 201883.66,
+"prorrogas": [],
+"fin": "2027-03",
+"vigente": true,
+"anual": 100941.83
 },
 {
 "distrito": "CENTRO",
@@ -1567,7 +1737,7 @@
 "empresa": "SACYR FACILITIES SAU Y VALORIZA CENTRO ESPECIAL DE EMPLEO SL UTE",
 "fecha": "2019-09-24",
 "meses": 24.0,
-"importe": 0,
+"importe": 1015900.05,
 "prorrogas": [
 {
 "fecha": "2021-09-14",
@@ -1577,7 +1747,7 @@
 ],
 "fin": "2023-09",
 "vigente": false,
-"anual": null,
+"anual": 507950.03,
 "sustituido": "300/2023/00053"
 },
 {
@@ -1900,7 +2070,7 @@
 "empresa": "UTE CLECE SA Y CLECE SEGURIDAD SA UTE CIUDAD LINEAL",
 "fecha": "2019-10-02",
 "meses": 24.0,
-"importe": 0,
+"importe": 1399120.22,
 "prorrogas": [
 {
 "fecha": "2022-08-04",
@@ -1915,7 +2085,7 @@
 ],
 "fin": "2022-10",
 "vigente": false,
-"anual": null
+"anual": 699560.11
 },
 {
 "distrito": "CIUDAD LINEAL",
@@ -1968,7 +2138,7 @@
 "empresa": "GRUPO CONTROL EMPRESA DE SEGURIDAD, S.A",
 "fecha": "2019-05-29",
 "meses": 24.0,
-"importe": 0,
+"importe": 707850.0,
 "prorrogas": [
 {
 "fecha": "2021-04-28",
@@ -1978,7 +2148,7 @@
 ],
 "fin": "2023-05",
 "vigente": false,
-"anual": null,
+"anual": 353925.0,
 "sustituido": "300/2022/00609"
 },
 {
@@ -2132,11 +2302,11 @@
 "empresa": "LIMPIEZAS ROYCA, S.L",
 "fecha": "2018-06-20",
 "meses": 17.2,
-"importe": 2651260.32,
+"importe": 3181401.63,
 "prorrogas": [],
 "fin": "2019-11",
 "vigente": false,
-"anual": 1849716.5,
+"anual": 2219582.53,
 "sustituido": "300/2017/00940"
 },
 {
@@ -2364,6 +2534,23 @@
 },
 {
 "distrito": "FUENCARRAL-EL PARDO",
+"exp": "300/2024/00473",
+"lote": "4",
+"objeto": "Lote 4 - Servicio de mantenimiento de zonas verdes y superficies ajardinadas de los colegios públicos y otros centros educativos, centros deportivos municipales de gestión directa ",
+"cats": [
+"mantenimiento"
+],
+"empresa": "INGENIERIA FORESTAL, S.A",
+"fecha": "2025-02-28",
+"meses": 30.0,
+"importe": 722657.3,
+"prorrogas": [],
+"fin": "2027-08",
+"vigente": true,
+"anual": 289062.92
+},
+{
+"distrito": "FUENCARRAL-EL PARDO",
 "exp": "300/2016/01796",
 "lote": "",
 "objeto": "VIGILANCIA Y SEGURIDAD DE LOS EDIFICIOS DEPENDIENTES DEL DISTRITO DE FUENCARRAL-EL PARDO",
@@ -2390,11 +2577,11 @@
 "empresa": "SERVISE, S.A",
 "fecha": "2019-01-24",
 "meses": 11.0,
-"importe": 0,
+"importe": 225038.26,
 "prorrogas": [],
 "fin": "2019-12",
 "vigente": false,
-"anual": null
+"anual": 245496.28
 },
 {
 "distrito": "FUENCARRAL-EL PARDO",
@@ -2453,7 +2640,7 @@
 "empresa": "INTEGRA MANTENIMIENTO GESTION Y SERVICIOS INTEGRADOS CEE, S.L",
 "fecha": "2019-06-14",
 "meses": 12.0,
-"importe": 0,
+"importe": 625770.1399999999,
 "prorrogas": [
 {
 "fecha": "2022-04-21",
@@ -2486,9 +2673,44 @@
 "importe": 323989.6
 }
 ],
-"fin": "2026-06",
+"fin": "2024-09",
 "vigente": false,
-"anual": null
+"anual": 625770.14,
+"sustituido": "300/2023/00674"
+},
+{
+"distrito": "HORTALEZA",
+"exp": "300/2023/00674",
+"lote": "2",
+"objeto": "Lote 2 - Centros de mayores, centros de día y Centro Integrado Santiago Apóstol",
+"cats": [
+"auxiliares"
+],
+"empresa": "Aliados por la Integración Madrid CEE, S.L.U",
+"fecha": "2024-09-01",
+"meses": 24.0,
+"importe": 587848.25,
+"prorrogas": [],
+"fin": "2026-09",
+"vigente": false,
+"anual": 293924.12
+},
+{
+"distrito": "HORTALEZA",
+"exp": "300/2023/00674",
+"lote": "1",
+"objeto": "Lote 1 - Centros culturales y otros equipamientos culturales y cívicos",
+"cats": [
+"auxiliares"
+],
+"empresa": "INTEGRACION SOCIAL DE MINUSVALIDOS S.L",
+"fecha": "2024-09-01",
+"meses": 24.0,
+"importe": 902693.61,
+"prorrogas": [],
+"fin": "2026-09",
+"vigente": false,
+"anual": 451346.8
 },
 {
 "distrito": "HORTALEZA",
@@ -2656,9 +2878,10 @@
 "importe": 202664.99
 }
 ],
-"fin": "2029-04",
-"vigente": true,
-"anual": 483999.8
+"fin": "2026-04",
+"vigente": false,
+"anual": 483999.8,
+"sustituido": "300/2024/00912"
 },
 {
 "distrito": "HORTALEZA",
@@ -2714,9 +2937,61 @@
 "importe": 618917.76
 }
 ],
-"fin": "2029-04",
+"fin": "2026-04",
+"vigente": false,
+"anual": 2200373.22,
+"sustituido": "300/2024/00912"
+},
+{
+"distrito": "HORTALEZA",
+"exp": "300/2024/00912",
+"lote": "3",
+"objeto": "Lote 3 - Servicio de mantenimiento general y zonas verdes en colegios públicos y escuelas infantiles",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CLECE FS, S.A",
+"fecha": "2026-04-15",
+"meses": 24.0,
+"importe": 1880754.4,
+"prorrogas": [],
+"fin": "2028-04",
 "vigente": true,
-"anual": 2200373.22
+"anual": 940377.2
+},
+{
+"distrito": "HORTALEZA",
+"exp": "300/2024/00912",
+"lote": "2",
+"objeto": "Lote 2 - Servicio de mantenimiento general y zonas verdes en centros deportivos e instalaciones deportivas del Distrito de Hortaleza",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ACEINSA MOVILIDAD, S.A",
+"fecha": "2026-04-20",
+"meses": 24.0,
+"importe": 1277899.91,
+"prorrogas": [],
+"fin": "2028-04",
+"vigente": true,
+"anual": 638949.95
+},
+{
+"distrito": "HORTALEZA",
+"exp": "300/2024/00912",
+"lote": "1",
+"objeto": "Lote 1 - Servicio de mantenimiento general y zonas verdes de los edificios del Distrito de Hortaleza",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CLECE FS, S.A",
+"fecha": "2026-06-01",
+"meses": 24.0,
+"importe": 985831.33,
+"prorrogas": [],
+"fin": "2028-06",
+"vigente": true,
+"anual": 492915.66
 },
 {
 "distrito": "HORTALEZA",
@@ -2808,7 +3083,7 @@
 "empresa": "INTEGRA MANTENIMIENTO GESTION Y SERVICIOS INTEGRADOS CEE, S.L",
 "fecha": "2019-11-20",
 "meses": 25.36,
-"importe": 0,
+"importe": 1553768.68,
 "prorrogas": [
 {
 "fecha": "2021-12-02",
@@ -2818,7 +3093,7 @@
 ],
 "fin": "2023-12",
 "vigente": false,
-"anual": null,
+"anual": 735221.77,
 "sustituido": "300/2023/00119"
 },
 {
@@ -2877,6 +3152,40 @@
 "fin": "2019-01",
 "vigente": false,
 "anual": 3138763.48
+},
+{
+"distrito": "LATINA",
+"exp": "300/2024/01123",
+"lote": "1",
+"objeto": "Lote 1 - COLEGIOS DE EDUCACIÓN INFANTIL Y PRIMARIA",
+"cats": [
+"limpieza"
+],
+"empresa": "OPTIMA FACILITY SERVICES, S.L",
+"fecha": "2025-09-30",
+"meses": 24.0,
+"importe": 4718753.49,
+"prorrogas": [],
+"fin": "2027-09",
+"vigente": true,
+"anual": 2359376.75
+},
+{
+"distrito": "LATINA",
+"exp": "300/2024/01123",
+"lote": "2",
+"objeto": "Lote 2 - OTROS EDIFICIOS, EQUIPAMIENTOS E INSTALACIONES",
+"cats": [
+"limpieza"
+],
+"empresa": "OHL SERVICIOS INGESAN, S.A",
+"fecha": "2025-09-30",
+"meses": 24.0,
+"importe": 3839829.85,
+"prorrogas": [],
+"fin": "2027-09",
+"vigente": true,
+"anual": 1919914.93
 },
 {
 "distrito": "LATINA",
@@ -3096,6 +3405,40 @@
 },
 {
 "distrito": "MONCLOA-ARAVACA",
+"exp": "300/2024/00204",
+"lote": "2",
+"objeto": "Lote 2 - Centros Deportivos Municipales e Instalaciones Deportivas Básicas",
+"cats": [
+"mantenimiento"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2025-10-31",
+"meses": 48.0,
+"importe": 2139500.36,
+"prorrogas": [],
+"fin": "2029-10",
+"vigente": true,
+"anual": 534875.09
+},
+{
+"distrito": "MONCLOA-ARAVACA",
+"exp": "300/2024/00204",
+"lote": "1",
+"objeto": "Lote 1 - Colegios de Educación Infantil y Primaria, Centros de Servicios Sociales, Centros Culturales y de Naturaleza, Centros Administrativos y Escuela de Cerámica",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ORTIZ CONSTRUCCIONES Y PROYECTOS S.A",
+"fecha": "2025-12-18",
+"meses": 48.0,
+"importe": 2661113.71,
+"prorrogas": [],
+"fin": "2029-12",
+"vigente": true,
+"anual": 665278.43
+},
+{
+"distrito": "MONCLOA-ARAVACA",
 "exp": "300/2018/00525",
 "lote": "",
 "objeto": "VIGILANCIA Y SEGURIDAD DE EDIFICIOS E INTALACIONES DEPENDIENTES DEL DISTRITO DE MONCLOA-ARAVACA",
@@ -3105,7 +3448,7 @@
 "empresa": "GRUPO CONTROL EMPRESA DE SEGURIDAD, S.A",
 "fecha": "2019-02-28",
 "meses": 24.0,
-"importe": 0,
+"importe": 1651311.68,
 "prorrogas": [
 {
 "fecha": "2022-05-09",
@@ -3120,7 +3463,7 @@
 ],
 "fin": "2024-02",
 "vigente": false,
-"anual": null,
+"anual": 825655.84,
 "sustituido": "300/2023/00530"
 },
 {
@@ -3371,7 +3714,48 @@
 "prorrogas": [],
 "fin": "2026-06",
 "vigente": false,
-"anual": 118235.15
+"anual": 118235.15,
+"sustituido": "300/2025/01962"
+},
+{
+"distrito": "MORATALAZ",
+"exp": "300/2023/00673",
+"lote": "2",
+"objeto": "Lote 2 - C.D.M. La Elipa y C.D.M. Moratalaz",
+"cats": [
+"seguridad"
+],
+"empresa": "GRUPO CONTROL EMPRESA DE SEGURIDAD, S.A",
+"fecha": "2024-06-04",
+"meses": 24.0,
+"importe": 685344.0,
+"prorrogas": [
+{
+"fecha": "2026-06-02",
+"meses": 12.0,
+"importe": 344041.91
+}
+],
+"fin": "2027-06",
+"vigente": true,
+"anual": 342672.0
+},
+{
+"distrito": "MORATALAZ",
+"exp": "300/2025/01962",
+"lote": "1",
+"objeto": "Lote 1 - Centro de Servicios Sociales y edificio de la Junta Municipal del Distrito de Moratalaz.",
+"cats": [
+"seguridad"
+],
+"empresa": "SERVISE, S.A",
+"fecha": "2026-06-05",
+"meses": 24.0,
+"importe": 219579.91,
+"prorrogas": [],
+"fin": "2028-06",
+"vigente": true,
+"anual": 109789.96
 },
 {
 "distrito": "PUENTE DE VALLECAS",
@@ -3442,7 +3826,7 @@
 "empresa": "LIMPIEZAS CRESPO, S.A",
 "fecha": "2019-02-20",
 "meses": 24.0,
-"importe": 0,
+"importe": 4114000.0,
 "prorrogas": [
 {
 "fecha": "2021-02-19",
@@ -3452,7 +3836,7 @@
 ],
 "fin": "2021-06",
 "vigente": false,
-"anual": null,
+"anual": 2057000.0,
 "sustituido": "300/2019/01311"
 },
 {
@@ -3890,6 +4274,34 @@
 },
 {
 "distrito": "RETIRO",
+"exp": "300/2020/00509",
+"lote": "1",
+"objeto": "Lote 1 - Servicios de Mantenimiento General de los equipamientos",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CLECE, S.A",
+"fecha": "2021-04-27",
+"meses": 24.0,
+"importe": 668773.69,
+"prorrogas": [
+{
+"fecha": "2022-12-16",
+"meses": 12.0,
+"importe": 334386.84
+},
+{
+"fecha": "2024-05-23",
+"meses": 4.53,
+"importe": 126080.29
+}
+],
+"fin": "2024-09",
+"vigente": false,
+"anual": 334386.84
+},
+{
+"distrito": "RETIRO",
 "exp": "103/2026/00562",
 "lote": "",
 "objeto": "CONTRATO DE SERVICIOS DE MANTENIMIENTO INTEGRAL DE LOS EQUIPAMIENTOS",
@@ -3969,11 +4381,11 @@
 "empresa": "SERVISE, S.A",
 "fecha": "2019-04-09",
 "meses": 8.3,
-"importe": 0,
+"importe": 39204.0,
 "prorrogas": [],
 "fin": "2019-12",
 "vigente": false,
-"anual": null,
+"anual": 56680.48,
 "sustituido": "300/2019/00373"
 },
 {
@@ -4108,7 +4520,7 @@
 "empresa": "C P I INTEGRATED SERVICES, S. A",
 "fecha": "2019-08-01",
 "meses": 24.0,
-"importe": 0,
+"importe": 1507075.84,
 "prorrogas": [
 {
 "fecha": "2022-07-27",
@@ -4128,7 +4540,7 @@
 ],
 "fin": "2025-06",
 "vigente": false,
-"anual": null,
+"anual": 753537.92,
 "sustituido": "300/2024/00154"
 },
 {
@@ -4423,6 +4835,131 @@
 },
 {
 "distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2020/00663",
+"lote": "2",
+"objeto": "Lote 2 - Equipamiento de uso deportivo",
+"cats": [
+"mantenimiento"
+],
+"empresa": "COMSA SERVICE FACILITY MANAGEMENT, S.A.U",
+"fecha": "2022-01-31",
+"meses": 24.0,
+"importe": 530375.21,
+"prorrogas": [
+{
+"fecha": "2023-11-28",
+"meses": 12.0,
+"importe": 276653.24
+},
+{
+"fecha": "2024-09-10",
+"meses": 12.0,
+"importe": 276653.24
+}
+],
+"fin": "2026-01",
+"vigente": false,
+"anual": 265187.6
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2020/00663",
+"lote": "1",
+"objeto": "Lote 1 - Equipamientos de uso educativo",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ORTIZ CONSTRUCCIONES Y PROYECTOS, S.A",
+"fecha": "2022-01-31",
+"meses": 24.0,
+"importe": 1529034.97,
+"prorrogas": [
+{
+"fecha": "2023-11-28",
+"meses": 24.0,
+"importe": 1481372.83
+}
+],
+"fin": "2026-01",
+"vigente": false,
+"anual": 764517.48
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2020/00663",
+"lote": "3",
+"objeto": "Lote 3 - Equipamientos de uso Administración Pública, uso cultural y uso Bienestar Social",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ORTIZ CONSTRUCCIONES Y PROYECTOS, S.A",
+"fecha": "2022-01-31",
+"meses": 24.0,
+"importe": 1168640.49,
+"prorrogas": [
+{
+"fecha": "2023-11-28",
+"meses": 24.0,
+"importe": 1249908.98
+}
+],
+"fin": "2026-01",
+"vigente": false,
+"anual": 584320.24
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2025/01453",
+"lote": "3",
+"objeto": "Lote 3 - EQUIPAMIENTOS USO ADMINISTRACIÓN PÚBLICA, USO CULTURAL Y USO BIENESTAR SOCIAL",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ORTIZ CONSTRUCCIONES Y PROYECTOS, S.A",
+"fecha": "2026-07-29",
+"meses": 24.0,
+"importe": 1715475.33,
+"prorrogas": [],
+"fin": "2028-07",
+"vigente": true,
+"anual": 857737.67
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2025/01453",
+"lote": "2",
+"objeto": "Lote 2 - EQUIPAMIENTOS USO DEPORTIVO",
+"cats": [
+"mantenimiento"
+],
+"empresa": "COMSA SERVICE FACILITY MANAGEMENT, S.A.U",
+"fecha": "2026-07-29",
+"meses": 24.0,
+"importe": 1483839.14,
+"prorrogas": [],
+"fin": "2028-07",
+"vigente": true,
+"anual": 741919.57
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
+"exp": "300/2025/01453",
+"lote": "1",
+"objeto": "Lote 1 - EQUIPAMIENTOS USO EDUCATIVO",
+"cats": [
+"mantenimiento"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2026-07-31",
+"meses": 24.0,
+"importe": 2684560.45,
+"prorrogas": [],
+"fin": "2028-07",
+"vigente": true,
+"anual": 1342280.23
+},
+{
+"distrito": "SAN BLAS-CANILLEJAS",
 "exp": "300/2015/00171",
 "lote": "",
 "objeto": "PROTECCIÓN Y SEGURIDAD DE LOS EDIFICIOS DEPENDIENTES DEL DISTRITO DE SAN BLAS-CANILLEJAS",
@@ -4466,11 +5003,11 @@
 "empresa": "SERVISE, S.A",
 "fecha": "2019-04-25",
 "meses": 12.0,
-"importe": 0,
+"importe": 368311.9,
 "prorrogas": [],
 "fin": "2020-04",
 "vigente": false,
-"anual": null
+"anual": 368311.9
 },
 {
 "distrito": "SAN BLAS-CANILLEJAS",
@@ -4570,7 +5107,7 @@
 "empresa": "CLECE S.A",
 "fecha": "2019-06-26",
 "meses": 24.0,
-"importe": 0,
+"importe": 5241486.99,
 "prorrogas": [
 {
 "fecha": "2021-07-01",
@@ -4590,7 +5127,7 @@
 ],
 "fin": "2027-06",
 "vigente": true,
-"anual": null
+"anual": 2620743.5
 },
 {
 "distrito": "TETUAN",
@@ -4736,6 +5273,30 @@
 },
 {
 "distrito": "USERA",
+"exp": "300/2021/00493",
+"lote": "2",
+"objeto": "Lote 2 - Lote 2. Centros de Servicios Sociales, Centros Culturales y de Naturaleza, Bibliotecas, Centros Administrativos, Centro de Igualdad berta Cáceres y Centros Deportivos. En ",
+"cats": [
+"limpieza"
+],
+"empresa": "FERROVIAL SERVICIOS, S.A",
+"fecha": "2022-03-30",
+"meses": 24.0,
+"importe": 2366346.75,
+"prorrogas": [
+{
+"fecha": "2023-11-13",
+"meses": 17.0,
+"importe": 1672875.7
+}
+],
+"fin": "2025-07",
+"vigente": false,
+"anual": 1183173.38,
+"sustituido": "300/2024/00663"
+},
+{
+"distrito": "USERA",
 "exp": "300/2024/00663",
 "lote": "1",
 "objeto": "Lote 1 - Lote 1.- Colegios de Educación Infantil y Primaria. En dichos equipamientos se prestará la totalidad de los servicios de limpieza y reposición de contenedores higiénico-sa",
@@ -4753,6 +5314,23 @@
 },
 {
 "distrito": "USERA",
+"exp": "300/2024/00663",
+"lote": "2",
+"objeto": "Lote 2 - Lote 2.- Centros de Servicios Sociales, Centros Culturales y de Naturaleza, Bibliotecas, Centros Administrativos, Centro de Igualdad Berta Cáceres y Centros Deportivos. En",
+"cats": [
+"limpieza"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2025-07-15",
+"meses": 24.0,
+"importe": 2845842.93,
+"prorrogas": [],
+"fin": "2027-07",
+"vigente": true,
+"anual": 1422921.47
+},
+{
+"distrito": "USERA",
 "exp": "300/2017/00340",
 "lote": "",
 "objeto": "CONTRATO DE SERVICIOS DENOMINADO MANTENIMIENTO INTEGRAL DE LOS EQUIPAMIENTOS ADSCRITOS AL DISTRITO DE USERA",
@@ -4767,6 +5345,29 @@
 "fin": "2020-01",
 "vigente": false,
 "anual": 1138725.68
+},
+{
+"distrito": "USERA",
+"exp": "300/2021/00162",
+"lote": "2",
+"objeto": "Lote 2 - Instalaciones Deportivas con autorizaciones demaniales de Uso",
+"cats": [
+"mantenimiento"
+],
+"empresa": "SERVEO SERVICIOS, S.A.U",
+"fecha": "2022-01-18",
+"meses": 24.0,
+"importe": 145185.66,
+"prorrogas": [
+{
+"fecha": "2023-11-08",
+"meses": 12.0,
+"importe": 72592.83
+}
+],
+"fin": "2025-01",
+"vigente": false,
+"anual": 72592.83
 },
 {
 "distrito": "USERA",
@@ -4813,11 +5414,11 @@
 "empresa": "VISEGUR S.A",
 "fecha": "2019-02-20",
 "meses": 21.0,
-"importe": 0,
+"importe": 677307.64,
 "prorrogas": [],
 "fin": "2020-11",
 "vigente": false,
-"anual": null
+"anual": 387032.94
 },
 {
 "distrito": "USERA",
@@ -4885,7 +5486,42 @@
 ],
 "fin": "2026-06",
 "vigente": false,
-"anual": 1660019.04
+"anual": 1660019.04,
+"sustituido": "300/2025/02455"
+},
+{
+"distrito": "VICALVARO",
+"exp": "300/2025/02455",
+"lote": "1",
+"objeto": "Lote 1 - CENTROS EDUCATIVOS",
+"cats": [
+"limpieza"
+],
+"empresa": "UTE LIMASA-ALANA VICÁLVARO LOTE 1",
+"fecha": "2026-06-12",
+"meses": 24.0,
+"importe": 2869815.45,
+"prorrogas": [],
+"fin": "2028-06",
+"vigente": true,
+"anual": 1434907.73
+},
+{
+"distrito": "VICALVARO",
+"exp": "300/2025/02455",
+"lote": "2",
+"objeto": "Lote 2 - EDIFICIOS E INSTALACIONES DEPORTIVAS",
+"cats": [
+"limpieza"
+],
+"empresa": "UTE LIMPIEZA VICÁLVARO UNIÓN TEMPORAL DE EMPRESAS",
+"fecha": "2026-06-14",
+"meses": 24.0,
+"importe": 2254865.68,
+"prorrogas": [],
+"fin": "2028-06",
+"vigente": true,
+"anual": 1127432.84
 },
 {
 "distrito": "VICALVARO",
@@ -4898,7 +5534,7 @@
 "empresa": "TEAM SERVICE FACILIT Y SL",
 "fecha": "2018-05-21",
 "meses": 24.0,
-"importe": 3182432.8,
+"importe": 6008912.48,
 "prorrogas": [
 {
 "fecha": "2022-09-02",
@@ -4908,7 +5544,7 @@
 ],
 "fin": "2020-08",
 "vigente": false,
-"anual": 1591216.4
+"anual": 3004456.24
 },
 {
 "distrito": "VICALVARO",
@@ -4938,7 +5574,7 @@
 "empresa": "SASEGUR, S.L",
 "fecha": "2019-06-27",
 "meses": 12.0,
-"importe": 0,
+"importe": 863007.22,
 "prorrogas": [
 {
 "fecha": "2022-04-28",
@@ -4958,7 +5594,7 @@
 ],
 "fin": "2021-09",
 "vigente": false,
-"anual": null
+"anual": 863007.22
 },
 {
 "distrito": "VICALVARO",
@@ -5109,11 +5745,51 @@
 "empresa": "OHL SERVICIOS INGESAN SA",
 "fecha": "2019-01-16",
 "meses": 12.0,
-"importe": 0,
+"importe": 1852125.5,
 "prorrogas": [],
 "fin": "2020-01",
 "vigente": false,
-"anual": null
+"anual": 1852125.5
+},
+{
+"distrito": "VILLA DE VALLECAS",
+"exp": "300/2024/00389",
+"lote": "1",
+"objeto": "Lote 1 - COLEGIOS",
+"cats": [
+"limpieza"
+],
+"empresa": "LIMPIEZAS CRESPO, S.A",
+"fecha": "2025-01-28",
+"meses": 24.0,
+"importe": 4827391.8,
+"prorrogas": [
+{
+"fecha": "2026-09-11",
+"meses": 24.0,
+"importe": 5177273.49
+}
+],
+"fin": "2029-01",
+"vigente": true,
+"anual": 2413695.9
+},
+{
+"distrito": "VILLA DE VALLECAS",
+"exp": "300/2024/00389",
+"lote": "2",
+"objeto": "Lote 2 - EDIFICIOS",
+"cats": [
+"limpieza"
+],
+"empresa": "LIMPIEZAS CRESPO, S.A",
+"fecha": "2025-01-29",
+"meses": 24.0,
+"importe": 2237779.28,
+"prorrogas": [],
+"fin": "2027-01",
+"vigente": true,
+"anual": 1118889.64
 },
 {
 "distrito": "VILLA DE VALLECAS",
@@ -5156,9 +5832,56 @@
 "importe": 711304.08
 }
 ],
-"fin": "2026-11",
+"fin": "2024-10",
+"vigente": false,
+"anual": 655564.94,
+"sustituido": "300/2024/00033"
+},
+{
+"distrito": "VILLA DE VALLECAS",
+"exp": "300/2024/00033",
+"lote": "2",
+"objeto": "Lote 2 - Edificios e instalaciones deportivas municipales",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ACCIONA FACILITY SERVICES SA",
+"fecha": "2024-10-03",
+"meses": 24.0,
+"importe": 816987.21,
+"prorrogas": [
+{
+"fecha": "2026-07-02",
+"meses": 12.0,
+"importe": 441257.4
+}
+],
+"fin": "2027-10",
 "vigente": true,
-"anual": 655564.94
+"anual": 408493.6
+},
+{
+"distrito": "VILLA DE VALLECAS",
+"exp": "300/2024/00033",
+"lote": "1",
+"objeto": "Lote 1 - Centros Educativos",
+"cats": [
+"mantenimiento"
+],
+"empresa": "ACCIONA FACILITY SERVICES SA",
+"fecha": "2024-10-22",
+"meses": 24.0,
+"importe": 840146.04,
+"prorrogas": [
+{
+"fecha": "2026-07-02",
+"meses": 12.0,
+"importe": 448024.44
+}
+],
+"fin": "2027-10",
+"vigente": true,
+"anual": 420073.02
 },
 {
 "distrito": "VILLA DE VALLECAS",
@@ -5307,7 +6030,7 @@
 "empresa": "VALORIZA CENTRO ESPECIAL DE EMPLEO, S. L. U",
 "fecha": "2019-08-29",
 "meses": 24.0,
-"importe": 0,
+"importe": 484130.84,
 "prorrogas": [
 {
 "fecha": "2021-06-24",
@@ -5317,7 +6040,7 @@
 ],
 "fin": "2022-02",
 "vigente": false,
-"anual": null,
+"anual": 242065.42,
 "sustituido": "300/2021/00602"
 },
 {
@@ -5571,7 +6294,59 @@
 "prorrogas": [],
 "fin": "2026-04",
 "vigente": false,
-"anual": 538999.05
+"anual": 538999.05,
+"sustituido": "300/2025/01650"
+},
+{
+"distrito": "VILLAVERDE",
+"exp": "300/2025/01650",
+"lote": "3",
+"objeto": "Lote 3 - Instalaciones Deportivas Básicas (sin incluir las zonas verdes ni las superficies ajardinadas).",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CENTRALIA SERVICIOS INTEGRALES, S.R.L",
+"fecha": "2026-03-27",
+"meses": 36.0,
+"importe": 260150.0,
+"prorrogas": [],
+"fin": "2029-03",
+"vigente": true,
+"anual": 86716.67
+},
+{
+"distrito": "VILLAVERDE",
+"exp": "300/2025/01650",
+"lote": "1",
+"objeto": "Lote 1 - Centros Educativos de Educación Infantil y Primaria sin incluir las zonas verdes ni las superficies ajardinadas.",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CENTRALIA SERVICIOS INTEGRALES, S.R.L",
+"fecha": "2026-03-27",
+"meses": 35.5,
+"importe": 1940840.0,
+"prorrogas": [],
+"fin": "2029-02",
+"vigente": true,
+"anual": 656058.59
+},
+{
+"distrito": "VILLAVERDE",
+"exp": "300/2025/01650",
+"lote": "2",
+"objeto": "Lote 2 - Edificios y Centros Deportivos Municipales sin incluir las zonas verdes ni las superficies ajardinadas.",
+"cats": [
+"mantenimiento"
+],
+"empresa": "CENTRALIA SERVICIOS INTEGRALES, S.R.L",
+"fecha": "2026-04-27",
+"meses": 36.0,
+"importe": 1564530.0,
+"prorrogas": [],
+"fin": "2029-04",
+"vigente": true,
+"anual": 521510.0
 },
 {
 "distrito": "VILLAVERDE",
@@ -5601,11 +6376,11 @@
 "empresa": "GRUPO CONTROL EMPRESA DE SEGURIDAD, S.A",
 "fecha": "2019-01-31",
 "meses": 24.0,
-"importe": 0,
+"importe": 395065.0,
 "prorrogas": [],
 "fin": "2021-01",
 "vigente": false,
-"anual": null
+"anual": 197532.5
 },
 {
 "distrito": "VILLAVERDE",
