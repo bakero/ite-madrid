@@ -26,6 +26,7 @@ def keys_for(n):
     out=set()
     if len(core)>=5 and core not in ('PUENTE DE VALLECAS','VALLECAS','MADRID') and not core.startswith(('MUNICIPAL','AL AIRE LIBRE')):out.add(core)
     out={k for k in out if not re.match(r'^(Y|DE|DEL|E|O)\b',k) and '  ' not in k}
+    out={k for k in out if k not in ('VERANO','MENTAL','ESTADIO','CENTRO','MUNICIPAL')}
     return out
 # nombres de calles de Madrid (núcleo sin tipo de vía): si un nombre de centro coincide con una calle, se exige el tipo de centro delante
 import json as _j
@@ -65,7 +66,9 @@ def match(txt,pv):
     return hits
 
 ALIAS=[(r'POLIDEPORTIVO (MUNICIPAL )?(DE )?PUENTE DE VALLECAS|(CENTRO DEPORTIVO MUNICIPAL|C\.?D\.?M\.?) PUENTE DE VALLECAS|PAYASO FOFO','40.39146,-3.65986'),
- (r'BIBLIOTECA (PUBLICA )?(MUNICIPAL )?(DE )?VALLECAS\b(?! VILLA)','40.39502,-3.66555'),
+ (r'BIBLIOTECA (PUBLICA )?(MUNICIPAL )?(DE )?(PUENTE DE )?VALLECAS\b(?! VILLA)|BIBLIOTECA .{0,20}SIERRA CAMEROS','40.39502,-3.66555'),
+ (r'NUEVA (SEDE DE LA )?(JUNTA MUNICIPAL|JMD)|(JUNTA MUNICIPAL|JMD).{0,40}BUENOS AIRES','40.38920,-3.65180'),
+ (r'MONTE OLIVETT?I,? 14','40.39787,-3.66706'),
  (r'CENTRO (MUNICIPAL )?DE MAYORES (Y CENTRO DE DIA )?(DE )?PUENTE DE VALLECAS','40.39042,-3.65812'),
 (r'BOMBEROS (N[º°O]\.? ?|NUM(ERO)?\.? ?)?0?8\b','40.39462,-3.65313'),
  (r'(UNIDAD INTEGRAL|COMISARIA INTEGRAL|U\.?I\.?D\.?)( DE)?( LA)? POLICIA MUNICIPAL( DEL? DISTRITO)?( DE)? PUENTE( DE)? VALLECAS|POLICIA MUNICIPAL( DEL? DISTRITO)?( DE)? PUENTE( DE)? VALLECAS','40.38924,-3.65238'),

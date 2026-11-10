@@ -1,0 +1,2833 @@
+{
+ "300/2025/00051": {
+  "filas": [
+   {
+    "grupo": "",
+    "texto": "C.S.C. “Alberto Sánchez” (C/ Risco de Peloche 14)",
+    "peso": 13.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.C. y C.D.M. “El Pozo” (Avenida de las Glorietas 19-21)",
+    "peso": 20.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.S.C. “Talleres de creatividad y Aula aire libre” (C/ Sierra Carbonera 74)",
+    "peso": 17.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.S.S.-M-C.D Entrevías (C/ Yuste 8)",
+    "peso": 33.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.S.S.-M San Diego (C/ Javier de Miguel 10)",
+    "peso": 36.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.S.S –M- C.D- Ramón Pérez de Ayala (C/ Las Marismas 24)",
+    "peso": 7.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.S.S.- M- C.D- Pablo Neruda (C/ Gerardo Diego 8 Esq. Extremeños)",
+    "peso": 28.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.M. Casa del Bulevar (C/ Peña Gorbea 22)",
+    "peso": 19.0
+   },
+   {
+    "grupo": "",
+    "texto": "C.M. Alto del Arenal (C/ Sierra Salvada 57) Desde noviembre de 2025",
+    "peso": 16.0
+   },
+   {
+    "grupo": "",
+    "texto": "Antigua Junta de Distrito (Av. Albufera 42)",
+    "peso": 15.0
+   },
+   {
+    "grupo": "",
+    "texto": "Junta de Distrito (Calle Sierra Salvada 6)",
+    "peso": 29.0
+   },
+   {
+    "grupo": "",
+    "texto": "Oficina Línea Madrid (C/ Monte Olivetti 14)",
+    "peso": 3.0
+   },
+   {
+    "grupo": "",
+    "texto": "Biblioteca (C/ Sierra Cameros 20)",
+    "peso": 3.0
+   },
+   {
+    "grupo": "",
+    "texto": "Casa del Empleo (C/ Sierra Ministra 3)",
+    "peso": 3.0
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Atención Familias 4 (C/ Conde Rodríguez San pedro 59)",
+    "peso": 0
+   },
+   {
+    "grupo": "",
+    "texto": "C.M. Pto. Navacerrada (C/ Puerto de Navacerrada 1.)",
+    "peso": 13.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. Alzheimer Fátima de Madrid (C/ Sierra de los Filambres nº 15.)",
+    "peso": 15.0
+   },
+   {
+    "grupo": "",
+    "texto": "CC Lope de Vega (C/ Concejo de Teverga 1)",
+    "peso": 40.0
+   },
+   {
+    "grupo": "",
+    "texto": "Centro polivalente Rio Esmeralda sin agosto (C/ Río Esmeralda, 15 C/V C/ Lago Maracaibo, 8)",
+    "peso": 15.0
+   },
+   {
+    "grupo": "",
+    "texto": "Centro administrativo S Sociales: (Calle José Serrano):",
+    "peso": 0
+   }
+  ],
+  "edif": [
+   {
+    "key": "40.39362,-3.65560",
+    "texto": "C.S.C. “Alberto Sánchez” (C/ Risco de Peloche 14)",
+    "peso": 13.0,
+    "cruce": "nombre: ALBERTO SANCHEZ"
+   },
+   {
+    "key": "40.37359,-3.66025",
+    "texto": "C.C. y C.D.M. “El Pozo” (Avenida de las Glorietas 19-21)",
+    "peso": 10.0,
+    "cruce": "dirección: GLORIETAS 19 (recinto compartido)"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "C.C. y C.D.M. “El Pozo” (Avenida de las Glorietas 19-21)",
+    "peso": 10.0,
+    "cruce": "dirección: GLORIETAS 19 (recinto compartido)"
+   },
+   {
+    "key": "40.39010,-3.66532",
+    "texto": "C.S.C. “Talleres de creatividad y Aula aire libre” (C/ Sierra Carbonera 74)",
+    "peso": 17.0,
+    "cruce": "nombre: TALLERES DE CREATIVIDAD"
+   },
+   {
+    "key": "40.37573,-3.66828",
+    "texto": "C.S.S.-M-C.D Entrevías (C/ Yuste 8)",
+    "peso": 16.5,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.37642,-3.66928",
+    "texto": "C.S.S.-M-C.D Entrevías (C/ Yuste 8)",
+    "peso": 16.5,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.38872,-3.66369",
+    "texto": "C.S.S.-M San Diego (C/ Javier de Miguel 10)",
+    "peso": 18.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.38869,-3.66359",
+    "texto": "C.S.S.-M San Diego (C/ Javier de Miguel 10)",
+    "peso": 18.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.40133,-3.65345",
+    "texto": "C.S.S –M- C.D- Ramón Pérez de Ayala (C/ Las Marismas 24)",
+    "peso": 7.0,
+    "cruce": "nombre: RAMON PEREZ DE AYALA"
+   },
+   {
+    "key": "40.38518,-3.64446",
+    "texto": "C.S.S.- M- C.D- Pablo Neruda (C/ Gerardo Diego 8 Esq. Extremeños)",
+    "peso": 14.0,
+    "cruce": "nombre: PABLO NERUDA (recinto compartido)"
+   },
+   {
+    "key": "40.38523,-3.64437",
+    "texto": "C.S.S.- M- C.D- Pablo Neruda (C/ Gerardo Diego 8 Esq. Extremeños)",
+    "peso": 14.0,
+    "cruce": "nombre: PABLO NERUDA (recinto compartido)"
+   },
+   {
+    "key": "40.39520,-3.66640",
+    "texto": "C.M. Casa del Bulevar (C/ Peña Gorbea 22)",
+    "peso": 19.0,
+    "cruce": "nombre: CASA DEL BULEVAR"
+   },
+   {
+    "key": "40.39665,-3.66634",
+    "texto": "Antigua Junta de Distrito (Av. Albufera 42)",
+    "peso": 15.0,
+    "cruce": "dirección: ALBUFERA 42"
+   },
+   {
+    "key": "40.38920,-3.65180",
+    "texto": "Junta de Distrito (Calle Sierra Salvada 6)",
+    "peso": 29.0,
+    "cruce": "dirección: SIERRA SALVADA 6"
+   },
+   {
+    "key": "40.39787,-3.66706",
+    "texto": "Oficina Línea Madrid (C/ Monte Olivetti 14)",
+    "peso": 3.0,
+    "cruce": "alias: MONTE OLIVETT?I,? 14"
+   },
+   {
+    "key": "40.39502,-3.66555",
+    "texto": "Biblioteca (C/ Sierra Cameros 20)",
+    "peso": 3.0,
+    "cruce": "alias: BIBLIOTECA (PUBLICA )?(MUNICIP"
+   },
+   {
+    "key": "40.38351,-3.67028",
+    "texto": "Centro Atención Familias 4 (C/ Conde Rodríguez San pedro 59)",
+    "peso": 0,
+    "cruce": "dirección: CONDE RODRIGUEZ SAN PEDRO 59"
+   },
+   {
+    "key": "40.40135,-3.65706",
+    "texto": "C.M. Pto. Navacerrada (C/ Puerto de Navacerrada 1.)",
+    "peso": 13.0,
+    "cruce": "nombre: NAVACERRADA"
+   },
+   {
+    "key": "40.39834,-3.66684",
+    "texto": "C. Alzheimer Fátima de Madrid (C/ Sierra de los Filambres nº 15.)",
+    "peso": 15.0,
+    "cruce": "nombre: FATIMA DE MADRID"
+   },
+   {
+    "key": "40.38630,-3.67186",
+    "texto": "CC Lope de Vega (C/ Concejo de Teverga 1)",
+    "peso": 40.0,
+    "cruce": "nombre: LOPE DE VEGA"
+   },
+   {
+    "key": "40.38290,-3.65207",
+    "texto": "Centro polivalente Rio Esmeralda sin agosto (C/ Río Esmeralda, 15 C/V C/ Lago Maracaibo, 8)",
+    "peso": 7.5,
+    "cruce": "dirección: RIO ESMERALDA 15 (recinto compartido)"
+   },
+   {
+    "key": "40.38320,-3.65202",
+    "texto": "Centro polivalente Rio Esmeralda sin agosto (C/ Río Esmeralda, 15 C/V C/ Lago Maracaibo, 8)",
+    "peso": 7.5,
+    "cruce": "dirección: LAGO MARACAIBO 8 (recinto compartido)"
+   }
+  ],
+  "peso_total": 325.0
+ },
+ "300/2022/00668": {
+  "filas": [
+   {
+    "grupo": "",
+    "texto": "C. E. E. Vallecas",
+    "peso": 5265.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Agustina Díez",
+    "peso": 7650.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Amos Acero",
+    "peso": 3375.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Aragón",
+    "peso": 4725.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Asturias",
+    "peso": 5062.5
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Carlos Sainz de los",
+    "peso": 4320.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Concha Espina",
+    "peso": 4162.5
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Doctor Tolosa Latour",
+    "peso": 4162.5
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Eduardo Rojo",
+    "peso": 5130.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. El Madroño",
+    "peso": 3780.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Francisco Ruano",
+    "peso": 3555.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Fray Junipero Serra",
+    "peso": 6930.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. García Morente",
+    "peso": 4387.5
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Giner de los Rios",
+    "peso": 5962.5
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Jaime Balmes",
+    "peso": 4275.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Javier de Miguel",
+    "peso": 6075.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. José María de Pereda",
+    "peso": 3555.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. La Rioja",
+    "peso": 5085.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Madrid-Sur",
+    "peso": 4275.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Manuel Núñez de",
+    "peso": 9315.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Mesonero Romanos",
+    "peso": 5265.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Padre Mariana",
+    "peso": 3555.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Palomeras Bajas",
+    "peso": 5850.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. San Pablo",
+    "peso": 5355.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Santo Domingo",
+    "peso": 5175.0
+   },
+   {
+    "grupo": "",
+    "texto": "C. P. Virgen del Cerro",
+    "peso": 7290.0
+   }
+  ],
+  "edif": [
+   {
+    "key": "40.39116,-3.62514",
+    "texto": "C. E. E. Vallecas",
+    "peso": 5265.0,
+    "cruce": "nombre: EDUCACION ESPECIAL"
+   },
+   {
+    "key": "40.38819,-3.64724",
+    "texto": "C. P. Agustina Díez",
+    "peso": 7650.0,
+    "cruce": "nombre: AGUSTINA DIEZ"
+   },
+   {
+    "key": "40.39022,-3.66378",
+    "texto": "C. P. Amos Acero",
+    "peso": 3375.0,
+    "cruce": "nombre: AMOS ACERO"
+   },
+   {
+    "key": "40.39244,-3.63738",
+    "texto": "C. P. Aragón",
+    "peso": 4725.0,
+    "cruce": "nombre: ARAGON"
+   },
+   {
+    "key": "40.38311,-3.64261",
+    "texto": "C. P. Asturias",
+    "peso": 5062.5,
+    "cruce": "nombre: ASTURIAS"
+   },
+   {
+    "key": "40.38481,-3.63903",
+    "texto": "C. P. Carlos Sainz de los",
+    "peso": 4320.0,
+    "cruce": "nombre: CARLOS SAINZ DE LOS TERREROS"
+   },
+   {
+    "key": "40.38578,-3.64395",
+    "texto": "C. P. Concha Espina",
+    "peso": 4162.5,
+    "cruce": "nombre: CONCHA ESPINA"
+   },
+   {
+    "key": "40.38200,-3.64201",
+    "texto": "C. P. Doctor Tolosa Latour",
+    "peso": 4162.5,
+    "cruce": "nombre: DOCTOR TOLOSA LATOUR"
+   },
+   {
+    "key": "40.38743,-3.66281",
+    "texto": "C. P. Eduardo Rojo",
+    "peso": 5130.0,
+    "cruce": "nombre: EDUARDO ROJO"
+   },
+   {
+    "key": "40.40220,-3.65449",
+    "texto": "C. P. El Madroño",
+    "peso": 3780.0,
+    "cruce": "nombre: EL MADROÑO"
+   },
+   {
+    "key": "40.38009,-3.67355",
+    "texto": "C. P. Francisco Ruano",
+    "peso": 3555.0,
+    "cruce": "nombre: FRANCISCO RUANO"
+   },
+   {
+    "key": "40.39531,-3.65816",
+    "texto": "C. P. Fray Junipero Serra",
+    "peso": 6930.0,
+    "cruce": "nombre: FRAY JUNIPERO SERRA"
+   },
+   {
+    "key": "40.37337,-3.66548",
+    "texto": "C. P. García Morente",
+    "peso": 4387.5,
+    "cruce": "nombre: GARCIA MORENTE"
+   },
+   {
+    "key": "40.37953,-3.66848",
+    "texto": "C. P. Giner de los Rios",
+    "peso": 5962.5,
+    "cruce": "nombre: GINER DE LOS RIOS"
+   },
+   {
+    "key": "40.38790,-3.67076",
+    "texto": "C. P. Jaime Balmes",
+    "peso": 4275.0,
+    "cruce": "nombre: JAIME BALMES"
+   },
+   {
+    "key": "40.38618,-3.65721",
+    "texto": "C. P. Javier de Miguel",
+    "peso": 6075.0,
+    "cruce": "nombre: JAVIER DE MIGUEL"
+   },
+   {
+    "key": "40.38183,-3.67488",
+    "texto": "C. P. José María de Pereda",
+    "peso": 3555.0,
+    "cruce": "nombre: JOSE MARIA DE PEREDA"
+   },
+   {
+    "key": "40.38815,-3.63699",
+    "texto": "C. P. La Rioja",
+    "peso": 5085.0,
+    "cruce": "nombre: LA RIOJA"
+   },
+   {
+    "key": "40.37658,-3.65535",
+    "texto": "C. P. Madrid-Sur",
+    "peso": 4275.0,
+    "cruce": "nombre: MADRID SUR"
+   },
+   {
+    "key": "40.37525,-3.66174",
+    "texto": "C. P. Manuel Núñez de",
+    "peso": 9315.0,
+    "cruce": "nombre: MANUEL NUÑEZ DE ARENAS"
+   },
+   {
+    "key": "40.39368,-3.64438",
+    "texto": "C. P. Mesonero Romanos",
+    "peso": 5265.0,
+    "cruce": "nombre: MESONERO ROMANOS"
+   },
+   {
+    "key": "40.37704,-3.67130",
+    "texto": "C. P. Padre Mariana",
+    "peso": 3555.0,
+    "cruce": "nombre: PADRE MARIANA"
+   },
+   {
+    "key": "40.37919,-3.66086",
+    "texto": "C. P. Palomeras Bajas",
+    "peso": 5850.0,
+    "cruce": "nombre: PALOMERAS BAJAS"
+   },
+   {
+    "key": "40.38940,-3.65176",
+    "texto": "C. P. San Pablo",
+    "peso": 5355.0,
+    "cruce": "nombre: SAN PABLO"
+   },
+   {
+    "key": "40.39202,-3.64589",
+    "texto": "C. P. Santo Domingo",
+    "peso": 5175.0,
+    "cruce": "nombre: SANTO DOMINGO"
+   },
+   {
+    "key": "40.39596,-3.64910",
+    "texto": "C. P. Virgen del Cerro",
+    "peso": 7290.0,
+    "cruce": "nombre: VIRGEN DEL CERRO"
+   }
+  ],
+  "peso_total": 133537.5
+ },
+ "300/2023/00637": {
+  "filas": [
+   {
+    "grupo": "",
+    "texto": "Junta Municipal Avenida de la Albufera nº 42",
+    "peso": 138748.49
+   },
+   {
+    "grupo": "",
+    "texto": "Nueva Junta Municipal Avenida de Buenos Aires, 17",
+    "peso": 136403.54
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Cívico El Pozo Del Tío Raimundo Avenida de las Glorietas 19-21",
+    "peso": 125880.75
+   },
+   {
+    "grupo": "",
+    "texto": "Centro de SS y Mayores Casa del Bulevar Calle Peña Gorbea nº 22",
+    "peso": 175939.92
+   },
+   {
+    "grupo": "",
+    "texto": "Centro de SS Entrevías Calle Yuste nº 8",
+    "peso": 102302.66
+   },
+   {
+    "grupo": "",
+    "texto": "Centro de SS Pablo Neruda Calle Gerardo Diego nº 8",
+    "peso": 102302.66
+   },
+   {
+    "grupo": "",
+    "texto": "Centro de SS San Diego Calle Javier de Miguel nº 10",
+    "peso": 102302.66
+   },
+   {
+    "grupo": "",
+    "texto": "Centro de SS Ramón Pérez de Ayala Calle Las Marismas nº 24",
+    "peso": 102302.66
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Deportivo Municipal Entrevías Piscina Verano Ronda del Sur 4",
+    "peso": 206056.04
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Deportivo Municipal Palomeras Piscina Verano Tranvía de Arganda s/n",
+    "peso": 174300.39
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Deportivo Municipal “Vallecas” Piscina Verano Arroyo del Olivar nº 51",
+    "peso": 92886.92
+   },
+   {
+    "grupo": "",
+    "texto": "Centro Río Esmeralda Lago Maracaibo, 8",
+    "peso": 181084.44
+   }
+  ],
+  "edif": [
+   {
+    "key": "40.39665,-3.66634",
+    "texto": "Junta Municipal Avenida de la Albufera nº 42",
+    "peso": 138748.49,
+    "cruce": "dirección: ALBUFERA 42"
+   },
+   {
+    "key": "40.38920,-3.65180",
+    "texto": "Nueva Junta Municipal Avenida de Buenos Aires, 17",
+    "peso": 136403.54,
+    "cruce": "alias: NUEVA (SEDE DE LA )?(JUNTA MUN"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "Centro Cívico El Pozo Del Tío Raimundo Avenida de las Glorietas 19-21",
+    "peso": 125880.75,
+    "cruce": "nombre: EL POZO DEL TIO RAIMUNDO"
+   },
+   {
+    "key": "40.39520,-3.66640",
+    "texto": "Centro de SS y Mayores Casa del Bulevar Calle Peña Gorbea nº 22",
+    "peso": 175939.92,
+    "cruce": "nombre: CASA DEL BULEVAR"
+   },
+   {
+    "key": "40.37642,-3.66928",
+    "texto": "Centro de SS Entrevías Calle Yuste nº 8",
+    "peso": 102302.66,
+    "cruce": "dirección: YUSTE 8"
+   },
+   {
+    "key": "40.38518,-3.64446",
+    "texto": "Centro de SS Pablo Neruda Calle Gerardo Diego nº 8",
+    "peso": 51151.33,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38523,-3.64437",
+    "texto": "Centro de SS Pablo Neruda Calle Gerardo Diego nº 8",
+    "peso": 51151.33,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38872,-3.66369",
+    "texto": "Centro de SS San Diego Calle Javier de Miguel nº 10",
+    "peso": 51151.33,
+    "cruce": "dirección: JAVIER DE MIGUEL 10 (recinto compartido)"
+   },
+   {
+    "key": "40.38869,-3.66359",
+    "texto": "Centro de SS San Diego Calle Javier de Miguel nº 10",
+    "peso": 51151.33,
+    "cruce": "dirección: JAVIER DE MIGUEL 10 (recinto compartido)"
+   },
+   {
+    "key": "40.40133,-3.65345",
+    "texto": "Centro de SS Ramón Pérez de Ayala Calle Las Marismas nº 24",
+    "peso": 102302.66,
+    "cruce": "dirección: MARISMAS 24"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "Centro Deportivo Municipal Entrevías Piscina Verano Ronda del Sur 4",
+    "peso": 206056.04,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.38260,-3.63372",
+    "texto": "Centro Deportivo Municipal Palomeras Piscina Verano Tranvía de Arganda s/n",
+    "peso": 174300.39,
+    "cruce": "nombre: PALOMERAS"
+   },
+   {
+    "key": "40.39037,-3.65721",
+    "texto": "Centro Deportivo Municipal “Vallecas” Piscina Verano Arroyo del Olivar nº 51",
+    "peso": 92886.92,
+    "cruce": "dirección: ARROYO DEL OLIVAR 51"
+   },
+   {
+    "key": "40.38320,-3.65202",
+    "texto": "Centro Río Esmeralda Lago Maracaibo, 8",
+    "peso": 181084.44,
+    "cruce": "dirección: LAGO MARACAIBO 8"
+   }
+  ],
+  "peso_total": 1640511.1300000001
+ },
+ "300/2024/00115": {
+  "filas": [
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Agustina Díez              C/ Vesubio, 5",
+    "peso": 2549.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Amos Acero                 C/ Rodríguez Espinosa, 54",
+    "peso": 1480.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Aragón                     Avda. Rafael Alberti, 2",
+    "peso": 3784.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C/ Los Asturianos, 2 c/v C. P. Asturias                   Rafael Alberti",
+    "peso": 3784.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Carlos Sainz de los Terreros                         C/ Cartama, 1",
+    "peso": 4259.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Concha Espina              C/ Gerardo Diego, 6",
+    "peso": 4396.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Doctor Tolosa Latour       C/ Los Asturianos, 4",
+    "peso": 4259.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Eduardo Rojo               C/ Eduardo Rojo, 2",
+    "peso": 3655.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. El Madroño                 C/ Las Marismas 14",
+    "peso": 2200.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Francisco Ruano            C/ Almuradiel 150",
+    "peso": 2259.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Fray Junípero Serra        Camino de Valderribas, 120",
+    "peso": 4514.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. García Morente             C/ Ronda del Sur 229",
+    "peso": 4179.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Giner de los Ríos          C/ Membézar 25",
+    "peso": 4905.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Jaime Balmes               C/ Sierra Solana 2",
+    "peso": 2192.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C/ Javier de Miguel, 90 c/v C. P. Javier de Miguel           Puerto de Viñamala, 11",
+    "peso": 3865.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. José María de Pereda       C/ Mestanza, 94",
+    "peso": 2419.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. La Rioja                   C/ León Felipe 3",
+    "peso": 4334.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Madrid-Sur                 C/ Puerto de Balbarán, 133",
+    "peso": 2813.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Manuel Núñez de Arenas                           C/ Martos, 120",
+    "peso": 4541.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Mesonero Romanos           C/ Pont de Molins 31",
+    "peso": 4069.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Padre Mariana              C/ Ronda del Sur, 145",
+    "peso": 2202.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Palomeras Bajas            C/ Felipe de Diego 6",
+    "peso": 1996.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. San Pablo                  Pza de Peña Morraz 1",
+    "peso": 1638.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Santo Domingo              C/ San Feliú de Guixols 7",
+    "peso": 3740.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. P. Virgen del Cerro           C/ Mohernando 1",
+    "peso": 5479.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C. E. E. Vallecas                Crta Valencia km 7,4",
+    "peso": 2541.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "C/ Cocheron de la Villa 29 c/v E.I. Luisa Fernanda              Tranvía Blanco",
+    "peso": 1641.0
+   },
+   {
+    "grupo": "COLEGIOS-LOTE 1",
+    "texto": "E.I. El Caserío                  C/ MªTeresa Robledo 3",
+    "peso": 1527.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Cabo Machichaco c/v C/ Auditorio EL POZO              Los Andaluces del Pozo",
+    "peso": 200.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Ronda del Sur s/n frente Auditorio ENTREVÍAS            C/ Montanchez",
+    "peso": 225.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Auditorio JARDÍN CAMPO         C/ San Claudio, 117 c/v Avda. DEL TORO                       Rafael Alberti y C/ Andaluces",
+    "peso": 150.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Biblioteca Puente de           C/ Sierra Cameros, 20 c/v C/ Vallecas                       Puerto del Monasterio",
+    "peso": 432.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Centro de Día Fátima de Madrid) Mixto de Alzheimer y Físicos                      C/ Sierra de los Filabres 15",
+    "peso": 1722.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.C. y de Mayores El Pozo      Av de las Glorietas 19-21",
+    "peso": 6327.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Concejo de Teverga, 1 c/v C.C. Lope de Vega              Sierra de Albarracín",
+    "peso": 4474.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Peña Gorbea 22 c/v C/ C.M. Casa del Bulevar          Puerto Alto",
+    "peso": 1669.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.M. Puerto de Navacerrada     C/ Puerto Navacerrada 1",
+    "peso": 1230.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Pedro Laborde, 46, c/v C.M.M. Alto del Arenal         Sierra Salvada 57",
+    "peso": 441.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.S.C. Alberto Sánchez         C/ Risco de Peloche 14",
+    "peso": 2192.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C. polivalente y juvenil Rio Esmeralda                      C/ Rio Esmeralda 15",
+    "peso": 1215.51
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Conde Rodriguez San C.S.C. Entrevías               Pedro 59",
+    "peso": 176.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.S.C. Talleres de Creatividad y Aula Aire Libre C/ Sierra Carbonera, 70",
+    "peso": 1395.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías    Montánchez",
+    "peso": 3540.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.S.S. - M - C.D. Ramón        C/ Las Marismas, 24 c/v C/ Pérez de Ayala                 Ramón Pérez de Ayala",
+    "peso": 1900.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.S.S. - M- C.D. Pablo         C/ Gerardo Diego, 8 c/v C/ Neruda                         Extremeños",
+    "peso": 3354.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "C.S.S. - M. San Diego          C/ Javier de Miguel, 10",
+    "peso": 3680.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Edificio Municipal (Locales de Montes Pirineos)            C/ Montes Pirineos 17 a 23",
+    "peso": 240.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Edificio Municipal (Varios Servicios)                     C/ Francisco Laguna 38",
+    "peso": 464.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Edificio Municipal (Varios     C/ Salvador Martínez Lozano, Servicios)                     3 c/v C/ Lozano 18",
+    "peso": 70.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Edificio Municipal (Varios Servicios)                     C/ Jose Serrano 19",
+    "peso": 198.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Edificio Municipal (Varios Servicios)                     C/ Rodriguez Espinosa 13",
+    "peso": 351.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Escuela Taller Asociación Ciudad Joven                   C/ Avelino Fernández Poza 55",
+    "peso": 400.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Junta Municipal                Av Albufera, 42",
+    "peso": 2410.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Manuel Siurot (Varios Servicios)                       Pza. Sierra Ministra 3",
+    "peso": 1163.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Oficina Línea Madrid             C/ Monte Olivetti, 14",
+    "peso": 445.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Nueva Junta Municipal            C/ Sierra Salvada 6 c/v C/ Rio   6.680,00 Grande                                             1157,48          0,00% Templete Jardín Campo de la Paloma                        Av Rafael Alberti 38",
+    "peso": 70.0
+   },
+   {
+    "grupo": "EDIFICIOS-LOTE 2",
+    "texto": "Templete Plaza del Cine          Plaza del Cine",
+    "peso": 70.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Reguera de Tomateros, C.D.M. Wilfred Agbonavbare       39-B",
+    "peso": 7671.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C.D.M. Entrevías                 C/ Ronda Sur, 4",
+    "peso": 13008.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C.D.M. Palomeras                 C/ Tranvía de Arganda 4",
+    "peso": 26353.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C.D.M. Ángel Nieto               C/ Payaso Fofó, 7",
+    "peso": 4283.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C.D.M. Vallecas (Piscina de verano)                          C/ Arroyo del Olivar 61",
+    "peso": 1340.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Andévalo 6, (aparcamiento I.D.B. Andévalo                  residentes)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Campo Aragón              C/ Antonio Mairena 23",
+    "peso": 180.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Rio Esmeralda 14 c/v C/ I.D.B. Campo Azul                Golfo Darién 14",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Carlos Solé               C/ Carlos Sole 11",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Cazorla                   C/ Ibros 3",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Cerro Cabezuelo           C/ Villalobos 46",
+    "peso": 140.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Colonia Jesús Divino Obrero                           C/ Humanes 10B c/v Tossa",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Sierra Cuerda Larga, I.D.B. Colonia Los Taxistas      41,43, 45, y 47",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Colonia Sierra Del Valle                            C/ Payaso Fofó 9",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Campo de Fútbol El        C/ Reguera de Tomateros Pozo                             103-B",
+    "peso": 240.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. El Bosco                  C/ El Bosco 14 - 20",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Francisco Laguna          C/ Francisco Laguna 26",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Hermanos Trueba 30 c/v I.D.B. Hermanos Trueba           C/ Payaso Fofó 34",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Imagen 23 c/v C/ Vizconde I.D.B. Imagen                    Arlesson 18",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                Parque Palomeras Bajas 10",
+    "peso": 170.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "Av Albufera 287-289 (Explanada Metro Miguel I.D.B. La Albufera               Hernandez)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Ronda del Sur s/n Frente I.D.B. Los Arbolitos            C/ Serena",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Miguel Hernández frente al 37-39 (Parque Lineal de I.D.B. Miguel Hernández         Palomeras)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "Av Miguel Hernández 52 I.D.B. Miguel Hernández         (frente León Felipe, Parque Patinaje                        Lineal de Palomeras)",
+    "peso": 200.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Novecento                C/ Novecento 6",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Palomeras Bajas          C/ Puerto Balbarán 6",
+    "peso": 405.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Entrevías - Patinaje                        C/ Ronda del sur 21",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Entrevías -       C/ Ronda del sur (frente al Petanca                         53)",
+    "peso": 9.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque la Viña           C/ Concejo de Teverga 2",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Lineal del        C/ Embajadores s/n (Parque Manzanares                      Lineal del Manzanares)",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Luis Buñuel       C/ Luis Buñuel (frente al 12)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Madrid Sur -      C/ La Diligencia 5 (Parque La Diligencia                   Madrid Sur)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Parque Marchamalo        C/ Marchamalo 15 posterior",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Pedro Escudero           C/ Pedro Escudero 28",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Balbarán          C/ Puerto Balbarán 4 y 8",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Corlite           C/ Puerto Corlite 7",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Costabona         C/ Puerto Costabona 7",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Costabona         C/ Puerto de Velate 18 c/v La Tenis                           Diligencia",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Monasterio        C/ Puerto Monasterio 17",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Puerto Velate        C/ Puerto Velate 9",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "C/ Ramón Pérez de Ayala, 80 I.D.B. Ramón Pérez de Ayala B",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Ronda Sur                C/ Ronda Sur c/v Barros",
+    "peso": 410.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. San Anselmo              C/ San Anselmo 8",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "IDM Sierra Elvira               C/ Sierra Elvira, 37 Post.",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Sierra del Valle         C/ Arroyo del Olivar 96",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS-LOTE 2",
+    "texto": "I.D.B. Yeseros                  C/ Yesero 1",
+    "peso": 0.0
+   }
+  ],
+  "edif": [
+   {
+    "key": "40.38819,-3.64724",
+    "texto": "C. P. Agustina Díez              C/ Vesubio, 5",
+    "peso": 2549.0,
+    "cruce": "nombre: AGUSTINA DIEZ"
+   },
+   {
+    "key": "40.39022,-3.66378",
+    "texto": "C. P. Amos Acero                 C/ Rodríguez Espinosa, 54",
+    "peso": 1480.0,
+    "cruce": "nombre: AMOS ACERO"
+   },
+   {
+    "key": "40.39244,-3.63738",
+    "texto": "C. P. Aragón                     Avda. Rafael Alberti, 2",
+    "peso": 3784.0,
+    "cruce": "nombre: ARAGON"
+   },
+   {
+    "key": "40.38311,-3.64261",
+    "texto": "C/ Los Asturianos, 2 c/v C. P. Asturias                   Rafael Alberti",
+    "peso": 3784.0,
+    "cruce": "nombre: ASTURIAS"
+   },
+   {
+    "key": "40.38481,-3.63903",
+    "texto": "C. P. Carlos Sainz de los Terreros                         C/ Cartama, 1",
+    "peso": 4259.0,
+    "cruce": "nombre: CARLOS SAINZ DE LOS TERREROS"
+   },
+   {
+    "key": "40.38578,-3.64395",
+    "texto": "C. P. Concha Espina              C/ Gerardo Diego, 6",
+    "peso": 4396.0,
+    "cruce": "nombre: CONCHA ESPINA"
+   },
+   {
+    "key": "40.38200,-3.64201",
+    "texto": "C. P. Doctor Tolosa Latour       C/ Los Asturianos, 4",
+    "peso": 4259.0,
+    "cruce": "nombre: DOCTOR TOLOSA LATOUR"
+   },
+   {
+    "key": "40.38743,-3.66281",
+    "texto": "C. P. Eduardo Rojo               C/ Eduardo Rojo, 2",
+    "peso": 3655.0,
+    "cruce": "nombre: EDUARDO ROJO"
+   },
+   {
+    "key": "40.40220,-3.65449",
+    "texto": "C. P. El Madroño                 C/ Las Marismas 14",
+    "peso": 2200.0,
+    "cruce": "nombre: EL MADROÑO"
+   },
+   {
+    "key": "40.38009,-3.67355",
+    "texto": "C. P. Francisco Ruano            C/ Almuradiel 150",
+    "peso": 2259.0,
+    "cruce": "nombre: FRANCISCO RUANO"
+   },
+   {
+    "key": "40.39531,-3.65816",
+    "texto": "C. P. Fray Junípero Serra        Camino de Valderribas, 120",
+    "peso": 4514.0,
+    "cruce": "nombre: FRAY JUNIPERO SERRA"
+   },
+   {
+    "key": "40.37337,-3.66548",
+    "texto": "C. P. García Morente             C/ Ronda del Sur 229",
+    "peso": 4179.0,
+    "cruce": "nombre: GARCIA MORENTE"
+   },
+   {
+    "key": "40.37953,-3.66848",
+    "texto": "C. P. Giner de los Ríos          C/ Membézar 25",
+    "peso": 4905.0,
+    "cruce": "nombre: GINER DE LOS RIOS"
+   },
+   {
+    "key": "40.38790,-3.67076",
+    "texto": "C. P. Jaime Balmes               C/ Sierra Solana 2",
+    "peso": 2192.0,
+    "cruce": "nombre: JAIME BALMES"
+   },
+   {
+    "key": "40.38618,-3.65721",
+    "texto": "C/ Javier de Miguel, 90 c/v C. P. Javier de Miguel           Puerto de Viñamala, 11",
+    "peso": 3865.0,
+    "cruce": "nombre: JAVIER DE MIGUEL"
+   },
+   {
+    "key": "40.38183,-3.67488",
+    "texto": "C. P. José María de Pereda       C/ Mestanza, 94",
+    "peso": 2419.0,
+    "cruce": "nombre: JOSE MARIA DE PEREDA"
+   },
+   {
+    "key": "40.38815,-3.63699",
+    "texto": "C. P. La Rioja                   C/ León Felipe 3",
+    "peso": 4334.0,
+    "cruce": "nombre: LA RIOJA"
+   },
+   {
+    "key": "40.37658,-3.65535",
+    "texto": "C. P. Madrid-Sur                 C/ Puerto de Balbarán, 133",
+    "peso": 2813.0,
+    "cruce": "nombre: MADRID SUR"
+   },
+   {
+    "key": "40.37525,-3.66174",
+    "texto": "C. P. Manuel Núñez de Arenas                           C/ Martos, 120",
+    "peso": 4541.0,
+    "cruce": "nombre: MANUEL NUÑEZ DE ARENAS"
+   },
+   {
+    "key": "40.39368,-3.64438",
+    "texto": "C. P. Mesonero Romanos           C/ Pont de Molins 31",
+    "peso": 4069.0,
+    "cruce": "nombre: MESONERO ROMANOS"
+   },
+   {
+    "key": "40.37704,-3.67130",
+    "texto": "C. P. Padre Mariana              C/ Ronda del Sur, 145",
+    "peso": 2202.0,
+    "cruce": "nombre: PADRE MARIANA"
+   },
+   {
+    "key": "40.37919,-3.66086",
+    "texto": "C. P. Palomeras Bajas            C/ Felipe de Diego 6",
+    "peso": 1996.0,
+    "cruce": "nombre: PALOMERAS BAJAS"
+   },
+   {
+    "key": "40.38940,-3.65176",
+    "texto": "C. P. San Pablo                  Pza de Peña Morraz 1",
+    "peso": 1638.0,
+    "cruce": "nombre: SAN PABLO"
+   },
+   {
+    "key": "40.39202,-3.64589",
+    "texto": "C. P. Santo Domingo              C/ San Feliú de Guixols 7",
+    "peso": 3740.0,
+    "cruce": "nombre: SANTO DOMINGO"
+   },
+   {
+    "key": "40.39596,-3.64910",
+    "texto": "C. P. Virgen del Cerro           C/ Mohernando 1",
+    "peso": 5479.0,
+    "cruce": "nombre: VIRGEN DEL CERRO"
+   },
+   {
+    "key": "40.39116,-3.62514",
+    "texto": "C. E. E. Vallecas                Crta Valencia km 7,4",
+    "peso": 2541.0,
+    "cruce": "nombre: EDUCACION ESPECIAL"
+   },
+   {
+    "key": "40.38152,-3.63599",
+    "texto": "C/ Cocheron de la Villa 29 c/v E.I. Luisa Fernanda              Tranvía Blanco",
+    "peso": 1641.0,
+    "cruce": "nombre: LUISA FERNANDA"
+   },
+   {
+    "key": "40.38739,-3.65779",
+    "texto": "E.I. El Caserío                  C/ MªTeresa Robledo 3",
+    "peso": 1527.0,
+    "cruce": "nombre: EL CASERIO"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "C/ Cabo Machichaco c/v C/ Auditorio EL POZO              Los Andaluces del Pozo",
+    "peso": 200.0,
+    "cruce": "nombre: EL POZO"
+   },
+   {
+    "key": "40.39502,-3.66555",
+    "texto": "Biblioteca Puente de           C/ Sierra Cameros, 20 c/v C/ Vallecas                       Puerto del Monasterio",
+    "peso": 432.0,
+    "cruce": "alias: BIBLIOTECA (PUBLICA )?(MUNICIP"
+   },
+   {
+    "key": "40.39834,-3.66684",
+    "texto": "Centro de Día Fátima de Madrid) Mixto de Alzheimer y Físicos                      C/ Sierra de los Filabres 15",
+    "peso": 1722.0,
+    "cruce": "nombre: FATIMA DE MADRID"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "C.C. y de Mayores El Pozo      Av de las Glorietas 19-21",
+    "peso": 6327.0,
+    "cruce": "nombre: EL POZO"
+   },
+   {
+    "key": "40.38630,-3.67186",
+    "texto": "C/ Concejo de Teverga, 1 c/v C.C. Lope de Vega              Sierra de Albarracín",
+    "peso": 4474.0,
+    "cruce": "nombre: LOPE DE VEGA"
+   },
+   {
+    "key": "40.39520,-3.66640",
+    "texto": "C/ Peña Gorbea 22 c/v C/ C.M. Casa del Bulevar          Puerto Alto",
+    "peso": 1669.0,
+    "cruce": "nombre: CASA DEL BULEVAR"
+   },
+   {
+    "key": "40.40135,-3.65706",
+    "texto": "C.M. Puerto de Navacerrada     C/ Puerto Navacerrada 1",
+    "peso": 1230.0,
+    "cruce": "nombre: NAVACERRADA"
+   },
+   {
+    "key": "40.39362,-3.65560",
+    "texto": "C.S.C. Alberto Sánchez         C/ Risco de Peloche 14",
+    "peso": 2192.0,
+    "cruce": "nombre: ALBERTO SANCHEZ"
+   },
+   {
+    "key": "40.38290,-3.65207",
+    "texto": "C. polivalente y juvenil Rio Esmeralda                      C/ Rio Esmeralda 15",
+    "peso": 1215.51,
+    "cruce": "dirección: RIO ESMERALDA 15"
+   },
+   {
+    "key": "40.39010,-3.66532",
+    "texto": "C.S.C. Talleres de Creatividad y Aula Aire Libre C/ Sierra Carbonera, 70",
+    "peso": 1395.0,
+    "cruce": "nombre: TALLERES DE CREATIVIDAD"
+   },
+   {
+    "key": "40.37573,-3.66828",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías    Montánchez",
+    "peso": 1770.0,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.37642,-3.66928",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías    Montánchez",
+    "peso": 1770.0,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.40133,-3.65345",
+    "texto": "C.S.S. - M - C.D. Ramón        C/ Las Marismas, 24 c/v C/ Pérez de Ayala                 Ramón Pérez de Ayala",
+    "peso": 1900.0,
+    "cruce": "dirección: MARISMAS 24"
+   },
+   {
+    "key": "40.38518,-3.64446",
+    "texto": "C.S.S. - M- C.D. Pablo         C/ Gerardo Diego, 8 c/v C/ Neruda                         Extremeños",
+    "peso": 1677.0,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38523,-3.64437",
+    "texto": "C.S.S. - M- C.D. Pablo         C/ Gerardo Diego, 8 c/v C/ Neruda                         Extremeños",
+    "peso": 1677.0,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38872,-3.66369",
+    "texto": "C.S.S. - M. San Diego          C/ Javier de Miguel, 10",
+    "peso": 1840.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.38869,-3.66359",
+    "texto": "C.S.S. - M. San Diego          C/ Javier de Miguel, 10",
+    "peso": 1840.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.38640,-3.66932",
+    "texto": "Edificio Municipal (Varios Servicios)                     C/ Jose Serrano 19",
+    "peso": 198.0,
+    "cruce": "dirección: JOSE SERRANO 19"
+   },
+   {
+    "key": "40.39665,-3.66634",
+    "texto": "Junta Municipal                Av Albufera, 42",
+    "peso": 2410.0,
+    "cruce": "dirección: ALBUFERA 42"
+   },
+   {
+    "key": "40.39787,-3.66706",
+    "texto": "Oficina Línea Madrid             C/ Monte Olivetti, 14",
+    "peso": 445.0,
+    "cruce": "alias: MONTE OLIVETT?I,? 14"
+   },
+   {
+    "key": "40.38395,-3.64387",
+    "texto": "Nueva Junta Municipal            C/ Sierra Salvada 6 c/v C/ Rio   6.680,00 Grande                                             1157,48          0,00% Templete Jardín Campo de la Paloma                        Av Rafael Alberti 38",
+    "peso": 70.0,
+    "cruce": "nombre: JARDIN CAMPO DE LA PALOMA"
+   },
+   {
+    "key": "40.37192,-3.65716",
+    "texto": "C/ Reguera de Tomateros, C.D.M. Wilfred Agbonavbare       39-B",
+    "peso": 7671.0,
+    "cruce": "nombre: WILFRED AGBONAVBARE"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "C.D.M. Entrevías                 C/ Ronda Sur, 4",
+    "peso": 13008.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.38260,-3.63372",
+    "texto": "C.D.M. Palomeras                 C/ Tranvía de Arganda 4",
+    "peso": 26353.0,
+    "cruce": "nombre: PALOMERAS"
+   },
+   {
+    "key": "40.39146,-3.65986",
+    "texto": "C.D.M. Ángel Nieto               C/ Payaso Fofó, 7",
+    "peso": 4283.0,
+    "cruce": "nombre: ANGEL NIETO"
+   },
+   {
+    "key": "40.37440,-3.66824",
+    "texto": "C/ Andévalo 6, (aparcamiento I.D.B. Andévalo                  residentes)",
+    "peso": 0.0,
+    "cruce": "nombre: ANDEVALO"
+   },
+   {
+    "key": "40.39174,-3.63853",
+    "texto": "I.D.B. Campo Aragón              C/ Antonio Mairena 23",
+    "peso": 180.0,
+    "cruce": "dirección: ANTONIO MAIRENA 23"
+   },
+   {
+    "key": "40.38298,-3.65157",
+    "texto": "C/ Rio Esmeralda 14 c/v C/ I.D.B. Campo Azul                Golfo Darién 14",
+    "peso": 0.0,
+    "cruce": "nombre: CAMPO AZUL"
+   },
+   {
+    "key": "40.39221,-3.64916",
+    "texto": "I.D.B. Carlos Solé               C/ Carlos Sole 11",
+    "peso": 100.0,
+    "cruce": "nombre: CARLOS SOLE"
+   },
+   {
+    "key": "40.37584,-3.66593",
+    "texto": "I.D.B. Cazorla                   C/ Ibros 3",
+    "peso": 0.0,
+    "cruce": "nombre: CAZORLA"
+   },
+   {
+    "key": "40.37969,-3.65213",
+    "texto": "I.D.B. Cerro Cabezuelo           C/ Villalobos 46",
+    "peso": 140.0,
+    "cruce": "dirección: VILLALOBOS 46"
+   },
+   {
+    "key": "40.39515,-3.64741",
+    "texto": "I.D.B. Colonia Jesús Divino Obrero                           C/ Humanes 10B c/v Tossa",
+    "peso": 0.0,
+    "cruce": "nombre: JESUS DIVINO OBRERO"
+   },
+   {
+    "key": "40.39963,-3.65670",
+    "texto": "C/ Sierra Cuerda Larga, I.D.B. Colonia Los Taxistas      41,43, 45, y 47",
+    "peso": 0.0,
+    "cruce": "nombre: COLONIA LOS TAXISTAS"
+   },
+   {
+    "key": "40.39053,-3.66015",
+    "texto": "I.D.B. Colonia Sierra Del Valle                            C/ Payaso Fofó 9",
+    "peso": 0.0,
+    "cruce": "nombre: COLONIA SIERRA DEL VALLE"
+   },
+   {
+    "key": "40.40148,-3.65141",
+    "texto": "I.D.B. El Bosco                  C/ El Bosco 14 - 20",
+    "peso": 0.0,
+    "cruce": "nombre: EL BOSCO"
+   },
+   {
+    "key": "40.39051,-3.66998",
+    "texto": "I.D.B. Francisco Laguna          C/ Francisco Laguna 26",
+    "peso": 0.0,
+    "cruce": "nombre: FRANCISCO LAGUNA"
+   },
+   {
+    "key": "40.38569,-3.66246",
+    "texto": "C/ Hermanos Trueba 30 c/v I.D.B. Hermanos Trueba           C/ Payaso Fofó 34",
+    "peso": 0.0,
+    "cruce": "nombre: HERMANOS TRUEBA"
+   },
+   {
+    "key": "40.38336,-3.66771",
+    "texto": "C/ Imagen 23 c/v C/ Vizconde I.D.B. Imagen                    Arlesson 18",
+    "peso": 0.0,
+    "cruce": "nombre: IMAGEN"
+   },
+   {
+    "key": "40.38054,-3.66432",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                Parque Palomeras Bajas 10",
+    "peso": 85.0,
+    "cruce": "nombre: JOSE DURAN (recinto compartido)"
+   },
+   {
+    "key": "40.37797,-3.65966",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                Parque Palomeras Bajas 10",
+    "peso": 85.0,
+    "cruce": "nombre: PALOMERAS BAJAS (recinto compartido)"
+   },
+   {
+    "key": "40.38740,-3.63989",
+    "texto": "Av Albufera 287-289 (Explanada Metro Miguel I.D.B. La Albufera               Hernandez)",
+    "peso": 0.0,
+    "cruce": "nombre: LA ALBUFERA"
+   },
+   {
+    "key": "40.37548,-3.67147",
+    "texto": "C/ Ronda del Sur s/n Frente I.D.B. Los Arbolitos            C/ Serena",
+    "peso": 100.0,
+    "cruce": "nombre: LOS ARBOLITOS"
+   },
+   {
+    "key": "40.38260,-3.63372",
+    "texto": "C/ Miguel Hernández frente al 37-39 (Parque Lineal de I.D.B. Miguel Hernández         Palomeras)",
+    "peso": 0.0,
+    "cruce": "nombre: PALOMERAS"
+   },
+   {
+    "key": "40.38582,-3.63636",
+    "texto": "Av Miguel Hernández 52 I.D.B. Miguel Hernández         (frente León Felipe, Parque Patinaje                        Lineal de Palomeras)",
+    "peso": 200.0,
+    "cruce": "nombre: LINEAL DE PALOMERAS"
+   },
+   {
+    "key": "40.37746,-3.65370",
+    "texto": "I.D.B. Novecento                C/ Novecento 6",
+    "peso": 0.0,
+    "cruce": "nombre: NOVECENTO"
+   },
+   {
+    "key": "40.37797,-3.65966",
+    "texto": "I.D.B. Palomeras Bajas          C/ Puerto Balbarán 6",
+    "peso": 202.5,
+    "cruce": "nombre: PALOMERAS BAJAS (recinto compartido)"
+   },
+   {
+    "key": "40.37839,-3.66145",
+    "texto": "I.D.B. Palomeras Bajas          C/ Puerto Balbarán 6",
+    "peso": 202.5,
+    "cruce": "nombre: PUERTO BALBARAN (recinto compartido)"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "I.D.B. Parque Entrevías - Patinaje                        C/ Ronda del sur 21",
+    "peso": 0.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "I.D.B. Parque Entrevías -       C/ Ronda del sur (frente al Petanca                         53)",
+    "peso": 9.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.38642,-3.67204",
+    "texto": "I.D.B. Parque la Viña           C/ Concejo de Teverga 2",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE LA VIÑA"
+   },
+   {
+    "key": "40.38727,-3.64370",
+    "texto": "I.D.B. Parque Luis Buñuel       C/ Luis Buñuel (frente al 12)",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE LUIS BUÑUEL"
+   },
+   {
+    "key": "40.38329,-3.66112",
+    "texto": "I.D.B. Parque Madrid Sur -      C/ La Diligencia 5 (Parque La Diligencia                   Madrid Sur)",
+    "peso": 0.0,
+    "cruce": "dirección: LA DILIGENCIA 5"
+   },
+   {
+    "key": "40.39633,-3.64625",
+    "texto": "I.D.B. Parque Marchamalo        C/ Marchamalo 15 posterior",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE MARCHAMALO"
+   },
+   {
+    "key": "40.38769,-3.65579",
+    "texto": "I.D.B. Pedro Escudero           C/ Pedro Escudero 28",
+    "peso": 0.0,
+    "cruce": "nombre: PEDRO ESCUDERO"
+   },
+   {
+    "key": "40.37839,-3.66145",
+    "texto": "I.D.B. Puerto Balbarán          C/ Puerto Balbarán 4 y 8",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO BALBARAN"
+   },
+   {
+    "key": "40.38626,-3.65385",
+    "texto": "I.D.B. Puerto Corlite           C/ Puerto Corlite 7",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO CORLITE"
+   },
+   {
+    "key": "40.38355,-3.65749",
+    "texto": "I.D.B. Puerto Costabona         C/ Puerto de Velate 18 c/v La Tenis                           Diligencia",
+    "peso": 100.0,
+    "cruce": "dirección: PUERTO DE VELATE 18"
+   },
+   {
+    "key": "40.39447,-3.66385",
+    "texto": "I.D.B. Puerto Monasterio        C/ Puerto Monasterio 17",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO MONASTERIO"
+   },
+   {
+    "key": "40.38385,-3.65605",
+    "texto": "I.D.B. Puerto Velate        C/ Puerto Velate 9",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO VELATE"
+   },
+   {
+    "key": "40.39921,-3.65290",
+    "texto": "C/ Ramón Pérez de Ayala, 80 I.D.B. Ramón Pérez de Ayala B",
+    "peso": 0.0,
+    "cruce": "nombre: RAMON PEREZ DE AYALA"
+   },
+   {
+    "key": "40.37362,-3.66316",
+    "texto": "I.D.B. Ronda Sur                C/ Ronda Sur c/v Barros",
+    "peso": 410.0,
+    "cruce": "nombre: RONDA SUR"
+   },
+   {
+    "key": "40.38570,-3.65554",
+    "texto": "I.D.B. San Anselmo              C/ San Anselmo 8",
+    "peso": 0.0,
+    "cruce": "nombre: SAN ANSELMO"
+   },
+   {
+    "key": "40.40509,-3.66028",
+    "texto": "IDM Sierra Elvira               C/ Sierra Elvira, 37 Post.",
+    "peso": 0.0,
+    "cruce": "dirección: SIERRA ELVIRA 37"
+   },
+   {
+    "key": "40.39080,-3.65910",
+    "texto": "I.D.B. Sierra del Valle         C/ Arroyo del Olivar 96",
+    "peso": 0.0,
+    "cruce": "nombre: SIERRA DEL VALLE"
+   },
+   {
+    "key": "40.38140,-3.62983",
+    "texto": "I.D.B. Yeseros                  C/ Yesero 1",
+    "peso": 0.0,
+    "cruce": "nombre: YESERO"
+   }
+  ],
+  "peso_total": 186232.51
+ },
+ "300/2020/00777": {
+  "filas": [
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Agustina Díez                                              C/ Vesubio, 5",
+    "peso": 2549.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Amos Acero                                                 C/ Rodríguez Espinosa, 54",
+    "peso": 1480.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Aragón                                                     Avda. Rafael Alberti, 2",
+    "peso": 3784.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C/ Los Asturianos, 2 c/v C. P. Asturias                                                   Rafael Alberti",
+    "peso": 3784.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Carlos Sainz de los Terreros                                                         C/ Cartama, 1",
+    "peso": 4259.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Concha Espina                                              C/ Gerardo Diego, 6",
+    "peso": 4396.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Doctor Tolosa Latour                                       C/ Los Asturianos, 4",
+    "peso": 4259.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Eduardo Rojo                                               C/ Eduardo Rojo, 2",
+    "peso": 3655.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. El Madroño                                                 C/ Las Marismas 14",
+    "peso": 2200.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Francisco Ruano                                            C/ Almuradiel 150",
+    "peso": 2259.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Fray Junípero Serra                                        Camino de Valderribas, 120",
+    "peso": 4514.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. García Morente                                             C/ Ronda del Sur 229",
+    "peso": 4179.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Giner de los Ríos                                          C/ Membézar 25",
+    "peso": 4905.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Jaime Balmes                                               C/ Sierra Solana 2",
+    "peso": 2192.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C/ Javier de Miguel, 90 c/v C. P. Javier de Miguel                                           Puerto de Viñamala, 11",
+    "peso": 3865.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. José María de Pereda                                       C/ Mestanza, 94",
+    "peso": 2419.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. La Rioja                                                   C/ León Felipe 3",
+    "peso": 4334.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Madrid-Sur                                                 C/ Puerto de Balbarán, 133",
+    "peso": 2813.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Manuel Núñez de Arenas                                                           C/ Martos, 120",
+    "peso": 4541.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Mesonero Romanos                                           C/ Pont de Molins 31",
+    "peso": 4069.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Padre Mariana                                              C/ Ronda del Sur, 145",
+    "peso": 2202.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Palomeras Bajas                                            C/ Felipe de Diego 6",
+    "peso": 1996.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. San Pablo                                                  Pza de Peña Morraz 1",
+    "peso": 1638.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Santo Domingo                                              C/ San Feliú de Guixols 7",
+    "peso": 3740.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. P. Virgen del Cerro                                           C/ Mohernando 1",
+    "peso": 5479.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C. E. E. Vallecas                                                Crta Valencia km 7,4",
+    "peso": 2541.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "C/ Cocheron de la Villa 29 c/v E.I. Luisa Fernanda                                              Tranvía Blanco",
+    "peso": 1641.0
+   },
+   {
+    "grupo": "COLEGIOS",
+    "texto": "E.I. El Caserío                                                  C/ MªTeresa Robledo 3",
+    "peso": 1527.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Cabo Machichaco c/v C/ Auditorio EL POZO                                               Los Andaluces del Pozo",
+    "peso": 200.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Ronda del Sur s/n frente Auditorio ENTREVÍAS                                             C/ Montanchez",
+    "peso": 225.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Auditorio JARDÍN CAMPO                                          C/ San Claudio, 117 c/v Avda. DEL TORO                                                        Rafael Alberti y C/ Andaluces",
+    "peso": 150.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Biblioteca Puente de                                            C/ Sierra Cameros, 20 c/v C/ Vallecas                                                        Puerto del Monasterio",
+    "peso": 432.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Centro de Día Fátima de Madrid) Mixto de Alzheimer y Físicos                                                       C/ Sierra de los Filabres 15",
+    "peso": 1722.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.C. y de Mayores El Pozo                                       Av de las Glorietas 19-21",
+    "peso": 6327.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Concejo de Teverga, 1 c/v C.C. Lope de Vega                                               Sierra de Albarracín",
+    "peso": 4474.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Peña Gorbea 22 c/v C/ C.M. Casa del Bulevar                                           Puerto Alto",
+    "peso": 1669.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.M. Puerto de Navacerrada                                      C/ Puerto Navacerrada 1",
+    "peso": 1230.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Pedro laborde, 46, c/v C.M.M. Alto del Arenal                                          Sierra Salvada 57",
+    "peso": 441.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.S.C. Alberto Sánchez                                          C/ Risco de Peloche 14",
+    "peso": 2192.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Conde Rodriguez San C.S.C. Entrevias                                                Pedro 59",
+    "peso": 176.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.S.C. Talleres de Creatividad y Aula Aire Libre C/ Sierra Carbonera, 70",
+    "peso": 1395.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías                                     Montánchez",
+    "peso": 3540.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.S.S. - M - C.D. Ramón                                         C/ Las Marismas, 24 c/v C/ Pérez de Ayala                                                  Ramón Pérez de Ayala",
+    "peso": 1900.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.S.S. - M- C.D. Pablo                                          C/ Gerardo Diego, 8 c/v C/ Neruda                                                          Extremeños",
+    "peso": 3354.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "C.S.S. - M. San Diego                                           C/ Javier de Miguel, 10",
+    "peso": 3680.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Edificio Municipal (Locales de Montes Pirineos)                                             C/ Montes Pirineos 17 a 23",
+    "peso": 240.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Edificio Municipal (Varios Servicios)                                                      C/ Francisco Laguna 38",
+    "peso": 464.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Edificio Municipal (Varios                                      C/ Salvador Martínez Lozano, Servicios)                                                      3 c/v C/ Lozano 18",
+    "peso": 70.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Edificio Municipal (Varios Servicios)                                                      C/ Jose Serrano 19",
+    "peso": 198.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Edificio Municipal (Varios Servicios)                                                      C/ Rodriguez Espinosa 13",
+    "peso": 351.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Escuela Taller Asociación Ciudad Joven                                                    C/ Avelino Fernández Poza 55",
+    "peso": 400.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Junta Municipal                                                 Av Albufera, 42",
+    "peso": 2410.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Manuel Siurot (Varios Servicios)                                                      Pza. Sierra Ministra 3",
+    "peso": 1163.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Oficina Línea Madrid                                            C/ Monte Olivetti, 14",
+    "peso": 445.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "300/2020/00777 Solar Municipal (Recinto Ferial)                                                         Av Buenos Aires 17",
+    "peso": 0.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Templete Jardín Campo de la Paloma                                                       Av Rafael Alberti 38",
+    "peso": 70.0
+   },
+   {
+    "grupo": "EDIFICIOS",
+    "texto": "Templete Plaza del Cine                                         Plaza del Cine",
+    "peso": 70.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Reguera de Tomateros, C.D.M. Wilfred Agbonavbare                                      39-B",
+    "peso": 7671.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C.D.M. Entrevías                                                C/ Ronda Sur, 4",
+    "peso": 13008.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C.D.M. Palomeras                                                C/ Tranvía de Arganda 4",
+    "peso": 26353.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C.D.M. Ángel Nieto                                              C/ Payaso Fofó, 7",
+    "peso": 4283.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C.D.M. Vallecas (Piscina de verano)                                                         C/ Arroyo del Olivar 61",
+    "peso": 1340.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Andévalo 6, (aparcamiento I.D.B. Andévalo                                                 residentes)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Campo Aragón                                             C/ Antonio Mairena 23",
+    "peso": 180.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Rio Esmeralda 14 c/v C/ I.D.B. Campo Azul                                               Golfo Darién 14",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Carlos Solé                                              C/ Carlos Sole 11",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Cazorla                                                  C/ Ibros 3",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Cerro Cabezuelo                                          C/ Villalobos 46",
+    "peso": 140.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Colonia Jesús Divino Obrero                                                          C/ Humanes 10B c/v Tossa",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Sierra Cuerda Larga, I.D.B. Colonia Los Taxistas                                     41,43, 45, y 47",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Colonia Sierra Del Valle                                                           C/ Payaso Fofó 9",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Campo de Fútbol El                                       C/ Reguera de Tomateros Pozo                                                            103-B",
+    "peso": 240.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. El Bosco                                                 C/ El Bosco 14 - 20",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Francisco Laguna                                         C/ Francisco Laguna 26",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Hermanos Trueba 30 c/v I.D.B. Hermanos Trueba                                          C/ Payaso Fofó 34",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Imagen 23 c/v C/ Vizconde I.D.B. Imagen                                                   Arlesson 18",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                                               Parque Palomeras Bajas 10",
+    "peso": 170.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "Av Albufera 287-289 (Explanada Metro Miguel I.D.B. La Albufera                                              Hernandez)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Ronda del Sur s/n Frente I.D.B. Los Arbolitos                                            C/ Serena",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Miguel Hernández frente al 37-39 (Parque Lineal de I.D.B.  Miguel Firmado         Hernández por: ANDRES ROLLON GARCIA                           Palomeras)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "300/2020/00777 Av Miguel Hernández 52 I.D.B. Miguel Hernández                                         (frente León Felipe, Parque Patinaje                                                        Lineal de Palomeras)",
+    "peso": 200.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Novecento                                                C/ Novecento 6",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Palomeras Bajas                                          C/ Puerto Balbarán 6",
+    "peso": 405.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Entrevías - Patinaje                                                        C/ Ronda del sur 21",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Entrevías -                                       C/ Ronda del sur (frente al Petanca                                                         53)",
+    "peso": 9.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque la Viña                                           C/ Concejo de Teverga 2",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Lineal del                                        C/ Embajadores s/n (Parque Manzanares                                                      Lineal del Manzanares)",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Luis Buñuel                                       C/ Luis Buñuel (frente al 12)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Madrid Sur -                                      C/ La Diligencia 5 (Parque La Diligencia                                                   Madrid Sur)",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Parque Marchamalo                                        C/ Marchamalo 15 posterior",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Pedro Escudero                                           C/ Pedro Escudero 28",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Balbarán                                          C/ Puerto Balbarán 4 y 8",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Corlite                                           C/ Puerto Corlite 7",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Costabona                                         C/ Puerto Costabona 7",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Costabona                                         C/ Puerto de Velate 18 c/v La Tenis                                                           Diligencia",
+    "peso": 100.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Monasterio                                        C/ Puerto Monasterio 17",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Puerto Velate        C/ Puerto Velate 9",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "C/ Ramón Pérez de Ayala, 80 I.D.B. Ramón Pérez de Ayala B",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Ronda Sur                                                C/ Ronda Sur c/v Barros",
+    "peso": 410.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. San Anselmo                                              C/ San Anselmo 8",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "IDM Sierra Elvira                                               C/ Sierra Elvira, 37 Post.",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Sierra del Valle                                         C/ Arroyo del Olivar 96",
+    "peso": 0.0
+   },
+   {
+    "grupo": "POLIDEPORTIVOS",
+    "texto": "I.D.B. Yeseros                                                  C/ Yesero 1",
+    "peso": 0.0
+   }
+  ],
+  "edif": [
+   {
+    "key": "40.38819,-3.64724",
+    "texto": "C. P. Agustina Díez                                              C/ Vesubio, 5",
+    "peso": 2549.0,
+    "cruce": "nombre: AGUSTINA DIEZ"
+   },
+   {
+    "key": "40.39022,-3.66378",
+    "texto": "C. P. Amos Acero                                                 C/ Rodríguez Espinosa, 54",
+    "peso": 1480.0,
+    "cruce": "nombre: AMOS ACERO"
+   },
+   {
+    "key": "40.39244,-3.63738",
+    "texto": "C. P. Aragón                                                     Avda. Rafael Alberti, 2",
+    "peso": 3784.0,
+    "cruce": "nombre: ARAGON"
+   },
+   {
+    "key": "40.38311,-3.64261",
+    "texto": "C/ Los Asturianos, 2 c/v C. P. Asturias                                                   Rafael Alberti",
+    "peso": 3784.0,
+    "cruce": "nombre: ASTURIAS"
+   },
+   {
+    "key": "40.38481,-3.63903",
+    "texto": "C. P. Carlos Sainz de los Terreros                                                         C/ Cartama, 1",
+    "peso": 4259.0,
+    "cruce": "nombre: CARLOS SAINZ DE LOS TERREROS"
+   },
+   {
+    "key": "40.38578,-3.64395",
+    "texto": "C. P. Concha Espina                                              C/ Gerardo Diego, 6",
+    "peso": 4396.0,
+    "cruce": "nombre: CONCHA ESPINA"
+   },
+   {
+    "key": "40.38200,-3.64201",
+    "texto": "C. P. Doctor Tolosa Latour                                       C/ Los Asturianos, 4",
+    "peso": 4259.0,
+    "cruce": "nombre: DOCTOR TOLOSA LATOUR"
+   },
+   {
+    "key": "40.38743,-3.66281",
+    "texto": "C. P. Eduardo Rojo                                               C/ Eduardo Rojo, 2",
+    "peso": 3655.0,
+    "cruce": "nombre: EDUARDO ROJO"
+   },
+   {
+    "key": "40.40220,-3.65449",
+    "texto": "C. P. El Madroño                                                 C/ Las Marismas 14",
+    "peso": 2200.0,
+    "cruce": "nombre: EL MADROÑO"
+   },
+   {
+    "key": "40.38009,-3.67355",
+    "texto": "C. P. Francisco Ruano                                            C/ Almuradiel 150",
+    "peso": 2259.0,
+    "cruce": "nombre: FRANCISCO RUANO"
+   },
+   {
+    "key": "40.39531,-3.65816",
+    "texto": "C. P. Fray Junípero Serra                                        Camino de Valderribas, 120",
+    "peso": 4514.0,
+    "cruce": "nombre: FRAY JUNIPERO SERRA"
+   },
+   {
+    "key": "40.37337,-3.66548",
+    "texto": "C. P. García Morente                                             C/ Ronda del Sur 229",
+    "peso": 4179.0,
+    "cruce": "nombre: GARCIA MORENTE"
+   },
+   {
+    "key": "40.37953,-3.66848",
+    "texto": "C. P. Giner de los Ríos                                          C/ Membézar 25",
+    "peso": 4905.0,
+    "cruce": "nombre: GINER DE LOS RIOS"
+   },
+   {
+    "key": "40.38790,-3.67076",
+    "texto": "C. P. Jaime Balmes                                               C/ Sierra Solana 2",
+    "peso": 2192.0,
+    "cruce": "nombre: JAIME BALMES"
+   },
+   {
+    "key": "40.38618,-3.65721",
+    "texto": "C/ Javier de Miguel, 90 c/v C. P. Javier de Miguel                                           Puerto de Viñamala, 11",
+    "peso": 3865.0,
+    "cruce": "nombre: JAVIER DE MIGUEL"
+   },
+   {
+    "key": "40.38183,-3.67488",
+    "texto": "C. P. José María de Pereda                                       C/ Mestanza, 94",
+    "peso": 2419.0,
+    "cruce": "nombre: JOSE MARIA DE PEREDA"
+   },
+   {
+    "key": "40.38815,-3.63699",
+    "texto": "C. P. La Rioja                                                   C/ León Felipe 3",
+    "peso": 4334.0,
+    "cruce": "nombre: LA RIOJA"
+   },
+   {
+    "key": "40.37658,-3.65535",
+    "texto": "C. P. Madrid-Sur                                                 C/ Puerto de Balbarán, 133",
+    "peso": 2813.0,
+    "cruce": "nombre: MADRID SUR"
+   },
+   {
+    "key": "40.37525,-3.66174",
+    "texto": "C. P. Manuel Núñez de Arenas                                                           C/ Martos, 120",
+    "peso": 4541.0,
+    "cruce": "nombre: MANUEL NUÑEZ DE ARENAS"
+   },
+   {
+    "key": "40.39368,-3.64438",
+    "texto": "C. P. Mesonero Romanos                                           C/ Pont de Molins 31",
+    "peso": 4069.0,
+    "cruce": "nombre: MESONERO ROMANOS"
+   },
+   {
+    "key": "40.37704,-3.67130",
+    "texto": "C. P. Padre Mariana                                              C/ Ronda del Sur, 145",
+    "peso": 2202.0,
+    "cruce": "nombre: PADRE MARIANA"
+   },
+   {
+    "key": "40.37919,-3.66086",
+    "texto": "C. P. Palomeras Bajas                                            C/ Felipe de Diego 6",
+    "peso": 1996.0,
+    "cruce": "nombre: PALOMERAS BAJAS"
+   },
+   {
+    "key": "40.38940,-3.65176",
+    "texto": "C. P. San Pablo                                                  Pza de Peña Morraz 1",
+    "peso": 1638.0,
+    "cruce": "nombre: SAN PABLO"
+   },
+   {
+    "key": "40.39202,-3.64589",
+    "texto": "C. P. Santo Domingo                                              C/ San Feliú de Guixols 7",
+    "peso": 3740.0,
+    "cruce": "nombre: SANTO DOMINGO"
+   },
+   {
+    "key": "40.39596,-3.64910",
+    "texto": "C. P. Virgen del Cerro                                           C/ Mohernando 1",
+    "peso": 5479.0,
+    "cruce": "nombre: VIRGEN DEL CERRO"
+   },
+   {
+    "key": "40.39116,-3.62514",
+    "texto": "C. E. E. Vallecas                                                Crta Valencia km 7,4",
+    "peso": 2541.0,
+    "cruce": "nombre: EDUCACION ESPECIAL"
+   },
+   {
+    "key": "40.38152,-3.63599",
+    "texto": "C/ Cocheron de la Villa 29 c/v E.I. Luisa Fernanda                                              Tranvía Blanco",
+    "peso": 1641.0,
+    "cruce": "nombre: LUISA FERNANDA"
+   },
+   {
+    "key": "40.38739,-3.65779",
+    "texto": "E.I. El Caserío                                                  C/ MªTeresa Robledo 3",
+    "peso": 1527.0,
+    "cruce": "nombre: EL CASERIO"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "C/ Cabo Machichaco c/v C/ Auditorio EL POZO                                               Los Andaluces del Pozo",
+    "peso": 200.0,
+    "cruce": "nombre: EL POZO"
+   },
+   {
+    "key": "40.39502,-3.66555",
+    "texto": "Biblioteca Puente de                                            C/ Sierra Cameros, 20 c/v C/ Vallecas                                                        Puerto del Monasterio",
+    "peso": 432.0,
+    "cruce": "alias: BIBLIOTECA (PUBLICA )?(MUNICIP"
+   },
+   {
+    "key": "40.39834,-3.66684",
+    "texto": "Centro de Día Fátima de Madrid) Mixto de Alzheimer y Físicos                                                       C/ Sierra de los Filabres 15",
+    "peso": 1722.0,
+    "cruce": "nombre: FATIMA DE MADRID"
+   },
+   {
+    "key": "40.37382,-3.65993",
+    "texto": "C.C. y de Mayores El Pozo                                       Av de las Glorietas 19-21",
+    "peso": 6327.0,
+    "cruce": "nombre: EL POZO"
+   },
+   {
+    "key": "40.38630,-3.67186",
+    "texto": "C/ Concejo de Teverga, 1 c/v C.C. Lope de Vega                                               Sierra de Albarracín",
+    "peso": 4474.0,
+    "cruce": "nombre: LOPE DE VEGA"
+   },
+   {
+    "key": "40.39520,-3.66640",
+    "texto": "C/ Peña Gorbea 22 c/v C/ C.M. Casa del Bulevar                                           Puerto Alto",
+    "peso": 1669.0,
+    "cruce": "nombre: CASA DEL BULEVAR"
+   },
+   {
+    "key": "40.40135,-3.65706",
+    "texto": "C.M. Puerto de Navacerrada                                      C/ Puerto Navacerrada 1",
+    "peso": 1230.0,
+    "cruce": "nombre: NAVACERRADA"
+   },
+   {
+    "key": "40.39362,-3.65560",
+    "texto": "C.S.C. Alberto Sánchez                                          C/ Risco de Peloche 14",
+    "peso": 2192.0,
+    "cruce": "nombre: ALBERTO SANCHEZ"
+   },
+   {
+    "key": "40.39010,-3.66532",
+    "texto": "C.S.C. Talleres de Creatividad y Aula Aire Libre C/ Sierra Carbonera, 70",
+    "peso": 1395.0,
+    "cruce": "nombre: TALLERES DE CREATIVIDAD"
+   },
+   {
+    "key": "40.37573,-3.66828",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías                                     Montánchez",
+    "peso": 1770.0,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.37642,-3.66928",
+    "texto": "C/ Yuste, 8 c/v C/ C.S.S. - M - C.D. Entrevías                                     Montánchez",
+    "peso": 1770.0,
+    "cruce": "nombre: ENTREVIAS (recinto compartido)"
+   },
+   {
+    "key": "40.40133,-3.65345",
+    "texto": "C.S.S. - M - C.D. Ramón                                         C/ Las Marismas, 24 c/v C/ Pérez de Ayala                                                  Ramón Pérez de Ayala",
+    "peso": 1900.0,
+    "cruce": "dirección: MARISMAS 24"
+   },
+   {
+    "key": "40.38518,-3.64446",
+    "texto": "C.S.S. - M- C.D. Pablo                                          C/ Gerardo Diego, 8 c/v C/ Neruda                                                          Extremeños",
+    "peso": 1677.0,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38523,-3.64437",
+    "texto": "C.S.S. - M- C.D. Pablo                                          C/ Gerardo Diego, 8 c/v C/ Neruda                                                          Extremeños",
+    "peso": 1677.0,
+    "cruce": "dirección: GERARDO DIEGO 8 (recinto compartido)"
+   },
+   {
+    "key": "40.38872,-3.66369",
+    "texto": "C.S.S. - M. San Diego                                           C/ Javier de Miguel, 10",
+    "peso": 1840.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.38869,-3.66359",
+    "texto": "C.S.S. - M. San Diego                                           C/ Javier de Miguel, 10",
+    "peso": 1840.0,
+    "cruce": "nombre: SAN DIEGO (recinto compartido)"
+   },
+   {
+    "key": "40.38640,-3.66932",
+    "texto": "Edificio Municipal (Varios Servicios)                                                      C/ Jose Serrano 19",
+    "peso": 198.0,
+    "cruce": "dirección: JOSE SERRANO 19"
+   },
+   {
+    "key": "40.39665,-3.66634",
+    "texto": "Junta Municipal                                                 Av Albufera, 42",
+    "peso": 2410.0,
+    "cruce": "dirección: ALBUFERA 42"
+   },
+   {
+    "key": "40.39787,-3.66706",
+    "texto": "Oficina Línea Madrid                                            C/ Monte Olivetti, 14",
+    "peso": 445.0,
+    "cruce": "alias: MONTE OLIVETT?I,? 14"
+   },
+   {
+    "key": "40.38395,-3.64387",
+    "texto": "Templete Jardín Campo de la Paloma                                                       Av Rafael Alberti 38",
+    "peso": 70.0,
+    "cruce": "nombre: JARDIN CAMPO DE LA PALOMA"
+   },
+   {
+    "key": "40.37192,-3.65716",
+    "texto": "C/ Reguera de Tomateros, C.D.M. Wilfred Agbonavbare                                      39-B",
+    "peso": 7671.0,
+    "cruce": "nombre: WILFRED AGBONAVBARE"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "C.D.M. Entrevías                                                C/ Ronda Sur, 4",
+    "peso": 13008.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.38260,-3.63372",
+    "texto": "C.D.M. Palomeras                                                C/ Tranvía de Arganda 4",
+    "peso": 26353.0,
+    "cruce": "nombre: PALOMERAS"
+   },
+   {
+    "key": "40.39146,-3.65986",
+    "texto": "C.D.M. Ángel Nieto                                              C/ Payaso Fofó, 7",
+    "peso": 4283.0,
+    "cruce": "nombre: ANGEL NIETO"
+   },
+   {
+    "key": "40.37440,-3.66824",
+    "texto": "C/ Andévalo 6, (aparcamiento I.D.B. Andévalo                                                 residentes)",
+    "peso": 0.0,
+    "cruce": "nombre: ANDEVALO"
+   },
+   {
+    "key": "40.39174,-3.63853",
+    "texto": "I.D.B. Campo Aragón                                             C/ Antonio Mairena 23",
+    "peso": 180.0,
+    "cruce": "dirección: ANTONIO MAIRENA 23"
+   },
+   {
+    "key": "40.38298,-3.65157",
+    "texto": "C/ Rio Esmeralda 14 c/v C/ I.D.B. Campo Azul                                               Golfo Darién 14",
+    "peso": 0.0,
+    "cruce": "nombre: CAMPO AZUL"
+   },
+   {
+    "key": "40.39221,-3.64916",
+    "texto": "I.D.B. Carlos Solé                                              C/ Carlos Sole 11",
+    "peso": 100.0,
+    "cruce": "nombre: CARLOS SOLE"
+   },
+   {
+    "key": "40.37584,-3.66593",
+    "texto": "I.D.B. Cazorla                                                  C/ Ibros 3",
+    "peso": 0.0,
+    "cruce": "nombre: CAZORLA"
+   },
+   {
+    "key": "40.37969,-3.65213",
+    "texto": "I.D.B. Cerro Cabezuelo                                          C/ Villalobos 46",
+    "peso": 140.0,
+    "cruce": "dirección: VILLALOBOS 46"
+   },
+   {
+    "key": "40.39515,-3.64741",
+    "texto": "I.D.B. Colonia Jesús Divino Obrero                                                          C/ Humanes 10B c/v Tossa",
+    "peso": 0.0,
+    "cruce": "nombre: JESUS DIVINO OBRERO"
+   },
+   {
+    "key": "40.39963,-3.65670",
+    "texto": "C/ Sierra Cuerda Larga, I.D.B. Colonia Los Taxistas                                     41,43, 45, y 47",
+    "peso": 0.0,
+    "cruce": "nombre: COLONIA LOS TAXISTAS"
+   },
+   {
+    "key": "40.39053,-3.66015",
+    "texto": "I.D.B. Colonia Sierra Del Valle                                                           C/ Payaso Fofó 9",
+    "peso": 0.0,
+    "cruce": "nombre: COLONIA SIERRA DEL VALLE"
+   },
+   {
+    "key": "40.40148,-3.65141",
+    "texto": "I.D.B. El Bosco                                                 C/ El Bosco 14 - 20",
+    "peso": 0.0,
+    "cruce": "nombre: EL BOSCO"
+   },
+   {
+    "key": "40.39051,-3.66998",
+    "texto": "I.D.B. Francisco Laguna                                         C/ Francisco Laguna 26",
+    "peso": 0.0,
+    "cruce": "nombre: FRANCISCO LAGUNA"
+   },
+   {
+    "key": "40.38569,-3.66246",
+    "texto": "C/ Hermanos Trueba 30 c/v I.D.B. Hermanos Trueba                                          C/ Payaso Fofó 34",
+    "peso": 0.0,
+    "cruce": "nombre: HERMANOS TRUEBA"
+   },
+   {
+    "key": "40.38336,-3.66771",
+    "texto": "C/ Imagen 23 c/v C/ Vizconde I.D.B. Imagen                                                   Arlesson 18",
+    "peso": 0.0,
+    "cruce": "nombre: IMAGEN"
+   },
+   {
+    "key": "40.38054,-3.66432",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                                               Parque Palomeras Bajas 10",
+    "peso": 85.0,
+    "cruce": "nombre: JOSE DURAN (recinto compartido)"
+   },
+   {
+    "key": "40.37797,-3.65966",
+    "texto": "C/ José Durán c/v Avda I.D.B. José Durán                                               Parque Palomeras Bajas 10",
+    "peso": 85.0,
+    "cruce": "nombre: PALOMERAS BAJAS (recinto compartido)"
+   },
+   {
+    "key": "40.38740,-3.63989",
+    "texto": "Av Albufera 287-289 (Explanada Metro Miguel I.D.B. La Albufera                                              Hernandez)",
+    "peso": 0.0,
+    "cruce": "nombre: LA ALBUFERA"
+   },
+   {
+    "key": "40.37548,-3.67147",
+    "texto": "C/ Ronda del Sur s/n Frente I.D.B. Los Arbolitos                                            C/ Serena",
+    "peso": 100.0,
+    "cruce": "nombre: LOS ARBOLITOS"
+   },
+   {
+    "key": "40.38582,-3.63636",
+    "texto": "300/2020/00777 Av Miguel Hernández 52 I.D.B. Miguel Hernández                                         (frente León Felipe, Parque Patinaje                                                        Lineal de Palomeras)",
+    "peso": 200.0,
+    "cruce": "nombre: LINEAL DE PALOMERAS"
+   },
+   {
+    "key": "40.37746,-3.65370",
+    "texto": "I.D.B. Novecento                                                C/ Novecento 6",
+    "peso": 0.0,
+    "cruce": "nombre: NOVECENTO"
+   },
+   {
+    "key": "40.37797,-3.65966",
+    "texto": "I.D.B. Palomeras Bajas                                          C/ Puerto Balbarán 6",
+    "peso": 202.5,
+    "cruce": "nombre: PALOMERAS BAJAS (recinto compartido)"
+   },
+   {
+    "key": "40.37839,-3.66145",
+    "texto": "I.D.B. Palomeras Bajas                                          C/ Puerto Balbarán 6",
+    "peso": 202.5,
+    "cruce": "nombre: PUERTO BALBARAN (recinto compartido)"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "I.D.B. Parque Entrevías - Patinaje                                                        C/ Ronda del sur 21",
+    "peso": 0.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.37841,-3.67453",
+    "texto": "I.D.B. Parque Entrevías -                                       C/ Ronda del sur (frente al Petanca                                                         53)",
+    "peso": 9.0,
+    "cruce": "nombre: ENTREVIAS"
+   },
+   {
+    "key": "40.38642,-3.67204",
+    "texto": "I.D.B. Parque la Viña                                           C/ Concejo de Teverga 2",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE LA VIÑA"
+   },
+   {
+    "key": "40.38727,-3.64370",
+    "texto": "I.D.B. Parque Luis Buñuel                                       C/ Luis Buñuel (frente al 12)",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE LUIS BUÑUEL"
+   },
+   {
+    "key": "40.38329,-3.66112",
+    "texto": "I.D.B. Parque Madrid Sur -                                      C/ La Diligencia 5 (Parque La Diligencia                                                   Madrid Sur)",
+    "peso": 0.0,
+    "cruce": "dirección: LA DILIGENCIA 5"
+   },
+   {
+    "key": "40.39633,-3.64625",
+    "texto": "I.D.B. Parque Marchamalo                                        C/ Marchamalo 15 posterior",
+    "peso": 0.0,
+    "cruce": "nombre: PARQUE MARCHAMALO"
+   },
+   {
+    "key": "40.38769,-3.65579",
+    "texto": "I.D.B. Pedro Escudero                                           C/ Pedro Escudero 28",
+    "peso": 0.0,
+    "cruce": "nombre: PEDRO ESCUDERO"
+   },
+   {
+    "key": "40.37839,-3.66145",
+    "texto": "I.D.B. Puerto Balbarán                                          C/ Puerto Balbarán 4 y 8",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO BALBARAN"
+   },
+   {
+    "key": "40.38626,-3.65385",
+    "texto": "I.D.B. Puerto Corlite                                           C/ Puerto Corlite 7",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO CORLITE"
+   },
+   {
+    "key": "40.38355,-3.65749",
+    "texto": "I.D.B. Puerto Costabona                                         C/ Puerto de Velate 18 c/v La Tenis                                                           Diligencia",
+    "peso": 100.0,
+    "cruce": "dirección: PUERTO DE VELATE 18"
+   },
+   {
+    "key": "40.39447,-3.66385",
+    "texto": "I.D.B. Puerto Monasterio                                        C/ Puerto Monasterio 17",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO MONASTERIO"
+   },
+   {
+    "key": "40.38385,-3.65605",
+    "texto": "I.D.B. Puerto Velate        C/ Puerto Velate 9",
+    "peso": 0.0,
+    "cruce": "nombre: PUERTO VELATE"
+   },
+   {
+    "key": "40.39921,-3.65290",
+    "texto": "C/ Ramón Pérez de Ayala, 80 I.D.B. Ramón Pérez de Ayala B",
+    "peso": 0.0,
+    "cruce": "nombre: RAMON PEREZ DE AYALA"
+   },
+   {
+    "key": "40.37362,-3.66316",
+    "texto": "I.D.B. Ronda Sur                                                C/ Ronda Sur c/v Barros",
+    "peso": 410.0,
+    "cruce": "nombre: RONDA SUR"
+   },
+   {
+    "key": "40.38570,-3.65554",
+    "texto": "I.D.B. San Anselmo                                              C/ San Anselmo 8",
+    "peso": 0.0,
+    "cruce": "nombre: SAN ANSELMO"
+   },
+   {
+    "key": "40.40509,-3.66028",
+    "texto": "IDM Sierra Elvira                                               C/ Sierra Elvira, 37 Post.",
+    "peso": 0.0,
+    "cruce": "dirección: SIERRA ELVIRA 37"
+   },
+   {
+    "key": "40.39080,-3.65910",
+    "texto": "I.D.B. Sierra del Valle                                         C/ Arroyo del Olivar 96",
+    "peso": 0.0,
+    "cruce": "nombre: SIERRA DEL VALLE"
+   },
+   {
+    "key": "40.38140,-3.62983",
+    "texto": "I.D.B. Yeseros                                                  C/ Yesero 1",
+    "peso": 0.0,
+    "cruce": "nombre: YESERO"
+   }
+  ],
+  "peso_total": 185017.0
+ }
+}

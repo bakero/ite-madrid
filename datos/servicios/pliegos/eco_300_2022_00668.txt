@@ -1,0 +1,290 @@
+ESTUDIO ECONÓMICO PARA LA DETERMINACIÓN DEL PRECIO DEL CONTRATO
+DENOMINADO “LIMPIEZA EN COLEGIOS ADSCRITOS AL DISTRITO DE PUENTE DE
+VALLECAS”. EXPEDIENTE 300/2022/00668
+
+En virtud de lo dispuesto en el artículo 102 Ley 9/2017, de 8 de noviembre, de Contratos del Sector
+Público y siguiendo los criterios establecidos por la D. Gral. de Relaciones con los Distritos y
+Asociaciones del Área de Gobierno de Coordinación Territorial y Asociaciones denominado “Criterios
+generales para la sustitución de los contratos de gestión integral” de fecha 18 de marzo 2016
+(actualizando los precios unitarios recogidos en el mismo al “Convenio Colectivo Autonómico de
+Limpieza de Edificios y Locales de la Comunidad de Madrid, para los años 2018 y 2021”, vigente para
+2022.), se procede a la elaboración del estudio económico que determina el precio del contrato de
+servicios de limpieza de los edificios adscritos al Distrito Puente de Vallecas durante dos años desde el
+inicio de la ejecución del contrato.
+
+1.- Plazo de ejecución y desarrollo de la actividad.
+
+            a) Plazo de ejecución.
+
+                  FECHA INICIAL: 20 de mayo de 2023
+
+                  FECHA FINAL: 2 años desde el inicio de la ejecución del contrato.
+
+            b) Desarrollo de la actividad.
+
+        El objeto del presente contrato es la prestación del servicio de limpieza los en los Colegios
+        de Educación Infantil y Primaria (CEIP) propiedad del Ayuntamiento de Madrid y adscritos
+        al Distrito de Puente de Vallecas
+
+
+
+2.- Determinación del precio del contrato.
+
+Calculado en cumplimiento del decreto de 15 de diciembre de 2016, del delegado del Área de
+Gobierno de Economía y Hacienda, por el que se aprueba la instrucción 5/2016, relativa a los criterios
+de actuación en la contratación municipal.
+
+Y de conformidad con lo previsto en el artículo 102 y 309 de la Ley 9/2017, de 8 de noviembre, de
+Contratos del Sector Público y siguiendo las Instrucciones dictadas por el Área de Gobierno y
+Hacienda de Administración Pública, Dirección General de Contratación y Servicios, del Ayuntamiento
+de Madrid, la determinación del precio del contrato se ha efectuado atendiendo al precio general de
+mercado en el momento actual y en función de los distintos componentes de la prestación.
+
+   a)   Precios unitarios del servicio de limpieza de instalaciones.
+
+        La determinación del coste de la hora de trabajo del personal de limpieza se ha obtenido
+        mediante la aplicación de la siguiente fórmula:
+
+               A = (B + C + D + E + F) / G
+
+               A = (B + 0,040B + 0,335B + 0,040B + 0,030B) / 1.739
+
+
+                                                                                                        1
+                    A = (1 + 0,040 + + 0,335 + 0,040 + 0,030) B / 1.739 = 1,445 B / 1.739 euros/hora
+
+                    Donde:
+                    A = Coste de hora de mano de obra (euros/hora)
+                    B = Salario base anual según convenio laboral vigente (euros)
+                    C = Suplemento por antigüedad, estimado en un 4% sobre el salario base anual vigente
+                    D = Coste por Seguridad Social (contingencias, desempleo formación...) estimado en un 33,5% sobre el
+                    salario base anual vigente
+                    E = Coste por absentismo estimado en un 4% sobre el salario base anual vigente
+                    F = Coste por suplencia estimado en un 3 % sobre el salario base anual vigente
+                    G = horas laborables año según convenio 1739
+
+         El salario base, el suplemento por antigüedad y las horas de trabajo anuales se han obtenido del
+         “Convenio Colectivo del Sector de Limpieza de edificios y locales de la Comunidad de Madrid
+         para los años 2022, 2023 y 2024” del 29 de septiembre de 2022, y suponiendo un incremento
+         de un 2 % para el 2025.
+
+         Los porcentajes de suplemento por Seguridad Social, absentismo y suplencias se han obtenido
+         del escandallo anual del coste de mano de obra para el sector de limpieza de edificios y locales
+         de la Comunidad de Madrid facilitado por AELMA (Asociación de Empresarios de Limpieza de
+         Madrid).
+
+         El precio hora se obtiene del promedio de los diferentes años de duración del contrato.
+
+
+
+                  Categoría   Salario €/hora 2023 Salario €/hora 2024 Salario €/hora 2025 Promedio
+
+                Limpiador           15,39 €               15,86 €                   16,14 €        15,71 €
+               Especialista         16,85 €               17,36 €                   17,68 €        17,20 €
+                Cristalero          15,55 €               16,01 €                   16,30 €        15,86 €
+               Encargado            16,85 €               17,36 €                   17,68 €        17,20 €
+
+         Finalmente es necesario incrementar los precios así obtenidos con 13 % de gastos generales de
+         empresa y 6% de beneficio industrial.
+
+         Debe tenerse en cuenta que los precios resultantes de limpieza no incluyen IVA.
+
+
+    b) Importe componente de la prestación:
+
+
+
+  LIMPIEZA -
+                                                                                                          300/2022/00668
+(COLEGIOS)
+
+
+ LIMPIADOR
+                                                                                              Importe   Importe   Importe
+         Centro                         Horas                         Precio Hora
+                                                                                               Anual      IVA       (IVA
+
+
+
+
+                                                                                                                            2
+                                                                                                                                            Incluido)
+                                                          COVI
+                               L-   S-   Fes   Semanal      D+                         Gast.    Ben.
+                                                                    Total    Fórmula                     Total                   21%
+                               V    D     t.     es       Limpie                       Gen.     Ind.
+                                                           za EI
+
+  C. E. E. Vallecas                             102         15     5.265,0
+  C. P. Agustina Díez                           115         55     7.650,0
+  C. P. Amos Acero                               60         15     3.375,0
+  C. P. Aragón                                   90         15     4.725,0
+  C. P. Asturias                                97,5        15     5.062,5
+  C. P. Carlos Sainz de los
+                                                 81         15     4.320,0
+Terreros
+  C. P. Concha Espina                           77,5        15     4.162,5
+  C. P. Doctor Tolosa Latour                    77,5        15     4.162,5
+  C. P. Eduardo Rojo                             99         15     5.130,0
+  C. P. El Madroño                               69         15     3.780,0
+  C. P. Francisco Ruano                          64         15     3.555,0
+  C. P. Fray Junipero Serra                     139         15     6.930,0
+  C. P. García Morente                          82,5        15     4.387,5
+  C. P. Giner de los Rios                       117,5       15     5.962,5
+  C. P. Jaime Balmes                             80         15     4.275,0
+  C. P. Javier de Miguel                        120         15     6.075,0
+  C. P. José María de Pereda                     64         15     3.555,0
+  C. P. La Rioja                                 98         15     5.085,0
+  C. P. Madrid-Sur                               80         15     4.275,0
+  C. P. Manuel Núñez de
+                                                152         55     9.315,0
+Arenas
+  C. P. Mesonero Romanos                        102         15     5.265,0
+  C. P. Padre Mariana                            64         15     3.555,0
+  C. P. Palomeras Bajas                         115         15     5.850,0
+  C. P. San Pablo                               104         15     5.355,0
+  C. P. Santo Domingo                           100         15     5.175,0
+  C. P. Virgen del Cerro                        147         15     7.290,0
+  Horas Verano                                  1560               1.560,0
+  Horas Complementarias                         1000               1.000,0
+                               0,   0,                             136.09                                18,69   2.543.293,6   534.091,6   3.077.385,3
+             Total                             5.057,5    470,0              15,71 €   2,04 €   0,94 €
+                               0    0                                7,5                                   €         8€           7€           5€
+
+
+  ESPECIALISTA
+                                                                             Precio    Precio                                   Importe
+                                                        Horas                                                                               Importe
+                                                                              Hora      Hora                      Importe         IVA
+                   Centro                                                                                                                     (IVA
+                                                                                       Gast.    Ben.               Anual
+                                         L-V    S-D        Fest.    Total    Fórmula                     Total                   21%        Incluido)
+                                                                                        Gen.    Ind.
+           Todos los Centros                                       1.350
+                                                                                                         20,47                 5.802,13
+                     Total                                         1.350     17,20 €   2,24 €   1,03 €           27.629,19 €               33.431,32 €
+                                                                                                           €                       €
+
+
+  CRISTALERO
+                                                                             Precio    Precio                                   Importe
+                                                        Horas                                                                               Importe
+                                                                              Hora      Hora                      Importe         IVA
+                   Centro                                                                                                                     (IVA
+                                                                                       Gast.    Ben.               Anual
+                                         L-V    S-D        Fest.    Total    Fórmula                     Total                   21%        Incluido)
+                                                                                        Gen.    Ind.
+           Todos los Centros                                       1.350
+                                                                                                         18,87                 5.350,29
+                     Total                                         1.350     15,86 €   2,06 €   0,95 €           25.477,59 €               30.827,88 €
+                                                                                                           €                       €
+
+
+  ENCARGADO
+                                                                             Precio    Precio                                   Importe
+                                                        Horas                                                                               Importe
+                                                                              Hora      Hora                      Importe         IVA
+                   Centro                                                                                                                     (IVA
+                                                                                       Gast.    Ben.               Anual
+                                         L-V    S-D        Fest.    Total    Fórmula                     Total                   21%        Incluido)
+                                                                                        Gen.    Ind.
+           Todos los Centros                                       1.755
+
+
+
+
+                                                                                                                                                    3
+                                                                                      20,47                 7.542,77
+         Total                                    1.755   17,20 €   2,24 €   1,03 €           35.917,95 €               43.460,72 €
+                                                                                        €                       €
+
+
+
+                                                                                                Importe      Importe     Total (IVA
+                                                                                                 Anual         IVA          Inc.)
+                                                                                              2.632.318,4   552.786,8   3.185.105,2
+                            Total COLEGIOS - 21% de IVA
+                                                                                                  1€           6€            7€
+
+
+
+
+c)   Imputación presupuestaria:
+
+     En la distribución de anualidades se aplica el artículo 28.8 de las bases de Ejecución del
+     presupuesto General del Ayuntamiento de Madrid.
+
+
+
+                                                                                                       Total
+                   LIMPIEZA COLEGIOS                           Importe         Importe IVA
+                                                                                                   (IVA Incluido)
+
+       Total - 21% de IVA                                  2.632.318,41 €     552.786,86 €        3.185.105,27 €
+      TOTAL PRESUPUESTO BASE LICITACIÓN
+                                                           2.632.318,41 €     552.786,86 €        3.185.105,27 €
+     ANUAL
+
+
+       TOTAL PRESUPUESTO CONTRATO (2 AÑOS)                 5.264.636,82 € 1.105.573,73 € 6.370.210,55 €
+
+
+d) Valor Estimado del contrato:
+
+     Conforme al artículo 101 de la Ley 309 de la Ley 9/2017, de 8 de noviembre, de Contratos del
+     Sector Público, el valor estimado del contrato será determinado por el importe total, sin incluir
+     el Impuesto sobre el Valor Añadido e incluirá la eventual prórroga del contrato.
+
+
+                                                                                                        Total
+                   LIMPIEZA COLEGIOS                           Importe          Importe IVA
+                                                                                                    (IVA Incluido)
+
+       Total - 21% de IVA                                  2.632.318,41 €      552.786,86 €        3.185.105,27 €
+      TOTAL PRESUPUESTO BASE LICITACIÓN
+                                                           2.632.318,41 €      552.786,86 €        3.185.105,27 €
+     ANUAL
+
+
+       TOTAL PRESUPUESTO CONTRATO (2 AÑOS)                 5.264.636,82 €     1.105.573,73 € 6.370.210,55 €
+
+
+       TOTAL PRÓRROGA (2 AÑOS)                             5.264.636,82 €     1.105.573,73 € 6.370.210,55 €
+
+
+       TOTAL PRESUPUESTO CONTRATO +
+                                                          10.529.273,64 €
+     PRÓRROGA
+
+
+       20%                                                 2.105.854,73 €
+
+
+       TOTAL (4 AÑOS) + 20%                               12.635.128,37 €
+
+
+
+
+                                                                                                                                 4
+         VALOR ESTIMADO DEL CONTRATO              12.635.128,37 €
+
+
+
+
+El valor estimado del contrato es de 12.635.128,37 € equivalente al contrato inicial más prorroga de
+otros dos años y modificación de hasta un 20%.
+
+
+
+                                                      Jefa del Departamento de Educación
+
+
+
+
+                                                       Fdo.: Silvia de Pedro González
+
+
+
+
+                                                                                                  5
+

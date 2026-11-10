@@ -145,3 +145,14 @@ Scripts en `scripts/inversiones/` y datos de entrada en `datos/inversiones/`:
 3. `historial.py`: asigna cada registro a un edificio (`edificios.py`: por nombre, con el tipo de centro delante si el nombre es también el de una calle o barrio, o por dirección exacta) y genera `datos/inversiones/historial_pv.json` y `app/inversiones.js`.
 
 Los registros que afectan a varios edificios se descartan. Las tres fuentes se solapan y no se suman. Antes de 2014 solo hay contratos grandes del BOE.
+
+## Servicios contratados (prueba piloto: Puente de Vallecas)
+
+Empresas e importes de limpieza, seguridad, auxiliares de información y mantenimiento de los edificios del distrito.
+
+1. `scripts/servicios/normaliza_todo.py <carpeta_csv> todos.json`: lee todos los CSV de actividad contractual (216876) y contratos menores (300253).
+2. `scripts/servicios/servicios.py todos.json servicios_pv.json`: selecciona los contratos de servicios de edificios que afectan a Puente de Vallecas.
+3. `scripts/servicios/reparto.py <carpeta_pliegos>`: lee los pliegos y estudios económicos (texto de `pdftotext -layout`) y obtiene el peso de cada edificio (horas, coste o m²) → `reparto.json`.
+4. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json` → `app/servicios.js`.
+
+El importe de cada edificio es una estimación proporcional; el coste anual usa el último contrato de cada servicio. Datos intermedios en `datos/servicios/`.

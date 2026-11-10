@@ -113,7 +113,7 @@ dt{color:var(--muted)}dd{margin:0;word-break:break-word}
 .inv .ev .i{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .inv .ev .f{grid-column:2/4;font-size:11px;color:var(--muted)}
 .inv .tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:999px;margin-right:4px;border:1px solid var(--line)}
-.inv .note{color:var(--muted);font-size:11.5px;margin:8px 0 0}
+.inv .inote{color:var(--muted);font-size:11.5px;margin:8px 0 0}
 .inv .more{margin-top:6px}
 .inv .ev.hid{display:none}
 @media (max-width:820px){.inv .tot{grid-template-columns:1fr 1fr 1fr}.inv .tot b{font-size:13px}}
@@ -348,16 +348,17 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
       <div id="lyLeg" class="lyleg"></div>
     </div>
     <div class="sec" id="secInv">
-      <h2>Inversión por edificio <span class="sub">(Puente de Vallecas)</span></h2>
+      <h2>Inversión y servicios por edificio <span class="sub">(Puente de Vallecas)</span></h2>
       <label class="st"><input type="checkbox" id="lyInv"><span class="lab">Mostrar círculos proporcionales al importe</span></label>
       <select id="lyInvM" aria-label="Importe que se representa">
         <option value="1">Inversión pagada 2014–2025</option>
         <option value="2">Contratos de obra y mantenimiento 2015–2026</option>
         <option value="0">Contratos en el BOE 1995–2014</option>
+        <option value="s">Servicios: coste anual estimado (limpieza, seguridad, mantenimiento)</option>
       </select>
       <div id="invBox" style="display:none">
         <div class="invleg" id="invLeg"></div>
-        <div class="invtabs" role="tablist"><button class="on" data-g="calle">Por calle</button><button data-g="barrio">Por barrio</button><button data-g="tipo">Por tipo</button><button data-g="edif">Por edificio</button></div>
+        <div class="invtabs" role="tablist"><button class="on" data-g="calle">Por calle</button><button data-g="barrio">Por barrio</button><button data-g="tipo">Por tipo</button><button data-g="edif">Por edificio</button><button data-g="emp" id="tabEmp" style="display:none">Por empresa</button></div>
         <div id="invRank"></div>
         <p class="sub" id="invNote"></p>
         <button class="btn" id="invZoom" style="margin-top:6px">Ver el distrito</button>
@@ -466,6 +467,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <tr><td><a href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas" target="_blank" rel="noopener">Barrios municipales</a> (datos.madrid.es, Límites administrativos actuales)</td><td>Contornos de los 131 barrios: cada centro se asigna al barrio en el que caen sus coordenadas.</td><td>Descarga del SHP (ETRS89 UTM 30N), conversión a latitud/longitud y simplificación de los contornos (≈5 m).</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad" target="_blank" rel="noopener">IGUALA. Índice de vulnerabilidad territorial agregado</a> (datos.madrid.es)</td><td>Renta neta media por hogar de cada barrio (2020–2024) e Índice de Vulnerabilidad Territorial Agregado (IVTA) de cada distrito. El IVTA solo se publica por distrito; por barrio se usa la renta.</td><td>Descarga del fichero «Datos globales y por esferas para distritos» (hojas «Descriptivos barrios» y «Vul. esferas distritos»).</td></tr>
    <tr><td><a href="https://datos.madrid.es/dataset/211496-0-ejecucion-presupuestaria-histori" target="_blank" rel="noopener">Presupuestos. Ejecución anual histórico</a>, <a href="https://datos.madrid.es/dataset/216876-0-contratos-actividad" target="_blank" rel="noopener">actividad contractual</a> y <a href="https://datos.madrid.es/dataset/300253-0-contratos-actividad-menores" target="_blank" rel="noopener">contratos menores</a> (datos.madrid.es); <a href="https://www.boe.es/buscar/anboe.php" target="_blank" rel="noopener">anuncios del BOE</a></td><td>Historial de inversión de los edificios de Puente de Vallecas (prueba piloto): pagos por proyecto 2014–2025, contratos 2015–2026 y anuncios de contratación 1995–2014.</td><td>Descarga de los ficheros anuales y de 619 anuncios del BOE; asignación a cada edificio por nombre o dirección exacta.</td></tr>
+   <tr><td><a href="https://contrataciondelestado.es" target="_blank" rel="noopener">Plataforma de Contratación del Sector Público</a> (perfil del Distrito de Puente de Vallecas)</td><td>Pliegos y estudios económicos de los contratos de limpieza, seguridad y mantenimiento: edificios incluidos y horas, coste o m² de cada uno.</td><td>Descarga de los documentos de seis expedientes y lectura de sus tablas; el importe se reparte en proporción.</td></tr>
    <tr><td><a href="https://www.cartociudad.es" target="_blank" rel="noopener">CartoCiudad</a> (IGN)</td><td>Coordenadas de 9 direcciones que no las traían.</td><td>Búsqueda del portal exacto; solo se aceptan coincidencias de vía y número.</td></tr>
   </tbody></table></div>
 
@@ -496,7 +498,8 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
    <li><b>Desfavorables sin subsanar</b>, ordenados por la fecha de presentación de esa inspección, de la más antigua a la más reciente.</li>
    <li><b>Plazos de ITE/IEE</b>: se usa el «Año próxima ITE» que da el Registro y, si en su lugar indica «Aplica fecha IEE», el año de la «Fecha máx. IEE». Si un edificio tiene varias direcciones, cuenta la fecha más próxima. Se considera <b>vencido</b> si ese año es anterior al actual. Es una lectura del Registro a la fecha de descarga: si se ha presentado una inspección después, el edificio puede estar ya al día. El mismo criterio está disponible en el mapa como filtro «plazos de ITE».</li></ul>
   <h3>Barrio y renta</h3><p>Cada edificio se asigna al barrio en el que caen sus coordenadas, que puede ser de un distrito distinto al del listado de madrid.es en el que aparece el centro: algunos listados de distrito incluyen centros situados en otros distritos. Los 131 barrios se reparten en <b>5 grupos iguales</b> (unos 26 barrios cada uno) según su renta neta media por hogar del último año disponible: el grupo 1 son los barrios con la renta más baja. El panel muestra cuántos edificios hay en cada grupo y qué porcentaje tiene una ITE desfavorable sin subsanar. Es una comparación descriptiva: no implica que la renta sea la causa. La ficha de cada edificio muestra además el IVTA de su distrito, donde un valor más alto indica más vulnerabilidad.</p>
-  <h3>Inversión registrada (Puente de Vallecas)</h3><p>Prueba piloto, por ahora solo para los edificios del distrito de Puente de Vallecas. La ficha reúne tres fuentes públicas: los <b>pagos por proyecto de inversión</b> del Ayuntamiento (2014–2025, ejecución presupuestaria: lo que se pagó de verdad), los <b>contratos de obra y mantenimiento</b> (2015–2026, incluidos los contratos menores y los basados en acuerdos marco; importe adjudicado) y los <b>anuncios de contratación del BOE</b> (1995–2014; importe adjudicado o, si falta, de licitación). Cada registro se asigna a un edificio por su nombre o por su dirección exacta; se descartan los que afectan a varios edificios a la vez y los de vía pública o vivienda. En una revisión a mano de 36 asignaciones acertaron 35. Los importes de las tres fuentes se solapan y no se suman. Antes de 2014 solo constan los contratos grandes: las obras pequeñas se hacían con contratos anuales para todos los edificios del distrito y no se pueden repartir. La fecha y el precio de compra del suelo no están en los datos abiertos.</p><p>En el mapa, la sección «Inversión por edificio» dibuja un círculo proporcional al importe de cada edificio (su área crece con el importe) y ordena dónde se invierte más por calle, por barrio, por tipo de edificio o por edificio. Se puede elegir la fuente: inversión pagada 2014–2025, contratos de obra y mantenimiento 2015–2026 o contratos del BOE 1995–2014. La calle es la de la dirección del edificio.</p>
+  <h3>Inversión registrada (Puente de Vallecas)</h3><p>Prueba piloto, por ahora solo para los edificios del distrito de Puente de Vallecas. La ficha reúne tres fuentes públicas: los <b>pagos por proyecto de inversión</b> del Ayuntamiento (2014–2025, ejecución presupuestaria: lo que se pagó de verdad), los <b>contratos de obra y mantenimiento</b> (2015–2026, incluidos los contratos menores y los basados en acuerdos marco; importe adjudicado) y los <b>anuncios de contratación del BOE</b> (1995–2014; importe adjudicado o, si falta, de licitación). Cada registro se asigna a un edificio por su nombre o por su dirección exacta; se descartan los que afectan a varios edificios a la vez y los de vía pública o vivienda. En una revisión a mano de 36 asignaciones acertaron 35. Los importes de las tres fuentes se solapan y no se suman. Antes de 2014 solo constan los contratos grandes: las obras pequeñas se hacían con contratos anuales para todos los edificios del distrito y no se pueden repartir. La fecha y el precio de compra del suelo no están en los datos abiertos.</p><h3>Servicios contratados (Puente de Vallecas)</h3><p>La ficha y el mapa muestran también qué empresas prestan los servicios de <b>limpieza, seguridad, auxiliares de información y mantenimiento</b> en los edificios del distrito, y cuánto cuestan. Estos contratos los firma la Junta de Distrito para todos sus edificios a la vez, así que el importe de cada edificio es una <b>estimación</b>: el importe adjudicado del contrato se reparte según lo que el pliego o el estudio económico asigna a cada edificio (horas de limpieza, coste de vigilancia o metros cuadrados construidos en el mantenimiento). El «coste anual estimado» usa el último contrato conocido de cada servicio y divide su importe por su duración. Se han revisado los pliegos de seis contratos (limpieza de edificios 2025–2027, limpieza de colegios 2023–2025, seguridad 2024–2026, mantenimiento 2021–2023 y 2025–2027); los anteriores aparecen sin reparto. Las prórrogas no se suman. Los servicios que contratan otras áreas municipales o la Comunidad de Madrid (por ejemplo, en los centros de salud o los institutos) no están incluidos.</p>
+  <p>En el mapa, la sección «Inversión y servicios por edificio» dibuja un círculo proporcional al importe de cada edificio (su área crece con el importe) y ordena dónde se invierte más por calle, por barrio, por tipo de edificio o por edificio. Se puede elegir la fuente: inversión pagada 2014–2025, contratos de obra y mantenimiento 2015–2026, contratos del BOE 1995–2014 o el coste anual estimado de los servicios; con los servicios se puede ordenar también por empresa. La calle es la de la dirección del edificio.</p>
   <h3>Enlaces a un edificio</h3><p>Cada ficha tiene un botón «Compartir» que genera un enlace directo (<code>#edificio=latitud,longitud</code>). Al abrirlo, el mapa se centra en ese edificio y abre su ficha. El enlace sigue funcionando mientras el edificio mantenga sus coordenadas en futuras actualizaciones de los datos.</p>
   <h3>Cerca de…</h3><p>Muestra los edificios a menos de una distancia (250 m a 2 km) de un punto, ordenados por cercanía, combinados con los demás filtros del mapa. El punto puede ser:</p><ul>
    <li><b>Tu ubicación</b>: el navegador te pide permiso, y la posición se usa solo en tu dispositivo, no se envía a ningún servidor.</li>
@@ -528,6 +531,7 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 <script src="data.js"></script>
 <script src="calles.js"></script>
 <script src="inversiones.js"></script>
+<script src="servicios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -673,8 +677,10 @@ const INV=window.INVERSIONES||null, INV_LIM=8;
 const eurS=v=>v==null?'—':(Math.abs(v)>=1e6?(v/1e6).toLocaleString('es-ES',{maximumFractionDigits:2})+' M€':Math.round(v).toLocaleString('es-ES')+' €');
 let INVG='calle';
 const invOn=()=>!!INV&&document.getElementById('lyInv').checked;
-const invM=()=>+document.getElementById('lyInvM').value;
-const invVal=b=>{const d=INV&&INV.edificios[b.key];return d?(d.t[invM()]||0):0};
+const SERV=window.SERVICIOS||null;
+const invMs=()=>document.getElementById('lyInvM').value;
+const invM=()=>+invMs();
+const invVal=b=>{if(invMs()==='s'){const d=SERV&&SERV.edificios[b.key];return d?d.tot_anual:0}const d=INV&&INV.edificios[b.key];return d?(d.t[invM()]||0):0};
 const INV_MAX=()=>Math.max(1,...buildings.map(invVal));
 const invR=(v,mx)=>v>0?Math.max(3,26*Math.sqrt(v/mx))*Math.min(1.8,Math.max(.7,Math.sqrt(s/fitScale)/2.2)):0;
 const calleOf=b=>{const a=String(b.main[C['Dirección']]||'').split(',')[0].replace(/\s+(\d+|S\/N)\b.*$/i,'').trim();return a?a.toLowerCase().replace(/(^|\s)(\S)/g,(m,p1,c)=>p1+c.toUpperCase()).replace(/\s(De|Del|La|Las|Los|El|Y)\b/g,m=>m.toLowerCase()):'—'};
@@ -684,11 +690,16 @@ function invPanel(){
   const box=document.getElementById('invBox');box.style.display=invOn()?'':'none';if(!invOn())return;
   const bs=buildings.filter(b=>invVal(b)>0),mx=INV_MAX();
   document.getElementById('invLeg').innerHTML=[mx,mx/4,mx/25].map(v=>{const r=Math.max(3,26*Math.sqrt(v/mx));return `<span><i style="width:${2*r}px;height:${2*r}px"></i>${eurS(v)}</span>`}).join('');
+  const isS=invMs()==='s';document.getElementById('tabEmp').style.display=isS?'':'none';if(!isS&&INVG==='emp'){INVG='calle';document.querySelectorAll('.invtabs button').forEach(x=>x.classList.toggle('on',x.dataset.g==='calle'))}
+  if(isS&&INVG==='emp'){const g=new Map();for(const b of bs){const d=SERV.edificios[b.key];for(const [ci,cuota] of d.s){const c=SERV.contratos[ci];if(!c.ultimo||!c.meses)continue;const o=g.get(c.empresa)||{v:0,n:new Set(),cats:new Set()};o.v+=cuota*12/c.meses;o.n.add(b.key);c.cats.forEach(x=>o.cats.add(x));g.set(c.empresa,o)}}
+    const rows=[...g.entries()].sort((a,b)=>b[1].v-a[1].v),m0=rows.length?rows[0][1].v:1;
+    document.getElementById('invRank').innerHTML=rows.map(([k,o])=>`<div class="ir"><span>${esc(k)} <span class="sub">(${[...o.cats].join(', ')} · ${o.n.size} edificios)</span></span><b>${eurS(o.v)}/año</b><div class="bar" style="width:${(100*o.v/m0).toFixed(1)}%"></div></div>`).join('');
+    document.getElementById('invNote').innerHTML=`Coste anual estimado del último contrato de cada servicio, repartido por edificio según los pliegos. <a href="#ayuda">Más información</a>`;return}
   const key={calle:calleOf,barrio:b=>b.barrioNom||'—',tipo:tipoOf,edif:nomOf}[INVG];
   const g=new Map();for(const b of bs){const k=key(b);const o=g.get(k)||{v:0,n:0,b};o.v+=invVal(b);o.n++;g.set(k,o)}
   const rows=[...g.entries()].sort((a,b)=>b[1].v-a[1].v),tot=rows.reduce((t,r)=>t+r[1].v,0),top=rows.slice(0,10),m0=top.length?top[0][1].v:1;
-  document.getElementById('invRank').innerHTML=top.map(([k,o])=>`<div class="ir${INVG==='edif'?' ck':''}" data-k="${INVG==='edif'?esc(o.b.key):''}"><span>${esc(k)}${INVG!=='edif'&&o.n>1?` <span class="sub">(${o.n} edificios)</span>`:''}</span><b>${eurS(o.v)}</b><div class="bar" style="width:${(100*o.v/m0).toFixed(1)}%"></div></div>`).join('')||'<p class="sub">Sin importes en esta fuente.</p>';
-  const L=['Contratos en el BOE 1995–2014 (adjudicado)','Inversión pagada 2014–2025','Contratos de obra y mantenimiento 2015–2026 (adjudicado)'][invM()];
+  document.getElementById('invRank').innerHTML=top.map(([k,o])=>`<div class="ir${INVG==='edif'?' ck':''}" data-k="${INVG==='edif'?esc(o.b.key):''}"><span>${esc(k)}${INVG!=='edif'&&o.n>1?` <span class="sub">(${o.n} edificios)</span>`:''}</span><b>${eurS(o.v)}${isS?'/año':''}</b><div class="bar" style="width:${(100*o.v/m0).toFixed(1)}%"></div></div>`).join('')||'<p class="sub">Sin importes en esta fuente.</p>';
+  const L=isS?'Servicios (limpieza, seguridad y mantenimiento), coste anual estimado del último contrato':['Contratos en el BOE 1995–2014 (adjudicado)','Inversión pagada 2014–2025','Contratos de obra y mantenimiento 2015–2026 (adjudicado)'][invM()];
   document.getElementById('invNote').innerHTML=`${L}: ${eurS(tot)} en ${bs.length} edificios. Solo cuenta lo que se puede atribuir a un único edificio; las fuentes se solapan y no se suman. <a href="#ayuda">Más información</a>`;
 }
 document.getElementById('lyInv').addEventListener('change',()=>{invPanel();draw()});
@@ -696,7 +707,7 @@ document.getElementById('lyInvM').addEventListener('change',()=>{if(!document.ge
 document.querySelector('.invtabs').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;INVG=t.dataset.g;document.querySelectorAll('.invtabs button').forEach(x=>x.classList.toggle('on',x===t));invPanel()});
 document.getElementById('invRank').addEventListener('click',e=>{const r=e.target.closest('.ir.ck');if(!r)return;const b=KEYMAP.get(r.dataset.k);if(b){if(isMobile())sheet(false);focusBuilding(b);setHash('#edificio='+b.key)}});
 document.getElementById('invZoom').addEventListener('click',()=>{if(isMobile())sheet(false);zoomToDistrict('Puente de Vallecas')});
-if(!INV)document.getElementById('secInv').style.display='none';
+if(!INV&&!SERV)document.getElementById('secInv').style.display='none';
 
 document.getElementById('lyLeg').style.display='none';
 document.getElementById('q').addEventListener('input',applyFilters);
@@ -847,7 +858,7 @@ function showDetail(b){
      <div class="sub">${esc([...b.dists].join(' · '))} · ${b.cents.length} centro${b.cents.length>1?'s':''}${b.year?` · construido en ${b.year}`:''}</div>${barrioHtml(b)}</div>
      <button class="close" title="Cerrar" id="cl">×</button></div>
    <div class="pb"><div class="pact"><button class="btn" id="pShare"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>Compartir</button><a class="btn" id="pFix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>¿Ubicación o datos incorrectos?</a></div><h2>Inspección técnica (última ITE/IEE)</h2>${[...byAddr.values()].map(iteBlock).join('<hr>')}
-   ${invHtml(b)}
+   ${invHtml(b)}${servHtml(b)}
    <h2 style="margin-top:14px">Centros en este edificio (${b.cents.length})</h2>
    ${b.cents.map(c=>{const x=k=>c.r[C[k]];return `<div class="cent"><b>${esc(x('Centro'))}</b><div class="m">${esc(x('Tipo de edificio'))}${x('Subtipo')?' · '+esc(x('Subtipo')):''} · ${esc(x('Distrito'))}</div>${C['Fuente']!=null?`<div class="m">Fuente: ${esc(x('Fuente'))}${x('Categoría datos.madrid.es')?' ('+esc(x('Categoría datos.madrid.es'))+')':''}${x('Otras fuentes')?' · también en: '+esc(x('Otras fuentes')):''}${x('Empresa gestora')?' · Gestora: '+esc(x('Empresa gestora')):''}</div>`:''}<div class="m">${esc(x('Dirección'))}${x('Teléfono')?' · Tel. '+esc(x('Teléfono')):''}</div>${x('Ficha madrid.es')?`<div class="m"><a href="${esc(x('Ficha madrid.es'))}" target="_blank" rel="noopener">Ficha en madrid.es</a></div>`:''}</div>`}).join('')}
    <div class="sub" style="margin-top:8px">Coordenadas: ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)}</div></div>`;
@@ -917,15 +928,32 @@ function invHtml(b){
   if(!INV)return '';
   const cubre=b.cd!=null&&INV.distritos.includes(+b.cd);
   const h=`<h2 style="margin-top:14px">Inversión registrada</h2>`;
-  if(!cubre)return `${h}<p class="inv note">Por ahora el historial de inversión solo está cruzado para el distrito de Puente de Vallecas.</p>`;
+  if(!cubre)return `${h}<p class="inv inote">Por ahora el historial de inversión solo está cruzado para el distrito de Puente de Vallecas.</p>`;
   const d=INV.edificios[b.key];
-  if(!d)return `${h}<p class="inv note">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (BOE 1995–2014, ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
+  if(!d)return `${h}<p class="inv inote">No hay inversiones ni contratos atribuibles solo a este edificio en las fuentes revisadas (BOE 1995–2014, ejecución de inversiones 2014–2025 y contratos 2015–2026). Puede haberlos dentro de contratos que agrupan varios edificios. <a href="#ayuda">Más información</a></p>`;
   const FL=['BOE','Inversión','Contrato'],TL=['pagado','adjudicado','adjudicado','licitación'];
   const [tb,tp,tc]=d.t;
   return `${h}<div class="inv"><div class="tot"><div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div><div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>
    ${d.ev.map((e,i)=>`<div class="ev${i>=INV_LIM?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}</span></div>`).join('')}
    ${d.ev.length>INV_LIM?`<button class="btn more" id="invMore">Ver los ${d.ev.length} registros</button>`:''}
-   <p class="note">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. Antes de 2014 solo constan los contratos grandes publicados en el BOE. <a href="#ayuda">Cómo se obtiene</a></p></div>`;
+   <p class="inote">Los tres importes se solapan (muchos contratos se pagan con los mismos proyectos de inversión), así que no se suman. Antes de 2014 solo constan los contratos grandes publicados en el BOE. <a href="#ayuda">Cómo se obtiene</a></p></div>`;
+}
+// Servicios contratados (limpieza, seguridad, auxiliares, mantenimiento) con reparto por edificio según los pliegos
+const CATL={'limpieza':'Limpieza','seguridad':'Seguridad','auxiliares':'Auxiliares de información','mantenimiento':'Mantenimiento','jardinería':'Jardinería','control de plagas':'Control de plagas'};
+const fmtMes=f=>{if(!f)return '';const [y,m]=f.split('-');return ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][+m-1]+' '+y};
+const finMes=(f,n)=>{if(!f||!n)return '';let y=+f.slice(0,4),m=+f.slice(5,7)+Math.round(n);y+=Math.floor((m-1)/12);m=((m-1)%12)+1;return fmtMes(`${y}-${String(m).padStart(2,'0')}`)};
+function servHtml(b){
+  if(!SERV)return '';
+  if(!(b.cd!=null&&SERV.distritos.includes(+b.cd)))return '';
+  const h=`<h2 style="margin-top:14px">Servicios contratados</h2>`;
+  const d=SERV.edificios[b.key];
+  const dist=SERV.contratos.filter(c=>c.ambito==='distrito'&&!c.reparto&&c.n_edif===0);
+  const nota=`<p class="inote">Los contratos de limpieza, seguridad, auxiliares y mantenimiento son de todo el distrito. El importe de cada edificio es una <b>estimación</b>: el del contrato repartido según las horas, el coste o los metros cuadrados que el pliego asigna a cada edificio. <a href="#ayuda">Cómo se calcula</a></p>`;
+  if(!d)return `${h}<p class="inv inote">Este edificio no aparece en los pliegos de los contratos de servicios del distrito que se han revisado (limpieza, seguridad y mantenimiento de 2020 a 2027). Puede tener servicios contratados por otra área municipal o por otra administración.</p>`;
+  const tot=Object.entries(d.anual).sort((a,b)=>b[1]-a[1]);
+  const top=tot.length?`<div class="tot">${tot.slice(0,3).map(([k,v])=>`<div><b>${eurS(v)}</b><span>${CATL[k]||k}<br>al año (estimado)</span></div>`).join('')}</div>`:'';
+  const rows=d.s.map(([ci,cuota])=>{const c=SERV.contratos[ci];return `<div class="ev"><span class="y">${(c.fecha||'').slice(0,4)}</span><span><b>${esc(c.empresa)}</b> · ${esc(c.cats.map(x=>CATL[x]||x).join(', '))}${c.lote?' · lote '+esc(c.lote):''}<br><span class="sub">${esc(fmtMes(c.fecha))}${c.meses?' – '+esc(finMes(c.fecha,c.meses)):''} · contrato de ${eurS(c.importe)} para ${c.n_edif} edificios${c.prorrogado?' · prorrogado':''}</span></span><span class="i">${eurS(cuota)}</span><span class="f"><span class="tag">${c.ultimo?'último contrato':'anterior'}</span>parte estimada para este edificio · ${esc(c.reparto||'')} · exp. ${esc(c.exp)}</span></div>`}).join('');
+  return `${h}<div class="inv">${top}${rows}${nota}</div>`;
 }
 function barrioHtml(b){if(!b.barrioNom)return '';const iv=b.cd!=null?ivtaOf(b.cd):null;
   return `<div class="sub pbar">Barrio <b>${esc(b.barrioNom)}</b>${b.renta?` · renta media por hogar ${fmtEur(b.renta)} (${RY}; grupo ${b.rq} de 5${b.rq==='1'?', de los más bajos de Madrid':b.rq==='5'?', de los más altos':''})`:''}${iv?` · vulnerabilidad del distrito (IVTA ${iv.y}) ${iv.v.toLocaleString('es-ES',{maximumFractionDigits:2})}, media de Madrid ${iv.m.toLocaleString('es-ES',{maximumFractionDigits:2})}`:''}</div>`}
