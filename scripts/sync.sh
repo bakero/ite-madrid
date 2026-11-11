@@ -1,7 +1,7 @@
 #!/bin/bash
 # Carga en la BD el volcado de resultados ITE más reciente que haya en Descargas
 # (ite_resultados_*.json o el .tmp de una descarga sin confirmar), regenera el
-# Excel y app/data.js y deja una copia del volcado en datos/.
+# Excel y build/data.js, parte los datos para la web (app_split.py) y deja una copia del volcado en datos/.
 set -e
 cd "$(dirname "$0")/.."
 DL=..
@@ -17,4 +17,5 @@ echo "volcado: $best ($bestn direcciones)"
 cp ite_madrid.sqlite /tmp/ite_madrid.sqlite
 ITE_DB=/tmp/ite_madrid.sqlite python3 scripts/ingest_export.py "datos/ite_resultados_$stamp.json"
 cp /tmp/ite_madrid.sqlite ite_madrid.sqlite
+python3 scripts/app_split.py
 python3 -c "import sqlite3;c=sqlite3.connect('file:ite_madrid.sqlite?mode=ro',uri=True);print('BD: ite',c.execute('select count(*) from ite').fetchone()[0],'centros',c.execute('select count(*) from centros').fetchone()[0])"

@@ -686,14 +686,10 @@ select:focus,input[type=search]:focus{outline:none;border-color:var(--accent);bo
 </div></div>
 
 <script src="data.js"></script>
-<script src="calles.js"></script>
 <script src="inversiones.js"></script>
 <script src="servicios.js"></script>
 <script src="empresas.js"></script>
 <script src="socio.js"></script>
-<script src="vendor/chart.umd.min.js"></script>
-<script src="vendor/jspdf.umd.min.js"></script>
-<script src="vendor/jspdf.plugin.autotable.min.js"></script>
 <script>
 (function(){
 const STATES=[
@@ -710,6 +706,17 @@ const DRAW_ORDER=['pend','nd','sin','fav','iee','subs','desf'];
 const SEV={desf:6,subs:5,iee:4,fav:3,sin:2,nd:1,pend:0};
 let COLS=window.ITE_COLS, ROWS=window.ITE_ROWS;
 const DIST=window.DISTRITOS;
+// ---------- Carga diferida: librerías, callejero y detalle de cada distrito ----------
+const LOADS=new Map();
+function loadScript(src){if(!LOADS.has(src))LOADS.set(src,new Promise((ok,ko)=>{const t=document.createElement('script');t.src=src;t.onload=ok;t.onerror=()=>{LOADS.delete(src);t.remove();ko(new Error(src))};document.head.appendChild(t)}));return LOADS.get(src)}
+const DETL=new Map(),DETOK=new Set();
+function loadDet(cd){if(!DETL.has(cd))DETL.set(cd,fetch(`det/${cd}.json`).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{
+    const ix=d.cols.map(c=>C[c]);for(const [i,v] of Object.entries(d.rows)){const r=ROWS[+i];if(r)ix.forEach((j,k)=>{if(j!=null)r[j]=v[k]})}
+    if(INV)for(const [k,ev] of Object.entries(d.ev)){const e=INV.edificios[k];if(e)e.ev=ev}DETOK.add(cd)}).catch(e=>{DETL.delete(cd);throw e}));return DETL.get(cd)}
+const detCds=b=>[...new Set(b.cents.map(c=>{const bb=BARR.get(String(c.r[C['Código barrio']]||''));return bb?bb.cd:0}))];
+// true si el detalle del edificio ya está; si no, lo pide y vuelve a pintar con render()
+function withDet(b,render){const cds=detCds(b);if(cds.every(cd=>DETOK.has(cd)))return true;
+  Promise.all(cds.map(loadDet)).then(render).catch(()=>toast('No se han podido cargar los detalles de este edificio. Comprueba la conexión y vuelve a abrirlo.'));return false}
 const DISTN=Object.fromEntries(DIST.map(d=>[+d.cod,d.nom]));
 // Barrios y vulnerabilidad (IGUALA, Ayuntamiento de Madrid)
 const VUL=window.VULNERABILIDAD||null;
@@ -948,13 +955,19 @@ const STREETS=[[],[],[]];
 // Nombre corto para rotular: abrevia el tipo de vía y quita la partícula («Calle de Alcalá» → «C/ Alcalá»)
 const ABR=[['Calle','C/'],['Avenida','Av.'],['Paseo','P.º'],['Plaza','Pl.'],['Glorieta','Gta.'],['Carretera','Ctra.'],['Camino','Cno.'],['Ronda','Rda.'],['Travesía','Trv.'],['Costanilla','Cost.'],['Callejón','Cjón.'],['Pasaje','Pje.'],['Autovía','Autovía'],['Puente','Pte.'],['Cuesta','Cta.'],['Bulevar','Blvr.']];
 function shortName(n){if(!n)return '';for(const [a,b] of ABR){if(n.startsWith(a+' ')){let r=n.slice(a.length+1).replace(/^(de la |de los |de las |del |de )/,'');return b+' '+r}}return n}
-if(window.CALLES){const sc=CALLES.escala;CALLES.p.forEach((d,i)=>{let x=0,y=0;const pts=new Float32Array(d.length);for(let j=0;j<d.length;j+=2){x+=d[j];y+=d[j+1];const q=proj(x/sc,y/sc);pts[j]=q[0];pts[j+1]=q[1]}
+const CDONE=new Set();
+function addCalles(CL){if(!CL||CDONE.has(CL))return;CDONE.add(CL);const sc=CL.escala;CL.p.forEach((d,i)=>{let x=0,y=0;const pts=new Float32Array(d.length);for(let j=0;j<d.length;j+=2){x+=d[j];y+=d[j+1];const q=proj(x/sc,y/sc);pts[j]=q[0];pts[j+1]=q[1]}
   let bx0=1e9,by0=1e9,bx1=-1e9,by1=-1e9;for(let j=0;j<pts.length;j+=2){bx0=Math.min(bx0,pts[j]);bx1=Math.max(bx1,pts[j]);by0=Math.min(by0,pts[j+1]);by1=Math.max(by1,pts[j+1])}
   let len=0;for(let j=2;j<pts.length;j+=2)len+=Math.hypot(pts[j]-pts[j-2],pts[j+1]-pts[j-1]);
   const cum=new Float32Array(pts.length/2);for(let j=2,a=0;j<pts.length;j+=2){a+=Math.hypot(pts[j]-pts[j-2],pts[j+1]-pts[j-1]);cum[j/2]=a}
-  STREETS[CALLES.k[i]].push({pts,bb:[bx0,by0,bx1,by1],len,cum,name:CALLES.names?shortName(CALLES.names[CALLES.n[i]]):''})});
+  STREETS[CL.k[i]].push({pts,bb:[bx0,by0,bx1,by1],len,cum,name:CL.names?shortName(CL.names[CL.n[i]]):''})});
   STREETS.forEach(a=>a.sort((x,y)=>y.len-x.len))}
+// vías principales al arrancar; secundarias al acercarse o al hacer el informe de un distrito
+function callesReady(full){const ps=[loadScript('calles.js').then(()=>addCalles(window.CALLES))];if(full)ps.push(loadScript('calles0.js').then(()=>addCalles(window.CALLES0)));return Promise.all(ps)}
+let C0REQ=false;function needCalles0(){if(C0REQ)return;C0REQ=true;callesReady(true).then(()=>draw()).catch(()=>{C0REQ=false})}
+callesReady(false).then(()=>draw()).catch(()=>{});
 function drawStreets(g,Xf,Yf,zoom,view,px){ // zoom = escala relativa al encaje de todo Madrid; px = píxeles por unidad proyectada
+  if(zoom>1.3)needCalles0();
   // Al alejarse se muestran menos calles: cada jerarquía exige una longitud mínima en pantalla que baja al acercarse.
   const thr=[zoom<1.6?Infinity:Math.max(0,140*(1-(zoom-1.6)/5)), Math.max(0,45*(1-(zoom-1)/3)), 0];
   const alpha=[Math.min(1,Math.max(0,(zoom-1.6)/1.5)),1,1];
@@ -969,7 +982,7 @@ function drawStreets(g,Xf,Yf,zoom,view,px){ // zoom = escala relativa al encaje 
 const LBL=[{z:7,font:'400 10.5px Inter, sans-serif',col:'#7b7f86'},{z:3.2,font:'500 11px Inter, sans-serif',col:'#6b6f76'},{z:1.9,font:'600 11.5px Inter, sans-serif',col:'#5d6168'}];
 const twCache=new Map();
 function drawStreetLabels(g,Xf,Yf,zoom,px){
-  if(!STREETS[0].length||!STREETS[0][0].name)return;
+  if(!STREETS.some(a=>a.length&&a[0].name))return;
   const boxes=[],seen=new Map();g.textAlign='center';g.textBaseline='middle';g.lineJoin='round';
   const at=(st,d)=>{const c=st.cum,p=st.pts;let lo=0,hi=c.length-1;while(lo<hi-1){const m=(lo+hi)>>1;if(c[m]<d)lo=m;else hi=m}const seg=c[hi]-c[lo]||1,t=(d-c[lo])/seg;return [p[2*lo]+(p[2*hi]-p[2*lo])*t,p[2*lo+1]+(p[2*hi+1]-p[2*lo+1])*t]};
   let n=0;
@@ -1086,6 +1099,7 @@ function iteLlano(c,b){const g=k=>c.r[C[k]]||'';const y=(g('Fecha presentación'
   return `<div class="itex">${t}</div>${warn}`}
 function showDetail(b){
   if(!b){pop.style.display='none';pop.innerHTML='';return}
+  withDet(b,()=>{if(selected===b&&pop.style.display!=='none')showDetail(b)});
   const st=SMAP[b.s];
   // una ficha ITE por dirección distinta del edificio (normalmente una)
   const byAddr=new Map();for(const c of b.cents){const a=c.r[C['Dirección']];if(!byAddr.has(a))byAddr.set(a,c)}
@@ -1179,9 +1193,9 @@ function invHtml(b,full=false){
   const tot=`<div class="tot">${boe?`<div><b>${tb?eurS(tb):'—'}</b><span>BOE 1995–2014<br>adjudicado</span></div>`:''}<div><b>${tp?eurS(tp):'—'}</b><span>Inversión 2014–2025<br>pagado</span></div><div><b>${tc?eurS(tc):'—'}</b><span>Contratos 2015–2026<br>adjudicado</span></div></div>`;
   const ser=[{n:'Inversión pagada',c:'#1f5fa8',i:2},{n:'Contratos adjudicados',c:'#e8912f',i:3}];if(boe&&tb)ser.push({n:'BOE (adjudicado)',c:'#8a8f96',i:1});
   const chart=barChart(d.y||[],ser,{title:'Importe por año'});
-  const lista=d.ev.map((e,i)=>`<div class="ev${!full||i>=15?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}${e[7]&&e[7].length>1?' · '+e[7].map(([y,v])=>`${y}: ${eurS(v)}`).join('; '):''}${full&&e[5]?' · '+refLink(e):''}</span></div>`).join('');
+  const lista=!d.ev?'<p class="inote">Cargando los registros…</p>':d.ev.map((e,i)=>`<div class="ev${!full||i>=15?' hid':''}"><span class="y">${e[0]}</span><span>${esc(e[2])}</span><span class="i">${e[3]!=null?eurS(e[3]):''}</span><span class="f"><span class="tag">${FL[e[1]]}</span>${e[4]>=0&&e[3]!=null?'importe '+TL[e[4]]:''}${e[7]&&e[7].length>1?' · '+e[7].map(([y,v])=>`${y}: ${eurS(v)}`).join('; '):''}${full&&e[5]?' · '+refLink(e):''}</span></div>`).join('');
   return `${h}<div class="inv">${tot}${chart}
-   ${lista}${!full||d.ev.length>15?`<button class="btn more">Ver los ${d.ev.length} registros</button>`:''}
+   ${lista}${d.ev&&(!full||d.ev.length>15)?`<button class="btn more">Ver los ${d.ev.length} registros</button>`:''}
    <p class="inote">Las barras se solapan: muchos contratos se pagan con los mismos proyectos de inversión, así que no se suman. La inversión pagada se asigna al año del pago; los contratos, al año de adjudicación. ${boe?'Antes de 2014 solo constan los contratos grandes publicados en el BOE.':'Los datos empiezan en 2014; los contratos anteriores publicados en el BOE solo están cruzados, por ahora, para Puente de Vallecas.'} <a href="#ayuda">Cómo se obtiene</a></p></div>`;
 }
 // Gráfico de barras agrupadas por año. rows: [[año, v1, v2, ...]]; ser: [{n,c,i}] (i = índice en la fila)
@@ -1430,7 +1444,7 @@ const MET=[
   {k:'pag',sec:'Inversión',l:'Inversión pagada 2014–2025',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[1]||0):null,fmt:eurS},
   {k:'pagA',sec:'Inversión',l:'Inversión pagada por año (media 2014–2025)',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[1]||0)/12:null,fmt:v=>eurS(v)+'/año'},
   {k:'con',sec:'Inversión',l:'Contratos de obra y mantenimiento 2015–2026',f:b=>INVc(b)?((INV.edificios[b.key]||{t:[0,0,0]}).t[2]||0):null,fmt:eurS},
-  {k:'nreg',sec:'Inversión',l:'Registros de inversión y contratos',f:b=>INVc(b)?((INV.edificios[b.key]||{ev:[]}).ev.length):null,fmt:v=>v.toLocaleString('es-ES',{maximumFractionDigits:1})},
+  {k:'nreg',sec:'Inversión',l:'Registros de inversión y contratos',f:b=>INVc(b)?((INV.edificios[b.key]||{n:0}).n||0):null,fmt:v=>v.toLocaleString('es-ES',{maximumFractionDigits:1})},
   {k:'nsv',sec:'Servicios',l:'Contratos de servicios vigentes en los que figura',f:b=>SERVc(b)?((SERV.edificios[b.key]||{s:[]}).s.filter(([ci])=>SERV.contratos[ci].vigente).length):null,fmt:v=>v.toLocaleString('es-ES',{maximumFractionDigits:1})},
   {k:'sva',sec:'Servicios',l:'Coste anual estimado de servicios (solo Puente de Vallecas)',f:b=>SERV&&+b.cd===13?((SERV.edificios[b.key]||{}).tot_anual||0):null,fmt:v=>eurS(v)+'/año'},
 ];
@@ -1457,7 +1471,7 @@ function fuentesHtml(b){
   const exps=[...new Set(b.cents.map(c=>c.r[C['Nº expediente']]).filter(Boolean))];
   add('Registro de Edificios y Construcciones del Ayuntamiento (consulta de ITE)','https://servpub.madrid.es/GITEP_WBFICHA/SGiteCons',`buscar por la dirección ${esc(b.main[C['Dirección en el Registro']]||b.main[C['Dirección']]||'')}${exps.length?` (expediente ${exps.map(esc).join(', ')})`:''}`);
   const d=INV&&INV.edificios[b.key];
-  if(d){const pr=[...new Set(d.ev.filter(e=>e[1]===1&&e[5]).map(e=>e[5]))],cx=[...new Set(d.ev.filter(e=>e[1]===2&&e[5]).map(e=>e[5]))],bo=[...new Set(d.ev.filter(e=>e[1]===0&&e[5]).map(e=>e[5]))];
+  if(d&&d.ev){const pr=[...new Set(d.ev.filter(e=>e[1]===1&&e[5]).map(e=>e[5]))],cx=[...new Set(d.ev.filter(e=>e[1]===2&&e[5]).map(e=>e[5]))],bo=[...new Set(d.ev.filter(e=>e[1]===0&&e[5]).map(e=>e[5]))];
     if(pr.length)add('Ejecución presupuestaria de inversiones (datos.madrid.es)','https://datos.madrid.es/dataset/211496-0-ejecucion-presupuestaria-histori',`proyectos ${pr.slice(0,40).map(esc).join(', ')}${pr.length>40?'…':''}`);
     if(cx.length)add('Actividad contractual y contratos menores (datos.madrid.es)','https://datos.madrid.es/dataset/216876-0-contratos-actividad',`expedientes ${cx.slice(0,40).map(esc).join(', ')}${cx.length>40?'…':''}; los menores, en el conjunto <a href="https://datos.madrid.es/dataset/300253-0-contratos-actividad-menores" target="_blank" rel="noopener">300253</a>`);
     for(const r of bo)add(`Anuncio ${r} del BOE`,`https://www.boe.es/diario_boe/txt.php?id=${encodeURIComponent(r)}`,'contrato de obra anterior a 2014')}
@@ -1469,8 +1483,10 @@ function fuentesHtml(b){
   add('Catastro: buscador de parcelas','https://www1.sedecatastro.gob.es/Cartografia/mapa.aspx?buscar=S',`buscar por coordenadas ${b.lat.toFixed(5)}, ${b.lng.toFixed(5)} para ver la parcela y su referencia catastral`);
   return `<details><summary>Fuentes de este edificio (${L.length})</summary><ul>${L.join('')}</ul></details>`;
 }
+let FICHA_B=null;
 function renderFicha(b){
-  const el=document.getElementById('fichaBody');if(!b){el.innerHTML='<p>Edificio no encontrado.</p>';return}
+  const el=document.getElementById('fichaBody');FICHA_B=b;if(!b){el.innerHTML='<p>Edificio no encontrado.</p>';return}
+  withDet(b,()=>{if(FICHA_B===b&&location.hash.startsWith('#ficha='))renderFicha(b)});
   const byAddr=new Map();for(const c of b.cents){const a=c.r[C['Dirección']];if(!byAddr.has(a))byAddr.set(a,c)}
   const ite=[...byAddr.values()].map(c=>{const g=k=>c.r[C[k]];const cs=SMAP[c.s];const est=g('Estado de la inspección');
     return `${byAddr.size>1?`<h3>${esc(g('Dirección'))}</h3>`:''}${cs.hollow?`<span class="badge nd">${esc(est||cs.lab)}</span>`:`<span class="badge${c.s==='sin'?' lt':''}" style="background:${cs.c}">${esc(est)}</span>`}${iteLlano(c,b)}<dl>${ITE_FIELDS.map(([k,l])=>{const v=g(k);return v!==''&&v!=null&&v!=='-'?`<dt>${esc(l||k)}</dt><dd>${esc(v)}</dd>`:''}).join('')}</dl>`}).join('');
@@ -1575,7 +1591,7 @@ const DIMS={
 const active=k=>k==='sub'||k==='fuente'?!!PF[k]:PF[k].size>0;
 function pfilter(except){return buildings.filter(b=>{for(const k in DIMS){if(k===except||!active(k))continue;if(!DIMS[k](b))return false}return true})}
 function toggle(set,v){set.has(v)?set.delete(v):set.add(v);renderPanel()}
-const charts={};let chartOK=!!window.Chart;
+const charts={};let chartOK=!!window.Chart,CHFAIL=false;
 function chip(label,on,attrs,dot){return `<span class="chip${on?' on':''}" ${attrs}>${dot?`<i class="d" style="background:${dot}"></i>`:''}${esc(label)}</span>`}
 // ---------- Selectores del panel en móvil (multiselección / selección única) ----------
 let SLOPTS={},PICK=null;
@@ -1650,7 +1666,8 @@ const baseOpts=(extra={})=>Object.assign({responsive:true,maintainAspectRatio:fa
 
 function renderPanel(){TLIM=50;
   if(!buildings.length)return;
-  chartOK=!!window.Chart;document.getElementById('chartWarn').style.display=chartOK?'none':'block';
+  if(!window.Chart&&!CHFAIL){loadScript('vendor/chart.umd.min.js').then(()=>{if(location.hash.startsWith('#panel'))renderPanel()}).catch(()=>{CHFAIL=true;if(location.hash.startsWith('#panel'))renderPanel()})}
+  chartOK=!!window.Chart;document.getElementById('chartWarn').style.display=chartOK||!CHFAIL?'none':'block';
   if(chartOK){Chart.defaults.font.family='Inter, system-ui, sans-serif';Chart.defaults.color='#646c75'}
   renderSlicers();
   const list=pfilter(null), K=kpiData(list);
@@ -1738,9 +1755,9 @@ function renderInforme(){
    <div class="legend">${STATES.map(s=>`<span><i style="background:${s.c}"></i>${s.lab}: <b style="color:#1d2228">${fmt(K.c[s.k])}</b></span>`).join('')}</div>
    <img id="repMapImg" style="width:100%;border:1px solid var(--line);border-radius:10px" alt="Mapa del ámbito">`;
   document.getElementById('repMapImg').src=renderMapImage(list,amb,900,amb?620:760);
+  if(!window.CALLES||(amb&&!window.CALLES0))callesReady(!!amb).then(()=>{if(location.hash.startsWith('#informe'))renderInforme()}).catch(()=>{});
   const go=document.getElementById('repGo'),msg=document.getElementById('repMsg');
-  if(!window.jspdf){go.disabled=true;msg.textContent='No se ha podido cargar la librería de PDF (jsPDF). Recarga la página.'}
-  else{go.disabled=false;if(!/Generando|descargado|Confirma/.test(msg.textContent))msg.textContent=''}
+  {go.disabled=false;if(!/Generando|descargado|Confirma/.test(msg.textContent))msg.textContent=''}
 }
 document.getElementById('repAmb').addEventListener('change',renderInforme);
 
@@ -1769,6 +1786,8 @@ const hex=h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.sli
 document.getElementById('repGo').onclick=async()=>{
   const msg=document.getElementById('repMsg'),go=document.getElementById('repGo');
   go.disabled=true;msg.textContent='Generando PDF…';
+  try{await loadScript('vendor/jspdf.umd.min.js');await loadScript('vendor/jspdf.plugin.autotable.min.js');await callesReady(!!document.getElementById('repAmb').value)}
+  catch(e){msg.textContent='No se ha podido cargar la librería de PDF o el callejero. Comprueba la conexión y vuelve a intentarlo.';go.disabled=false;return}
   try{
     await new Promise(r=>setTimeout(r,30));
     const amb=document.getElementById('repAmb').value,list=repList(),K=kpiData(list);

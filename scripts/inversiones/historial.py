@@ -99,5 +99,5 @@ for v in out:
         elif e['importe']:PY[int(e['anio'])][0 if e['fuente']=='BOE' else 2]+=e['importe']
     ED[v['key']]={'t':[v['tot_boe'],v['tot_pagado'],v['tot_contratos']],'ev':ev,'y':[[y]+[round(x) for x in PY[y]] for y in sorted(PY)]}
 js={'generado':datetime.date.today().isoformat(),'distritos':sorted({info[k]['cd'] for k in ED}),'boe_distritos':[13],'fuentes':FU,'tipos':TI,'edificios':ED}
-open(E.BASE/'app'/'inversiones.js','w',encoding='utf-8').write('window.INVERSIONES='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
-print('app/inversiones.js:',len(ED),'edificios',sum(len(x['ev']) for x in ED.values()),'registros')
+(E.BASE/'build').mkdir(exist_ok=True);open(E.BASE/'build'/'inversiones.js','w',encoding='utf-8').write('window.INVERSIONES='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
+print('build/inversiones.js (después: scripts/app_split.py):',len(ED),'edificios',sum(len(x['ev']) for x in ED.values()),'registros')

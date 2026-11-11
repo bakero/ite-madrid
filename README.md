@@ -36,17 +36,20 @@ Para usar la app en local, basta con abrir `app/index.html` en el navegador. Nec
 ```
 app/                       Web estática (lo que se publica)
   index.html               Aplicación completa (HTML + CSS + JS)
-  data.js                  Centros + ITE + contornos de distrito (generado por ingest_export.py)
-  calles.js                Ejes de viario del callejero oficial (generado por 03_calles_geoportal.js)
-  inversiones.js           Historial de inversión por edificio (Puente de Vallecas)
-  servicios.js             Servicios contratados por edificio (Puente de Vallecas)
+  data.js                  Centros + ITE + contornos de distrito, sin las columnas de detalle (app_split.py)
+  calles.js, calles0.js    Vías principales (al arrancar) y secundarias (al acercar el mapa) (app_split.py)
+  inversiones.js           Totales e importe por año de cada edificio, sin los registros (app_split.py)
+  det/NN.json              Detalle por distrito: columnas de la ficha y registros de inversión; se carga al abrir un edificio
+  servicios.js             Servicios contratados por edificio (todo Madrid; reparto por edificio solo en Puente de Vallecas)
   empresas.js              Empresas de servicios por distrito (todo Madrid)
+build/                     Datos completos que generan los scripts; app_split.py los parte para la web
 ite_madrid.sqlite          Base de datos con toda la información
 centros_ite_madrid.xlsx    Exportación a Excel (Centros + ITE, Resumen por distrito, Fuentes)
 datos/                     Datos de origen descargados y volcados intermedios
 scripts/
   build_db.py              Crea la BD desde datos/ y genera datos/pendientes_ite.json
-  ingest_export.py         Carga un volcado ITE en la BD y regenera el Excel y app/data.js
+  ingest_export.py         Carga un volcado ITE en la BD y regenera el Excel y build/data.js
+  app_split.py             Parte build/ en el núcleo ligero de app/ y el detalle por distrito app/det/ (ejecutar después de cualquier regeneración)
   reclasificacion.py       Reglas de corrección de tipo/subtipo de edificio
   coordenadas_manual.py    Coordenadas geocodificadas a mano (CartoCiudad) para centros sin ellas
   vulnerabilidad.py        Barrios (contornos) e IGUALA: asigna barrio a cada centro, renta por barrio, IVTA por distrito
@@ -86,7 +89,7 @@ Las webs del Ayuntamiento solo se pueden consultar desde un navegador (formulari
 2. **Datos abiertos:** descarga los ficheros de datos.madrid.es en `datos/` (los enlaces están en el README de `navegador/`).
 3. **Construir la BD:** `python3 scripts/build_db.py`. Genera `datos/pendientes_ite.json`.
 4. **Consultar la ITE:** ejecuta `02_consulta_ite_registro.js` en servpub.madrid.es y elige `pendientes_ite.json`. Obtienes `ite_resultados_AAAAMMDD_HHMM.json`.
-5. **Cargar y regenerar:** `python3 scripts/ingest_export.py datos/ite_resultados_….json` (o `scripts/sync.sh`). Actualiza la BD, `centros_ite_madrid.xlsx` y `app/data.js`.
+5. **Cargar y regenerar:** `python3 scripts/ingest_export.py datos/ite_resultados_….json` (o `scripts/sync.sh`). Actualiza la BD, `centros_ite_madrid.xlsx` y `build/data.js`; después `python3 scripts/app_split.py` genera `app/`.
 6. **Calles y distritos** (rara vez): ejecuta `03_calles_geoportal.js` y `04_distritos_kml.js`.
 7. **Barrios y vulnerabilidad** (una vez al año): descarga de datos.madrid.es el SHP de barrios ([Límites administrativos actuales](https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas)) y el fichero «Datos globales y por esferas para distritos» de [IGUALA](https://datos.madrid.es/dataset/300577-0-iguala-vulnerabilidad) en `datos/vulnerabilidad/`. Después ejecuta `python3 scripts/vulnerabilidad.py datos/vulnerabilidad/barrios_shp.zip datos/vulnerabilidad/iguala_ivta_global.xlsx` y luego `ingest_export.py`. Requiere `pyshp` y `pyproj`.
 
@@ -146,7 +149,7 @@ Scripts en `scripts/inversiones/` y datos de entrada en `datos/inversiones/`:
 1. `descarga_inversiones.py`: descarga los CSV «Inversiones. AAAA» → `inversiones_2014_2025.json`.
 2. `contratos_obras.py todos.json`: de todos los contratos (salida de `scripts/servicios/normaliza_todo.py`) se queda con las obras, reformas y mejoras → `contratos_obras.json`.
 3. `boe_parse.py`: anuncios del BOE de Puente de Vallecas → `boe_match.json`.
-4. `historial.py`: asigna cada registro a un edificio con `edificios.py` y genera `datos/inversiones/historial.json` y `app/inversiones.js`.
+4. `historial.py`: asigna cada registro a un edificio con `edificios.py` y genera `datos/inversiones/historial.json` y `build/inversiones.js` (después, `scripts/app_split.py`).
 
 `edificios.py` cruza textos con los 5.211 edificios del mapa: por nombre (con el tipo de centro delante si el nombre es también el de una calle, un barrio o un distrito) o por dirección exacta. Si el registro dice de qué distrito es (campo distrito, «Distrito de X», «Junta Municipal de X»), solo busca entre los edificios de ese distrito. Los nombres del tipo «Centro Deportivo Municipal Puente de Vallecas» o «Junta Municipal del Distrito de Usera» solo cuentan si el texto dice el tipo seguido del distrito. Los registros que citan varios edificios se descartan. Las tres fuentes se solapan y no se suman.
 

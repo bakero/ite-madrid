@@ -42,8 +42,8 @@ Presupuesto y ejecución por Junta; avisos Línea Madrid 010; equipamientos comp
 Lectura como ranking; cobertura mayor en Puente de Vallecas que infla sus cifras; ITE tomada por certificado oficial; Registro manual; romper enlaces compartidos.
 
 ## Decisiones del dueño
-1. ¿La entrada obliga a elegir distrito o el mapa de todo Madrid sigue siendo la portada?
-2. ¿Datos en JSON por distrito con `fetch` (deja de funcionar abriendo `index.html` sin servidor)?
-3. ¿Servicios por edificio en los 20 distritos sin pliego verificado, marcados como estimación, o solo coste del contrato completo?
+1. ¿La entrada obliga a elegir distrito o el mapa de todo Madrid sigue siendo la portada? **Decidido (11/11/2026): el mapa de todo Madrid sigue de portada, con un botón destacado para elegir distrito.**
+2. ¿Datos en JSON por distrito con `fetch` (deja de funcionar abriendo `index.html` sin servidor)? **Decidido (11/11/2026): sí, datos por distrito con carga bajo demanda.**
+3. ¿Servicios por edificio en los 20 distritos sin pliego verificado, marcados como estimación, o solo coste del contrato completo? **Decidido (11/11/2026): hacer la misma investigación de pliegos que en Puente de Vallecas en los otros 20 distritos, después de los cambios de la aplicación.**
 4. ¿Prioridad siguiente: uso institucional o ciudadano?
 5. ¿Fuentes de riesgo alto (010, participativos) en esta versión o solo datos trazables por edificio?

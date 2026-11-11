@@ -143,8 +143,8 @@ def export(con):
     fecha_datos = con.execute("SELECT max(fecha_consulta) FROM ite WHERE fecha_consulta LIKE '____-__-__'").fetchone()[0] or HOY
     rows =[['' if v is None else v for v in r] for r in con.execute(SQL)]
     dist = [{'cod': c, 'nom': n, 'lines': json.loads(l)} for c, n, l in con.execute('SELECT cod,nombre,contorno_json FROM distritos')]
-    os.makedirs(os.path.join(ROOT, 'app'), exist_ok=True)
-    with open(os.path.join(ROOT, 'app', 'data.js'), 'w', encoding='utf-8') as f:
+    os.makedirs(os.path.join(ROOT, 'build'), exist_ok=True)
+    with open(os.path.join(ROOT, 'build', 'data.js'), 'w', encoding='utf-8') as f:
         f.write('window.ITE_GENERADO=' + json.dumps(fecha_datos) + ';\n')
         f.write('window.ITE_COLS=' + json.dumps(COLS, ensure_ascii=False) + ';\n')
         f.write('window.ITE_ROWS=' + json.dumps(rows, ensure_ascii=False, separators=(',', ':')) + ';\n')
