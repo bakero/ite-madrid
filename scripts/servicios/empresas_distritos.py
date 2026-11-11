@@ -41,7 +41,7 @@ for d,o,lote in P:
 hoy=datetime.date.today();H=hoy.year*12+hoy.month
 for x in C.values():
     if x['fecha'] and x['meses']:
-        f=int(round(int(x['fecha'][:4])*12+int(x['fecha'][5:7])+x['meses']+sum(p['meses'] or 0 for p in x['prorrogas'])))
+        f=int(round(int(x['fecha'][:4])*12+int(x['fecha'][5:7])+x['meses']+meses_prorroga(x['prorrogas'])))
         x['fin']=f'{(f-1)//12:04d}-{(f-1)%12+1:02d}';x['vigente']=f>=H
         x['anual']=round(x['importe']*12/x['meses'],2) if x['importe'] else None
     else:x['fin']=None;x['vigente']=False;x['anual']=None

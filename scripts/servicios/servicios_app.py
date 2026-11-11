@@ -8,7 +8,7 @@ import json,re,sys,pathlib,collections,datetime
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'inversiones'))
 import edificios as E
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
-from comun import plataforma_url
+from comun import plataforma_url,meses_prorroga,prorrogas_mezclan_lotes
 S=json.load(open(sys.argv[1]));R=json.load(open(sys.argv[2]))
 L=json.load(open(sys.argv[3])) if len(sys.argv)>3 else {}
 EDI=json.load(open(sys.argv[4])) if len(sys.argv)>4 else []
@@ -73,7 +73,7 @@ def vigente(c):
 CL=sorted(C.values(),key=lambda c:c['fecha'] or '')
 idx={id(c):i for i,c in enumerate(CL)}
 contratos=[{'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
-  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS,'url':plataforma_url(L,c['exp'],c['objeto'])} for c in CL]
+  'importe':round(c['importe'],2),'ambito':c['ambito'],'reparto':c.get('reparto'),'n_edif':len(c['edificios']),'prorrogado':bool(c.get('prorrogado')),'prorroga_meses':sum(p['meses'] or 0 for p in c.get('prorrogas',[])),'prorroga_importe':None if prorrogas_mezclan_lotes(c.get('prorrogas',[])) else round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':vigente(c),'ultimo':c['exp'] in ULTIMOS,'url':plataforma_url(L,c['exp'],c['objeto'])} for c in CL]
 edif={}
 for k,LL in ED.items():
     rows=[];anual=collections.defaultdict(float)
@@ -98,15 +98,16 @@ for c in EDI:
     cd=E.cod_distrito(c['distrito'])
     if cd in (None,13):continue
     rp=RP.get(c['exp'])
+    if rp and rp.get('cats'):c=dict(c,cats=rp['cats'])  # categoría corregida al leer el pliego
     if rp:  # reparto leído del pliego: m² u horas de cada edificio sobre el total del lote
         fl=[f for f in rp['filas'] if (not c['lote']) or f['lote']==c['lote']]
         if c['lote'] and not fl and all(not f['lote'] for f in rp['filas']):fl=rp['filas']
         tot=sum(f['peso'] for f in fl);ok=[f for f in fl if f['key'] and f['peso']>0]
         if tot>0 and ok:
-            pct=100*sum(f['peso'] for f in ok)/tot;i=len(contratos);meses_p=sum((p['meses'] or 0) for p in c.get('prorrogas',[]))
+            pct=100*sum(f['peso'] for f in ok)/tot;i=len(contratos);meses_p=meses_prorroga(c.get('prorrogas',[]))
             contratos.append({'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
-              'importe':round(c['importe'],2),'ambito':'distrito','reparto':f"{rp['metodo']}; se asigna a edificios del mapa el {pct:.0f} % del importe; el {100-pct:.0f} % restante es de espacios del pliego que no están en el mapa y no se asigna a ningún edificio",'n_edif':len({f['key'] for f in ok}),'prorrogado':bool(c.get('prorrogas')),
-              'prorroga_meses':meses_p,'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
+              'importe':round(c['importe'],2),'ambito':'distrito','reparto':f"{rp.get('medida_lote',{}).get(c['lote'],rp['metodo'])}{'' if pct>=99.5 else f'; {pct:.0f} % asignado a edificios del mapa'}",'n_edif':len({f['key'] for f in ok}),'prorrogado':bool(c.get('prorrogas')),
+              'prorroga_meses':meses_p,'prorroga_importe':None if prorrogas_mezclan_lotes(c.get('prorrogas',[])) else round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
               'url':plataforma_url(L,c['exp'],c['objeto']),'anual':c['anual'],'fin':c['fin'],'cd':cd,'sin_reparto':False})
             sh=collections.defaultdict(float)
             for f in ok:sh[f['key']]+=f['peso']/tot
@@ -122,11 +123,11 @@ for c in EDI:
     ok=[e for e in r['edif'] if lote_ok(c,e)]
     if not ok:continue
     DIS.add(cd)
-    meses_p=sum((p['meses'] or 0) for p in c.get('prorrogas',[]))
+    meses_p=meses_prorroga(c.get('prorrogas',[]))
     i=len(contratos)
     contratos.append({'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
       'importe':round(c['importe'],2),'ambito':'distrito','reparto':None,'n_edif':len({e['key'] for e in ok}),'prorrogado':bool(c.get('prorrogas')),
-      'prorroga_meses':meses_p,'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
+      'prorroga_meses':meses_p,'prorroga_importe':None if prorrogas_mezclan_lotes(c.get('prorrogas',[])) else round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
       'url':plataforma_url(L,c['exp'],c['objeto']),'anual':c['anual'],'fin':c['fin'],'cd':cd,'sin_reparto':True})
     for k in sorted({e['key'] for e in ok}):
         d=edif.setdefault(k,{'s':[],'anual':{},'tot_anual':0})

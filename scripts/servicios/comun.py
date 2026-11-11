@@ -26,3 +26,22 @@ def plataforma_url(L,exp,texto=''):
     if len(c)==1:return PLAT+urllib.parse.quote(c[0][0],safe='')
     pal=_pal(texto);best=max(c,key=lambda r:len(pal&_pal(r[1])))
     return PLAT+urllib.parse.quote(best[0],safe='')
+
+
+import datetime as _dt
+def meses_prorroga(ps):
+    """Meses de prórroga. Las prórrogas con la misma duración formalizadas con menos de un mes de diferencia son la
+    misma prórroga de distintos lotes del expediente (p. ej. Tetuán 300/2018/00448: dos de 24 meses el 01/07/2021) y
+    cuentan una vez. Las demás se suman (prórrogas sucesivas)."""
+    tot=0;vistas=[]
+    for p in sorted(ps,key=lambda p:p['fecha'] or ''):
+        d=_dt.date.fromisoformat(p['fecha']) if p['fecha'] else None
+        if d and any(m==p['meses'] and abs((d-v).days)<31 for v,m in vistas):continue
+        tot+=p['meses'] or 0
+        if d:vistas.append((d,p['meses']))
+    return tot
+
+def prorrogas_mezclan_lotes(ps):
+    """¿Hay prórrogas de distintos lotes del expediente (misma duración, menos de un mes de diferencia)? Entonces no se
+    sabe qué importe corresponde al lote del contrato."""
+    return meses_prorroga(ps)<sum(p['meses'] or 0 for p in ps)

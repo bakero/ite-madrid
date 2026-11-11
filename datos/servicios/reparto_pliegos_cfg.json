@@ -113,5 +113,2811 @@
   "doc": "300_2024_00851__ppt0.txt",
   "hdr": "HORAS/SEMANA",
   "medida": "horas de limpieza por semana de cada edificio (anexo del pliego)"
+ },
+ "300/2024/00389": {
+  "modo": "ancla",
+  "doc": "300_2024_00389__ppt0.txt",
+  "medida": "horas de limpieza al año (anexo III del pliego)",
+  "tablas": [
+   {
+    "desde": 1871,
+    "hasta": 1894,
+    "lote": "1",
+    "col": 74,
+    "tol": 4,
+    "name_end": 46,
+    "skip": "^(TOTAL|CENTRO|HORAS|Sahag)"
+   },
+   {
+    "desde": 1897,
+    "hasta": 1897,
+    "lote": "1",
+    "col": 74.5,
+    "tol": 4,
+    "name_end": 46
+   },
+   {
+    "desde": 2025,
+    "hasta": 2041,
+    "lote": "2",
+    "col": 76,
+    "tol": 3,
+    "name_end": 44
+   }
+  ],
+  "fijar": {
+   "Junta Municipal": "40.37891,-3.62144",
+   "Biblioteca": "40.37790,-3.62273",
+   "C.S.S. Fuentidueña": "40.37064,-3.62191"
+  },
+  "anular": [
+   "Escuela de Teatro"
+  ]
+ },
+ "300/2024/00532": {
+  "modo": "manual",
+  "doc": "300_2024_00532__ppt0.txt",
+  "medida": "m² construidos (lote 1, mantenimiento) y horas anuales de limpieza (lote 2) y de conserjería (lote 3) de cada edificio (anexo IV del pliego)",
+  "filas": [
+   [
+    1,
+    2976.24,
+    "40.46542,-3.66907",
+    "CP Arquitecto Gaudí",
+    4726
+   ],
+   [
+    1,
+    1649,
+    "40.46423,-3.66913",
+    "CP Isaac Albéniz",
+    4727
+   ],
+   [
+    1,
+    1594.4,
+    "40.45954,-3.67954",
+    "CP San Juan de la Cruz",
+    4728
+   ],
+   [
+    1,
+    2226,
+    "40.44368,-3.67355",
+    "CP Luis Bello",
+    4731
+   ],
+   [
+    1,
+    4255,
+    "40.45122,-3.66772",
+    "CP Padre Poveda",
+    4733
+   ],
+   [
+    1,
+    3346.68,
+    "40.43970,-3.68162",
+    "CP Patriarca Obispo Eijo Garay",
+    4735
+   ],
+   [
+    1,
+    3624,
+    "40.44463,-3.67862",
+    "CP Pintor Rosales",
+    4737
+   ],
+   [
+    1,
+    6323,
+    "40.44209,-3.68615",
+    "CP Ramiro de Maeztu",
+    4738
+   ],
+   [
+    1,
+    1181,
+    "40.44363,-3.67397",
+    "EI Luis Bello",
+    4740
+   ],
+   [
+    1,
+    1229,
+    "40.46092,-3.67032",
+    "EI El Sol",
+    4743
+   ],
+   [
+    1,
+    5844,
+    "40.44911,-3.67162",
+    "Polideportivo Pradillo",
+    4774
+   ],
+   [
+    1,
+    120,
+    "40.44911,-3.67162",
+    "Vestuarios Fútbol 7 (Pradillo 33)",
+    4776
+   ],
+   [
+    1,
+    10776.07,
+    "40.44490,-3.67808",
+    "Oficina del Distrito (Príncipe de Vergara 142)",
+    4814
+   ],
+   [
+    1,
+    1430,
+    "40.44490,-3.67808",
+    "CS-C Luis Gonzaga (Príncipe de Vergara 142)",
+    4815
+   ],
+   [
+    1,
+    9003,
+    "40.44834,-3.67620",
+    "CC Nicolás Salmerón",
+    4816
+   ],
+   [
+    1,
+    2379,
+    "40.44477,-3.66919",
+    "CSS Santa Hortensia/CM Sta. Hortensia",
+    4818
+   ],
+   [
+    1,
+    527,
+    "40.48106,-3.68487",
+    "CAM Hogar Castilla (Castellana 304)",
+    4820
+   ],
+   [
+    1,
+    694,
+    "40.46745,-3.68461",
+    "Biblioteca Dámaso Alonso",
+    4822
+   ],
+   [
+    1,
+    154,
+    "40.44921,-3.67555",
+    "Auditorio Parque de Berlín",
+    4824
+   ],
+   [
+    1,
+    432,
+    "40.46274,-3.67428",
+    "Centro de Día Palmito",
+    4826
+   ],
+   [
+    1,
+    2365.94,
+    "40.48272,-3.67531",
+    "Pastora Imperio (C/ Pastora Imperio 4)",
+    4827
+   ],
+   [
+    2,
+    5500,
+    "40.46542,-3.66907",
+    "CP Arquitecto Gaudí",
+    4864
+   ],
+   [
+    2,
+    3080,
+    "40.46423,-3.66913",
+    "CP Isaac Albéniz",
+    4865
+   ],
+   [
+    2,
+    3520,
+    "40.45954,-3.67954",
+    "CP San Juan de la Cruz",
+    4866
+   ],
+   [
+    2,
+    3960,
+    "40.44368,-3.67355",
+    "CP Luis Bello",
+    4869
+   ],
+   [
+    2,
+    4620,
+    "40.45122,-3.66772",
+    "CP Padre Poveda",
+    4872
+   ],
+   [
+    2,
+    3300,
+    "40.43970,-3.68162",
+    "CP Patriarca Obispo Eijo Garay",
+    4874
+   ],
+   [
+    2,
+    5940,
+    "40.44463,-3.67862",
+    "CP Pintor Rosales",
+    4876
+   ],
+   [
+    2,
+    9495,
+    "40.44209,-3.68615",
+    "CP Ramiro de Maeztu",
+    4877
+   ],
+   [
+    2,
+    5290,
+    "40.46092,-3.67032",
+    "E.I. El Sol",
+    4880
+   ],
+   [
+    2,
+    8150,
+    null,
+    "Servicios itinerantes en todos los colegios",
+    4882
+   ],
+   [
+    2,
+    545,
+    null,
+    "Bolsa anual necesidades eventuales",
+    4885
+   ],
+   [
+    2,
+    7504,
+    "40.44490,-3.67808",
+    "Oficina del Distrito",
+    5053
+   ],
+   [
+    2,
+    1915,
+    "40.44490,-3.67808",
+    "CS-C Luis Gonzaga",
+    5055
+   ],
+   [
+    2,
+    13960,
+    "40.44834,-3.67620",
+    "CC Nicolás Salmerón",
+    5057
+   ],
+   [
+    2,
+    3365,
+    "40.44477,-3.66919",
+    "CSS Santa Hortensia/CM",
+    5060
+   ],
+   [
+    2,
+    1275,
+    "40.48106,-3.68487",
+    "CAM Hogar Castilla",
+    5062
+   ],
+   [
+    2,
+    1280,
+    "40.46745,-3.68461",
+    "Biblioteca Dámaso Alonso",
+    5064
+   ],
+   [
+    2,
+    50,
+    "40.44921,-3.67555",
+    "Auditorio Parque de Berlín",
+    5065
+   ],
+   [
+    2,
+    1295,
+    "40.46274,-3.67428",
+    "CD Juan Pablo II",
+    5066
+   ],
+   [
+    2,
+    1830,
+    "40.46089,-3.67007",
+    "CS Socio Comunitario Colonias Históricas",
+    5068
+   ],
+   [
+    2,
+    3965,
+    "40.48272,-3.67531",
+    "CC Pastora Imperio",
+    5070
+   ],
+   [
+    2,
+    1693,
+    null,
+    "Servicios itinerantes en todos los edificios",
+    5073
+   ],
+   [
+    3,
+    5205,
+    "40.44490,-3.67808",
+    "CS-C Luis Gonzaga",
+    5055
+   ],
+   [
+    3,
+    16005,
+    "40.44834,-3.67620",
+    "CC Nicolás Salmerón",
+    5057
+   ],
+   [
+    3,
+    4215,
+    "40.44477,-3.66919",
+    "CSS Santa Hortensia/CM",
+    5060
+   ],
+   [
+    3,
+    3745,
+    "40.48106,-3.68487",
+    "CAM Hogar Castilla",
+    5062
+   ],
+   [
+    3,
+    4215,
+    "40.48272,-3.67531",
+    "CC Pastora Imperio",
+    5070
+   ],
+   [
+    3,
+    220,
+    null,
+    "Servicios itinerantes en todos los edificios",
+    5073
+   ]
+  ],
+  "medida_lote": {
+   "1": "m² construidos de cada edificio (anexo IV del pliego)",
+   "2": "horas anuales de limpieza de cada edificio (anexo IV del pliego)",
+   "3": "horas anuales de conserjería de cada edificio (anexo IV del pliego)"
+  }
+ },
+ "300/2024/00663": {
+  "modo": "manual",
+  "doc": "300_2024_00663__ppt0.txt",
+  "medida": "horas de limpieza de cada centro (anexo III del pliego): horas diarias en colegios; horas al año en el lote 2, calculadas con días por semana, sábados, domingos y festivos",
+  "filas": [
+   [
+    1,
+    52,
+    "40.37259,-3.70125",
+    "CEIP Ciudad de Jaén",
+    2135
+   ],
+   [
+    1,
+    22,
+    "40.36931,-3.70514",
+    "CEIP Gloria Fuertes",
+    2154
+   ],
+   [
+    1,
+    36,
+    "40.37104,-3.69687",
+    "CEIP Joan Miró",
+    2161
+   ],
+   [
+    1,
+    32,
+    "40.38811,-3.71038",
+    "CEIP Jorge Manrique",
+    2176
+   ],
+   [
+    1,
+    27,
+    "40.38904,-3.70477",
+    "CEIP Juan Sebastián Elcano",
+    2197
+   ],
+   [
+    1,
+    21,
+    "40.38716,-3.69961",
+    "CEIP Marcelo Usera",
+    2214
+   ],
+   [
+    1,
+    41,
+    "40.37195,-3.71052",
+    "CEIP Meseta de Orcasitas",
+    2224
+   ],
+   [
+    1,
+    25,
+    "40.38020,-3.69825",
+    "CEIP Fuencisla",
+    2237
+   ],
+   [
+    1,
+    26,
+    "40.37893,-3.71584",
+    "CEIP Pradolongo",
+    2247
+   ],
+   [
+    1,
+    30,
+    "40.36794,-3.71940",
+    "CEIP Puerto Rico",
+    2263
+   ],
+   [
+    1,
+    39,
+    "40.37044,-3.68993",
+    "CEIP República de Brasil",
+    2271
+   ],
+   [
+    1,
+    39,
+    "40.38358,-3.71363",
+    "CEIP República de Venezuela",
+    2295
+   ],
+   [
+    1,
+    32,
+    null,
+    "Especialistas (todos los colegios)",
+    2313
+   ],
+   [
+    1,
+    8,
+    null,
+    "Encargado",
+    2317
+   ],
+   [
+    2,
+    3878,
+    "40.36806,-3.70012",
+    "CM Orcasur",
+    2353
+   ],
+   [
+    2,
+    4264,
+    "40.38582,-3.71518",
+    "CSS San Filiberto",
+    2368
+   ],
+   [
+    2,
+    2968,
+    "40.37020,-3.71105",
+    "CM Bringas",
+    2375
+   ],
+   [
+    2,
+    7102,
+    "40.36631,-3.69167",
+    "CISS Loyola de Palacio",
+    2390
+   ],
+   [
+    2,
+    2240,
+    "40.38010,-3.71762",
+    "CM Zofío",
+    2402
+   ],
+   [
+    2,
+    1824,
+    "40.38320,-3.70162",
+    "CM Evangelios",
+    2422
+   ],
+   [
+    2,
+    2032,
+    "40.36775,-3.71634",
+    "CM Arturo Pajuelo",
+    2435
+   ],
+   [
+    2,
+    7280,
+    "40.38239,-3.71086",
+    "JMD Usera",
+    2446
+   ],
+   [
+    2,
+    780,
+    null,
+    "CAI Zofío",
+    2453
+   ],
+   [
+    2,
+    2340,
+    "40.38627,-3.70007",
+    "CC Cánovas del Castillo",
+    2460
+   ],
+   [
+    2,
+    3640,
+    "40.36969,-3.70812",
+    "CC Meseta de Orcasitas",
+    2477
+   ],
+   [
+    2,
+    2340,
+    "40.36677,-3.70114",
+    "CC Orcasur",
+    2489
+   ],
+   [
+    2,
+    2080,
+    "40.36677,-3.70114",
+    "Biblioteca Gabriel García Márquez",
+    2498
+   ],
+   [
+    2,
+    1950,
+    "40.37116,-3.69274",
+    "Biblioteca San Fermín",
+    2503
+   ],
+   [
+    2,
+    4164,
+    null,
+    "Centro sin nombre en la tabla (L-V, sábados, domingos y festivos)",
+    2519
+   ],
+   [
+    2,
+    6240,
+    null,
+    "Centro Juvenil Pipo Velasco",
+    2526
+   ],
+   [
+    2,
+    368,
+    null,
+    "Fila sin nombre",
+    2538
+   ],
+   [
+    2,
+    1560,
+    "40.37165,-3.69206",
+    "CC San Fermín",
+    2542
+   ],
+   [
+    2,
+    1300,
+    "40.38111,-3.71115",
+    "CC Usera I",
+    2549
+   ],
+   [
+    2,
+    780,
+    "40.38430,-3.70907",
+    "CC Usera II",
+    2556
+   ],
+   [
+    2,
+    1248,
+    "40.36902,-3.71021",
+    "Espacio de Igualdad",
+    2560
+   ],
+   [
+    2,
+    8320,
+    null,
+    "Cristaleros / especialistas",
+    2574
+   ],
+   [
+    2,
+    2496,
+    null,
+    "Encargado",
+    2578
+   ]
+  ]
+ },
+ "300/2024/00418": {
+  "modo": "manual",
+  "doc": "300_2024_00418__ppt0.txt",
+  "medida": "horas anuales de limpieza de cada centro (anexo del pliego; laborables más festivos)",
+  "filas": [
+   [
+    1,
+    13680,
+    "40.40555,-3.71457",
+    "CEIP Joaquín Costa",
+    1714
+   ],
+   [
+    1,
+    5760,
+    "40.40481,-3.70392",
+    "CEIP Legado Crespo",
+    1748
+   ],
+   [
+    1,
+    9360,
+    "40.40558,-3.69140",
+    "CEIP Menéndez Pelayo",
+    1770
+   ],
+   [
+    1,
+    10800,
+    "40.39428,-3.69347",
+    "CEIP Miguel de Unamuno",
+    1807
+   ],
+   [
+    1,
+    12240,
+    "40.39745,-3.67835",
+    "CEIP Plácido Domingo",
+    1833
+   ],
+   [
+    1,
+    6480,
+    "40.40213,-3.70317",
+    "CEIP San Eugenio y San Isidro",
+    1869
+   ],
+   [
+    1,
+    13680,
+    "40.39224,-3.68815",
+    "CEIP Tirso de Molina",
+    1891
+   ],
+   [
+    1,
+    6480,
+    "40.40107,-3.71586",
+    "CEIP Tomás Bretón",
+    1929
+   ],
+   [
+    1,
+    5520,
+    "40.41037,-3.72049",
+    "CEIP Marqués de Marcenado",
+    1954
+   ],
+   [
+    2,
+    3172,
+    "40.40762,-3.71738",
+    "CDM Marqués de Samaranch",
+    2002
+   ],
+   [
+    2,
+    312,
+    null,
+    "CDM La Fundición",
+    2042
+   ],
+   [
+    2,
+    110,
+    null,
+    "Piscina Peñuelas",
+    2070
+   ],
+   [
+    2,
+    21268,
+    null,
+    "Casa del Reloj (varias dependencias: Junta, servicios sociales, centro cultural, Buhardilla, Lonja, Nave de Terneras)",
+    2117
+   ],
+   [
+    2,
+    12896,
+    "40.40242,-3.69544",
+    "Dotacional Integrado Arganzuela",
+    2152
+   ],
+   [
+    2,
+    4628,
+    null,
+    "Nuevas dependencias",
+    2176
+   ],
+   [
+    2,
+    2392,
+    "40.40004,-3.70745",
+    "Biblioteca Pío Baroja",
+    2216
+   ],
+   [
+    2,
+    2470,
+    "40.40242,-3.69544",
+    "Centro de Mayores Luca de Tena",
+    2240
+   ],
+   [
+    2,
+    11440,
+    "40.39402,-3.69705",
+    "Centro de Alzheimer y CSS José de Villarreal",
+    2279
+   ],
+   [
+    2,
+    728,
+    null,
+    "Salas de lectura C/ Villadelprado",
+    2306
+   ],
+   [
+    2,
+    13000,
+    "40.38937,-3.68844",
+    "Centro Intergeneracional Ouka Leele",
+    2345
+   ]
+  ]
+ },
+ "300/2018/00448": {
+  "modo": "manual",
+  "doc": "300_2018_00448__ppt0.txt",
+  "cats": [
+   "limpieza"
+  ],
+  "medida": "horas anuales de limpieza de cada centro (lote 2 del contrato integral, anexo I: «TOTAL HORAS» de cada centro)",
+  "nota": "El expediente es el lote 2 (limpieza) del contrato integral de 2018; los datos de contratación lo clasificaban como mantenimiento.",
+  "filas": [
+   [
+    "",
+    4044,
+    "40.47291,-3.69934",
+    "CEIP Felipe II",
+    6284
+   ],
+   [
+    "",
+    5688,
+    "40.45248,-3.70296",
+    "CEIP Jaime Vera",
+    6331
+   ],
+   [
+    "",
+    1948,
+    "40.46328,-3.70323",
+    "CEIP Juan Ramón Jiménez",
+    6374
+   ],
+   [
+    "",
+    4700,
+    "40.46694,-3.69389",
+    "CEIP Pío XII",
+    6431
+   ],
+   [
+    "",
+    4200,
+    "40.45243,-3.71135",
+    "CEIP Doctor Federico Rubio",
+    6483
+   ],
+   [
+    "",
+    5758,
+    "40.46160,-3.69420",
+    "CEIP José Ortega y Gasset",
+    6548
+   ],
+   [
+    "",
+    3928,
+    "40.45625,-3.71151",
+    "CEIP Ignacio Zuloaga",
+    6586
+   ],
+   [
+    "",
+    2796,
+    "40.45908,-3.70025",
+    "CC Tetuán",
+    6681
+   ],
+   [
+    "",
+    1964,
+    "40.44864,-3.70451",
+    "CC Espronceda",
+    6731
+   ],
+   [
+    "",
+    5728,
+    "40.46901,-3.69760",
+    "CC Eduardo Úrculo",
+    6797
+   ],
+   [
+    "",
+    1820,
+    "40.46903,-3.69766",
+    "Biblioteca María Zambrano",
+    6839
+   ],
+   [
+    "",
+    3500,
+    "40.45750,-3.71054",
+    "Biblioteca Vázquez Montalbán",
+    6885
+   ],
+   [
+    "",
+    6712,
+    "40.46348,-3.69771",
+    "CM La Remonta",
+    6974
+   ],
+   [
+    "",
+    3869,
+    "40.45399,-3.70929",
+    "CM Leñeros",
+    7016
+   ],
+   [
+    "",
+    3274,
+    "40.45404,-3.70466",
+    "CM Pamplona",
+    7067
+   ],
+   [
+    "",
+    7122,
+    "40.45457,-3.70530",
+    "Centro de Día Pamplona",
+    7107
+   ],
+   [
+    "",
+    4348,
+    "40.45406,-3.70937",
+    "Centro de Día Leñeros",
+    7147
+   ],
+   [
+    "",
+    1488,
+    "40.46350,-3.69738",
+    "Centro de Día La Remonta",
+    7182
+   ],
+   [
+    "",
+    2028,
+    "40.47320,-3.69408",
+    "Centro Socio Comunitario Josefa Amar",
+    7205
+   ],
+   [
+    "",
+    2868,
+    null,
+    "CSS María Zayas",
+    7247
+   ],
+   [
+    "",
+    2688,
+    "40.47320,-3.69408",
+    "CSS Vicente Ferrer",
+    7273
+   ],
+   [
+    "",
+    216,
+    "40.45928,-3.70211",
+    "CDM Playa Victoria",
+    7339
+   ],
+   [
+    "",
+    216,
+    "40.46513,-3.69282",
+    "CDM Triángulo de Oro",
+    7365
+   ],
+   [
+    "",
+    4784,
+    null,
+    "Instalaciones deportivas elementales (varias)",
+    7405
+   ],
+   [
+    "",
+    3096,
+    null,
+    "Datos totales IIDD",
+    7495
+   ],
+   [
+    "",
+    6092,
+    "40.46512,-3.69369",
+    "Junta de Distrito y ampliación",
+    7534
+   ],
+   [
+    "",
+    1444,
+    "40.46571,-3.69404",
+    "Línea Madrid",
+    7574
+   ],
+   [
+    "",
+    850,
+    null,
+    "Varios usos",
+    7593
+   ]
+  ]
+ },
+ "300/2022/00589": {
+  "modo": "manual",
+  "doc": "300_2022_00589__otro1.txt",
+  "medida": "horas anuales de limpieza de cada centro (anexo II del contrato: «TOTAL HORAS» de cada centro)",
+  "filas": [
+   [
+    "",
+    4180,
+    "40.47291,-3.69934",
+    "CEIP Felipe II",
+    1214
+   ],
+   [
+    "",
+    9028,
+    "40.45248,-3.70296",
+    "CEIP Jaime Vera",
+    1262
+   ],
+   [
+    "",
+    2916,
+    "40.46328,-3.70323",
+    "CEIP Juan Ramón Jiménez",
+    1315
+   ],
+   [
+    "",
+    4968,
+    "40.46694,-3.69389",
+    "CEIP Pío XII",
+    1361
+   ],
+   [
+    "",
+    4288,
+    "40.45243,-3.71135",
+    "CEIP Doctor Federico Rubio",
+    1423
+   ],
+   [
+    "",
+    5846,
+    "40.46160,-3.69420",
+    "CEIP José Ortega y Gasset",
+    1477
+   ],
+   [
+    "",
+    4456,
+    "40.45625,-3.71151",
+    "CEIP Ignacio Zuloaga",
+    1529
+   ],
+   [
+    "",
+    2148,
+    "40.45908,-3.70025",
+    "CC Tetuán",
+    1620
+   ],
+   [
+    "",
+    1915,
+    "40.44864,-3.70451",
+    "CC Espronceda",
+    1689
+   ],
+   [
+    "",
+    6920,
+    "40.46901,-3.69760",
+    "CC Eduardo Úrculo",
+    1760
+   ],
+   [
+    "",
+    2080,
+    "40.46903,-3.69766",
+    "Biblioteca María Zambrano",
+    1792
+   ],
+   [
+    "",
+    3620,
+    "40.45750,-3.71054",
+    "Biblioteca Vázquez Montalbán",
+    1824
+   ],
+   [
+    "",
+    5528,
+    "40.46348,-3.69771",
+    "CM La Remonta",
+    1908
+   ],
+   [
+    "",
+    3638,
+    "40.45399,-3.70929",
+    "CM Leñeros",
+    1955
+   ],
+   [
+    "",
+    2884,
+    "40.45404,-3.70466",
+    "CM Pamplona",
+    2014
+   ],
+   [
+    "",
+    6792,
+    "40.45457,-3.70530",
+    "Centro de Día Pamplona",
+    2049
+   ],
+   [
+    "",
+    4348,
+    "40.45406,-3.70937",
+    "Centro de Día Leñeros",
+    2082
+   ],
+   [
+    "",
+    1488,
+    "40.46350,-3.69738",
+    "Centro de Día La Remonta",
+    2116
+   ],
+   [
+    "",
+    2940,
+    "40.47320,-3.69408",
+    "Centro Socio Comunitario Josefa Amar",
+    2149
+   ],
+   [
+    "",
+    4052,
+    "40.45603,-3.70035",
+    "CSS María Zayas (edificio San Enrique, 1ª planta)",
+    2189
+   ],
+   [
+    "",
+    2688,
+    "40.47320,-3.69408",
+    "CSS Vicente Ferrer",
+    2219
+   ],
+   [
+    "",
+    3792,
+    "40.45603,-3.70035",
+    "Casa de Familias (edificio San Enrique, 2ª planta)",
+    2273
+   ],
+   [
+    "",
+    198,
+    "40.45928,-3.70211",
+    "CDM Playa Victoria",
+    2325
+   ],
+   [
+    "",
+    198,
+    "40.46513,-3.69282",
+    "CDM Triángulo de Oro",
+    2348
+   ],
+   [
+    "",
+    6240,
+    null,
+    "Instalaciones deportivas elementales (varias)",
+    2389
+   ],
+   [
+    "",
+    5436,
+    null,
+    "Casa de Baños + Centro de Igualdad + Centro de Atención Social a Mujeres",
+    2476
+   ],
+   [
+    "",
+    8328,
+    "40.46512,-3.69369",
+    "Junta de Distrito y ampliación",
+    2518
+   ],
+   [
+    "",
+    1444,
+    "40.46571,-3.69404",
+    "Línea Madrid",
+    2549
+   ],
+   [
+    "",
+    850,
+    null,
+    "Varios usos",
+    2568
+   ]
+  ]
+ },
+ "300/2024/01123": {
+  "modo": "manual",
+  "doc": "300_2024_01123__otro1.txt",
+  "medida": "horas anuales de limpieza de cada centro (estudio económico: «TOTAL CENTRO»)",
+  "filas": [
+   [
+    1,
+    4830,
+    "40.37984,-3.77645",
+    "CEIP Alcalde de Móstoles",
+    303
+   ],
+   [
+    1,
+    5460,
+    "40.39744,-3.75539",
+    "CEIP Amadeo Vives",
+    331
+   ],
+   [
+    1,
+    4158,
+    "40.40763,-3.74987",
+    "CEIP Bolivia",
+    352
+   ],
+   [
+    1,
+    4620,
+    "40.38398,-3.77890",
+    "CEIP Ciudad de Badajoz",
+    374
+   ],
+   [
+    1,
+    5208,
+    "40.38550,-3.75599",
+    "CEIP Costa Rica",
+    398
+   ],
+   [
+    1,
+    7398,
+    "40.39509,-3.76141",
+    "CEIP Cuba",
+    422
+   ],
+   [
+    1,
+    7308,
+    "40.41092,-3.72340",
+    "CEIP Ermita del Santo",
+    444
+   ],
+   [
+    1,
+    4326,
+    "40.41119,-3.72779",
+    "CEIP Francisco de Goya",
+    468
+   ],
+   [
+    1,
+    5040,
+    "40.39414,-3.77930",
+    "CEIP Gonzalo Fernández de Córdoba",
+    489
+   ],
+   [
+    1,
+    2898,
+    null,
+    "CEIP Hermanos Pinzón (calle Calamón)",
+    512
+   ],
+   [
+    1,
+    2898,
+    "40.39858,-3.76880",
+    "CEIP Hermanos Pinzón (calle Azor)",
+    533
+   ],
+   [
+    1,
+    10338,
+    "40.39118,-3.75128",
+    "CEIP Hernán Cortés",
+    557
+   ],
+   [
+    1,
+    4620,
+    "40.40564,-3.73838",
+    "CEIP Joaquín Dicenta",
+    579
+   ],
+   [
+    1,
+    7860,
+    "40.37927,-3.78301",
+    "CEIP Jovellanos",
+    603
+   ],
+   [
+    1,
+    6216,
+    "40.38889,-3.76202",
+    "CEIP La Latina",
+    625
+   ],
+   [
+    1,
+    5460,
+    "40.38135,-3.77173",
+    "CEIP Bartolomé Cossío (primaria)",
+    648
+   ],
+   [
+    1,
+    3990,
+    "40.38135,-3.77173",
+    "CEIP Bartolomé Cossío (infantil)",
+    671
+   ],
+   [
+    1,
+    7770,
+    "40.40242,-3.74105",
+    "CEIP Nuestra Señora del Lucero",
+    694
+   ],
+   [
+    1,
+    6258,
+    "40.39083,-3.76100",
+    "CEIP Parque Aluche",
+    716
+   ],
+   [
+    1,
+    6552,
+    "40.39347,-3.74123",
+    "CEIP República del Uruguay",
+    738
+   ],
+   [
+    1,
+    6468,
+    "40.39377,-3.75278",
+    "CEIP Fray Pedro Ponce de León",
+    761
+   ],
+   [
+    1,
+    640,
+    null,
+    "Bolsa de horas",
+    823
+   ],
+   [
+    2,
+    2508,
+    null,
+    "IDB Arjona / Barrio Goya / Castroserna (varias)",
+    848
+   ],
+   [
+    2,
+    2112,
+    null,
+    "IDB Concejal Gabriel Fernández / softball / Trombones (varias)",
+    870
+   ],
+   [
+    2,
+    1672,
+    "40.39747,-3.74386",
+    "IDB Los Cármenes",
+    894
+   ],
+   [
+    2,
+    2508,
+    null,
+    "IDB Óscar Jesús / Parque Cerro Almodóvar / Parque Las Cruces (varias)",
+    919
+   ],
+   [
+    2,
+    1768,
+    "40.39676,-3.75754",
+    "IDB Parque Aluche",
+    941
+   ],
+   [
+    2,
+    4056,
+    null,
+    "IDB Anselmo Lorenzo / Ciudad de Méjico / otras (varias)",
+    982
+   ],
+   [
+    2,
+    8008,
+    null,
+    "IDB Parque Boadilla / Caramuel / Las Cruces II y otras (varias)",
+    1087
+   ],
+   [
+    2,
+    1352,
+    "40.38494,-3.76420",
+    "Sala de exposiciones y auditorio Paco de Lucía",
+    1104
+   ],
+   [
+    2,
+    6032,
+    "40.39574,-3.75662",
+    "CC Fernando de los Ríos",
+    1122
+   ],
+   [
+    2,
+    2444,
+    "40.40159,-3.74911",
+    "CC y CSC José Luis Sampedro",
+    1141
+   ],
+   [
+    2,
+    2392,
+    "40.37882,-3.78188",
+    "CC Miguel Hernández",
+    1158
+   ],
+   [
+    2,
+    3172,
+    "40.39950,-3.77502",
+    "CC Sara Montiel",
+    1175
+   ],
+   [
+    2,
+    3484,
+    "40.40647,-3.73270",
+    "CC Rosario de Acuña",
+    1193
+   ],
+   [
+    2,
+    4316,
+    "40.38301,-3.77996",
+    "CSC Almirante Churruca",
+    1211
+   ],
+   [
+    2,
+    2028,
+    "40.40732,-3.74747",
+    "CSC El Greco",
+    1227
+   ],
+   [
+    2,
+    2028,
+    "40.37965,-3.76595",
+    "CSC Latina",
+    1246
+   ],
+   [
+    2,
+    1872,
+    null,
+    "Salas de lectura Cayetano Pando, Maqueda y Paseo de Extremadura",
+    1263
+   ],
+   [
+    2,
+    1144,
+    null,
+    "Sala de lectura Cebreros y sede del Consejo Territorial",
+    1283
+   ],
+   [
+    2,
+    780,
+    "40.39421,-3.74469",
+    "Auditorio Cerro Almodóvar",
+    1300
+   ],
+   [
+    2,
+    364,
+    "40.39268,-3.75936",
+    "Auditorio Parque Aluche",
+    1318
+   ],
+   [
+    2,
+    3640,
+    "40.40176,-3.74915",
+    "CM Lucero",
+    1337
+   ],
+   [
+    2,
+    2912,
+    "40.39898,-3.76759",
+    "CM Campamento",
+    1354
+   ],
+   [
+    2,
+    3172,
+    "40.40932,-3.73013",
+    "CM Cerro Bermejo",
+    1371
+   ],
+   [
+    2,
+    4212,
+    "40.37975,-3.76913",
+    "CM Ciudad de Méjico",
+    1391
+   ],
+   [
+    2,
+    5772,
+    "40.38057,-3.76572",
+    "CSS Fuerte de Navidad",
+    1408
+   ],
+   [
+    2,
+    2444,
+    "40.39764,-3.74124",
+    "CSS C/ Gallur",
+    1425
+   ],
+   [
+    2,
+    3068,
+    "40.39118,-3.75128",
+    "CSS Los Yébenes",
+    1443
+   ],
+   [
+    2,
+    2236,
+    null,
+    "Casa de Campo",
+    1460
+   ],
+   [
+    2,
+    1664,
+    "40.39694,-3.74139",
+    "Gallur (centro de día)",
+    1477
+   ],
+   [
+    2,
+    3328,
+    "40.41490,-3.72638",
+    "Centro de Alzheimer San Crispín",
+    1496
+   ],
+   [
+    2,
+    3328,
+    "40.39922,-3.74166",
+    "Gertrudis de la Fuente (C/ Alhambra)",
+    1513
+   ],
+   [
+    2,
+    4212,
+    "40.37870,-3.76400",
+    "Mayores Margarita Salas",
+    1530
+   ]
+  ]
+ },
+ "300/2024/01270": {
+  "modo": "manual",
+  "doc": "300_2024_01270__ppt0.txt",
+  "medida": "horas anuales de limpieza de cada centro (anexo II del pliego, columna «TOTAL HORAS»)",
+  "filas": [
+   [
+    1,
+    2253,
+    null,
+    "Todos los centros (encargado)",
+    2040
+   ],
+   [
+    1,
+    7083,
+    "40.41586,-3.66521",
+    "CEIP Ciudad de Roma (C/ Juan Esplandiú)",
+    2041
+   ],
+   [
+    1,
+    6755,
+    "40.41455,-3.67435",
+    "CEIP Escuelas Aguirre (C/ Pío Baroja 4)",
+    2042
+   ],
+   [
+    1,
+    4657,
+    "40.40473,-3.67933",
+    "CEIP Francisco de Quevedo (C/ Granada 16)",
+    2043
+   ],
+   [
+    1,
+    370,
+    "40.41386,-3.67698",
+    "CEE Hospital del Niño Jesús (Av. Menéndez Pelayo)",
+    2044
+   ],
+   [
+    1,
+    6864,
+    "40.40084,-3.67377",
+    "CEIP José Calvo Sotelo (Av. Ciudad de Barcelona)",
+    2045
+   ],
+   [
+    1,
+    4613,
+    "40.41902,-3.67787",
+    "CEIP Ntra. Sra. de la Almudena (C/ Lope de Rueda)",
+    2046
+   ],
+   [
+    1,
+    5628,
+    "40.40651,-3.68134",
+    "CEIP San Isidoro (C/ Fuenterrabía)",
+    2047
+   ],
+   [
+    1,
+    71,
+    null,
+    "CDMs e IDM",
+    2048
+   ],
+   [
+    2,
+    1150,
+    null,
+    "Fila sin nombre",
+    2118
+   ],
+   [
+    2,
+    17092.7,
+    "40.40219,-3.67728",
+    "JMD Retiro y Centro Clara Campoamor",
+    2119
+   ],
+   [
+    2,
+    3527.43,
+    null,
+    "Centro de Servicios Sociales",
+    2120
+   ],
+   [
+    2,
+    3209.62,
+    "40.41342,-3.67456",
+    "CM Pío Baroja",
+    2121
+   ],
+   [
+    2,
+    4977.62,
+    "40.40150,-3.67565",
+    "CM Pérez Galdós",
+    2122
+   ],
+   [
+    2,
+    3547.62,
+    "40.41335,-3.66626",
+    "CM Carmen Martín Gaite (C/ Pez Austral)",
+    2128
+   ],
+   [
+    2,
+    1227.58,
+    "40.40255,-3.66809",
+    "Centro de Igualdad Elena Arnedo",
+    2129
+   ],
+   [
+    2,
+    3171.08,
+    "40.39701,-3.67354",
+    "Centro de Día Luis Peidró",
+    2130
+   ],
+   [
+    2,
+    3651.62,
+    null,
+    "Centro Integrado de Retiro",
+    2131
+   ],
+   [
+    2,
+    5946.35,
+    "40.41907,-3.68405",
+    "CC Casa de Vacas",
+    2133
+   ],
+   [
+    2,
+    1845.08,
+    "40.41818,-3.67738",
+    "CC Mercado de Ibiza",
+    2134
+   ],
+   [
+    2,
+    6063.35,
+    "40.39702,-3.67388",
+    "CC Las Californias",
+    2135
+   ],
+   [
+    2,
+    135.81,
+    "40.39702,-3.67388",
+    "La Corrala (CC Las Californias)",
+    2136
+   ],
+   [
+    2,
+    373.58,
+    null,
+    "Aula ambiental La Cabaña del Retiro",
+    2138
+   ],
+   [
+    2,
+    373.58,
+    null,
+    "CMM Cabaña",
+    2139
+   ],
+   [
+    2,
+    12,
+    null,
+    "El Templete Parque Roma",
+    2140
+   ],
+   [
+    2,
+    22728,
+    null,
+    "Evacuatorios",
+    2141
+   ]
+  ]
+ },
+ "300/2024/00912": {
+  "modo": "linea",
+  "doc": "300_2024_00912__otro1.txt",
+  "medida": "m² construidos de cada edificio (estudio económico: lote 1 edificios, lote 2 instalaciones deportivas, lote 3 colegios y escuelas infantiles)",
+  "tablas": [
+   {
+    "desde": 228,
+    "hasta": 291,
+    "lote": "1"
+   },
+   {
+    "desde": 309,
+    "hasta": 607,
+    "lote": "2"
+   },
+   {
+    "desde": 614,
+    "hasta": 662,
+    "lote": "3"
+   }
+  ],
+  "total_lote": {
+   "1": 39765.73,
+   "2": 26978,
+   "3": 92157.75
+  },
+  "anular": [
+   "Motilla del Palancar, 13",
+   "Agustín de Iturbe",
+   "Andorra nº 30",
+   "Andorra nº 28",
+   "Camino de Montoro",
+   "Píceas",
+   "CENTRO DE MAYORES HUERTA",
+   "Secundino Zuazo, 34"
+  ],
+  "fijar": {
+   "Benita Ávila, 23": "40.46551,-3.65059",
+   "5 CENTRO CULTURAL HUERTA DE LA SALUD": "40.47485,-3.64554",
+   "BIBLIOTECA HUERTA DE LA SALUD": "40.47572,-3.64667",
+   "SILO HUERTA DE LA SALUD": "40.47508,-3.64548",
+   "Javier del Quinto, 12": "40.46655,-3.64221",
+   "NTRA. SRA. DE LA MERCED": "40.46033,-3.64860",
+   "JUNTA DE DISTRITO": "40.46300,-3.65715",
+   "AUDITORIO PILAR": "40.46334,-3.65729",
+   "Estación Hortaleza nº 11": "40.47873,-3.65272",
+   "Motilla del Palancar, 19": "40.46635,-3.63323",
+   "Virgen del Cortijo": "40.48725,-3.66002"
+  },
+  "filas": [
+   [
+    3,
+    1443.0,
+    "40.49552,-3.65574",
+    "E.I. Ana de Austria",
+    664
+   ],
+   [
+    3,
+    1485.72,
+    "40.47868,-3.63023",
+    "E.I. Doña Francisquita",
+    665
+   ],
+   [
+    3,
+    2118.66,
+    "40.46280,-3.63444",
+    "E.I. Gran Vía",
+    666
+   ],
+   [
+    3,
+    1642.0,
+    "40.48584,-3.65180",
+    "E.I. La Ardilla",
+    668
+   ],
+   [
+    3,
+    2170.0,
+    "40.49497,-3.62018",
+    "E.I. Las Pléyades",
+    671
+   ]
+  ]
+ },
+ "300/2024/01392": {
+  "modo": "manual",
+  "doc": "300_2024_01392__otro1.txt",
+  "medida": "horas anuales de limpieza de cada centro (estudio económico, tablas de horas por edificio de los lotes 1 y 2)",
+  "filas": [
+   [
+    1,
+    7270,
+    "40.43334,-3.61205",
+    "CEIP Alberto Alcocer",
+    150
+   ],
+   [
+    1,
+    8194,
+    "40.42154,-3.60724",
+    "CEIP Álvaro de Bazán",
+    150
+   ],
+   [
+    1,
+    4806,
+    "40.43011,-3.62883",
+    "CEIP Carmen Cabezuelo",
+    150
+   ],
+   [
+    1,
+    6302,
+    "40.44724,-3.59803",
+    "CEIP Ciudad Pegaso",
+    150
+   ],
+   [
+    1,
+    5598,
+    "40.42400,-3.61168",
+    "CEIP El Sol",
+    150
+   ],
+   [
+    1,
+    8238,
+    "40.42714,-3.60258",
+    "CEIP Julián Marías",
+    150
+   ],
+   [
+    1,
+    5114,
+    "40.43754,-3.60841",
+    "CEIP La Alameda",
+    150
+   ],
+   [
+    1,
+    8150,
+    "40.42217,-3.61912",
+    "CEIP María Moliner",
+    150
+   ],
+   [
+    1,
+    3840,
+    "40.42217,-3.61912",
+    "CEIP María Moliner (aulas 0-3 años)",
+    150
+   ],
+   [
+    1,
+    8590,
+    "40.43062,-3.60897",
+    "CEIP Mariano José de Larra",
+    150
+   ],
+   [
+    1,
+    7622,
+    "40.44309,-3.62456",
+    "CEIP Marqués de Suanzes",
+    150
+   ],
+   [
+    1,
+    3840,
+    "40.44309,-3.62456",
+    "CEIP Marqués de Suanzes (aulas 0-3 años)",
+    150
+   ],
+   [
+    1,
+    3970,
+    "40.44848,-3.61489",
+    "CEIP Padre Coloma",
+    150
+   ],
+   [
+    1,
+    5554,
+    "40.42985,-3.61828",
+    "CEIP Ramón Mª del Valle-Inclán",
+    150
+   ],
+   [
+    1,
+    3840,
+    "40.42985,-3.61828",
+    "CEIP Valle-Inclán (aulas 0-3 años)",
+    150
+   ],
+   [
+    1,
+    5070,
+    "40.42810,-3.62478",
+    "CEIP República de Chile",
+    150
+   ],
+   [
+    1,
+    3840,
+    "40.42810,-3.62478",
+    "CEIP República de Chile (aulas 0-3 años)",
+    150
+   ],
+   [
+    1,
+    5862,
+    "40.42659,-3.61760",
+    "CEIP República de Panamá",
+    150
+   ],
+   [
+    1,
+    3840,
+    "40.42659,-3.61760",
+    "CEIP República de Panamá (aulas 0-3 años)",
+    150
+   ],
+   [
+    1,
+    7138,
+    "40.42097,-3.62106",
+    "CEIP Fundación Goyeneche",
+    150
+   ],
+   [
+    1,
+    12739,
+    null,
+    "Todos los centros (cristalero, especialista, conductor, encargado)",
+    150
+   ],
+   [
+    1,
+    1500,
+    null,
+    "Bolsa de horas",
+    150
+   ],
+   [
+    2,
+    353,
+    "40.44261,-3.61117",
+    "Auditorio Canillejas",
+    206
+   ],
+   [
+    2,
+    982,
+    "40.42998,-3.62218",
+    "Auditorio Parque El Paraíso",
+    206
+   ],
+   [
+    2,
+    2868,
+    "40.43329,-3.61057",
+    "Biblioteca José Hierro",
+    206
+   ],
+   [
+    2,
+    17102,
+    "40.42028,-3.62173",
+    "CC Antonio Machado (incluye el centro de mayores)",
+    206
+   ],
+   [
+    2,
+    3545,
+    "40.44477,-3.61291",
+    "CC Buero Vallejo",
+    206
+   ],
+   [
+    2,
+    3650,
+    "40.44683,-3.57274",
+    "CC José Luis López Vázquez",
+    206
+   ],
+   [
+    2,
+    2972,
+    "40.43666,-3.61135",
+    "CC Miguel de Cervantes",
+    206
+   ],
+   [
+    2,
+    4171,
+    null,
+    "CC Quinta de los Molinos",
+    206
+   ],
+   [
+    2,
+    3859,
+    "40.44845,-3.59810",
+    "Centro Sociocultural Pegaso",
+    206
+   ],
+   [
+    2,
+    104,
+    "40.42722,-3.60669",
+    "IDB Carlos II",
+    206
+   ],
+   [
+    2,
+    104,
+    "40.42919,-3.61826",
+    "IDB Medio Amposta",
+    206
+   ],
+   [
+    2,
+    104,
+    "40.42587,-3.60295",
+    "IDB Polígono Las Rosas",
+    206
+   ],
+   [
+    2,
+    104,
+    null,
+    "IDB Quinta de los Molinos I",
+    206
+   ],
+   [
+    2,
+    939,
+    null,
+    "Urban Zone",
+    206
+   ],
+   [
+    2,
+    5475,
+    "40.42289,-3.61924",
+    "Agencia de Empleo - Escuela de Competencias",
+    206
+   ],
+   [
+    2,
+    4171,
+    null,
+    "Centro de Nuevas Tecnologías TIC",
+    206
+   ],
+   [
+    2,
+    9646,
+    "40.43454,-3.60962",
+    "Junta Municipal",
+    206
+   ],
+   [
+    2,
+    1564,
+    "40.44532,-3.61093",
+    "Centro de Día Mora de Rubielos",
+    206
+   ],
+   [
+    2,
+    6727,
+    null,
+    "CM Canillejas + CD Esfinge (dos edificios)",
+    206
+   ],
+   [
+    2,
+    4902,
+    "40.43122,-3.62319",
+    "CM + CD Castillo de Uclés",
+    206
+   ],
+   [
+    2,
+    5423,
+    "40.44746,-3.59632",
+    "CM + CD Ciudad Pegaso",
+    206
+   ],
+   [
+    2,
+    6622,
+    null,
+    "CM Pablo Casals + CD Pablo Casals (dos edificios)",
+    206
+   ],
+   [
+    2,
+    5735,
+    "40.42613,-3.61963",
+    "CSS Luz Casanova",
+    206
+   ],
+   [
+    2,
+    4432,
+    "40.44623,-3.61236",
+    "CSS Torre Arias",
+    206
+   ],
+   [
+    2,
+    521,
+    "40.44900,-3.60692",
+    "Espacio de Igualdad Lucía Sánchez Saornil",
+    206
+   ],
+   [
+    2,
+    521,
+    null,
+    "Espacio de Inclusión",
+    206
+   ],
+   [
+    2,
+    15612,
+    null,
+    "Todos los edificios (cristalero, especialista, conductor, encargados)",
+    206
+   ],
+   [
+    2,
+    1500,
+    null,
+    "Bolsa de horas",
+    206
+   ]
+  ]
+ },
+ "300/2025/01453": {
+  "modo": "manual",
+  "doc": "300_2025_01453__ppt0.txt",
+  "medida": "m² de superficie edificada a mantener de cada equipamiento (anexo V del pliego)",
+  "filas": [
+   [
+    1,
+    4835.92,
+    "40.42985,-3.61828",
+    "CE-01 CEIP Valle-Inclán",
+    9192
+   ],
+   [
+    1,
+    4509.55,
+    "40.42659,-3.61760",
+    "CE-02 CEIP República de Panamá",
+    9192
+   ],
+   [
+    1,
+    2476.57,
+    "40.44848,-3.61489",
+    "CE-03 CEIP Padre Coloma",
+    9192
+   ],
+   [
+    1,
+    7050.3,
+    "40.43334,-3.61205",
+    "CE-04 CEIP Alberto Alcocer",
+    9192
+   ],
+   [
+    1,
+    6373.07,
+    "40.43062,-3.60897",
+    "CE-05 CEIP Mariano José de Larra",
+    9192
+   ],
+   [
+    1,
+    11505.86,
+    "40.42097,-3.62106",
+    "CE-06 CEE Fundación Goyeneche",
+    9192
+   ],
+   [
+    1,
+    5615.26,
+    "40.42217,-3.61912",
+    "CE-07 CEIP María Moliner II",
+    9192
+   ],
+   [
+    1,
+    7816.01,
+    "40.44724,-3.59803",
+    "CE-08 CEIP Ciudad Pegaso",
+    9192
+   ],
+   [
+    1,
+    10782.02,
+    "40.42714,-3.60258",
+    "CE-09 CEIP Julián Marías",
+    9192
+   ],
+   [
+    1,
+    8010.21,
+    "40.44309,-3.62456",
+    "CE-10 CEIP Marqués de Suanzes",
+    9192
+   ],
+   [
+    1,
+    10466.01,
+    "40.42400,-3.61168",
+    "CE-11 CEIP El Sol",
+    9192
+   ],
+   [
+    1,
+    7163.97,
+    "40.42810,-3.62478",
+    "CE-12 CEIP República de Chile",
+    9192
+   ],
+   [
+    1,
+    3387.78,
+    "40.43011,-3.62883",
+    "CE-13 CEIP Carmen Cabezuelo",
+    9192
+   ],
+   [
+    1,
+    6775.64,
+    "40.43754,-3.60841",
+    "CE-14 CEIP Alameda",
+    9192
+   ],
+   [
+    1,
+    10551.11,
+    "40.42154,-3.60724",
+    "CE-15 CEIP Álvaro de Bazán",
+    9192
+   ],
+   [
+    1,
+    2191.75,
+    "40.42289,-3.61924",
+    "CE-16 E.I. Hiedra",
+    9192
+   ],
+   [
+    1,
+    2741.39,
+    "40.44250,-3.58040",
+    "CE-17 E.I. Las Mercedes",
+    9192
+   ],
+   [
+    1,
+    3397.91,
+    "40.41828,-3.61627",
+    "CE-18 E.I. La del Manojo de Rosas",
+    9192
+   ],
+   [
+    1,
+    3665.5,
+    "40.44255,-3.58922",
+    "CE-19 E.I. Las Leandras",
+    9192
+   ],
+   [
+    1,
+    1971.66,
+    "40.42444,-3.60264",
+    "CE-20 E.I. La Alegría de la Huerta",
+    9192
+   ],
+   [
+    1,
+    3216.48,
+    "40.44916,-3.61021",
+    "CE-21 E.I. Las Golondrinas",
+    9192
+   ],
+   [
+    2,
+    25438.15,
+    null,
+    "ID-01 CDM San Blas",
+    9304
+   ],
+   [
+    2,
+    9795.06,
+    null,
+    "ID-29 Pabellón cubierto Las Rosas",
+    9337
+   ],
+   [
+    3,
+    12641.3,
+    "40.43454,-3.60962",
+    "ED-01 Junta Municipal",
+    9401
+   ],
+   [
+    3,
+    13167.39,
+    "40.42028,-3.62173",
+    "ED-02 CC Antonio Machado",
+    9401
+   ],
+   [
+    3,
+    3389.68,
+    "40.44477,-3.61291",
+    "ED-03 CC Buero Vallejo y biblioteca",
+    9401
+   ],
+   [
+    3,
+    3340.55,
+    "40.43329,-3.61057",
+    "ED-04 Biblioteca José Hierro",
+    9401
+   ],
+   [
+    3,
+    1861.67,
+    "40.42998,-3.62218",
+    "ED-05 Auditorio Parque El Paraíso",
+    9401
+   ],
+   [
+    3,
+    1547.6,
+    "40.44261,-3.61117",
+    "ED-06 Auditorio Parque Canillejas",
+    9401
+   ],
+   [
+    3,
+    1977.71,
+    "40.43666,-3.61135",
+    "ED-07 Casa de la Juventud Miguel de Cervantes",
+    9401
+   ],
+   [
+    3,
+    166.5,
+    null,
+    "ED-08 Espacio de Inclusión",
+    9401
+   ],
+   [
+    3,
+    591.28,
+    "40.44532,-3.61093",
+    "ED-09 Centro de Mayores Mora de Rubielos",
+    9401
+   ],
+   [
+    3,
+    165.19,
+    "40.44900,-3.60692",
+    "ED-10 Espacio de Igualdad Lucía Sánchez Saornil",
+    9401
+   ],
+   [
+    3,
+    3278.74,
+    "40.43122,-3.62319",
+    "ED-11 CM Castillo de Uclés",
+    9401
+   ],
+   [
+    3,
+    4088.76,
+    "40.44746,-3.59632",
+    "ED-12 CM Ciudad Pegaso",
+    9401
+   ],
+   [
+    3,
+    2434.04,
+    "40.44623,-3.61236",
+    "ED-13 CSS Torre Arias",
+    9401
+   ],
+   [
+    3,
+    4042.15,
+    "40.44683,-3.57274",
+    "ED-14 CC José Luis López Vázquez",
+    9401
+   ],
+   [
+    3,
+    5063.01,
+    "40.44555,-3.61089",
+    "ED-15 Centro integrado de día Esfinge",
+    9401
+   ],
+   [
+    3,
+    4783.72,
+    "40.42589,-3.62004",
+    "ED-16 Centro mixto y de SS Pablo Casals",
+    9401
+   ],
+   [
+    3,
+    2838.29,
+    "40.44845,-3.59810",
+    "ED-17 Centro deportivo y CC Ciudad Pegaso",
+    9401
+   ],
+   [
+    3,
+    1352.28,
+    null,
+    "ED-18 Espacio vecinal Montamarta",
+    9401
+   ],
+   [
+    3,
+    1748.8,
+    "40.42289,-3.61924",
+    "ED-19 Centro de empleo - Escuela de Competencias Digitales",
+    9401
+   ],
+   [
+    3,
+    647.0,
+    null,
+    "ED-20 Casa del Reloj - Quinta de los Molinos",
+    9401
+   ],
+   [
+    3,
+    528.46,
+    null,
+    "ED-21 Centro de asociaciones San Faustino",
+    9401
+   ],
+   [
+    3,
+    2263.6,
+    "40.42613,-3.61963",
+    "ED-22 CSS Luz Casanova",
+    9401
+   ],
+   [
+    3,
+    3497.6,
+    null,
+    "ED-23 TIC San Blas Digital",
+    9401
+   ]
+  ],
+  "total_lote": {
+   "1": 124503.97,
+   "2": 36813.25,
+   "3": 75415.32
+  }
+ },
+ "300/2024/01171": {
+  "modo": "manual",
+  "doc": "300_2024_01171__ppt0.txt",
+  "medida": "horas semanales de limpieza de cada centro (anexo III del pliego)",
+  "filas": [
+   [
+    "",
+    153,
+    "40.43600,-3.63697",
+    "Junta Municipal de Ciudad Lineal",
+    2093
+   ],
+   [
+    "",
+    90,
+    "40.43645,-3.63729",
+    "Centro Cultural y Biblioteca Príncipe de Asturias",
+    2101
+   ],
+   [
+    "",
+    38,
+    "40.43645,-3.63729",
+    "Centro de Mayores Príncipe de Asturias",
+    2107
+   ],
+   [
+    "",
+    25,
+    "40.42396,-3.62858",
+    "Centro de Mayores Luis Vives",
+    2117
+   ],
+   [
+    "",
+    69,
+    "40.42396,-3.62858",
+    "CSS Luis Vives",
+    2121
+   ],
+   [
+    "",
+    96,
+    "40.42447,-3.65042",
+    "Centro Cultural La Elipa",
+    2127
+   ],
+   [
+    "",
+    39,
+    null,
+    "CSS Santa Felicidad",
+    2132
+   ],
+   [
+    "",
+    115,
+    "40.45225,-3.65803",
+    "Centro Cultural San Juan Bautista",
+    2153
+   ],
+   [
+    "",
+    29,
+    "40.45256,-3.65804",
+    "Centro de Mayores San Juan Bautista",
+    2165
+   ],
+   [
+    "",
+    84,
+    "40.42941,-3.64169",
+    "Biblioteca Pablo Neruda",
+    2170
+   ],
+   [
+    "",
+    55,
+    "40.42959,-3.64134",
+    "Centro de Mayores Ascao",
+    2175
+   ],
+   [
+    "",
+    55,
+    "40.43075,-3.63992",
+    "Centro de Día Ascao",
+    2179
+   ],
+   [
+    "",
+    40,
+    null,
+    "Biblioteca Islas Filipinas",
+    2182
+   ],
+   [
+    "",
+    39,
+    null,
+    "Centro sin nombre legible (salto de página)",
+    2198
+   ],
+   [
+    "",
+    35,
+    "40.47916,-3.66638",
+    "Centro de Mayores Carmen Laforet",
+    2204
+   ],
+   [
+    "",
+    30,
+    null,
+    "Centro de Día Carmen Laforet",
+    2208
+   ],
+   [
+    "",
+    4,
+    "40.47967,-3.66572",
+    "Auditorio Carmen Laforet",
+    2209
+   ],
+   [
+    "",
+    37,
+    "40.44030,-3.65116",
+    "Centro de Día Canal de Panamá",
+    2212
+   ],
+   [
+    "",
+    75,
+    "40.43317,-3.65187",
+    "Sala de estudios y actividades culturales Siena",
+    2217
+   ],
+   [
+    "",
+    44,
+    null,
+    "Centro sin nombre legible",
+    2220
+   ],
+   [
+    "",
+    76,
+    null,
+    "Centro Sociocultural Ciudad Lineal (José Luis de Arrese)",
+    2249
+   ],
+   [
+    "",
+    5,
+    null,
+    "Centro Sociocultural Juvenil Ciudad Lineal (Mª Teresa Sáez de Heredia)",
+    2254
+   ],
+   [
+    "",
+    20,
+    "40.44231,-3.65348",
+    "Centro de igualdad",
+    2256
+   ],
+   [
+    "",
+    43,
+    null,
+    "S.A.V.D.",
+    2258
+   ],
+   [
+    "",
+    4,
+    null,
+    "Auditorio Parque Calero",
+    2262
+   ],
+   [
+    "",
+    56,
+    "40.44071,-3.65241",
+    "Centro de Mayores Canal de Panamá",
+    2265
+   ],
+   [
+    "",
+    40,
+    "40.44071,-3.65241",
+    "CSS Canal de Panamá",
+    2269
+   ],
+   [
+    "",
+    15,
+    null,
+    "Centro de Servicios a la Ciudadanía",
+    2272
+   ],
+   [
+    "",
+    50,
+    null,
+    "Cristaleros",
+    2292
+   ],
+   [
+    "",
+    65,
+    null,
+    "Especialista",
+    2302
+   ],
+   [
+    "",
+    33.44,
+    null,
+    "Encargado (1.739 h/año)",
+    2323
+   ]
+  ]
+ },
+ "103/2026/00562": {
+  "modo": "sin",
+  "medida": "",
+  "motivo": "contrato de emergencia sin pliego publicado"
  }
 }
