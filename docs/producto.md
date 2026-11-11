@@ -1,6 +1,6 @@
 # Propuesta de producto: «Mi distrito»
 
-Estado: **propuesta, pendiente de decisiones del dueño** (ver final). Redactada por el Experto en producto del consejo (docs/consejo-revision.md).
+Estado: **fase «Ahora» publicada el 11/11/2026** (carga diferida, distrito común con `?d=`, vista Mi distrito, comparativas rediseñadas). Pendiente: decisiones 4 y 5, pliegos de los 20 distritos, partir `data.js` por distrito (la primera carga sigue siendo ~3,3 MB sin comprimir, ~0,6 MB comprimida). Redactada por el Experto en producto del consejo (docs/consejo-revision.md).
 
 ## Propuesta de valor
 «Cómo están, quién cuida y cuánto se invierte en los edificios públicos de tu distrito, comparado con Madrid, con cada cifra enlazada a su fuente oficial.»
