@@ -13,6 +13,7 @@ S=json.load(open(sys.argv[1]));R=json.load(open(sys.argv[2]))
 L=json.load(open(sys.argv[3])) if len(sys.argv)>3 else {}
 EDI=json.load(open(sys.argv[4])) if len(sys.argv)>4 else []
 RG=json.load(open(sys.argv[5])) if len(sys.argv)>5 else {}
+RP=json.load(open(sys.argv[6])) if len(sys.argv)>6 else {}  # reparto_pliegos.json (reparto_pliegos.py)
 def meses(p):
     try:return float(str(p).replace(',','.'))
     except ValueError:return None
@@ -92,9 +93,30 @@ def lote_ok(c,e):
     if re.search(r'COLEGIO|EDUCATIV|ESCUELA|DOCENTE|C\.?E\.?I\.?P',o) and not re.search(r'EDIFICIOS? Y|DEPORTIV|CENTROS? CULTURAL',o):return edu
     if re.search(r'EDIFICIOS|DEPORTIV|CULTURAL|MAYORES|SOCIALES|SEDE|JUNTA',o) and not re.search(r'COLEGIO',o):return not edu
     return True
+RD=set()
 for c in EDI:
     cd=E.cod_distrito(c['distrito'])
     if cd in (None,13):continue
+    rp=RP.get(c['exp'])
+    if rp:  # reparto leído del pliego: m² u horas de cada edificio sobre el total del lote
+        fl=[f for f in rp['filas'] if (not c['lote']) or f['lote']==c['lote']]
+        if c['lote'] and not fl and all(not f['lote'] for f in rp['filas']):fl=rp['filas']
+        tot=sum(f['peso'] for f in fl);ok=[f for f in fl if f['key'] and f['peso']>0]
+        if tot>0 and ok:
+            pct=100*sum(f['peso'] for f in ok)/tot;i=len(contratos);meses_p=sum((p['meses'] or 0) for p in c.get('prorrogas',[]))
+            contratos.append({'exp':c['exp'],'lote':c['lote'],'objeto':c['objeto'],'empresa':c['empresa'],'cats':c['cats'],'fecha':c['fecha'],'meses':c['meses'],
+              'importe':round(c['importe'],2),'ambito':'distrito','reparto':f"{rp['metodo']}; se asigna a edificios del mapa el {pct:.0f} % del importe; el {100-pct:.0f} % restante es de espacios del pliego que no están en el mapa y no se asigna a ningún edificio",'n_edif':len({f['key'] for f in ok}),'prorrogado':bool(c.get('prorrogas')),
+              'prorroga_meses':meses_p,'prorroga_importe':round(sum(p['importe'] for p in c.get('prorrogas',[])),2),'vigente':c['vigente'],'ultimo':False,
+              'url':plataforma_url(L,c['exp'],c['objeto']),'anual':c['anual'],'fin':c['fin'],'cd':cd,'sin_reparto':False})
+            sh=collections.defaultdict(float)
+            for f in ok:sh[f['key']]+=f['peso']/tot
+            for k in {f['key'] for f in fl if f['key'] and f['peso']==0}-set(sh):  # figura en el pliego sin m²/horas: sin importe
+                edif.setdefault(k,{'s':[],'anual':{},'tot_anual':0})['s'].append([i,None])
+            for k,w in sh.items():
+                d=edif.setdefault(k,{'s':[],'anual':{},'tot_anual':0});d['s'].append([i,round(c['importe']*w,2)])
+                if c['vigente'] and c['anual']:
+                    cat=c['cats'][0];d['anual'][cat]=round(d['anual'].get(cat,0)+c['anual']*w,2);d['tot_anual']=round(sum(d['anual'].values()),2)
+            DIS.add(cd);RD.add(cd);continue
     r=RG.get(c['exp'])
     if not r:continue
     ok=[e for e in r['edif'] if lote_ok(c,e)]
@@ -110,7 +132,7 @@ for c in EDI:
         d=edif.setdefault(k,{'s':[],'anual':{},'tot_anual':0})
         d['s'].append([i,None])
 for d in edif.values():d['s'].sort(key=lambda x:-(int((contratos[x[0]]['fecha'] or '0')[:4])))
-js={'generado':datetime.date.today().isoformat(),'distritos':sorted({13}|DIS),'cats':CATS,'contratos':contratos,'edificios':edif}
+js={'generado':datetime.date.today().isoformat(),'distritos':sorted({13}|DIS),'reparto_distritos':sorted({13}|RD),'cats':CATS,'contratos':contratos,'edificios':edif}
 out=E.BASE/'app'/'servicios.js'
 open(out,'w',encoding='utf-8').write('window.SERVICIOS='+json.dumps(js,ensure_ascii=False,separators=(',',':'))+';\n')
 print('contratos',len(contratos),'vigentes',sum(c['vigente'] for c in contratos),'· edificios con reparto',len(edif))

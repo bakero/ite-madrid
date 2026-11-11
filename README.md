@@ -162,7 +162,8 @@ Empresas de limpieza, seguridad, auxiliares de información y mantenimiento que 
 3. `scripts/servicios/reparto.py <carpeta_pliegos>`: Puente de Vallecas, peso de cada edificio en sus pliegos (horas, coste o m²) → `reparto.json`.
 4. `scripts/servicios/descarga_pliegos.py <lista.json> <carpeta>`: descarga de la Plataforma de Contratación el pliego de prescripciones técnicas y los estudios económicos y anexos de los contratos de las Juntas y los pasa a texto.
 5. `scripts/servicios/reparto_generico.py <carpeta_txt> empresas_distritos.json reparto_madrid.json`: edificios de cada distrito citados en los pliegos de sus contratos, por lote cuando el pliego lo indica (si no, colegios para los lotes de colegios y el resto para los de edificios).
-6. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json enlaces.json empresas_distritos.json reparto_madrid.json` → `app/servicios.js`.
+6. `PLIEGOS_TXT=<carpeta de textos> scripts/servicios/reparto_pliegos.py` → `datos/servicios/reparto_pliegos.json`: reparto por edificio leído de la tabla del pliego (m² construidos u horas al año) en los contratos configurados en `reparto_pliegos_cfg.json`.
+7. `scripts/servicios/servicios_app.py servicios_pv.json reparto.json enlaces.json empresas_distritos.json reparto_madrid.json reparto_pliegos.json` → `app/servicios.js`.
 
 En Puente de Vallecas el importe de cada edificio es una estimación proporcional a los pesos del pliego. En los demás distritos la ficha dice en qué contratos figura el edificio y el coste anual del contrato completo, sin repartirlo: los pesos que se pueden leer de forma automática no coinciden con los del pliego (comprobado con los cinco contratos de Puente de Vallecas). En una muestra de 40 asignaciones de otros distritos, 36 eran correctas.
 

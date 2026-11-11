@@ -1,0 +1,117 @@
+{
+ "300/2024/00101": {
+  "modo": "linea",
+  "doc": "300_2024_00101__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)"
+ },
+ "300/2024/00679": {
+  "modo": "linea",
+  "doc": "300_2024_00679__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "ANEXO I AL PPTP"
+  ]
+ },
+ "300/2025/00239": {
+  "modo": "linea",
+  "doc": "300_2025_00239__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)"
+ },
+ "300/2024/00473": {
+  "modo": "linea",
+  "doc": "300_2024_00473__otro1.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)"
+ },
+ "300/2025/02724": {
+  "modo": "linea",
+  "doc": "300_2025_02724__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "Bandera Parque Jardines",
+   "IDB ANSELMO LORENZO"
+  ]
+ },
+ "300/2025/02455": {
+  "modo": "linea",
+  "doc": "300_2025_02455__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)"
+ },
+ "300/2024/00266": {
+  "modo": "linea",
+  "doc": "300_2024_00266__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "Avda. Real, 36"
+  ]
+ },
+ "300/2024/00033": {
+  "modo": "linea",
+  "doc": "300_2024_00033__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "PEÑA VEIGA",
+   "CENTRO DE DIA DE ALZHEIMER",
+   "STELLA MARIS"
+  ]
+ },
+ "300/2025/01011": {
+  "modo": "linea",
+  "doc": "300_2025_01011__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "PSÍQUICOS NAVAS TOLOSA",
+   "FELIPE |"
+  ]
+ },
+ "300/2025/01650": {
+  "modo": "linea",
+  "doc": "300_2025_01650__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "C/ Oxígeno",
+   "EI LA LUNA",
+   "EDIFICIO ALBERTO PALACIOS",
+   "ESPACIO PARA LA JUVENTUD",
+   "C/ Geología",
+   "I.D.B OBISPO"
+  ]
+ },
+ "300/2025/01510": {
+  "modo": "linea",
+  "doc": "300_2025_01510__ppt0.txt",
+  "medida": "m² construidos de cada edificio (anexo del pliego)",
+  "anular": [
+   "Biblioteca Municipal",
+   "Rodríguez, 5 y 7"
+  ]
+ },
+ "300/2024/00069": {
+  "doc": "300_2024_00069__ppt0.txt",
+  "medida": "horas de limpieza al año (anexo II del pliego)",
+  "tablas": [
+   {
+    "desde": 2383,
+    "hasta": 2445,
+    "lote": "1",
+    "col": 234,
+    "tol": 6,
+    "name_end": 180
+   },
+   {
+    "desde": 2523,
+    "hasta": 2637,
+    "lote": "2",
+    "col": 245,
+    "tol": 6,
+    "name_end": 190
+   }
+  ],
+  "modo": "bloque"
+ },
+ "300/2024/00851": {
+  "modo": "totales",
+  "doc": "300_2024_00851__ppt0.txt",
+  "hdr": "HORAS/SEMANA",
+  "medida": "horas de limpieza por semana de cada edificio (anexo del pliego)"
+ }
+}

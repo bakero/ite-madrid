@@ -1,0 +1,5162 @@
+{
+"300/2024/00101": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2024_00101__ppt0.txt",
+"filas": [
+{
+"key": "40.36290,-3.76213",
+"lote": "1",
+"peso": 5980.0,
+"texto": "1 | CPEE MARIA SORIANO | Avda de la Peseta, 30 | 5.980 | 814",
+"how": "1"
+},
+{
+"key": "40.39004,-3.72603",
+"lote": "1",
+"peso": 1235.0,
+"texto": "2 | CPEE INMACULADA CONCEPCIÓN | C/ Saldaña, 30 | 1.235 | 752 | 48",
+"how": "1"
+},
+{
+"key": "40.36743,-3.75420",
+"lote": "1",
+"peso": 6603.0,
+"texto": "3 | CEIP ANTONIO MACHADO | C/ Allariz, 3 | 6.603 | 4.462 | 2.798",
+"how": "1"
+},
+{
+"key": "40.38482,-3.72557",
+"lote": "1",
+"peso": 1614.0,
+"texto": "4 | CEIP ARCIPRESTE DE HITA | C/ Antonio Moreno, 25 | 1.614 | 1.753",
+"how": "1"
+},
+{
+"key": "40.38091,-3.74285",
+"lote": "1",
+"peso": 3428.0,
+"texto": "5 | CEIP CAPITÁN CORTÉS | C/ Monseñor Oscar Romero, 17 | 3.428 | 1.534 | 80",
+"how": "addr"
+},
+{
+"key": "40.39750,-3.71501",
+"lote": "1",
+"peso": 4931.0,
+"texto": "6 | CEIP CONCEPCIÓN ARENAL | C/ Antonio López, 1 | 4.931 | 1.957 | 8",
+"how": "1"
+},
+{
+"key": "40.38471,-3.72200",
+"lote": "1",
+"peso": 1539.0,
+"texto": "7 | CEIP GONZALO DE BERCEO I | Av. de Abrantes, 5 | 1.539 | 4.527 | 337",
+"how": "1"
+},
+{
+"key": "40.38471,-3.72200",
+"lote": "1",
+"peso": 1812.0,
+"texto": "8 | CEIP GONZALO DE BERCEO II | C/ Portalegre, 79 | 1.812 | 3.765 | 24",
+"how": "1"
+},
+{
+"key": "40.38607,-3.74635",
+"lote": "1",
+"peso": 3788.0,
+"texto": "9 | CEIP HAITÍ | C/ Guabairo, 22 B | 3.788 | 3.108",
+"how": "1"
+},
+{
+"key": "40.38630,-3.73093",
+"lote": "1",
+"peso": 3317.0,
+"texto": "10 | CEIP ISAAC PERAL | Pza. Rufino Novalvos, 5 | 3.317 | 2.706 | 455",
+"how": "1"
+},
+{
+"key": "40.38059,-3.72812",
+"lote": "1",
+"peso": 3987.0,
+"texto": "11 | CEIP JULIÁN BESTEIRO | Av. Abrantes, 79 | 3.987 | 3.141",
+"how": "1"
+},
+{
+"key": "40.39461,-3.72324",
+"lote": "1",
+"peso": 3262.0,
+"texto": "12 | CEIP LOPE DE VEGA | C/ Inglaterra, 8 | 3.262 | 4.221 | 947",
+"how": "1"
+},
+{
+"key": "40.39410,-3.73681",
+"lote": "1",
+"peso": 3689.0,
+"texto": "13 | CEIP MIGUEL SERVET | C/ Fragata, 33 | 3.689 | 3.024 | 88",
+"how": "1"
+},
+{
+"key": "40.37837,-3.75236",
+"lote": "1",
+"peso": 1216.0,
+"texto": "14 | CEIP PARQUE EUGENIA DE MONTIJO | C/ Jacobinia, 48 | 1.216 | 4.851 | 268",
+"how": "1"
+},
+{
+"key": "40.39379,-3.71326",
+"lote": "1",
+"peso": 9438.0,
+"texto": "15 | CEIP PERÚ | C/ Baleares, 18 | 9.438 | 9.031 | 725",
+"how": "1"
+},
+{
+"key": "40.36302,-3.76436",
+"lote": "1",
+"peso": 6361.0,
+"texto": "16 | CEIP PINAR DE SAN JOSÉ | C/ Patrimonio de la Humanidad, 39 | 6.361 | 8.825 | 2.645",
+"how": "addr"
+},
+{
+"key": "40.37599,-3.73713",
+"lote": "1",
+"peso": 4209.0,
+"texto": "17 | CEIP REPÚBLICA DE COLOMBIA | Pza. Alloz,3 (Caparroso, 27 y Pza. Alloz s/n) | 4.209 | 5.536 | 77",
+"how": "1"
+},
+{
+"key": "40.38836,-3.73031",
+"lote": "1",
+"peso": 4170.0,
+"texto": "18 | CEIP REPÚBLICA DEL ECUADOR | C/ Valle de Oro, 41 | 4.170 | 6.741 | 493",
+"how": "1"
+},
+{
+"key": "40.37629,-3.75220",
+"lote": "1",
+"peso": 1685.0,
+"texto": "19 | CEIP REPÚBLICA DOMINICANA | C/ Ronda de Don Bosco, 2 | 1.685 | 760 | 20",
+"how": "1"
+},
+{
+"key": "40.38485,-3.72172",
+"lote": "1",
+"peso": 1569.0,
+"texto": "20 | CEIP SAN IGNACIO DE LOYOLA | Av. Abrantes, 1 | 1.569 | 4.175 | 140",
+"how": "1"
+},
+{
+"key": "40.36264,-3.74737",
+"lote": "1",
+"peso": 6235.0,
+"texto": "21 | CEIP MAESTRO PADILLA | Av. de la Peseta, 112 y 114 | 6.235 | 8.378 | 2.979",
+"how": "1"
+},
+{
+"key": "40.36597,-3.76246",
+"lote": "1",
+"peso": 2925.0,
+"texto": "22 | ESCUELA DE MÚSICA MUNICIPAL ISAAC ALBÉNIZ 1 | C/ Lonja de la Seda, 4 | 2.925",
+"how": "1"
+},
+{
+"key": "40.37062,-3.74125",
+"lote": "1",
+"peso": 1538.0,
+"texto": "23 | ESCUELA INFANTIL AMAPOLAS2 | C/ Óbolo, 14 | 1.538 | 917 | 464",
+"how": "1"
+},
+{
+"key": "40.36130,-3.75943",
+"lote": "1",
+"peso": 1957.0,
+"texto": "24 | ESCUELA INFANTIL LA PATRIA CHICA3 | C/ Patrimonio de la Humanidad, 31 | 1.957 | 903 | 68",
+"how": "1"
+},
+{
+"key": "40.38046,-3.74131",
+"lote": "2",
+"peso": 2544.0,
+"texto": "1. | EDIFICIO SEDE DE LA JUNTA MUNICIPAL DISTRITO CARABANCHEL | Plaza Carabanchel, 1 | 2.544 | 40",
+"how": "1"
+},
+{
+"key": "40.38696,-3.73865",
+"lote": "2",
+"peso": 954.0,
+"texto": "2. | OFICINA LÍNEA MADRID-ATENCIÓN AL CIUDADANO CARABANCHEL | C/ Utebo, 8 | 954",
+"how": "1"
+},
+{
+"key": "40.38331,-3.74206",
+"lote": "2",
+"peso": 2324.0,
+"texto": "3. | BIBLIOTECA LA CHATA | C/ General Ricardos, 252 B | 2.324 | 457",
+"how": "1"
+},
+{
+"key": "40.39787,-3.72009",
+"lote": "2",
+"peso": 3286.0,
+"texto": "4. | BIBLIOTECA MUNICIPAL ANA MARÍA MATUTE | C/ Isaac Albéniz ,1 | 3.286",
+"how": "1"
+},
+{
+"key": "40.39164,-3.71714",
+"lote": "2",
+"peso": 29.0,
+"texto": "5. | CENTRO CULTURAL LÁZARO CARRETER | C/ Josefa Fdez. Buterga, 9 c/v C/ de la Verdad, 29 | 4.368 | 726 | 265",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 897.0,
+"texto": "6. | CENTRO SOCIOCULTURAL CARABANCHEL ALTO (Carácter Juvenil) | C/ Alfonso Fernández, 23 | 897 | 307",
+"how": "amb2"
+},
+{
+"key": "40.37421,-3.75103",
+"lote": "2",
+"peso": 1514.0,
+"texto": "7. | CENTRO SOCIOCULTURAL FEDERICO GARCÍA LORCA | C/ Eugenia de Montijo, 105 | 1.514 | 82",
+"how": "1"
+},
+{
+"key": "40.38683,-3.72775",
+"lote": "2",
+"peso": 1321.0,
+"texto": "8. | CENTRO SOCIOCULTURAL OPORTO | Avda. de Oporto, 78 c/v Cº Viejo Leganés, 72 | 1.321 | 233 | 93",
+"how": "1"
+},
+{
+"key": "40.37691,-3.74163",
+"lote": "2",
+"peso": 1878.0,
+"texto": "9. | CENTRO SOCIOCULTURAL SAN FRANCISCO-LAPRENSA | C/ Aliseda, 4 | 1.878",
+"how": "1"
+},
+{
+"key": "40.39496,-3.73276",
+"lote": "2",
+"peso": 530.0,
+"texto": "10. | CENTRO SOCIOCULTURAL BLASCO IBÁÑEZ | C/ Soldado José Mª Rey, 44 | 530 | 26",
+"how": "1"
+},
+{
+"key": "40.39286,-3.72230",
+"lote": "2",
+"peso": 1475.0,
+"texto": "11. | CENTRO DE DÍA DE ENFERMOS DE ALZHEIMER AURORA VILLA | C/ Mercedes Arteaga, 18 | 1.475 | 113",
+"how": "1"
+},
+{
+"key": "40.38233,-3.74956",
+"lote": "2",
+"peso": 955.0,
+"texto": "12. | CENTRO DE DÍA ENFERMOS ALZEHIMER LA MAGDALENA | C/ Monseñor Oscar Romero, 75 | 955 | 246 | 1.058",
+"how": "addr"
+},
+{
+"key": "40.39533,-3.72162",
+"lote": "2",
+"peso": 1910.0,
+"texto": "13. | ESPACIO DE IGUALDAD LOURDES HERNANDEZ | C/ Comandante Fontanes, 8 | 1.910 | 469",
+"how": "1"
+},
+{
+"key": "40.36869,-3.75396",
+"lote": "2",
+"peso": 2818.0,
+"texto": "15. | CENTRO DE MAYORES Y DÍA FRANCISCO DE GOYA | C/ Alfredo Aleix, 3 | 2.818 | 566 | 24",
+"how": "addr"
+},
+{
+"key": "40.38186,-3.74447",
+"lote": "2",
+"peso": 2716.0,
+"texto": "16. | CENTRO DE MAYORES MONSEÑOR OSCAR ROMERO | C/ Monseñor Oscar Romero, 42 | 2.716 | 274 | 113",
+"how": "1"
+},
+{
+"key": "40.39399,-3.73322",
+"lote": "2",
+"peso": 1029.0,
+"texto": "17. | CENTRO DE MAYORES ROGER DE FLOR | Pza. Roger de Flor, 15 | 1.029 | 234",
+"how": "addr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3354.0,
+"texto": "18. | CENTRO DE MAYORES Y DÍA SAN VICENTE DE PAÚL | C/ Portalegre, 69-B - c/ Benito Prieto, 16 | 3.354",
+"how": "amb4"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 370.0,
+"texto": "19. | CENTRO DE SERVICIOS SOCIALES ELÍPTICA | C/ Évora, 9 | 370 | 480 | 1.592",
+"how": "0"
+},
+{
+"key": "40.39333,-3.73608",
+"lote": "2",
+"peso": 2209.0,
+"texto": "20. | CENTRO DE SERVICIOS SOCIALES ZAIDA | C/ Zaida, 36 | 2.209 | 651 | 250",
+"how": "1"
+},
+{
+"key": "40.38785,-3.73745",
+"lote": "2",
+"peso": 4626.0,
+"texto": "21. | CENTRO DE SERVICIOS SOCIALES VISTA ALEGRE | C/ Eduardo Morales, 28 | 4.626",
+"how": "1"
+},
+{
+"key": "40.37146,-3.75264",
+"lote": "2",
+"peso": 336.0,
+"texto": "22. | CENTRO DE EMPLEO | Avda. Carabanchel Alto,52 | 336 | 200 | 37",
+"how": "1"
+}
+]
+},
+"300/2024/00679": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2024_00679__ppt0.txt",
+"filas": [
+{
+"key": "40.38046,-3.74131",
+"lote": "",
+"peso": 2544.0,
+"texto": "1 | EDIFICIO SEDE DE LA JUNTA MUNICIPAL DISTRITO CARABANCHEL | Plaza Carabanchel, 1 | 2.544 | 40",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 954.0,
+"texto": "2 | OFICINA LÍNEA MADRID-ATENCIÓN AL CIUDADANO CARABANCHEL | Avda. Plaza de Toros, 17 | 954",
+"how": "0"
+},
+{
+"key": "40.38331,-3.74206",
+"lote": "",
+"peso": 2324.0,
+"texto": "3 | BIBLIOTECA LA CHATA | C/ General Ricardos, 252 B | 2.324 | 457",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 245.0,
+"texto": "4 | BIBLIOTECA DE CARABANCHEL | C/ Hermanos del Moral, 15 | 245 | 9",
+"how": "0"
+},
+{
+"key": "40.39164,-3.71714",
+"lote": "",
+"peso": 4368.0,
+"texto": "5 | CENTRO CULTURAL LÁZARO CARRETER | C/ Josefa Fdez. Buterga, 9 c/v C/ de la Verdad, 29 | 4.368 | 726 | 265",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 897.0,
+"texto": "6 | CENTRO SOCIOCULTURAL CARABANCHEL ALTO (Carácter Juvenil) | C/ Alfonso Fernández, 23 | 897 | 307",
+"how": "amb2"
+},
+{
+"key": "40.37421,-3.75103",
+"lote": "",
+"peso": 1514.0,
+"texto": "7 | CENTRO SOCIOCULTURAL FEDERICO GARCÍA LORCA | C/ Eugenia de Montijo, 105 | 1.514 | 82",
+"how": "1"
+},
+{
+"key": "40.38683,-3.72775",
+"lote": "",
+"peso": 1321.0,
+"texto": "8 | CENTRO SOCIOCULTURAL OPORTO | Avda. de Oporto, 78 c/v Cº Viejo Leganés, 72 | 1.321 | 233 | 93",
+"how": "1"
+},
+{
+"key": "40.37691,-3.74163",
+"lote": "",
+"peso": 1878.0,
+"texto": "9 | CENTRO SOCIOCULTURAL SAN FRANCISCO-LAPRENSA | C/ Aliseda, 4 | 1.878",
+"how": "1"
+},
+{
+"key": "40.39496,-3.73276",
+"lote": "",
+"peso": 530.0,
+"texto": "10 | CENTRO SOCIOCULTURAL BLASCO IBÁÑEZ | C/ Soldado José Mª Rey, 44 | 530 | 26",
+"how": "1"
+},
+{
+"key": "40.39286,-3.72230",
+"lote": "",
+"peso": 1475.0,
+"texto": "11 | CENTRO DE DÍA DE ENFERMOS DE ALZHEIMER AURORA VILLA | C/ Mercedes Arteaga, 18 | 1.475 | 113",
+"how": "1"
+},
+{
+"key": "40.38233,-3.74956",
+"lote": "",
+"peso": 955.0,
+"texto": "12 | CENTRO DE DÍA ENFERMOS ALZEHIMER LA MAGDALENA | C/ Monseñor Oscar Romero, 75 | 955 | 246 | 1.058",
+"how": "addr"
+},
+{
+"key": "40.39533,-3.72162",
+"lote": "",
+"peso": 1910.0,
+"texto": "13 | ESPACIO DE IGUALDAD LOURDES HERNÁNDEZ | C/ comandante Fontanes, 8 | 1.910 | 469",
+"how": "1"
+},
+{
+"key": "40.38081,-3.73060",
+"lote": "",
+"peso": 819.0,
+"texto": "14 | CENTRO DE MAYORES ENRIQUE TIERNO GALVÁN | C/ Carrero Juan Ramón, 24 c/v Alfonso Martínez Conde | 819 | 234 | 20",
+"how": "1"
+},
+{
+"key": "40.36869,-3.75396",
+"lote": "",
+"peso": 2818.0,
+"texto": "15 | CENTRO DE MAYORES Y DÍA FRANCISCO DE GOYA | C/ Alfredo Aleix, 3 | 2.818 | 566 | 24",
+"how": "addr"
+},
+{
+"key": "40.38186,-3.74447",
+"lote": "",
+"peso": 2716.0,
+"texto": "16 | CENTRO DE MAYORES Y S. SOCIALES MONSEÑOR OSCAR ROMERO | C/ Monseñor Oscar Romero, 42 | 2.716 | 274 | 113",
+"how": "1"
+},
+{
+"key": "40.39399,-3.73322",
+"lote": "",
+"peso": 1029.0,
+"texto": "17 | CENTRO DE MAYORES ROGER DE FLOR | Pza. Roger de Flor, 15 | 1.029 | 234",
+"how": "addr"
+},
+{
+"key": null,
+"lote": "",
+"peso": 3354.0,
+"texto": "18 | CENTRO DE MAYORES Y DÍA SAN VICENTE DE PAÚL | C/ Portalegre, 69-B - c/ Benito Prieto, 16 | 3.354",
+"how": "amb4"
+},
+{
+"key": null,
+"lote": "",
+"peso": 370.0,
+"texto": "19 | CENTRO DE SERVICIOS SOCIALES ELÍPTICA | C/ Évora, 9 | 370 | 480 | 1.592",
+"how": "0"
+},
+{
+"key": "40.39333,-3.73608",
+"lote": "",
+"peso": 2209.0,
+"texto": "20 | CENTRO DE SERVICIOS SOCIALES ZAIDA | C/ Zaida, 36 | 2.209 | 651 | 250",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 24.0,
+"texto": "21 | CASETA Y REJAS PUERTA BONITA | C/ General Ricardos, 173 | 24",
+"how": "0"
+},
+{
+"key": "40.39671,-3.72220",
+"lote": "",
+"peso": 103.0,
+"texto": "22 | USO PROVISIONAL SOLAR CARONTE | C/. Caronte, 6-10 | 103 | 9.038 | 80",
+"how": "1"
+},
+{
+"key": "40.38785,-3.73745",
+"lote": "",
+"peso": 4627.0,
+"texto": "23 | CSS VISTA ALEGRE | C/. Eduardo Morales, 28 | 4.627 | 633 | 100",
+"how": "1"
+},
+{
+"key": "40.37146,-3.75264",
+"lote": "",
+"peso": 336.0,
+"texto": "24 | CENTRO DE EMPLEO | Avda. de Carabanchel Alto, 52 | 336 | 200 | 37",
+"how": "1"
+},
+{
+"key": "40.39787,-3.72009",
+"lote": "",
+"peso": 3358.0,
+"texto": "25 | BIBLIOTECA ANA MARÍA MATUTE | C/. Antonio Vico, 3 | 3.358 | 661 | 270",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 1100.0,
+"texto": "26 | UID CARABANCHEL | C/. Albox, 8 | 1.100 | 818 | 560",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 303.0,
+"texto": "27 | CAF BESOLLA | C/. Besolla, 26 | 303",
+"how": "0"
+},
+{
+"key": "40.39004,-3.72603",
+"lote": "",
+"peso": 1235.0,
+"texto": "1 | CPEE INMACULADA CONCEPCIÓN | C/ Saldaña, 30 | 1.235 | 752 | 48",
+"how": "1"
+},
+{
+"key": "40.36743,-3.75420",
+"lote": "",
+"peso": 6603.0,
+"texto": "2 | CEIP ANTONIO MACHADO | C/ Allariz, 3 | 6.603 | 4.462 | 2.798",
+"how": "1"
+},
+{
+"key": "40.38482,-3.72557",
+"lote": "",
+"peso": 1614.0,
+"texto": "3 | CEIP ARCIPRESTE DE HITA | C/ Antonio Moreno, 25 | 1.614 | 1.753",
+"how": "1"
+},
+{
+"key": "40.38091,-3.74285",
+"lote": "",
+"peso": 3428.0,
+"texto": "4 | CEIP CAPITÁN CORTÉS | C/ Monseñor Oscar Romero, 17 | 3.428 | 1.534 | 80",
+"how": "addr"
+},
+{
+"key": "40.39750,-3.71501",
+"lote": "",
+"peso": 4931.0,
+"texto": "5 | CEIP CONCEPCIÓN ARENAL | C/ Antonio López, 1 | 4.931 | 1.957 | 8",
+"how": "1"
+},
+{
+"key": "40.38471,-3.72200",
+"lote": "",
+"peso": 1539.0,
+"texto": "6 | CEIP GONZALO DE BERCEO I | Av. de Abrantes, 5 | 1.539 | 4.527 | 337",
+"how": "1"
+},
+{
+"key": "40.38471,-3.72200",
+"lote": "",
+"peso": 1812.0,
+"texto": "7 | CEIP GONZALO DE BERCEO II | C/ Portalegre, 79 | 1.812 | 3.765 | 24",
+"how": "1"
+},
+{
+"key": "40.38607,-3.74635",
+"lote": "",
+"peso": 3788.0,
+"texto": "8 | CEIP HAITÍ | C/ Guabairo, 22 B | 3.788 | 3.108",
+"how": "1"
+},
+{
+"key": "40.38630,-3.73093",
+"lote": "",
+"peso": 3317.0,
+"texto": "9 | CEIP ISAAC PERAL | Pza. Rufino Novalvos, 5 | 3.317 | 2.706 | 455",
+"how": "1"
+},
+{
+"key": "40.38059,-3.72812",
+"lote": "",
+"peso": 3987.0,
+"texto": "10 | CEIP CEIP JULIÁN BESTEIRO | Av. Abrantes, 79 | 3.987 | 3.141",
+"how": "1"
+},
+{
+"key": "40.39461,-3.72324",
+"lote": "",
+"peso": 3262.0,
+"texto": "11 | CEIP LOPE DE VEGA | C/ Inglaterra, 8 | 3.262 | 4.221 | 947",
+"how": "1"
+},
+{
+"key": "40.39410,-3.73681",
+"lote": "",
+"peso": 3689.0,
+"texto": "12 | CEIP MIGUEL SERVET | C/ Fragata, 33 | 3.689 | 3.024 | 88",
+"how": "1"
+},
+{
+"key": "40.37837,-3.75236",
+"lote": "",
+"peso": 1216.0,
+"texto": "13 | CEIP PARQUE EUGENIA DE MONTIJO | C/ Jacobinia, 48 | 1.216 | 4.851 | 268",
+"how": "1"
+},
+{
+"key": "40.39379,-3.71326",
+"lote": "",
+"peso": 9438.0,
+"texto": "14 | CEIP PERÚ | C/ Baleares, 18 | 9.438 | 9.031 | 725",
+"how": "1"
+},
+{
+"key": "40.36302,-3.76436",
+"lote": "",
+"peso": 6361.0,
+"texto": "15 | CEIP PINAR DE SAN JOSÉ | C/ Patrimonio de la Humanidad, 39 | 6.361 | 8.825 | 2.645",
+"how": "addr"
+},
+{
+"key": "40.37599,-3.73713",
+"lote": "",
+"peso": 4209.0,
+"texto": "16 | CEIP REPÚBLICA DE COLOMBIA | Pza. Alloz, 3 (Caparroso, 27 y Pza. Alloz s/n) | 4.209 | 5.536 | 77",
+"how": "1"
+},
+{
+"key": "40.38836,-3.73031",
+"lote": "",
+"peso": 4170.0,
+"texto": "17 | CEIP REPÚBLICA DEL ECUADOR | C/ Valle de Oro, 41 | 4.170 | 6.741 | 493",
+"how": "1"
+},
+{
+"key": "40.37629,-3.75220",
+"lote": "",
+"peso": 1685.0,
+"texto": "18 | CEIP REPÚBLICA DOMINICANA | C/ Ronda de Don Bosco, 2 | 1.685 | 760 | 20",
+"how": "1"
+},
+{
+"key": "40.38485,-3.72172",
+"lote": "",
+"peso": 1569.0,
+"texto": "19 | CEIP SAN IGNACIO DE LOYOLA | Av. Abrantes, 1 | 1.569 | 4.175 | 140",
+"how": "1"
+},
+{
+"key": "40.36264,-3.74737",
+"lote": "",
+"peso": 6235.0,
+"texto": "20 | CEIP MAESTRO PADILLA | Av. de la Peseta, 112 y 114 | 6.235 | 8.378 | 2.979",
+"how": "1"
+},
+{
+"key": "40.36597,-3.76246",
+"lote": "",
+"peso": 2925.0,
+"texto": "21 | ESCUELA DE MÚSICA ISAAC ALBÉNIZ | C/ Lonja de la Seda, 4 | 2.925",
+"how": "1"
+},
+{
+"key": "40.37062,-3.74125",
+"lote": "",
+"peso": 1538.0,
+"texto": "22 | ESCUELA INFANTIL AMAPOLAS | C/ Óbolo, 14 | 1.538 | 917 | 464",
+"how": "1"
+},
+{
+"key": "40.36168,-3.76294",
+"lote": "",
+"peso": 1957.0,
+"texto": "23 | ESCUELA INFANTIL LA PATRIA CHICA | C/ Patrimonio de la Humanidad, 31 | 1.957 | 903 | 68",
+"how": "addr"
+},
+{
+"key": "40.36130,-3.75943",
+"lote": "",
+"peso": 588.0,
+"texto": "24 | CENTRO DE APOYO SOCIOEDUCATIVO Y PRELABORAL PARA ADOLESCENTES (ASPA) | C/ Patrimonio de la Humanidad, 31-33 | 588",
+"how": "1"
+},
+{
+"key": "40.38238,-3.74645",
+"lote": "",
+"peso": 6039.0,
+"texto": "3 | CENTRO DEPORTIVO MUNICIPAL BLANCA FERNÁNDEZ OCHOA | C/ Monseñor Oscar Romero, 41 | 6.039 | 11.509 | 8.300",
+"how": "addr"
+},
+{
+"key": "40.36582,-3.74089",
+"lote": "",
+"peso": 12600.0,
+"texto": "4 | CENTRO DEPORTIVO MUNICIPAL FRANCISCO FERNÁNDEZ OCHOA | C/ Catorce Olivas, 1 | 12.600 | 19.862 | 4.212",
+"how": "1"
+},
+{
+"key": "40.39723,-3.73611",
+"lote": "",
+"peso": 2777.0,
+"texto": "5 | CENTRO DEPORTIVO MUNICIPAL ANTIGUO CANÓDROMO | C/ Vía Carpetana, 57 | 2.777 | 9.110 | 11.650",
+"how": "1"
+},
+{
+"key": "40.39828,-3.73288",
+"lote": "",
+"peso": 131.0,
+"texto": "6 | I.D.M. Básica Campo de Fútbol Alonso Ezquerra Matamoros (SAN MARTÍN DE PORRES) | Pº Ermita del Santo, 79 (Pq. San Is",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 270.0,
+"texto": "8 | I.D.M. Básica LOS POBLADOS | Av. Los Poblados c/v Vía Lusitana | 270 | 18.327 | 17.190",
+"how": "0"
+},
+{
+"key": "40.39191,-3.71415",
+"lote": "",
+"peso": 99.0,
+"texto": "9 | I.D.M. Básica PARQUE COMILLAS | C/ Antonio de Leyva, 35 B | 99 | 3.917",
+"how": "1"
+},
+{
+"key": "40.37837,-3.75236",
+"lote": "",
+"peso": 162.0,
+"texto": "10 | I.D.M. Básica PARQUE EUGENIA DE MONTIJO | C/ Parque Eugenia de Montijo s/n | 162 | 10.445 | 602",
+"how": "1"
+},
+{
+"key": "40.39925,-3.72850",
+"lote": "",
+"peso": 132.0,
+"texto": "11 | I.D.M. Básica PARQUE SAN ISIDRO (GORRIÓN) | C/ Gorrión, 36 | 132 | 9.259 | 369",
+"how": "1"
+},
+{
+"key": "40.37752,-3.72869",
+"lote": "",
+"peso": 316.0,
+"texto": "12 | I.D.M. Básica VÍA LUSITANA | Av. Vía Lusitana, 19 (Parque Sur) | 316 | 16.095 | 1.252",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 300.0,
+"texto": "ANEXO I AL PPTP DEL CONTRATO DE SERVICIOS DE MANTENIMIENTO INTEGRAL 2025-2027. RELACIÓN DE EQUIPAMIENTOS OBJETO DEL CONT",
+"how": "anulada"
+},
+{
+"key": "40.37747,-3.75477",
+"lote": "",
+"peso": 404.0,
+"texto": "41 | I.D.M. Básica PARQUE DE LAS CRUCES | Av. de los Poblados s/n (Parque de las Cruces) | 404 | 13.438",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 168.0,
+"texto": "42 | I.D.M. Básica ONTANILLA | Av. de los Poblados c/v C/ Ontanilla | 168 | 5.704",
+"how": "0"
+},
+{
+"key": "40.39484,-3.70588",
+"lote": "",
+"peso": 166.0,
+"texto": "44 | I.D.M. Básica PUENTE DE PRAGA | Av. Manzanares c/v C/ San David | 166 | 3.195 | 3.192",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 592.0,
+"texto": "45 | I.D.M. Básica ROC-30 | Av. Manzanares, 108 | 592",
+"how": "0"
+}
+]
+},
+"300/2025/00239": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_00239__ppt0.txt",
+"filas": [
+{
+"key": "40.48349,-3.72672",
+"lote": "1",
+"peso": 3790.0,
+"texto": "CEIP ALHAMBRA | C/ Ramón Gómez de la Serna, 103 | 3.790,00 | 6.056,49",
+"how": "1"
+},
+{
+"key": "40.51158,-3.69382",
+"lote": "1",
+"peso": 7772.51,
+"texto": "CEIP ANTONIO FONTÁN | Avda Santuario de Valverde, 71 | 7.772,51 | 9.702,35",
+"how": "1"
+},
+{
+"key": "40.51136,-3.67200",
+"lote": "1",
+"peso": 6137.26,
+"texto": "CEIP BLAS DE LEZO | C/ Frómista, 27 | 6.137,26 | 6.022,59",
+"how": "1"
+},
+{
+"key": "40.48054,-3.71801",
+"lote": "1",
+"peso": 4799.0,
+"texto": "CEIP BRAVO MURILLO | C/ Fermín Caballero, 82 | 4.799,00 | 2.703,30",
+"how": "1"
+},
+{
+"key": "40.47541,-3.70242",
+"lote": "1",
+"peso": 4003.0,
+"texto": "CEIP BREOGAN | C/ Ginzo de Limia, 2-A | 4.003,00 | 2.400,97",
+"how": "1"
+},
+{
+"key": "40.47756,-3.70065",
+"lote": "1",
+"peso": 3560.0,
+"texto": "CEIP CAMILO JOSE CELA | C/ Melchor Fernández Almagro, 22 | 3.560,00 | 5.134,00",
+"how": "1"
+},
+{
+"key": "40.48261,-3.71108",
+"lote": "1",
+"peso": 5262.0,
+"texto": "CEIP CARDENAL HERRERA ORIA | C/ Fermín Caballero, 68 | 5.262,00 | 4.165,00",
+"how": "1"
+},
+{
+"key": "40.50774,-3.66755",
+"lote": "1",
+"peso": 4132.0,
+"texto": "CEIP GABRIELA MISTRAL | C/ Mirallos, 3 | 4.132,00 | 5.142,00",
+"how": "1"
+},
+{
+"key": "40.49967,-3.71143",
+"lote": "1",
+"peso": 4997.0,
+"texto": "CEIP INFANTA LEONOR | C/ Monasterio del Paular, 140 | 4.997,00 | 7.622,51",
+"how": "1"
+},
+{
+"key": "40.47531,-3.70771",
+"lote": "1",
+"peso": 3795.0,
+"texto": "CEIP JORGE GUILLEN | Av. El Ferrol, 47 | 3.795,00 | 2.606,00",
+"how": "1"
+},
+{
+"key": "40.49551,-3.69605",
+"lote": "1",
+"peso": 3262.0,
+"texto": "CEIP JOSE BERGAMIN | C/ Braille, 19 | 3.262,00 | 5.817,40",
+"how": "1"
+},
+{
+"key": "40.50973,-3.67045",
+"lote": "1",
+"peso": 5049.0,
+"texto": "CEIP JOSEP TARRADELLAS | C/ Triacastela, 1 | 5.049,00 | 5.122,00",
+"how": "1"
+},
+{
+"key": "40.50083,-3.67514",
+"lote": "1",
+"peso": 7009.87,
+"texto": "CEIP LEOPOLDO CALVO SOTELO | C/ Castiello de Jaca, 2 | 7.009,87 | 6.519,80",
+"how": "1"
+},
+{
+"key": "40.48665,-3.70161",
+"lote": "1",
+"peso": 4607.0,
+"texto": "CEIP LORENZO LUZURIAGA | C/ Valencia de Don Juan, 19 | 4.607,00 | 5.803,53",
+"how": "1"
+},
+{
+"key": "40.47460,-3.71441",
+"lote": "1",
+"peso": 2539.0,
+"texto": "CEIP LUIS DE GONGORA | C/ Sarriá, 49 | 2.539,00 | 1.853,00",
+"how": "1"
+},
+{
+"key": "40.49114,-3.71420",
+"lote": "1",
+"peso": 5207.57,
+"texto": "CEIP MIRASIERRA | C/ La Masó, 22 | 5.207,57 | 6.120,42",
+"how": "1"
+},
+{
+"key": "40.51716,-3.77426",
+"lote": "1",
+"peso": 1412.0,
+"texto": "CEIP MONTE DE EL PARDO | Avda de la Guardia, 19 | 1.412,00 | 1.060,00",
+"how": "1"
+},
+{
+"key": "40.54157,-3.69682",
+"lote": "1",
+"peso": 4880.0,
+"texto": "CEIP PRINCIPE DE ASTURIAS | Carretera Colmenar Viejo km. 15 | 4.880,00 | 6.814,00",
+"how": "1"
+},
+{
+"key": "40.48022,-3.70101",
+"lote": "1",
+"peso": 4733.15,
+"texto": "CEIP PRINCIPE FELIPE | Av. Monforte de Lemos, 24 | 4.733,15 | 4.402,00",
+"how": "1"
+},
+{
+"key": "40.48310,-3.69591",
+"lote": "1",
+"peso": 4688.0,
+"texto": "CEIP RABINDRANATH TAGORE | C/ Julio Palacios, 35 | 4.688,00 | 7.494,53",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2742.0,
+"texto": "CEIP REPUBLICA DEL PARAGUAY | C/ Manresa, 60 | 2.742,00 | 3.910,37",
+"how": "amb2"
+},
+{
+"key": "40.49940,-3.68642",
+"lote": "1",
+"peso": 1214.0,
+"texto": "CEIP VASCO NUÑEZ DE BALBOA | C/ Nuestra Señora de Valverde,149 | 1.214,00 | 1.855,62",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3390.0,
+"texto": "CEE FRANCISCO DEL POZO | Cj. Dómine, 6 | 3.390,00 | 430,34",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3031.0,
+"texto": "CEE LA QUINTA | Finca La Quinta del Duque del Arco, Crta. El Pardo s/n | 3.031,00 | 3.270,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2924.6,
+"texto": "SEDE DISTRITO FUENCARRAL-EL PARDO | Avda. Monforte de Lemos, 40 | 2.924,60 | 0,00",
+"how": "amb3"
+},
+{
+"key": "40.47903,-3.70826",
+"lote": "2",
+"peso": 3689.0,
+"texto": "GARAJE COMPLEJO VAGUADA | Avda. Monforte de Lemos, 36 | 3.689,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 102.26,
+"texto": "OFICINA AUXILIAR DE \"EL PARDO\" | Pza. el Pardo, 2 | 102,26 | 0,00",
+"how": "0"
+},
+{
+"key": "40.49505,-3.68801",
+"lote": "2",
+"peso": 1008.85,
+"texto": "OFICINA AUXILIAR VALVERDE / C.C. VALVERDE Pza. Islas Azores, 1 | 1.008,85 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1558.88,
+"texto": "OFICINA AUXILIAR VENTISQUERO (GARAJE INC) Calle Ventisquero de la Condesa, 7 y 9 | 1.558,88 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 4115.0,
+"texto": "CC VAGUADA | Avda. Monforte de Lemos, 38 | 4.115,00 | 0,00",
+"how": "amb4"
+},
+{
+"key": "40.49082,-3.72161",
+"lote": "2",
+"peso": 3782.0,
+"texto": "CC ALFREDO KRAUS | Gta. Pradera de Vaquerizas, 9 | 3.782,00 | 1.605,46",
+"how": "1"
+},
+{
+"key": "40.48026,-3.72147",
+"lote": "2",
+"peso": 1657.0,
+"texto": "CC RAFAEL DE LEON | C/Isla de Ons, 14 | 1.657,00 | 359,00",
+"how": "1"
+},
+{
+"key": "40.48107,-3.69335",
+"lote": "2",
+"peso": 737.7,
+"texto": "CC VALLE INCLAN | C/ Arzobispo Morcillo, 7 | 737,70 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3672.58,
+"texto": "CIN MONTECARMELO | Avda. Santuario de Valverde, 77 | 3.672,58 | 5.744,43",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 876.29,
+"texto": "CI ALFONSO XII | C/ Mira el Río, 4 | 876,29 | 0,00",
+"how": "amb2"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 450.0,
+"texto": "CC LAS TABLAS | C/ Viloria de Rioja 52 | 450,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1220.0,
+"texto": "CM LA VAGUADA | Avda. Monforte de Lemos, 38 | 1.220,00 | -58,50",
+"how": "amb4"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 284.0,
+"texto": "CM ARCADAS | Avda. Monforte de Lemos, 38 | 284,00 | 0,00",
+"how": "amb4"
+},
+{
+"key": "40.48443,-3.70722",
+"lote": "2",
+"peso": 556.0,
+"texto": "CM GINZO DE LIMIA | C/ Ginzo de Limia, 66 | 556,00 | 68,00",
+"how": "1"
+},
+{
+"key": "40.49223,-3.68768",
+"lote": "2",
+"peso": 437.0,
+"texto": "CM ISLAS JARVI | C/ Islas Jarvi, 5 | 437,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 876.62,
+"texto": "CM PEÑAGRANDE | Av. Cardenal Herrera Oria, 263 | 876,62 | 0,00",
+"how": "0"
+},
+{
+"key": "40.49454,-3.70640",
+"lote": "2",
+"peso": 2741.65,
+"texto": "CM MIRASIERRA | C/ Marbella, 80 c/v C/ de la Peña Vieja, 4 | 2.741,65 | 1.151,25",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1621.0,
+"texto": "CI VV JUSTO SIERRA | C/ Fermin Caballero, 17 | 1.621,00 | 391,00",
+"how": "amb2"
+},
+{
+"key": "40.51513,-3.77462",
+"lote": "2",
+"peso": 236.0,
+"texto": "CD EL PARDO | C/ General Urrutia, 1 | 236,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.49165,-3.69056",
+"lote": "2",
+"peso": 1938.56,
+"texto": "CD FRAY LUIS DE LEON | C/ Manresa, 1 | 1.938,56 | 1.215,06",
+"how": "1"
+},
+{
+"key": "40.47437,-3.72138",
+"lote": "2",
+"peso": 509.0,
+"texto": "CD PEÑAGRANDE | C/ Isla Malaita, 13 | 509,00 | 638,30",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 156.41,
+"texto": "CASA DE NIÑOS | C/ Hospitalet de Llobregat, 2 | 156,41 | 0,00",
+"how": "amb2"
+},
+{
+"key": "40.49358,-3.69668",
+"lote": "2",
+"peso": 1518.0,
+"texto": "CSS BADALONA | C/ Badalona, 122 | 1.518,00 | 286,05",
+"how": "1"
+},
+{
+"key": "40.47248,-3.71661",
+"lote": "2",
+"peso": 2568.04,
+"texto": "CSS SAN VICENTE DE PAUL | C/ Buitrago del Lozoya, 22 | 2.568,04 | -437,15",
+"how": "1"
+},
+{
+"key": "40.51964,-3.77854",
+"lote": "2",
+"peso": 144.0,
+"texto": "CJ EL PARDO | Avda. Padre Cipriano, 11 | 144,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 452.0,
+"texto": "CJ HONTALVILLA | C/ Hontalvilla, 10 | 452,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.47860,-3.70944",
+"lote": "2",
+"peso": 1714.3,
+"texto": "BIBLIOTECA JOSE SARAMAGO | Avda. Monforte de Lemos, 38 | 1.714,30 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 180.17,
+"texto": "EDIFICIO EL PALOMAR | C/ Capiscol, 5 | 180,17 | 120,40",
+"how": "amb2"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2509.0,
+"texto": "CECO GUATEMALA | C/ Celanova, 2 | 2.509,00 | 1.737,18",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 134.0,
+"texto": "Calatrava, 31 | 134,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.50022,-3.68612",
+"lote": "2",
+"peso": 160.0,
+"texto": "TEMPLETE PARQUE FUENCARRAL | (zona del mirador del Parque de Fuencarral) | 160,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 150.0,
+"texto": "TEMPLETE DEL PARDO | Parque de la Mar Oceana s/n | 150,00 | 0,00",
+"how": "0"
+}
+]
+},
+"300/2024/00473": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2024_00473__otro1.txt",
+"filas": [
+{
+"key": null,
+"lote": "1",
+"peso": 30.0,
+"texto": "unitario | (12 meses) | (30 meses)",
+"how": "0"
+},
+{
+"key": "40.48349,-3.72672",
+"lote": "1",
+"peso": 3790.0,
+"texto": "CEIP ALHAMBRA | C/ Ramón Gómez de la Serna, 103 | 3.790,00 | 6.056,49",
+"how": "1"
+},
+{
+"key": "40.51158,-3.69382",
+"lote": "1",
+"peso": 7772.51,
+"texto": "CEIP ANTONIO FONTÁN | Avda Santuario de Valverde, 71 | 7.772,51 | 9.702,35",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 4690.0,
+"texto": "CEIP ARROYOFRESNO | C/ Pico Bailaitus, 24 | 4.690,00 | 3.586,39",
+"how": "0"
+},
+{
+"key": "40.51136,-3.67200",
+"lote": "1",
+"peso": 6137.26,
+"texto": "CEIP BLAS DE LEZO | C/ Frómista, 27 | 6.137,26 | 6.022,59",
+"how": "1"
+},
+{
+"key": "40.48054,-3.71801",
+"lote": "1",
+"peso": 4799.0,
+"texto": "CEIP BRAVO MURILLO | C/ Fermín Caballero, 82 | 4.799,00 | 2.703,30",
+"how": "1"
+},
+{
+"key": "40.47541,-3.70242",
+"lote": "1",
+"peso": 4003.0,
+"texto": "CEIP BREOGAN | C/ Ginzo de Limia, 2-A | 4.003,00 | 2.400,97",
+"how": "1"
+},
+{
+"key": "40.47756,-3.70065",
+"lote": "1",
+"peso": 3560.0,
+"texto": "CEIP CAMILO JOSE CELA | C/ Melchor Fernández Almagro, 22 | 3.560,00 | 5.134,00",
+"how": "1"
+},
+{
+"key": "40.48261,-3.71108",
+"lote": "1",
+"peso": 5262.0,
+"texto": "CEIP CARDENAL HERRERA ORIA | C/ Fermín Caballero, 68 | 5.262,00 | 4.165,00",
+"how": "1"
+},
+{
+"key": "40.50774,-3.66755",
+"lote": "1",
+"peso": 4132.0,
+"texto": "CEIP GABRIELA MISTRAL | C/ Mirallos, 3 | 4.132,00 | 5.142,00",
+"how": "1"
+},
+{
+"key": "40.49967,-3.71143",
+"lote": "1",
+"peso": 4997.0,
+"texto": "CEIP INFANTA LEONOR | C/ Monasterio del Paular, 140 | 4.997,00 | 7.622,51",
+"how": "1"
+},
+{
+"key": "40.47531,-3.70771",
+"lote": "1",
+"peso": 3795.0,
+"texto": "CEIP JORGE GUILLEN | Av. El Ferrol, 47 | 3.795,00 | 2.606,00",
+"how": "1"
+},
+{
+"key": "40.49551,-3.69605",
+"lote": "1",
+"peso": 3262.0,
+"texto": "CEIP JOSE BERGAMIN | C/ Braille, 19 | 3.262,00 | 5.817,40",
+"how": "1"
+},
+{
+"key": "40.50973,-3.67045",
+"lote": "1",
+"peso": 5049.0,
+"texto": "CEIP JOSEP TARRADELLAS | C/ Triacastela, 1 | 5.049,00 | 5.122,00",
+"how": "1"
+},
+{
+"key": "40.50083,-3.67514",
+"lote": "1",
+"peso": 7009.87,
+"texto": "CEIP LEOPOLDO CALVO SOTELO | C/ Castiello de Jaca, 2 | 7.009,87 | 6.519,80",
+"how": "1"
+},
+{
+"key": "40.48665,-3.70161",
+"lote": "1",
+"peso": 4607.0,
+"texto": "CEIP LORENZO LUZURIAGA | C/ Valencia de Don Juan, 19 | 4.607,00 | 5.803,53",
+"how": "1"
+},
+{
+"key": "40.47460,-3.71441",
+"lote": "1",
+"peso": 2539.0,
+"texto": "CEIP LUIS DE GONGORA | C/ Sarriá, 49 | 2.539,00 | 1.853,00",
+"how": "1"
+},
+{
+"key": "40.49114,-3.71420",
+"lote": "1",
+"peso": 5207.57,
+"texto": "CEIP MIRASIERRA | C/ La Masó, 22 | 5.207,57 | 6.120,42",
+"how": "1"
+},
+{
+"key": "40.51716,-3.77426",
+"lote": "1",
+"peso": 1412.0,
+"texto": "CEIP MONTE DE EL PARDO | Avda de la Guardia, 19 | 1.412,00 | 1.060,00",
+"how": "1"
+},
+{
+"key": "40.54157,-3.69682",
+"lote": "1",
+"peso": 4880.0,
+"texto": "CEIP PRINCIPE DE ASTURIAS | Carretera Colmenar Viejo km. 15 | 4.880,00 | 6.814,00",
+"how": "1"
+},
+{
+"key": "40.48022,-3.70101",
+"lote": "1",
+"peso": 4733.15,
+"texto": "CEIP PRINCIPE FELIPE | Av. Monforte de Lemos, 24 | 4.733,15 | 4.402,00",
+"how": "1"
+},
+{
+"key": "40.48310,-3.69591",
+"lote": "1",
+"peso": 4688.0,
+"texto": "CEIP RABINDRANATH TAGORE | C/ Julio Palacios, 35 | 4.688,00 | 7.494,53",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2742.0,
+"texto": "CEIP REPUBLICA DEL PARAGUAY C/ Manresa, 60 | 2.742,00 | 3.910,37",
+"how": "amb2"
+},
+{
+"key": "40.49940,-3.68642",
+"lote": "1",
+"peso": 1214.0,
+"texto": "CEIP VASCO NUÑEZ DE BALBOA | C/ Nuestra Señora de Valverde,149 | 1.214,00 | 1.855,62",
+"how": "1"
+},
+{
+"key": "40.50447,-3.69687",
+"lote": "1",
+"peso": 1491.0,
+"texto": "EI ELENA FORTUN | Avda. del Monasterio de Silos, 57 | 1.491,00 | 413,33",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1792.0,
+"texto": "EI EL FRESNO | C/ María de Casares, 15 | 1.792,00 | 1.748,40",
+"how": "0"
+},
+{
+"key": "40.48807,-3.68482",
+"lote": "1",
+"peso": 822.0,
+"texto": "EI LA CARACOLA | C/ Belorado, 1 | 822,00 | 738,00",
+"how": "1"
+},
+{
+"key": "40.47304,-3.71528",
+"lote": "1",
+"peso": 1487.0,
+"texto": "EI LA CORTE DEL FARAON | C/ Chantada, 41 | 1.487,00 | 2.255,40",
+"how": "1"
+},
+{
+"key": "40.50050,-3.68830",
+"lote": "1",
+"peso": 1188.0,
+"texto": "EI LA ROSA DEL AZAFRAN | C/ Cueva de Montesinos, 2 | 1.188,00 | 176,00",
+"how": "1"
+},
+{
+"key": "40.50445,-3.67868",
+"lote": "1",
+"peso": 1527.95,
+"texto": "EI POETA GLORIA FUERTES | C/ Eunate, 6 | 1.527,95 | 1.103,65",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1898.0,
+"texto": "CEPA JOSE LUIS SAMPEDRO | C/ Celanova, 2 | 1.898,00 | 1.292,10",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3390.0,
+"texto": "CEE FRANCISCO DEL POZO | Cj. Dómine, 6 | 3.390,00 | 430,34",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3031.0,
+"texto": "CEE LA QUINTA | Finca La Quinta del Duque del Arco, Crta. El Pardo s/n | 3.031,00 | 3.270,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1353.0,
+"texto": "EM CARMELO ALONSO BERNAOLA Av. Soto de Palacios, 7 | 1.353,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.47891,-3.69354",
+"lote": "2",
+"peso": 6943.0,
+"texto": "CDM VICENTE DEL BOSQUE | Av. Monforte de Lemos, 13 | 6.943,00 | 41.508,17",
+"how": "1"
+},
+{
+"key": "40.47877,-3.70870",
+"lote": "2",
+"peso": 2913.0,
+"texto": "CDM MARIA JESUS ROSA | Av. Monforte de Lemos, 36 | 2.913,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.49809,-3.69636",
+"lote": "2",
+"peso": 1079.0,
+"texto": "CDM SANTA ANA | Paseo de Las Alamedillas, 5 | 1.079,00 | 1.688,75",
+"how": "1"
+},
+{
+"key": "40.48443,-3.71442",
+"lote": "2",
+"peso": 8602.0,
+"texto": "CDM LA MASO | C/ La Masó, 80 | 8.602,00 | 13.663,60",
+"how": "1"
+},
+{
+"key": "40.49498,-3.71118",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Mirasierra | C/ Nuria, 83 | 0,00 | 1.264,00",
+"how": "1"
+},
+{
+"key": "40.48390,-3.68447",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque de Begoña | Av. Llano Castellano, 1 | 0,00 | 1.984,00",
+"how": "1"
+},
+{
+"key": "40.48125,-3.69518",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque Norte | Arzobispo Morcillo, 9 | 0,00 | 604,00",
+"how": "1"
+},
+{
+"key": "40.47267,-3.70713",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque de La Alcazaba | Av. de El Ferrol, 34 | 0,00 | 1.867,00",
+"how": "1"
+},
+{
+"key": "40.47726,-3.70791",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Plaza Fonsagrada | Plaza Fonsagrada, 6 | 0,00 | 870,88",
+"how": "1"
+},
+{
+"key": "40.47707,-3.70747",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Plaza Arteijo | Plaza de Arteijo, 10 | 0,00 | 733,60",
+"how": "1"
+},
+{
+"key": "40.49105,-3.69396",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Poblado Dirigido (Olesa de Monserrat) | Av Cardenal Herrera Oria,108 c/v olesa de Monserrat | 0,00 | 3.199,00",
+"how": "1"
+},
+{
+"key": "40.47728,-3.71012",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Ribadeo y Verín | Plazas interiores entre plaza de Ribadeo, 1 y Plaza de Verín | 0,00 | 1.551,89",
+"how": "1"
+},
+{
+"key": "40.47935,-3.71916",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Supermanzana 7 | C/Fermín Caballero, 25 | 0,00 | 421,00",
+"how": "1"
+},
+{
+"key": "40.49809,-3.69636",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Barrio de Santa Ana | C/Braille 15 | 0,00 | 4.510,99",
+"how": "1"
+},
+{
+"key": "40.47847,-3.70584",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Plaza Mondariz | Plaza de Mondariz, 1 | 0,00 | 1.272,60",
+"how": "1"
+},
+{
+"key": "40.48460,-3.72483",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque La Milanera ( La Coma) | C/ Ramón Gómez de La Serna, 14 y Emilio Dominguez 5 | 0,00 | 2.284,00",
+"how": "1"
+},
+{
+"key": "40.47304,-3.70306",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB P.A.R. La Alcazaba | C/Sinesio Delgado 26 | 0,00 | 723,00",
+"how": "1"
+},
+{
+"key": "40.49399,-3.71261",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB P.A.R Moralzarzal | C/ Moralzarzal, 88 | 0,00 | 774,00",
+"how": "1"
+},
+{
+"key": "40.48460,-3.72483",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB P.A.R Ramón Gómez de la Serna | C/ Ramón Gómez de la Serna, 49 | 0,00 | 400,00",
+"how": "1"
+},
+{
+"key": "40.49284,-3.71691",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque Arroyo Fresno | Av. Ventisquero de La Condesa, 43 | 0,00 | 2.185,00",
+"how": "1"
+},
+{
+"key": "40.48447,-3.73368",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque Gabriela Mistral | C/ Rosalía de Castro, 69 | 0,00 | 506,00",
+"how": "addr"
+},
+{
+"key": "40.47401,-3.72645",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque Miguel Aracil | C/ Joaquín Lorenzo, 39 | 0,00 | 596,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Sangenjo | C/ Sangenjo, 42 | 0,00 | 742,00",
+"how": "0"
+},
+{
+"key": "40.50901,-3.67710",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Las Tablas | C/Castillo de Jaca 3 c/v Fromista 3 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.47935,-3.71916",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Fermín Caballero | C/ Fermín Caballero, 88 | 0,00 | 1.295,00",
+"how": "1"
+},
+{
+"key": "40.51055,-3.67260",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Palas del Rey | C/ Palas del Rey, c/v Fromista | 0,00 | 1.086,00",
+"how": "1"
+},
+{
+"key": "40.51667,-3.77380",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Brunete | C/ Brunete, 1 | 0,00 | 1.783,06",
+"how": "1"
+},
+{
+"key": "40.49087,-3.68656",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Ana Tutor | C/ Cardenal Herrera Oria, 216 | 0,00 | 2.740,00",
+"how": "1"
+},
+{
+"key": "40.49260,-3.69047",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Hontalbilla | Calle Villacastin, 14 | 0,00 | 896,00",
+"how": "1"
+},
+{
+"key": "40.50022,-3.68612",
+"lote": "2",
+"peso": 0.0,
+"texto": "Pista de petanca Parque de Fuencarral | C/ Afueras a Valverde,2 | 0,00 | 72,00",
+"how": "1"
+},
+{
+"key": "40.48017,-3.71130",
+"lote": "2",
+"peso": 0.0,
+"texto": "Pistas petanca+chito+calva \"Paseo Vaguada\" | Paseo de la Vaguada, 13 | 0,00 | 367,10",
+"how": "1"
+},
+{
+"key": "40.48402,-3.69863",
+"lote": "2",
+"peso": 0.0,
+"texto": "Skate Park Rosa de la Paz | C/ Pedro Rico, 12 | 0,00 | 300,00",
+"how": "1"
+},
+{
+"key": "40.48304,-3.70029",
+"lote": "2",
+"peso": 0.0,
+"texto": "Rocódromo | Avenida de la Ilustración | 0,00 | 150,50",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "Pista carreras | Avenida de la Ilustración (frente Centro Comercial) | 0,00 | 606,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Lacoma | C/ Emilio Dominguez, 3 | 0,00 | 640,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque lineal UZI 0.06 Arroyofresno | C/ María de Maeztu, 1 | 0,00 | 817,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Parque lineal Arroyofresno - Pump Truck | C/ María de Maeztu, 2 / Calle Lilí Álvarez | 0,00 | 1.215,00",
+"how": "0"
+},
+{
+"key": "40.49955,-3.70966",
+"lote": "2",
+"peso": 0.0,
+"texto": "Pista de patinaje metro Paco de Lucia | Parque Paco de Lucia | 0,00 | 507,00",
+"how": "1"
+},
+{
+"key": "40.53524,-3.78527",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Mingorrubio | Ctra. El Pardo a Colmenar viejo, km 9,5 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.50716,-3.69750",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Santuario de Valverde | Avda. Santuario de Valverde, 41 | 0,00 | 1.612,00",
+"how": "1"
+},
+{
+"key": "40.50044,-3.70051",
+"lote": "2",
+"peso": 0.0,
+"texto": "IDB Montecarmelo | Avda Montecarmelo 1 | 0,00 | 1.125,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 0.0,
+"texto": "Pista de patinaje Isla de arosa | C/ Isla de Arosa | 0,00 | 202,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 2924.6,
+"texto": "SEDE DISTRITO FUENCARRAL-EL PARDO | Avda. Monforte de Lemos, 40 | 2.924,60 | 0,00",
+"how": "amb3"
+},
+{
+"key": "40.47903,-3.70826",
+"lote": "3",
+"peso": 3689.0,
+"texto": "GARAJE COMPLEJO VAGUADA | Avda. Monforte de Lemos, 36 | 3.689,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 102.26,
+"texto": "OFICINA AUXILIAR DE \"EL PARDO\" | Pza. el Pardo, 2 | 102,26 | 0,00",
+"how": "0"
+},
+{
+"key": "40.49505,-3.68801",
+"lote": "3",
+"peso": 1008.85,
+"texto": "OFICINA AUXILIAR VALVERDE / C.C. VALVERDE | Pza. Islas Azores, 1 | 1.008,85 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 1558.88,
+"texto": "OFICINA AUXILIAR VENTISQUERO | Calle Ventisquero de la Condesa, 7 y 9 | 1.558,88 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 4115.0,
+"texto": "CC VAGUADA | Avda. Monforte de Lemos, 38 | 4.115,00 | 0,00",
+"how": "amb4"
+},
+{
+"key": "40.49082,-3.72161",
+"lote": "3",
+"peso": 3782.0,
+"texto": "CC ALFREDO KRAUS | Gta. Pradera de Vaquerizas, 9 | 3.782,00 | 1.605,46",
+"how": "1"
+},
+{
+"key": "40.48026,-3.72147",
+"lote": "3",
+"peso": 1657.0,
+"texto": "CC RAFAEL DE LEON | C/Isla de Ons, 14 | 1.657,00 | 359,00",
+"how": "1"
+},
+{
+"key": "40.48107,-3.69335",
+"lote": "3",
+"peso": 737.7,
+"texto": "CC VALLE INCLAN | C/ Arzobispo Morcillo, 7 | 737,70 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 3672.58,
+"texto": "CIN MONTECARMELO | Avda. Santuario de Valverde, 77 | 3.672,58 | 5.744,43",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 876.29,
+"texto": "CI ALFONSO XII | C/ Mira el Río, 4 | 876,29 | 0,00",
+"how": "amb2"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 1220.0,
+"texto": "CM LA VAGUADA | Avda. Monforte de Lemos, 38 | 1.220,00 | -58,50",
+"how": "amb4"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 284.0,
+"texto": "CM ARCADAS | Avda. Monforte de Lemos, 38 | 284,00 | 0,00",
+"how": "amb4"
+},
+{
+"key": "40.48443,-3.70722",
+"lote": "3",
+"peso": 556.0,
+"texto": "CM GINZO DE LIMIA | C/ Ginzo de Limia, 66 | 556,00 | 68,00",
+"how": "1"
+},
+{
+"key": "40.49223,-3.68768",
+"lote": "3",
+"peso": 437.0,
+"texto": "CM ISLAS JARVI | C/ Islas Jarvi, 5 | 437,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 876.62,
+"texto": "CM PEÑAGRANDE | Av. Cardenal Herrera Oria, 263 | 876,62 | 0,00",
+"how": "0"
+},
+{
+"key": "40.49454,-3.70640",
+"lote": "3",
+"peso": 2741.65,
+"texto": "CM MIRASIERRA | C/ Marbella, 80 c/v C/ de la Peña Vieja, 4 | 2.741,65 | 1.151,25",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 1621.0,
+"texto": "CI VV JUSTO SIERRA | C/ Fermin Caballero, 17 | 1.621,00 | 391,00",
+"how": "amb2"
+},
+{
+"key": "40.51513,-3.77462",
+"lote": "3",
+"peso": 236.0,
+"texto": "CD EL PARDO | C/ General Urrutia, 1 | 236,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.49165,-3.69056",
+"lote": "3",
+"peso": 1938.56,
+"texto": "CD FRAY LUIS DE LEON + EDIF PLAYA GATA | C/ Manresa, 1 | 1.938,56 | 1.215,06",
+"how": "1"
+},
+{
+"key": "40.47437,-3.72138",
+"lote": "3",
+"peso": 509.0,
+"texto": "CD PEÑAGRANDE | C/ Isla Malaita, 13 | 509,00 | 638,30",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 156.41,
+"texto": "CASA DE NIÑOS | C/ Hospitalet de Llobregat, 2 | 156,41 | 0,00",
+"how": "amb2"
+},
+{
+"key": "40.49358,-3.69668",
+"lote": "3",
+"peso": 1518.0,
+"texto": "CSS BADALONA | C/ Badalona, 122 | 1.518,00 | 286,05",
+"how": "1"
+},
+{
+"key": "40.47248,-3.71661",
+"lote": "3",
+"peso": 2568.04,
+"texto": "CSS SAN VICENTE DE PAUL | C/ Buitrago del Lozoya, 22 | 2.568,04 | -437,15",
+"how": "1"
+},
+{
+"key": "40.51964,-3.77854",
+"lote": "3",
+"peso": 144.0,
+"texto": "CJ EL PARDO | Avda. Padre Cipriano, 11 | 144,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 452.0,
+"texto": "CJ HONTALVILLA | C/ Hontalvilla, 10 | 452,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 368.0,
+"texto": "CIT VAGUADA | Avda. Monforte de Lemos, 38 | 368,00 | 0,00",
+"how": "amb4"
+},
+{
+"key": "40.47860,-3.70944",
+"lote": "3",
+"peso": 1714.3,
+"texto": "BIBLIOTECA JOSE SARAMAGO | Avda. Monforte de Lemos, 38 | 1.714,30 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 180.17,
+"texto": "EDIFICIO EL PALOMAR | C/ Capiscol, 5 | 180,17 | 120,40",
+"how": "amb2"
+},
+{
+"key": "40.48017,-3.71130",
+"lote": "3",
+"peso": 134.0,
+"texto": "AUDITORIO PARQUE DE LA VAGUADA | Pº Vaguada, 13 | 134,00 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.50022,-3.68612",
+"lote": "3",
+"peso": 160.0,
+"texto": "TEMPLETE PARQUE FUENCARRAL | Pº Campo de Calatrava, 31 | 160,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 150.0,
+"texto": "TEMPLETE DEL PARDO | Parque de la Mar Oceana s/n | 150,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 50.0,
+"texto": "TORREÓN PLAZA SAN FERNANDO | Plaza de San Fernando, 1 | 50,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 2490.0,
+"texto": "CEIP ENRIQUE GRANADOS | C/ Virgen de Aránzazu, 5 | 2.490,00 | 1.986,05",
+"how": "amb2"
+},
+{
+"key": "40.47248,-3.70509",
+"lote": "3",
+"peso": 3395.0,
+"texto": "CEIP FEDERICO GARCIA LORCA | C/ Ribadavia, 20 | 3.395,00 | 4.473,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 2509.0,
+"texto": "CECO GUATEMALA | C/ Celanova, 2 | 2.509,00 | 1.737,18",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "CM Las Tablas - Skate Park | C/ Viloria de la Rioja, 52A | 0,00 | 587,90",
+"how": "0"
+}
+]
+},
+"300/2025/02724": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_02724__ppt0.txt",
+"filas": [
+{
+"key": "40.37984,-3.77645",
+"lote": "",
+"peso": 3552.9,
+"texto": "CEIP ALCALDE DE MÓSTOLES | C/ Aldeanueva de la Vera, 9 | 3.552,90 | 5.949,25 | 300,00",
+"how": "1"
+},
+{
+"key": "40.39744,-3.75539",
+"lote": "",
+"peso": 4039.07,
+"texto": "CEIP AMADEO VIVES | C/ Los Yébenes 6 | 4.039,07 | 4.371,52 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.40763,-3.74987",
+"lote": "",
+"peso": 2228.56,
+"texto": "CEIP BOLIVIA | C/ Villavaliente, 29 | 2.228,56 | 4.309,08 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38398,-3.77890",
+"lote": "",
+"peso": 4919.2,
+"texto": "CEIP CIUDAD DE BADAJOZ | C/ Fray José de Cerdeiriña, 51 | 4.919,20 | 3.113,80 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38550,-3.75599",
+"lote": "",
+"peso": 4719.59,
+"texto": "CEIP COSTA RICA | C/ Camarena, 247 | 4.719,59 | 9.916,39 | 300,00",
+"how": "1"
+},
+{
+"key": "40.39509,-3.76141",
+"lote": "",
+"peso": 4071.12,
+"texto": "CEIP CUBA | C/ Tembleque 58 | 4.071,12 | 4.578,57 | 0,00",
+"how": "1"
+},
+{
+"key": "40.41092,-3.72340",
+"lote": "",
+"peso": 2636.04,
+"texto": "CEIP ERMITA DEL SANTO | Po. Ermita del Santo, 18 | 2.636,04 | 6.237,80 | 200,00",
+"how": "1"
+},
+{
+"key": "40.41119,-3.72779",
+"lote": "",
+"peso": 2865.11,
+"texto": "CEIP FRANCISCO DE GOYA | C/ Antillón, 23 | 2.865,11 | 679,55 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39414,-3.77930",
+"lote": "",
+"peso": 3081.25,
+"texto": "CEIP GONZALO FERNÁNDEZ DE | C/ Adanero, 3 | 3.081,25 | 2.026,14 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39858,-3.76880",
+"lote": "",
+"peso": 1338.22,
+"texto": "CEIP HERMANOS PINZÓN I (infantil) | C/ Calamón, 3 | 1.338,22 | 628,02 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39858,-3.76880",
+"lote": "",
+"peso": 1461.65,
+"texto": "CEIP HERMANOS PINZÓN II (primaria) | C/ Azor, 4 | 1.461,65 | 620,59 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39118,-3.75128",
+"lote": "",
+"peso": 5380.0,
+"texto": "CEIP HERNÁN CORTÉS | C/ Los Yébenes, 241 | 5.380,00 | 6.499,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40564,-3.73838",
+"lote": "",
+"peso": 2822.72,
+"texto": "CEIP JOAQUÍN DICENTA | Po. de los Olivos, 70 | 2.822,72 | 1.076,62 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37927,-3.78301",
+"lote": "",
+"peso": 3266.03,
+"texto": "CEIP JOVELLANOS | C/ Monroy, 34-B | 3.266,03 | 3.956,28 | 325,00",
+"how": "1"
+},
+{
+"key": "40.38889,-3.76202",
+"lote": "",
+"peso": 3189.68,
+"texto": "CEIP LA LATINA | C/ Maqueda, 130 | 3.189,68 | 3.739,98 | 525,00",
+"how": "1"
+},
+{
+"key": "40.38135,-3.77173",
+"lote": "",
+"peso": 3899.9,
+"texto": "CEIP MANUEL BARTOLOMÉ COSSÍO I | C/ José de Cadalso, 19 | 3.899,90 | 3.162,17 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.38135,-3.77173",
+"lote": "",
+"peso": 1936.08,
+"texto": "CEIP MANUEL BARTOLOMÉ COSSÍO II | C/ Rafael Finat, 46 | 1.936,08 | 2.332,41 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40242,-3.74105",
+"lote": "",
+"peso": 5901.73,
+"texto": "CEIP NUESTRA SEÑORA DEL LUCERO | C/ Muñico, 1 | 5.901,73 | 16.089,00 | 380,00",
+"how": "1"
+},
+{
+"key": "40.39083,-3.76100",
+"lote": "",
+"peso": 3910.98,
+"texto": "CEIP PARQUE ALUCHE | C/ Quero, 47-B | 3.910,98 | 3.175,26 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39347,-3.74123",
+"lote": "",
+"peso": 4478.22,
+"texto": "CEIP REPÚBLICA DE URUGUAY | Av. Nuestra Señora de | 4.478,22 | 7.370,35 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39377,-3.75278",
+"lote": "",
+"peso": 4718.61,
+"texto": "CPEE FRAY PEDRO PONCE DE LEÓN | C/ Los Yébenes,76 | 4.718,61 | 5.983,30 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 1152.0,
+"texto": "EI ALTAIR | C/ José Cadalso,43 | 1.152,00 | 1.580,80 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 1075.01,
+"texto": "EI EL MANANTIAL | C/ Carlos Fuentes, 2F | 1.075,01 | 2.043,30 | 210,00",
+"how": "0"
+},
+{
+"key": "40.37197,-3.76817",
+"lote": "",
+"peso": 1206.93,
+"texto": "EI LA DEL SOTO DEL PARRAL | C/ Trompas, 19 | 1.206,93 | 1.619,43 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38049,-3.76608",
+"lote": "",
+"peso": 1358.7,
+"texto": "EI LA VERBENA DE LA PALOMA | C/ Fuerte de Navidad,17 | 1.358,70 | 1.391,30 | 0,00",
+"how": "addr"
+},
+{
+"key": null,
+"lote": "",
+"peso": 3014.35,
+"texto": "ESCUELA DE MÚSICA Y DANZA | C/ Carlos Fuentes, 2D | 3.014,35 | 1.173,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.38272,-3.77365",
+"lote": "",
+"peso": 12250.0,
+"texto": "CDM ALUCHE | Av. de las Águilas, 14 | 12.250,00 | 109.444,00 | 24.186,00",
+"how": "1"
+},
+{
+"key": "40.39847,-3.73537",
+"lote": "",
+"peso": 23500.0,
+"texto": "CDM GALLUR | C/ Gallur, 2-22 | 23.500,00 | 51.216,00 | 6.436,00",
+"how": "1"
+},
+{
+"key": "40.37885,-3.75626",
+"lote": "",
+"peso": 8612.25,
+"texto": "CDM LAS CRUCES | Av. de los Poblados, 72 | 8.612,25 | 29.391,92 | 9.477,00",
+"how": "1"
+},
+{
+"key": "40.40652,-3.74589",
+"lote": "",
+"peso": 1677.66,
+"texto": "CDM EL OLIVILLO | C/ Olivillo, 4 | 1.677,66 | 1.692,88 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 0.0,
+"texto": "IDB ANSELMO LORENZO | C/ Anselmo Lorenzo, 11 | 0,00 | 540,00 | 0,00",
+"how": "anulada"
+},
+{
+"key": "40.39975,-3.75005",
+"lote": "",
+"peso": 236.0,
+"texto": "IDB ARJONA | C/ Concejal Francisco José | 236,00 | 2.584,00 | 7.140,00",
+"how": "1"
+},
+{
+"key": "40.40490,-3.73045",
+"lote": "",
+"peso": 328.94,
+"texto": "IDB BARRIO GOYA | Av. de Los Caprichos, 16 | 328,94 | 4.775,80 | 5.140,00",
+"how": "addr"
+},
+{
+"key": "40.40251,-3.74943",
+"lote": "",
+"peso": 245.0,
+"texto": "IDB CASTROSERNA | C/ Castroserna, 2 c/v C/ | 245,00 | 4.340,00 | 5.225,00",
+"how": "1"
+},
+{
+"key": "40.39393,-3.74471",
+"lote": "",
+"peso": 325.0,
+"texto": "IDB PARQUE CERRO ALMODOVAR | Parque Cerro de Almodóvar, | 325,00 | 10.540,00 | 5.320,00",
+"how": "1"
+},
+{
+"key": "40.37975,-3.76913",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB CIUDAD DE MÉJICO | C/ Rafael Finat, 45 B | 0,00 | 120,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39718,-3.75185",
+"lote": "",
+"peso": 310.0,
+"texto": "IDB CONCEJAL GABRIEL FERNÁNDEZ | C/ Cuart de Poblet, 6 c/v | 310,00 | 2.920,00 | 8.950,00",
+"how": "1"
+},
+{
+"key": "40.38256,-3.78187",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB FUENTE DE LIMA | C/ Fuente de Lima, 24 | 0,00 | 540,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38082,-3.76520",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB FUERTE DE NAVIDAD | C/ Fuerte de Navidad s/n | 0,00 | 440,00 | 0,00",
+"how": "fz"
+},
+{
+"key": "40.38008,-3.77828",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB GARROVILLAS | Pza. de Garrovillas s/n | 0,00 | 900,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38005,-3.76787",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB GENERAL MILLAN ASTRAY | C/ General Millán Astray 8-12 | 0,00 | 2.578,23 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39728,-3.76591",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB ILLESCAS | C/ Illescas c/v Po. | 0,00 | 1.280,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37448,-3.76216",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB JARDÍN CARLOS MATALLANAS | C/ Muntadas, 11 | 0,00 | 5.450,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40261,-3.74474",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB JARDINES ALHAMBRA | C/ Alhambra c/v C/ Carlos | 0,00 | 1.300,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38520,-3.76190",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB JARDINES LAS ÁGUILAS | Av. Las Águilas 110B y 144 | 0,00 | 2.060,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39222,-3.74203",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB JARDINES VIA CARPETANA | C/ Vía Carpetana c/v C/ | 0,00 | 230,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37637,-3.76833",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB JOSE DE CADALSO | C/ José de Cadalso c/v | 0,00 | 320,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40580,-3.72855",
+"lote": "",
+"peso": 680.0,
+"texto": "IDB LOS CAPRICHOS | Av. De los Caprichos, 1 | 680,00 | 7.783,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 300.0,
+"texto": "SERVICIO DE MEDIO AMBIENTE Y ESCENA URBANA | 300/2025/02724",
+"how": "0"
+},
+{
+"key": "40.39747,-3.74386",
+"lote": "",
+"peso": 807.0,
+"texto": "IDB LOS CARMENES | C/ Alhambra, 35 c/v C/ Gallur | 807,00 | 17.089,27 | 10.165,00",
+"how": "1"
+},
+{
+"key": "40.37499,-3.77035",
+"lote": "",
+"peso": 79.0,
+"texto": "IDB ÓSCAR Y JESÚS | C/ Soledad Cazorla 22 y 28 | 79,00 | 1.761,00 | 5.510,00",
+"how": "1"
+},
+{
+"key": "40.41221,-3.72388",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PABLO CASALS | C/ Saavedra Fajardo 25-27 | 0,00 | 1.276,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39676,-3.75754",
+"lote": "",
+"peso": 285.0,
+"texto": "IDB PARQUE ALUCHE | C/ Valmojado s/n | 285,00 | 11.760,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39929,-3.77084",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE BOADILLA | Ctra. Boadilla del Monte | 0,00 | 4.835,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE CALLE ONIL | C/ Navia, 12 c/v C/ Luis | 0,00 | 1.180,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.40817,-3.72940",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE DE CARAMUEL | C/ Caramuel s/n | 0,00 | 1.786,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37782,-3.76242",
+"lote": "",
+"peso": 156.0,
+"texto": "IDB PARQUE DE LAS CRUCES I | C/ Rompedizo, 15 | 156,00 | 6.837,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38300,-3.76302",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE DE LAS CRUCES II | C/ Vidauba, s/n | 0,00 | 2.700,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38253,-3.76605",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE RAFAEL FINAT | C/ Fuerte de Navidad, 1 | 0,00 | 320,00 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.40246,-3.75295",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB PARQUE SECTOR SURBATAN | C/ Sepúlveda, 202-206 | 0,00 | 440,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40467,-3.73715",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB SAN BENIGNO | C/ San Benigno, 3 | 0,00 | 992,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40245,-3.75643",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB SANCHORREJA | C/ Sanchorreja, 8 | 0,00 | 11.629,63 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39882,-3.75587",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB SEPÚLVEDA | C/ Sepúlveda c/v C/ Los | 0,00 | 1.600,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39765,-3.75774",
+"lote": "",
+"peso": 20.0,
+"texto": "IDB SESEÑA | C/ Seseña, 2 A c/v Valmojado, | 20,00 | 1.835,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37014,-3.76304",
+"lote": "",
+"peso": 22.0,
+"texto": "IDB TROMBONES | C/ Trombones nº 13, c/v a C/ | 22,00 | 1.718,00 | 5.615,00",
+"how": "1"
+},
+{
+"key": "40.37614,-3.77565",
+"lote": "",
+"peso": 0.0,
+"texto": "IDB VALLE INCLÁN | C/ Valle Inclán c/v Aldeanueva | 0,00 | 1.600,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39847,-3.74527",
+"lote": "",
+"peso": 0.0,
+"texto": "PISTA CUART DE POBLET | C/ Cuart de Poblet, 11 T | 0,00 | 500,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 54.0,
+"texto": "ROCÓDROMO PARQUE CUÑA VERDE | C/ Concejal Francisco José | 54,00 | 0,00 | 108,00",
+"how": "0"
+},
+{
+"key": "40.38494,-3.76422",
+"lote": "",
+"peso": 5801.0,
+"texto": "Sede Junta Municipal Distrito de Latina, | Av. Las Águilas, 2-A c/v C/ | 5.801,00 | 1.913,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39707,-3.76649",
+"lote": "",
+"peso": 3214.24,
+"texto": "Biblioteca Ángel González | C/ Granja de Torrehermosa, | 3.214,24 | 743,52 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39574,-3.75662",
+"lote": "",
+"peso": 3964.76,
+"texto": "Centro Cultural Fernando de los Ríos | C/ Camarena, 10 | 3.964,76 | 9.242,93 | 76,00",
+"how": "1"
+},
+{
+"key": "40.40159,-3.74911",
+"lote": "",
+"peso": 2117.0,
+"texto": "Centro Cultural José Luis Sampedro | C/ Castroserna, 4 | 2.117,00 | 448,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37882,-3.78188",
+"lote": "",
+"peso": 1148.0,
+"texto": "Centro Cultural Miguel Hernández | C/ Serradilla, 13 | 1.148,00 | 454,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39950,-3.77502",
+"lote": "",
+"peso": 1686.15,
+"texto": "Centro Cultural Sara Montiel | Ctra. Boadilla del Monte, 40- | 1.686,15 | 1.726,89 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 2116.0,
+"texto": "Centro Socio-Cultural Almirante Churruca | C/ Fuente del Tiro, 72 | 2.116,00 | 1.258,71 | 0,00",
+"how": "amb2"
+},
+{
+"key": "40.40732,-3.74747",
+"lote": "",
+"peso": 1097.0,
+"texto": "Centro Socio-Cultural El Greco | C/ El Greco, 29 c/v C/ | 1.097,00 | 719,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 1147.16,
+"texto": "Centro Socio-Cultural Latina | C/ Rodrigo de Arana, 50 | 1.147,16 | 2.600,00 | 80,00",
+"how": "amb2"
+},
+{
+"key": null,
+"lote": "",
+"peso": 2098.18,
+"texto": "Centro Socio-Cultural Rosario Acuña | C/ María del Carmen, 65 | 2.098,18 | 578,41 | 62,00",
+"how": "amb2"
+},
+{
+"key": "40.40192,-3.75507",
+"lote": "",
+"peso": 712.11,
+"texto": "Centro de Atención a la Infancia CAI 6 | C/ Alverja, 11 | 712,11 | 348,55 | 0,00",
+"how": "1"
+},
+{
+"key": "40.36362,-3.77605",
+"lote": "",
+"peso": 6272.49,
+"texto": "Centro de Atención Social de Emergencia | C/ Pinar de San José, 104 y | 6.272,49 | 14.419,32 | 40,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 523.78,
+"texto": "Centro de Día Casa de Campo | C/ Principal de Provincias, 21 | 523,78 | 90,00 | 20,00",
+"how": "0"
+},
+{
+"key": "40.39694,-3.74139",
+"lote": "",
+"peso": 547.0,
+"texto": "Centro de Día Gallur | C/ Gallur, 417 | 547,00 | 0,00 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.39922,-3.74166",
+"lote": "",
+"peso": 2211.15,
+"texto": "Centro de Día Gertrudis de la Fuente | C/ Gertrudis de la Fuente, 2 | 2.211,15 | 1.900,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.41490,-3.72638",
+"lote": "",
+"peso": 1416.5,
+"texto": "Centro de Día San Crispín | C/ Obertura, 6 | 1.416,50 | 520,73 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39898,-3.76759",
+"lote": "",
+"peso": 1130.0,
+"texto": "Centro de Mayores Campamento | Ctra. Boadilla del Monte, 13 | 1.130,00 | 277,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40932,-3.73013",
+"lote": "",
+"peso": 1763.0,
+"texto": "Centro de Mayores Cerro Bermejo | C/ Pericles, 4 | 1.763,00 | 1.170,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37975,-3.76913",
+"lote": "",
+"peso": 1663.0,
+"texto": "Centro de Mayores Ciudad de Méjico | C/ Rafael Finat, 49 | 1.663,00 | 2.385,00 | 40,00",
+"how": "1"
+},
+{
+"key": "40.40176,-3.74915",
+"lote": "",
+"peso": 1482.0,
+"texto": "Centro de Mayores Lucero | C/ Castroserna, 4 | 1.482,00 | 448,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.37870,-3.76400",
+"lote": "",
+"peso": 2783.0,
+"texto": "Centro de Mayores Margarita Salas | C/ Blas Cabrera, 145 y C/ | 2.783,00 | 1.059,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.38057,-3.76572",
+"lote": "",
+"peso": 2293.74,
+"texto": "Centro de Servicios Sociales Fuerte de | C/ Fuerte de Navidad, 15 | 2.293,74 | 900,00 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.39764,-3.74124",
+"lote": "",
+"peso": 834.0,
+"texto": "Centro de Servicios Sociales Gallur | C/ Gallur, 24 | 834,00 | 2.793,00 | 0,00",
+"how": "addr"
+},
+{
+"key": "40.39118,-3.75128",
+"lote": "",
+"peso": 1415.11,
+"texto": "Centro de Servicios Sociales Los Yébenes | C/ Los Yébenes, 241-B, PL. | 1.415,11 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40281,-3.74653",
+"lote": "",
+"peso": 257.0,
+"texto": "Sala de Lectura Cayetano Pando | C/ Cayetano Pando, 8 PL. | 257,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40514,-3.74847",
+"lote": "",
+"peso": 476.0,
+"texto": "Sala de Lectura Cebreros y Sala Anexa | C/ Cebreros, 66-68, PL. Baja | 476,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.39468,-3.76463",
+"lote": "",
+"peso": 254.0,
+"texto": "Sala de Lectura Maqueda | C/ Maqueda, 5, PL. Baja | 254,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.41111,-3.73581",
+"lote": "",
+"peso": 137.0,
+"texto": "Sala de Lectura Paseo de Extremadura | Po. de Extremadura, 128 PL. | 137,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 1075.0,
+"texto": "Auditorio al aire libre Parque Aluche | C/ Illescas s/n (Parque | 1.075,00 | 355,00 | 0,00",
+"how": "amb2"
+},
+{
+"key": null,
+"lote": "",
+"peso": 700.0,
+"texto": "Auditorio al aire libre Parque Cerro | C/ Marcelino Castillo s/n | 700,00 | 1.172,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.38347,-3.75949",
+"lote": "",
+"peso": 0.0,
+"texto": "Auditorio al aire libre Parque de las Cruces | Parque de las Cruces s/n | 0,00 | 1.180,00 | 0,00",
+"how": "fz"
+},
+{
+"key": "40.36938,-3.76347",
+"lote": "",
+"peso": 30.0,
+"texto": "Auditorio al aire libre Las Cambrijas | C/ Flautas, c/v C/Jacobeo, | 30,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 106.0,
+"texto": "Templete Cantaor José Menese | Plaza Huarte de San Juan | 106,00 | 0,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 70.0,
+"texto": "Templete Las Cambrijas | C/ Flautas, c/v C/Jacobeo, | 70,00 | 1.000,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.39432,-3.75928",
+"lote": "",
+"peso": 110.0,
+"texto": "Quiosco Bremen | C/ Quero s/n (Parque Aluche) | 110,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 135.0,
+"texto": "Quiosco Oxford | C/ Valmojado s/n (Parque | 135,00 | 0,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.39393,-3.74471",
+"lote": "",
+"peso": 110.0,
+"texto": "Quiosco Parque Cerro Almodóvar | C/ Duquesa Parcent s/n | 110,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 0.0,
+"texto": "Bandera Parque Jardines del Teniente | Jardines del Teniente | 0,00 | 0,00 | 2,00",
+"how": "anulada"
+}
+]
+},
+"300/2025/02455": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_02455__ppt0.txt",
+"filas": [
+{
+"key": "40.41031,-3.61368",
+"lote": "1",
+"peso": 5003.96,
+"texto": "CEIP Doctor Severo Ochoa | C. Ezcaray, 3 | 5.003,96",
+"how": "1"
+},
+{
+"key": "40.40503,-3.60109",
+"lote": "1",
+"peso": 2961.5,
+"texto": "CEIP Vicálvaro | C. Forges, 15 | 2.961,50",
+"how": "1"
+},
+{
+"key": "40.40320,-3.60369",
+"lote": "1",
+"peso": 4812.36,
+"texto": "CEIP Alfonso X El Sabio | C. Fuente de San Pedro, 6 | 4.812,36",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 795.0,
+"texto": "CEIP Vicálvaro Preescolar | C. Sepiolita, 4 | 795,00",
+"how": "0"
+},
+{
+"key": "40.40341,-3.61784",
+"lote": "1",
+"peso": 3425.0,
+"texto": "CEIP Valdebernardo | C. Tren de Arganda, 9 | 3.425,00",
+"how": "1"
+},
+{
+"key": "40.39629,-3.62577",
+"lote": "1",
+"peso": 3845.39,
+"texto": "CEIP Los Almendros | C. Copérnico, 1-3 | 3.845,39",
+"how": "1"
+},
+{
+"key": "40.40068,-3.59898",
+"lote": "1",
+"peso": 4700.06,
+"texto": "CEIP Carmen Laforet | Av. Gran Vía del Este, 40 | 4.700,06",
+"how": "1"
+},
+{
+"key": "40.40297,-3.59531",
+"lote": "1",
+"peso": 5940.21,
+"texto": "CEIP Winston Churchill | Av. Gran vía del Este, 5 | 5.940,21",
+"how": "1"
+},
+{
+"key": "40.40362,-3.56355",
+"lote": "1",
+"peso": 2852.0,
+"texto": "CEIP El Cañaveral | C/José Escobar y Saliente, 50 | 2.852,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 16.0,
+"texto": "EI Cielo Azul (*) | Blvr. Indalecio Prieto, 16",
+"how": "amb2"
+},
+{
+"key": "40.40321,-3.60992",
+"lote": "1",
+"peso": 4.0,
+"texto": "EI Molinos de Viento (*) | Camino de Fuente de Arriba, 4",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2.0,
+"texto": "HIGIÉNICO-SANITARIOS EN LOS EQUIPAMIENTOS ADSCRITOS AL DISTRITO DE VICÁLVARO 2026-2028 (2 LOTES).",
+"how": "0"
+},
+{
+"key": "40.40227,-3.60597",
+"lote": "1",
+"peso": 18.0,
+"texto": "Plaza de Don Antonio de Andrés, 18",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 268.0,
+"texto": "Sanidad - Edificio Avda. Real, 26 | Avda. Real, 36 | 268,00",
+"how": "0"
+},
+{
+"key": "40.40529,-3.60862",
+"lote": "1",
+"peso": 900.0,
+"texto": "Biblioteca El Madroño | C. Villardondiego, 36 | 900,00",
+"how": "1"
+},
+{
+"key": "40.39983,-3.62128",
+"lote": "1",
+"peso": 1631.0,
+"texto": "Biblioteca Francisco Ayala | Blvr. Indalecio Prieto, 21 | 1.631,00",
+"how": "1"
+},
+{
+"key": "40.40218,-3.60141",
+"lote": "1",
+"peso": 5500.0,
+"texto": "Edificio Titanio – Sede del Distrito – Centro C. Titanio, 5 | 5.500,00",
+"how": "1"
+},
+{
+"key": "40.40529,-3.60862",
+"lote": "1",
+"peso": 2452.0,
+"texto": "Centro Cultural El Madroño | C. Villardondiego, 36 | 2.452,00",
+"how": "1"
+},
+{
+"key": "40.40354,-3.60928",
+"lote": "2",
+"peso": 2946.0,
+"texto": "INSTALACIONES | Centro Mayores y de Día | Avda. Daroca, 342 | 2.946,00",
+"how": "1"
+},
+{
+"key": "40.39616,-3.62611",
+"lote": "2",
+"peso": 3984.0,
+"texto": "C. Ladera de los Almendros 6 | 3.984,00",
+"how": "1"
+},
+{
+"key": "40.40316,-3.62334",
+"lote": "2",
+"peso": 497.19,
+"texto": "Centro de Servicios Sociales Calahorra | C. Calahorra, 11 | 497,19",
+"how": "1+prev"
+},
+{
+"key": "40.40249,-3.60702",
+"lote": "2",
+"peso": 710.0,
+"texto": "Centro Cívico-Social Polivalente | Avda. Real, 12 | 710,00",
+"how": "1"
+},
+{
+"key": "40.40227,-3.60597",
+"lote": "2",
+"peso": 1688.88,
+"texto": "Edificio Pza. de Antonio de Andrés, 18 - | Pl. Don Antonio de Andrés, 18 1.688,88",
+"how": "1"
+},
+{
+"key": "40.40227,-3.60597",
+"lote": "2",
+"peso": 329.46,
+"texto": "Edificio Pza. Antonio de Andrés, 6 | Pl. Don Antonio de Andrés, 6 | 329,46",
+"how": "1+abr+prev"
+},
+{
+"key": "40.40419,-3.62290",
+"lote": "2",
+"peso": 7677.44,
+"texto": "CDM FAUSTINA VALLADOLID (*) | C. Ladera de los Almendros, 2 7.677,44",
+"how": "addr"
+},
+{
+"key": "40.40914,-3.60326",
+"lote": "2",
+"peso": 6856.02,
+"texto": "CDM MARGOT MOLES (*) | P.º del Polideportivo, 3 | 6.856,02",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2.0,
+"texto": "HIGIÉNICO-SANITARIOS EN LOS EQUIPAMIENTOS ADSCRITOS AL DISTRITO DE VICÁLVARO 2026-2028 (2 LOTES).",
+"how": "0"
+},
+{
+"key": "40.40227,-3.60597",
+"lote": "1",
+"peso": 18.0,
+"texto": "Plaza de Don Antonio de Andrés, 18",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2.0,
+"texto": "HIGIÉNICO-SANITARIOS EN LOS EQUIPAMIENTOS ADSCRITOS AL DISTRITO DE VICÁLVARO 2026-2028 (2 LOTES).",
+"how": "0"
+},
+{
+"key": "40.40227,-3.60597",
+"lote": "1",
+"peso": 18.0,
+"texto": "Plaza de Don Antonio de Andrés, 18",
+"how": "1"
+}
+]
+},
+"300/2024/00266": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2024_00266__ppt0.txt",
+"filas": [
+{
+"key": null,
+"lote": "",
+"peso": 268.0,
+"texto": "E3 | Avda. Real, 36 | 268,00 | 0,00 | 62,75",
+"how": "anulada"
+},
+{
+"key": "40.40249,-3.60702",
+"lote": "",
+"peso": 837.0,
+"texto": "E4 | Centro Social Polivalente | Avda. Real, 12-14 | 837,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40529,-3.60862",
+"lote": "",
+"peso": 3305.0,
+"texto": "E6 | c/ Villardondiego, 36 | 3.305,00 | 473,00 | 782,00",
+"how": "1+prev"
+},
+{
+"key": "40.39983,-3.62127",
+"lote": "",
+"peso": 4891.0,
+"texto": "E7 | Bv. Indalecio Prieto, 21 | 4.891,00 | 1.091,00 661,00",
+"how": "1+prev"
+},
+{
+"key": "40.40354,-3.60928",
+"lote": "",
+"peso": 2946.0,
+"texto": "E8 | Avda. Daroca, 342 | 2.946,00 | 0,00 | 1.597,00",
+"how": "fz"
+},
+{
+"key": "40.39616,-3.62611",
+"lote": "",
+"peso": 3984.0,
+"texto": "E9 Centro Servicios Sociales | c/ Ladera de los Almendros, 6 | 3.984,00 | 0,00 | 3.377,00",
+"how": "1"
+},
+{
+"key": "40.40218,-3.60141",
+"lote": "",
+"peso": 5571.0,
+"texto": "E14 | c/ Titanio, 5 | 5.571,00 | 575,23 | 1.144,77",
+"how": "1"
+},
+{
+"key": "40.40138,-3.59591",
+"lote": "",
+"peso": 50.0,
+"texto": "E15 Ascensor de RENFE | c/ San Cipriano, 85 | 50,00 | 0,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.40914,-3.60326",
+"lote": "",
+"peso": 7965.0,
+"texto": "P1 | CDM Margot Moles | Paseo del Polideportivo, 3 | 7.965,00 | 4.404,00 71.126,00",
+"how": "1"
+},
+{
+"key": "40.40419,-3.62290",
+"lote": "",
+"peso": 7810.0,
+"texto": "P2 | CDM Faustina Valladolid | 7.810,00 | 8.164,00 34.560,00",
+"how": "1"
+},
+{
+"key": "40.40930,-3.60861",
+"lote": "",
+"peso": 182.0,
+"texto": "P3 | IDB Cordel de Pavones (Tenis y pádel) c/ Cordel de Pavones, 9 | 182,00 | 1.488,00 2.624,60",
+"how": "1"
+},
+{
+"key": "40.39991,-3.61858",
+"lote": "",
+"peso": 534.24,
+"texto": "P4 | IDB Cordel de Pavones II | c/ Cordel de Pavones, 11 | 534,24 | 4.461,62 0,00",
+"how": "1"
+},
+{
+"key": "40.41122,-3.61227",
+"lote": "",
+"peso": 0.0,
+"texto": "P5 | IDB Vivero de la Pilarica | c/ Vivero de la Pilarica, 3 | 0,00 | 2.957,00 5.343,00",
+"how": "1"
+},
+{
+"key": "40.40898,-3.61409",
+"lote": "",
+"peso": 0.0,
+"texto": "P6 | IDB Parque Casalarreina | c/ Casalarreina, 28 | 0,00 | 2.325,83 0,00",
+"how": "1"
+},
+{
+"key": "40.40991,-3.61760",
+"lote": "",
+"peso": 0.0,
+"texto": "P7 | IDB Parque Cuña Verde | Avda. Daroca, 300 | 0,00 | 1.380,00 9.345,00",
+"how": "1"
+},
+{
+"key": "40.40125,-3.59793",
+"lote": "",
+"peso": 0.0,
+"texto": "P8 | IDB Parque de Valderrivas | Avda Gran Vía del Este, 14 0,00 | 639,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.41079,-3.60762",
+"lote": "",
+"peso": 416.0,
+"texto": "P9 | IDB Parque de la Vicalvarada | c/ Villablanca, 1 | 416,00 | 260,00 | 8.999,00",
+"how": "1"
+},
+{
+"key": "40.40085,-3.56365",
+"lote": "",
+"peso": 0.0,
+"texto": "P10 IDB El Cañaveral | 0,00 | 2.211,46 2.632,50",
+"how": "1"
+},
+{
+"key": "40.41122,-3.61227",
+"lote": "",
+"peso": 0.0,
+"texto": "P11 IDB Pista Baloncesto | c/ Ezcaray, s/n | 0,00 | 575,00 | 0,00",
+"how": "1"
+}
+]
+},
+"300/2024/00033": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2024_00033__ppt0.txt",
+"filas": [
+{
+"key": null,
+"lote": "",
+"peso": 13.0,
+"texto": "Cláusula 13: CLÁUSULAS CONTRACTUALES DE TRANSPARENCIA",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 14.0,
+"texto": "Cláusula 14: PROTECCIÓN DE DATOS DE CARÁCTER PERSONAL",
+"how": "0"
+},
+{
+"key": "40.38526,-3.60441",
+"lote": "1",
+"peso": 8464.0,
+"texto": "CEIP CIUDAD DE VALENCIA | CRTA DE VALENCIA KM 9 | 8.464 | 14.073 | 10.725",
+"how": "1"
+},
+{
+"key": "40.37491,-3.62381",
+"lote": "1",
+"peso": 3743.0,
+"texto": "CEIP EL QUIJOTE | C\\FUENTIDUEÑA 4 | 3.743 | 6.926 | 1.400",
+"how": "1"
+},
+{
+"key": "40.37598,-3.61844",
+"lote": "1",
+"peso": 3202.0,
+"texto": "CEIP FRANCISCO FATOU | CAMINO DE LA SUERTE 23 | 3.202 | 2.704 | 540",
+"how": "addr"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3811.0,
+"texto": "CEIP JUAN DE HERRERA | C\\ENRIQUE GARCIA ALVAREZ 11 | 3.811 | 3.479 | 1.085",
+"how": "0"
+},
+{
+"key": "40.37775,-3.62077",
+"lote": "1",
+"peso": 512.0,
+"texto": "CEIP HONDURAS PREESCOLAR | Pº FEDERICO GARCIA LORCA 21 | 512 | 669 | 70",
+"how": "1"
+},
+{
+"key": "40.37263,-3.61735",
+"lote": "1",
+"peso": 3606.0,
+"texto": "CEIP JUAN GRIS | C\\MUERLA DE SAN JUAN 37 | 3.606 | 4.186 | 1.860",
+"how": "1"
+},
+{
+"key": "40.38125,-3.61197",
+"lote": "1",
+"peso": 3630.0,
+"texto": "CEIP BLAS DE OTERO | C\\PUENTELARRA 34 | 3.630 | 3.361 | 1.000",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 4950.0,
+"texto": "CEIP AGUSTÍN RGUEZ SAHAGUN | C\\GRANJA DE SAN ILDEFONSO 17-19 | 4.950 | 6.501 | 8.800",
+"how": "0"
+},
+{
+"key": "40.37775,-3.62077",
+"lote": "1",
+"peso": 3146.0,
+"texto": "CEIP HONDURAS | Pº FEDERICO GARCIA LORCA 19 | 3.146 | 1.014 | 45",
+"how": "1"
+},
+{
+"key": "40.36064,-3.59845",
+"lote": "1",
+"peso": 5790.0,
+"texto": "CEIP LOYOLA DE PALACIO | C\\EMBALSE DE NAVACERRADA 60 | 5.790 | 7.960 | 2.000",
+"how": "1"
+},
+{
+"key": "40.36826,-3.61450",
+"lote": "1",
+"peso": 6051.0,
+"texto": "CEIP JOSÉ DE ECHEGARAY | C\\PUENTEDEY 14 | 6.051 | 6.587 | 475",
+"how": "1"
+},
+{
+"key": "40.36118,-3.58761",
+"lote": "1",
+"peso": 7946.0,
+"texto": "CEIP ANGEL NIETO | AV DE LAS SUERTES 109 | 7.946 | 14.630 | 3.900",
+"how": "1"
+},
+{
+"key": "40.36722,-3.59627",
+"lote": "1",
+"peso": 2710.0,
+"texto": "CEIP MARÍA DE VILLOTA | CL CAÑADA DEL SANTISIMO, 23 | 2.710 | 5.549 | 740",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1690.0,
+"texto": "E I LA REVOLTOSA | C\\JOSE ANTONIO REBOLLEDO | 1.690 | 1.073 | 540",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1657.0,
+"texto": "E I SOBRINOS CAPITÁN GRANT | C\\ENTREPEÑAS C\\V C\\GAVIA | 1.657 | 1.147 | 400",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1858.0,
+"texto": "EI ENSANCHE | 1.858 | 527 | 671",
+"how": "0"
+},
+{
+"key": "40.38198,-3.61636",
+"lote": "1",
+"peso": 569.0,
+"texto": "ESCUELA DE MÚSICA | C\\AGUSTIN GARCIA MALLA 4 | 569 | 220 | 200",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3876.0,
+"texto": "JUNTA MUNICIPAL | Pº FDCO. Gª LORCA, 12 | 3.876",
+"how": "0"
+},
+{
+"key": "40.37959,-3.62311",
+"lote": "2",
+"peso": 1154.0,
+"texto": "CENTRO CULTURAL FRANCISCO FATOU | C/MANUEL VELEZ, 10 C/V VILLACAMPA 11 | 1.154",
+"how": "1"
+},
+{
+"key": "40.38282,-3.60614",
+"lote": "2",
+"peso": 1150.0,
+"texto": "CENTRO CULTURAL ZAZUAR | C/ ZAZUAR, 4 (ENTREPLANTA) | 1.150",
+"how": "1"
+},
+{
+"key": "40.38258,-3.60545",
+"lote": "2",
+"peso": 501.0,
+"texto": "CENTRO SOCIO CULTURAL EL ALEPH | 501",
+"how": "1+prev"
+},
+{
+"key": "40.37064,-3.62191",
+"lote": "2",
+"peso": 1202.0,
+"texto": "CENTRO DE SERV. SOCIALES FUENTIDUEÑA C/ FUENTIDUEÑA, 16 | 1.202 | 1.394 | 300",
+"how": "1"
+},
+{
+"key": "40.37790,-3.62273",
+"lote": "2",
+"peso": 2300.0,
+"texto": "BIBLIOTECA GERARDO DIEGO | C/ MONTE AYA, 12 | 2.300 | 109",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 427.0,
+"texto": "AUDITORIO VILLA DE VALLECAS | C/ MONTE MONTJUICH, 7 | 427 | 2.714",
+"how": "0"
+},
+{
+"key": "40.37954,-3.61690",
+"lote": "2",
+"peso": 2148.0,
+"texto": "CENTRO CULTURAL EL SITIO DE MI RECREO | 2.148 | 10",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 744.0,
+"texto": "C.S.S. PEÑA VEIGA | 744 | 496 | 50",
+"how": "anulada"
+},
+{
+"key": "40.37448,-3.61013",
+"lote": "2",
+"peso": 371.0,
+"texto": "AUDITORIO LA GAVIA | AVENIDA DE LA GAVIA 13 | 371",
+"how": "1"
+},
+{
+"key": "40.37128,-3.62925",
+"lote": "2",
+"peso": 162.0,
+"texto": "LOCAL IGUALDAD | CALLE HONRUBIA 4 | 162",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 84.0,
+"texto": "LOCAL INTERASOCIATIVO | CALLE ALTO DE LA SARTENILLA 32 | 84",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 124.0,
+"texto": "LOCAL DE EMPLEO | CALLE TINEO15-BULEVAR NATURALEZA | 124",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 4775.86,
+"texto": "CENTRO DE SERVICIOS SOCIALES | 4.775,86 | 1.632,05 | 1.632,05",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2695.2,
+"texto": "CENTRO DE DIA DE ALZHEIMER | 2.695,20",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1325.0,
+"texto": "ESCUELA DE HOSTELERIA | VIRGEN DE LA VIÑAS 16 | 1325",
+"how": "0"
+},
+{
+"key": "40.38169,-3.60233",
+"lote": "2",
+"peso": 8452.0,
+"texto": "CENTRO DEPORTIVO MUNICIPAL CERRO ALMODOVAR CALLE CERRO DE ALMODOVAR, 9, 28007 | 8.452 | 15.840 | 45.700",
+"how": "1"
+},
+{
+"key": "40.38211,-3.61269",
+"lote": "2",
+"peso": 2520.0,
+"texto": "I.D.B. COLONIA VILDA | 2.520",
+"how": "1"
+},
+{
+"key": "40.38165,-3.61910",
+"lote": "2",
+"peso": 590.0,
+"texto": "I.D.B. PUERTO LUMBRERAS | CALLE PUERTO DE LUMBRERAS 14, 28031 | 590",
+"how": "1"
+},
+{
+"key": "40.38258,-3.60545",
+"lote": "2",
+"peso": 589.0,
+"texto": "I.D.B. BASICA ZAZUAR | CALLE ZAZUAR, 1 (c/v Avda. Mediterráneo) 28031 | 589",
+"how": "1"
+},
+{
+"key": "40.38026,-3.60872",
+"lote": "2",
+"peso": 990.0,
+"texto": "I.D.B. PARROQUIA SANTA EUGENIA | CALLE VIRGEN DE LAS VIÑAS 15, 28031 | 990",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 590.0,
+"texto": "I.D.B. PAR CASTRILLO DE AZA | AVENIDA SANTA EUGENIA, 1 | 590",
+"how": "amb2"
+},
+{
+"key": "40.38055,-3.61582",
+"lote": "2",
+"peso": 1012.0,
+"texto": "I.D.B. UVA DE VALLECAS | CALLE MONTE DE MONTJUICH 9, 28031 | 1.012",
+"how": "1"
+},
+{
+"key": "40.37949,-3.61510",
+"lote": "2",
+"peso": 1104.0,
+"texto": "I.D.B. PARQUE REAL DE ARGANDA | CALLE REAL DE ARGANDA 45, 28031 | 1.104",
+"how": "1"
+},
+{
+"key": "40.38324,-3.60914",
+"lote": "2",
+"peso": 396.0,
+"texto": "I.D.B. PUENTELARRA | CALLE PUENTELARRA 12, 28031 | 396",
+"how": "1"
+},
+{
+"key": "40.37912,-3.60299",
+"lote": "2",
+"peso": 590.0,
+"texto": "I.D.B. POZA DE LA SAL | CALLE POZA DE LA SAL, 2 28031 | 590",
+"how": "1"
+},
+{
+"key": "40.37710,-3.61851",
+"lote": "2",
+"peso": 127.0,
+"texto": "I.D.B. PARQUE DEL CEMENTERIO | CALLE MONTES DE BARBANZA 15, 28031 | 127 | 2.250",
+"how": "1"
+},
+{
+"key": "40.37218,-3.62384",
+"lote": "2",
+"peso": 2546.0,
+"texto": "I.D.B. PARQUE VALLECAS VILLA | CALLE PUERTO DE PORZUNA, 50 28031 | 2.546",
+"how": "1"
+},
+{
+"key": "40.38066,-3.60868",
+"lote": "2",
+"peso": 125.0,
+"texto": "I.D.B. PARQUE SANTA EUGENIA | CALLE ZAZUAR, 12 28031 | 125",
+"how": "1"
+},
+{
+"key": "40.36854,-3.59170",
+"lote": "2",
+"peso": 1865.0,
+"texto": "I.D.B. ALTO DEL RETIRO | CALLE ALTO DEL RETIRO 13 | 1.865",
+"how": "1"
+},
+{
+"key": "40.36487,-3.61306",
+"lote": "2",
+"peso": 1865.0,
+"texto": "I.D.B. PEÑARANDA DE BRACAMONTE | CALLE PEÑARANDA DE BRACAMONTE 54, 28051 | 1.865",
+"how": "1"
+},
+{
+"key": "40.36858,-3.61585",
+"lote": "2",
+"peso": 966.0,
+"texto": "I.D.B. ROCÓDROMO | AVENIDA LA GAVIA 66, 28051 | 966",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 200.0,
+"texto": "I.D.B. PISTA PATINAJE FUENTESPINA | CALLE FUENTESPINA, 29 28031 | 200",
+"how": "0"
+},
+{
+"key": "40.38324,-3.60914",
+"lote": "2",
+"peso": 200.0,
+"texto": "I.D.B. PISTA PATINAJE AVENIDA MEDITERRÁNEO | 200",
+"how": "1+prev"
+},
+{
+"key": "40.36232,-3.60053",
+"lote": "2",
+"peso": 1639.0,
+"texto": "I.D.B. PARCEL3.16 EMBALSE S.JUAN | 1.639",
+"how": "1+prev"
+},
+{
+"key": "40.36559,-3.59610",
+"lote": "2",
+"peso": 1999.0,
+"texto": "I.D.B. PARCELA 3.16 AV DE LAS SUERTES | AVENIDA DE LAS SUERTES 61, 28051 | 1.999 | 270",
+"how": "1"
+},
+{
+"key": "40.36448,-3.59858",
+"lote": "2",
+"peso": 1128.0,
+"texto": "I.D.B. PARCELA 3.16 AV ENSANCHE DE VALLECAS | AVENIDA ENSANCHE DE VALLECAS, 69 28051 | 1.128 | 66",
+"how": "1"
+},
+{
+"key": "40.36589,-3.61340",
+"lote": "2",
+"peso": 566.0,
+"texto": "I.D.B. CERRO MILANO | AVENIDA CERRO MILANO 18, 28051 | 566 | 12",
+"how": "1"
+},
+{
+"key": "40.36986,-3.61276",
+"lote": "2",
+"peso": 1368.0,
+"texto": "I.D.B. PARKOUR | AVENIDA LA GAVIA 39, 28051 | 1.368",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 264.0,
+"texto": "I.D.B. STELLA MARIS | 264",
+"how": "anulada"
+},
+{
+"key": "40.36302,-3.58507",
+"lote": "2",
+"peso": 200.0,
+"texto": "I.D.B. EDUARDO CHILLIDA | CALLE EDUARDO CHILLIDA 1, 28051 | 200",
+"how": "1"
+},
+{
+"key": "40.37383,-3.60506",
+"lote": "2",
+"peso": 1320.0,
+"texto": "I.D.B. MINIPISTA DE ATLETISMO | 1.320",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 627.0,
+"texto": "I.D.B. SKATE PARK REAL DE ARGANDA | CALLE REAL DE ARGANDA 49-57, 28031 | 627",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 903.0,
+"texto": "I.D.B. PUMP TRUCK | 903",
+"how": "0"
+},
+{
+"key": "40.37913,-3.60092",
+"lote": "2",
+"peso": 2130.0,
+"texto": "I.D.B. CAMPO FÚTBOL SANTA EUGENIA | CALLE CERRO ALMODÓVAR 11, 28007 | 2.130 | 720",
+"how": "pos"
+}
+]
+},
+"300/2025/01011": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_01011__ppt0.txt",
+"filas": [
+{
+"key": "40.35187,-3.68618",
+"lote": "1",
+"peso": 4085.0,
+"texto": "CEIP ANTONIO NEBRIJA | C/ Juan José Martínez Seco, 77 | 4.085,00 | 6.463,00 | 8.000 | 9",
+"how": "1"
+},
+{
+"key": "40.34439,-3.67475",
+"lote": "1",
+"peso": 4952.0,
+"texto": "CEIP AUSIAS MARCH | C Estefanita, 11 | 4.952,00 | 6.474,00 | 8.000 | 16",
+"how": "1"
+},
+{
+"key": "40.34291,-3.68700",
+"lote": "1",
+"peso": 2188.0,
+"texto": "CEIP AZORÍN | C/ Godella, 57 | 2.188,00 | 2.628,00 | 6.200 | 6",
+"how": "1"
+},
+{
+"key": "40.35841,-3.69627",
+"lote": "1",
+"peso": 2700.0,
+"texto": "CEIP BARCELONA | Avda. Verbena de la Paloma, 14 | 2.700,00 | 4.246,00 | 7.544 | 11",
+"how": "1"
+},
+{
+"key": "40.36252,-3.69761",
+"lote": "1",
+"peso": 4721.0,
+"texto": "CEIP CIUDAD DE CÓRDOBA | C/ Lillo, 1 | 4.721,00 | 4.735,00 | 6.560 | 5",
+"how": "1"
+},
+{
+"key": "40.35565,-3.69608",
+"lote": "1",
+"peso": 5455.0,
+"texto": "CEIP CIUDAD DE LOS ÁNGELES | C/ Alegría de la Huerta, 6 | 5.455,00 | 6.328,00 | 11.000 | 13",
+"how": "addr"
+},
+{
+"key": "40.34604,-3.70896",
+"lote": "1",
+"peso": 979.0,
+"texto": "CEIP DÁMASO ALONSO | Avda. Espinela, 1 | 979,00 | 244 | 2.600 | 3",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 3791.0,
+"texto": "CEIP EL ESPINILLO | C/ Unanimidad, 5-7 | 3.791,00 | 6.430,00 | 8.300 | 12",
+"how": "amb2"
+},
+{
+"key": "40.34548,-3.67498",
+"lote": "1",
+"peso": 5652.0,
+"texto": "CEIP EL GRECO | C/ Estefanita 7-9 | 5.652,00 | 11.077,00 | 10.000 | 14",
+"how": "1"
+},
+{
+"key": "40.35444,-3.69046",
+"lote": "1",
+"peso": 5995.0,
+"texto": "CEIP JUAN DE LA CIERVA | C/ Villarrosa, 9 | 5.995,00 | 4.958,00 | 11.600 | 19",
+"how": "1"
+},
+{
+"key": "40.35175,-3.67783",
+"lote": "1",
+"peso": 4009.0,
+"texto": "CEIP LOS ROSALES | Avda. Los Rosales, 131 | 4.009,00 | 11.281,00 | 8.660 | 10",
+"how": "1"
+},
+{
+"key": "40.34625,-3.70551",
+"lote": "1",
+"peso": 1403.0,
+"texto": "CEIP MANUEL DE FALLA | Av. Real de Pinto, 27 | 1.403,00 | 1066 | 4.000 | 8",
+"how": "1"
+},
+{
+"key": "40.34434,-3.68530",
+"lote": "1",
+"peso": 6582.0,
+"texto": "CEIP NAVAS DE TOLOSA | C/ Benimamet, 109 | 6.582,00 | 7.452,00 | 9.960 | 9",
+"how": "1"
+},
+{
+"key": "40.34366,-3.70561",
+"lote": "1",
+"peso": 1333.0,
+"texto": "CEIP NTRA. SRA. DE LA LUZ | C/ Magnesia, 9 | 1.333,00 | 1.923,00 | 4.800 | 12",
+"how": "1"
+},
+{
+"key": "40.33969,-3.68958",
+"lote": "1",
+"peso": 4377.0,
+"texto": "CEIP RAMÓN GÓMEZ DE LA SERNA | C/ Godella, 170 | 4.377,00 | 5.352,00 | 7.600 | 7",
+"how": "1"
+},
+{
+"key": "40.34950,-3.69795",
+"lote": "1",
+"peso": 3009.0,
+"texto": "CEIP REPUBLICA DEL SALVADOR | C/ Sacedón, 2 | 3.009,00 | 5.949,00 | 5.800 | 7",
+"how": "1"
+},
+{
+"key": "40.34116,-3.68491",
+"lote": "1",
+"peso": 3830.0,
+"texto": "CEIP SAGUNTO | C/ Paterna, 14 | 3.830,00 | 2.329,00 | 6.600 | 15",
+"how": "1"
+},
+{
+"key": "40.34402,-3.71115",
+"lote": "1",
+"peso": 1798.0,
+"texto": "CEIP SAN CARLOS | C/ Geología, 2 | 1.798,00 | 485 | 3.600 | 5",
+"how": "1"
+},
+{
+"key": "40.34686,-3.70320",
+"lote": "1",
+"peso": 2352.0,
+"texto": "CEIP SAN ROQUE | C/ Oxígeno, 43 | 2.352,00 | 840 | 5.944 | 7",
+"how": "1"
+},
+{
+"key": "40.34334,-3.69095",
+"lote": "2",
+"peso": 827.0,
+"texto": "C. DE MAYORES MARÍA ZAMBRANO | Pza. de Los Pinazo, 7 | 827,00 | 191,00 | 1.500,00 | 6",
+"how": "1"
+},
+{
+"key": "40.34958,-3.70907",
+"lote": "2",
+"peso": 1413.0,
+"texto": "C/ Villalonso, 12 | 1413,00 | 1014,00 | 3.250,00 | 13",
+"how": "1+prev"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1054.0,
+"texto": "C/ Arama, 3 c/v Noez, 2 | 1054,00 | 759,00 | 3.754,00 | 13",
+"how": "0"
+},
+{
+"key": "40.35399,-3.68332",
+"lote": "2",
+"peso": 841.0,
+"texto": "CENTRO DE MAYORES LA PLATANERA | 841,00 | 832,00 | 2.104,00 | 9",
+"how": "1"
+},
+{
+"key": "40.35882,-3.68839",
+"lote": "2",
+"peso": 1422.0,
+"texto": "C. DE MAYORES MIGUEL DELIBES | 1422,00 | 655,00 | 4.113,00 | 15",
+"how": "1"
+},
+{
+"key": "40.35882,-3.68839",
+"lote": "2",
+"peso": 26.0,
+"texto": "Avda. Felicidad, 26",
+"how": "1"
+},
+{
+"key": "40.34585,-3.70536",
+"lote": "2",
+"peso": 735.0,
+"texto": "C. DE MAYORES JOSÉ ORTUÑO PONCE | C/ José Ortuño Ponce, 3 | 735,00 | 0,00 | 2.650,00 | 9",
+"how": "1"
+},
+{
+"key": "40.35880,-3.68876",
+"lote": "2",
+"peso": 2393.0,
+"texto": "Avda. Felicidad, 24 | 2393,00 | 546,00 | 3.950,00 | 17",
+"how": "1"
+},
+{
+"key": "40.36282,-3.69821",
+"lote": "2",
+"peso": 1883.0,
+"texto": "C/ San Luciano, 8 | 1883,00 | 794,00 | 3.450,00 | 26",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 786.0,
+"texto": "PSÍQUICOS NAVAS TOLOSA | 786,00 | 2530,00 | 2.000,00 | 11",
+"how": "anulada"
+},
+{
+"key": "40.34434,-3.68530",
+"lote": "2",
+"peso": 109.0,
+"texto": "CENTRO SOCIAL NAVAS DE TOLOSA. | C/ Benimamet , 109",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 9.0,
+"texto": "(BUTARQUE) | C/ Arroyo Bulera 7ª y 9 A",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 120.0,
+"texto": "OFICINA MEDIACION 1 (BUTARQUE) | 120,00 | 0.00 | 500 | 2",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 120.0,
+"texto": "OFICINA MEDIACION 2 (BUTARQUE) | 120 | 0.00 | 500 | 2",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 214.0,
+"texto": "ATENCION A LA INFANCIA 2 Y | C/ Maricara 1, 2 y 3 | 214 | 0.00 | 750 | 7",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 46.0,
+"texto": "C/ | Albino | Hernández | 46 | 0.00 | 750 | 1",
+"how": "0"
+},
+{
+"key": "40.35089,-3.69150",
+"lote": "3",
+"peso": 12.0,
+"texto": "C.C. SANTA PETRONILA | C/ María Martínez Oviol, 12 | 20",
+"how": "1"
+},
+{
+"key": "40.35075,-3.67730",
+"lote": "3",
+"peso": 2612.0,
+"texto": "C.C. LOS ROSALES | Avda. Los Rosales, 133 | 2.612,00 | 4.323,00 | 4.247,80 | 18",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 652.0,
+"texto": "C.C. MARCONI | C/ San Eustaquio, 25 | 652,00 | 3.703,00 | 1.482,00 | 6",
+"how": "0"
+},
+{
+"key": "40.35640,-3.69405",
+"lote": "3",
+"peso": 1716.0,
+"texto": "(Ciudad de Los Ángeles) | 1.716,00 | 968,00 | 2.918,40",
+"how": "addr+abr+prev"
+},
+{
+"key": "40.34234,-3.69055",
+"lote": "3",
+"peso": 827.0,
+"texto": "C.C. SAN CRISTÓBAL | Pza. de Los Pinazo, 7 | 827 | 0 | 2.348,40 | 3",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 1632.0,
+"texto": "C. CÍVICO ÁGATA | C/ Dr. Martín Arévalo, 2 | 1.632,00 | 0 | 3.146,40 | 12",
+"how": "0"
+},
+{
+"key": "40.35119,-3.67935",
+"lote": "3",
+"peso": 1893.51,
+"texto": "C. Sociocultural Calle Calcio | C/ Calcio, 1 | 1.893,51 | 533,00 | 5.718,00 | 9",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 124.0,
+"texto": "FELIPE | 124,00 | 0 | 456,00",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "4",
+"peso": 5491.0,
+"texto": "EDIFICIO SEDE | 5.491,00 | 2.790,00 | 11.575,00 | 22",
+"how": "0"
+},
+{
+"key": "40.34811,-3.70927",
+"lote": "4",
+"peso": 16.0,
+"texto": "c/ Huerta de Villaverde, 16",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "4",
+"peso": 1784.0,
+"texto": "C/ Godella, 104 | 1.784,00 | 2,00 | 1.950,00 | 7",
+"how": "0"
+},
+{
+"key": "40.34601,-3.71073",
+"lote": "4",
+"peso": 1500.0,
+"texto": "Pº Alberto Palacios ,13 | 1.500,00 | 28,00 | 2.500,00 | 11",
+"how": "1"
+},
+{
+"key": "40.35743,-3.69153",
+"lote": "5",
+"peso": 2506.0,
+"texto": "C.D.M. FÉLIX RUBIO | C/ Alianza, 4 | 2.506 | 16.923 | 0 | 14 | 0",
+"how": "1"
+},
+{
+"key": "40.34267,-3.69145",
+"lote": "5",
+"peso": 1848.0,
+"texto": "C.D.M. SAN CRISTÓBAL | Pza. Pinazo, 9 | 1.848 | 0 | 0 | 8 | 0",
+"how": "1"
+},
+{
+"key": "40.34622,-3.68434",
+"lote": "5",
+"peso": 6570.0,
+"texto": "C.D.M. RAÚL GONZÁLEZ | 6.570 | 4.021 | 0 | 11 | 0",
+"how": "1"
+},
+{
+"key": "40.35634,-3.68660",
+"lote": "5",
+"peso": 3685.0,
+"texto": "C.D.M. EL ESPINILLO | Ctra. Villaverde a Vallecas, 19 | 3.685 | 4.302 | 0 | 18 | 1",
+"how": "1"
+},
+{
+"key": "40.34999,-3.71784",
+"lote": "5",
+"peso": 8755.0,
+"texto": "C.D.M. PLATA Y CASTAÑAR | Pº Plata y Castañar, 7 y 9 | 8.755 | 69.911 | 0 | 30 | 1",
+"how": "1"
+},
+{
+"key": "40.35075,-3.67730",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. AVDA. LOS ROSALES | 0 | 680 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.35457,-3.69975",
+"lote": "5",
+"peso": 111.0,
+"texto": "I.D.B. COLONIA EUSKALDUNA | 111 | 6.337 | 492 | 2 | 0",
+"how": "1"
+},
+{
+"key": "40.36311,-3.69481",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. PARQUE SAN LUCIANO | 0 | 1.166 | 246 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.36167,-3.68594",
+"lote": "5",
+"peso": 0.0,
+"texto": "C/ Unanimidad s/nº (frente al nº 40) | 0 | 280 | 164 | 0 | 0",
+"how": "1+prev"
+},
+{
+"key": "40.35634,-3.68660",
+"lote": "5",
+"peso": 225.0,
+"texto": "I.D.B. EL ESPINILLO I (Auditorio) | C/ Unanimidad, 3 c/v Tertulia. | 225 | 7.186 | 492 | 8 | 0",
+"how": "1"
+},
+{
+"key": "40.35946,-3.68456",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. EL ESPINILLO III | 0 | 1.279 | 256 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.33379,-3.69803",
+"lote": "5",
+"peso": 71.0,
+"texto": "I.D.B. COLONIA MARCONI | C/Principal, 1 | 71 | 5.451 | 492 | 2 | 0",
+"how": "1"
+},
+{
+"key": "40.34964,-3.70799",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. VILLALONSO | C/ Villalonso, 6-8 | 0 | 1.166 | 219 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.34266,-3.71581",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. SAN AURELIANO | (Cubierta | aparcamiento | de | 0 | 225 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.34127,-3.69042",
+"lote": "5",
+"peso": 0.0,
+"texto": "LOS ÁNGELES | C/ Rocafort, (trasera nº2). | 0 | 2.592 | 410 | 0 | 0",
+"how": "1+prev"
+},
+{
+"key": "40.33967,-3.69064",
+"lote": "5",
+"peso": 184.0,
+"texto": "C/ Moncada, 123. | 184 | 1.227 | 246 | 2 | 0",
+"how": "1"
+},
+{
+"key": "40.34566,-3.67522",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. ESTEFANITA | (zona verde del API 17.12 Ctra. San Martín | 0 | 494 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.35688,-3.68193",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. AMERICIO | C/ Americio, 2 (zona verde APE 17.01) | 0 | 576 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.36180,-3.70041",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B. EDUARDO BARREIROS | Faraón | 0 | 431 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.33912,-3.67496",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B BUTARQUE | C/ Ganados del Salobral c/v a Berrocal | 0 | 2.000 | 328 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.35647,-3.70186",
+"lote": "5",
+"peso": 0.0,
+"texto": "C/La Pícara Molinera 29 | 0 | 1.884 | 311 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.34505,-3.68784",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B PARQUE DEHESA BOYAL | Parque Dehesa de Boyal | 0 | 630 | 164 | 0 | 0",
+"how": "1"
+},
+{
+"key": "40.33912,-3.67496",
+"lote": "5",
+"peso": 0.0,
+"texto": "I.D.B PUMPTRACK BUTARQUE | Avda. de los Rosales, 137 | 0 | 6.766 | 492 | 0 | 0",
+"how": "1"
+}
+]
+},
+"300/2025/01650": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_01650__ppt0.txt",
+"filas": [
+{
+"key": null,
+"lote": "2",
+"peso": 150.0,
+"texto": "150 por: SUSANA BAYON LAREDO",
+"how": "0"
+},
+{
+"key": "40.35187,-3.68618",
+"lote": "1",
+"peso": 4586.0,
+"texto": "1. | CEIP ANTONIO NEBRIJA | 4586,00 | 5.903,00",
+"how": "fz"
+},
+{
+"key": "40.34439,-3.67475",
+"lote": "1",
+"peso": 4988.0,
+"texto": "2. | CEIP AUSIAS MARCH | C Estefanita, 11 | 4.988,00 | 6.068",
+"how": "1"
+},
+{
+"key": "40.34291,-3.68700",
+"lote": "1",
+"peso": 2188.0,
+"texto": "3. | CEIP AZORÍN | C/ Godella, 57 | 2.188,00 | 2760,00",
+"how": "1"
+},
+{
+"key": "40.35841,-3.69627",
+"lote": "1",
+"peso": 3128.0,
+"texto": "4. | CEIP BARCELONA | 3.128,00 | 4.279,00",
+"how": "1"
+},
+{
+"key": "40.36252,-3.69761",
+"lote": "1",
+"peso": 4620.0,
+"texto": "C/ Lillo, 1 | 4.620,00 | 5.668,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 5901.0,
+"texto": "C/ Alegría de la Huerta, 6 | 5.901,00 | 5755,00",
+"how": "0"
+},
+{
+"key": "40.35035,-3.70606",
+"lote": "1",
+"peso": 4783.0,
+"texto": "7. | CEIP CRISTÓBAL COLÓN | 4.783,00 | 5.154,00",
+"how": "1"
+},
+{
+"key": "40.34604,-3.70896",
+"lote": "1",
+"peso": 990.0,
+"texto": "8. | CEIP DÁMASO ALONSO | Avda. Espinela, 1 | 990,00 | 259,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 4251.0,
+"texto": "9. | CEIP EL ESPINILLO | C/ Unanimidad, 5-7 | 4.251,00 | 5.932,00",
+"how": "amb2"
+},
+{
+"key": "40.34566,-3.67522",
+"lote": "1",
+"peso": 6040.0,
+"texto": "C/ Estefanita 7-9 | 6.040,00 | 4.405,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 5995.0,
+"texto": "C/ Villarrosa, 9 | 5.995,00 | 5415,00",
+"how": "0"
+},
+{
+"key": "40.35175,-3.67783",
+"lote": "1",
+"peso": 4009.0,
+"texto": "12. CEIP LOS ROSALES | Avda. Los Rosales, 131 | 4.009,00 | 10.049,00",
+"how": "1"
+},
+{
+"key": "40.34625,-3.70551",
+"lote": "1",
+"peso": 1403.0,
+"texto": "13. CEIP MANUEL DE FALLA | Av. Real de Pinto, 27 | 1.403,00 | 1.058,00",
+"how": "1"
+},
+{
+"key": "40.34434,-3.68530",
+"lote": "1",
+"peso": 4399.0,
+"texto": "14. CEIP NAVAS DE TOLOSA | C/ Benimamet, 109 | 4.399,00 | 7.713",
+"how": "1"
+},
+{
+"key": "40.33969,-3.68958",
+"lote": "1",
+"peso": 4377.0,
+"texto": "16. CEIP RAMÓN GÓMEZ | 4.377,00 | 5.474,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2007.0,
+"texto": "C/ Geología, 2 | 2.007,00 | 530,00",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2352.0,
+"texto": "C/ Oxígeno, 43 | 2.352,00 | 821,00",
+"how": "anulada"
+},
+{
+"key": "40.35098,-3.70669",
+"lote": "1",
+"peso": 1122.0,
+"texto": "21. EI EL ROCIO | 1.122,00 | 838,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 992.0,
+"texto": "22. EI LOS PINOS | C/ Rocafort, 2b | 992,00 | 362,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 792.0,
+"texto": "23. EI LA LUNA | 792,00 | 1.472",
+"how": "anulada"
+},
+{
+"key": "40.33747,-3.67764",
+"lote": "1",
+"peso": 1102.0,
+"texto": "24. EI EL MAMUT | 1.102,00 | 755,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 1370.0,
+"texto": "CENTRAL DE | c/v a Santos d ela Isidra y | 1.370,00 | 1.268,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 5491.0,
+"texto": "1. | EDIFICIO SEDE DISTRITO | C/Arroyo Bueno 53 | 5.491,00 | 1.540,00",
+"how": "amb3"
+},
+{
+"key": "40.35089,-3.69150",
+"lote": "2",
+"peso": 4030.0,
+"texto": "2. | C.C. SANTA PETRONILA | 4.030,00 | 1.212,00",
+"how": "fz"
+},
+{
+"key": "40.35075,-3.67730",
+"lote": "2",
+"peso": 2612.0,
+"texto": "3. | C.C. LOS ROSALES | 2.612,00 | 3.244,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 652.0,
+"texto": "4. | C.C. MARCONI | C/ San Eustaquio, 25 | 652,00 | 1.767,00",
+"how": "0"
+},
+{
+"key": "40.35640,-3.69405",
+"lote": "2",
+"peso": 1716.0,
+"texto": "5. | C.C. BOHEMIOS | 1.716,00 | 625,00",
+"how": "1+abr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1632.0,
+"texto": "7. | C. CÍVICO ÁGATA | 1.632,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.34958,-3.70907",
+"lote": "2",
+"peso": 1413.0,
+"texto": "C/ Villalonso, 12 | 1.413,00 | 838,00",
+"how": "1+prev"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1784.0,
+"texto": "9. | EDIFICIO GODELLA | C/ Godella, 104 | 1.784,00 | 0,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1500.0,
+"texto": "10. | EDIFICIO ALBERTO PALACIOS | 1.500,00 | 32,00",
+"how": "anulada"
+},
+{
+"key": "40.35399,-3.68332",
+"lote": "2",
+"peso": 841.0,
+"texto": "12. | C. MAYORES LA PLATANERA | 841,00 | 616,00",
+"how": "1"
+},
+{
+"key": "40.35882,-3.68839",
+"lote": "2",
+"peso": 1422.0,
+"texto": "13. | C. DE MAYORES MIGUEL DELIBES | Avda. Felicidad, 26 | 1.422,00 | 442,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 540.0,
+"texto": "15. | ANEXO CEIP ANTONIO NEBRIJA | 540,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.35880,-3.68876",
+"lote": "2",
+"peso": 2393.0,
+"texto": "Avda. Felicidad, 24 | 2.393,00 | 494,00",
+"how": "1"
+},
+{
+"key": "40.36282,-3.69821",
+"lote": "2",
+"peso": 1883.0,
+"texto": "C/ San Luciano, 8 | 1.883,00 | 653,00",
+"how": "1"
+},
+{
+"key": "40.34434,-3.68530",
+"lote": "2",
+"peso": 109.0,
+"texto": "C/ Benimamet, 109",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 786.0,
+"texto": "(edificio compartido con la EI La | 786,00 | 927",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 117.0,
+"texto": "(frente al nº 117)",
+"how": "0"
+},
+{
+"key": "40.35075,-3.68719",
+"lote": "2",
+"peso": 124.0,
+"texto": "19. | SALA DE LECTURA LEON FELIPE | 124,00 | 0,00",
+"how": "1"
+},
+{
+"key": "40.34855,-3.68654",
+"lote": "2",
+"peso": 1819.0,
+"texto": "nº 62 c/v Eduardo | 1.819,00 | 573,00",
+"how": "fz+prev"
+},
+{
+"key": "40.34434,-3.68530",
+"lote": "2",
+"peso": 109.0,
+"texto": "DE TOLOSA. PUNTO DE | C/ Benimamet , 109",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 7.0,
+"texto": "22. | ESPACIO PARA LA JUVENTUD | C/ Arroyo bulera 7A",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 214.0,
+"texto": "ATENCION A LA INFANCIA 2 Y | C/ Maricara 1, 2 y 3 | 214,00 | 0,00",
+"how": "0"
+},
+{
+"key": "40.35119,-3.67935",
+"lote": "2",
+"peso": 2764.0,
+"texto": "Y E SOCIOCULTURAL MARTA | C/CALCIO Nº1 | 2.764,00 | 1.064,00",
+"how": "1"
+},
+{
+"key": "40.36061,-3.68621",
+"lote": "2",
+"peso": 364.0,
+"texto": "C/ Unanimidad 42-46 | 364 | 8.527,00",
+"how": "1+prev"
+},
+{
+"key": "40.34154,-3.69000",
+"lote": "2",
+"peso": 471.0,
+"texto": "2. | I.D. SAN CRISTÓBAL | C/ Rocafort, 9 | 471 | 9.349,00",
+"how": "1"
+},
+{
+"key": "40.35743,-3.69153",
+"lote": "2",
+"peso": 2506.0,
+"texto": "3. | I. D. FELIX RUBIO | C/ Alianza, 4 | 2506 | 15.805,00",
+"how": "1"
+},
+{
+"key": "40.34424,-3.68475",
+"lote": "2",
+"peso": 1848.0,
+"texto": "Pza Pinazo, 9 | 1848 | 0,00",
+"how": "1+abr+prev"
+},
+{
+"key": "40.34622,-3.68434",
+"lote": "2",
+"peso": 6570.0,
+"texto": "5. | CDM RAUL GONZÁLEZ | 6570 | 396,00",
+"how": "1"
+},
+{
+"key": "40.35634,-3.68660",
+"lote": "2",
+"peso": 3685.0,
+"texto": "6. | CDM PISCINA EL ESPINILLO | 3685 | 2.800,00",
+"how": "1"
+},
+{
+"key": "40.34999,-3.71784",
+"lote": "2",
+"peso": 8755.0,
+"texto": "I/PARQUE | URBANO | 8755 | 39.568,00",
+"how": "1+prev"
+},
+{
+"key": "40.34944,-3.69369",
+"lote": "3",
+"peso": 0.0,
+"texto": "C/ Santiago Amón 6 y 8 | 0 | 3.832",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "2. | I.D.B OBISPO | 0 | 1.277",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "COLONIA | 0 | 373",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 315.0,
+"texto": "PLATA | Y | 315,00 | 14.211",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 111.0,
+"texto": "COLONIA | 111,00 | 6.237",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 225.0,
+"texto": "ESPINILLO | I | 225,00 | 5.790",
+"how": "0"
+},
+{
+"key": "40.33379,-3.69803",
+"lote": "3",
+"peso": 71.0,
+"texto": "COLONIA | C/Principal, 1 | 71,00 | 5.413",
+"how": "1"
+},
+{
+"key": "40.34964,-3.70799",
+"lote": "3",
+"peso": 0.0,
+"texto": "C/ Villalonso, 6-8 | 0 | 1.166",
+"how": "1+prev"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "(Cubierta aparcamiento de | 0 | 225",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "CIUDAD DE LOS | (Parque Ciudad de los | 0 | 1.530",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "C/ Rocafort, (trasera nº2). | 0 | 2.592",
+"how": "0"
+},
+{
+"key": "40.33967,-3.69064",
+"lote": "3",
+"peso": 184.0,
+"texto": "C/ Moncada, 123. | 184,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "(zona verde del API 17.12 | 0",
+"how": "0"
+},
+{
+"key": "40.35688,-3.68193",
+"lote": "3",
+"peso": 0.0,
+"texto": "21. | I.D.B. AMERICIO | 0",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "Corte del Faraón | 0",
+"how": "0"
+},
+{
+"key": "40.35647,-3.70186",
+"lote": "3",
+"peso": 0.0,
+"texto": "CENTRAL | DE | C/La Pícara Molinera 29 | 0",
+"how": "1"
+},
+{
+"key": "40.34505,-3.68784",
+"lote": "3",
+"peso": 0.0,
+"texto": "Parque Dehesa de Boyal | 0",
+"how": "fz+prev"
+},
+{
+"key": "40.34853,-3.67482",
+"lote": "3",
+"peso": 0.0,
+"texto": "TRACK | DE | Avenida de los Rosales 137 | 0",
+"how": "1"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "DE LA FELICIDAD | 0",
+"how": "0"
+},
+{
+"key": null,
+"lote": "3",
+"peso": 0.0,
+"texto": "MINGUITO (pistas | 0",
+"how": "0"
+}
+]
+},
+"300/2025/01510": {
+"metodo": "m² construidos de cada edificio (anexo del pliego)",
+"doc": "300_2025_01510__ppt0.txt",
+"filas": [
+{
+"key": null,
+"lote": "1",
+"peso": 225.0,
+"texto": "1 | m2) | Vinateros 51 | 225 | 264",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 6252.0,
+"texto": "2 | Moratalaz | 8 | 6.252 | 1.657 | 6.458",
+"how": "0"
+},
+{
+"key": "40.41206,-3.65128",
+"lote": "1",
+"peso": 2935.0,
+"texto": "3 | Chillida | C/ Arroyo Belincoso 9 | 2.935 | 2.736",
+"how": "1"
+},
+{
+"key": "40.40611,-3.64652",
+"lote": "1",
+"peso": 1753.0,
+"texto": "4 Centro Cultural El Torito | Av. Moratalaz 130 | 1.753 | 1.656",
+"how": "1"
+},
+{
+"key": "40.39929,-3.63660",
+"lote": "1",
+"peso": 1172.0,
+"texto": "5 Centro Cultural y Juvenil | 10 | 1.172 | 1.656",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2075.0,
+"texto": "6 | Biblioteca Municipal | C/ Arroyo Belincoso11 | 2.075 | 3.276",
+"how": "anulada"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 332.0,
+"texto": "7 | Sala de Sonido | C/ Arroyo Belincoso11 | 332 | 525",
+"how": "0"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2647.0,
+"texto": "8 | Barroso | Palacios 190 | 2.647 | 1.637 | 5.565",
+"how": "0"
+},
+{
+"key": "40.41206,-3.65128",
+"lote": "1",
+"peso": 4800.0,
+"texto": "9 | Moratalaz | C/ Arroyo Belincoso 13 | 4.800 | 6.760",
+"how": "1"
+},
+{
+"key": null,
+"lote": "1",
+"peso": 2575.0,
+"texto": "10 Alzheimer Isaac Rabín | Av. Moratalaz | 2.575 | 4.160",
+"how": "0"
+},
+{
+"key": "40.40180,-3.63541",
+"lote": "1",
+"peso": 2130.0,
+"texto": "11 Centro de Servicios Sociales | 12 | 2.130 | 3.094",
+"how": "fz+prev"
+},
+{
+"key": "40.39511,-3.63358",
+"lote": "2",
+"peso": 3310.0,
+"texto": "12 | C.P. Fontarrón | C/ Arroyo Fontarrón, 24 | 3.310 | 7.174 | 5.160",
+"how": "1"
+},
+{
+"key": "40.40191,-3.63391",
+"lote": "2",
+"peso": 3437.0,
+"texto": "13 C.P. Martínez Montañés | 223 | 3.437 | 5.437 | 4.800",
+"how": "1"
+},
+{
+"key": "40.40354,-3.63794",
+"lote": "2",
+"peso": 3666.0,
+"texto": "14 | C.P. Pío Baroja | C/ Luis de Hoyos Sainz, 84 | 3.666 | 3.560 | 4.085",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2615.0,
+"texto": "15 | C.P. Menéndez Pidal | Palacios, 85º | 2.615 | 1.173 | 3.870",
+"how": "0"
+},
+{
+"key": "40.40382,-3.64358",
+"lote": "2",
+"peso": 2054.0,
+"texto": "16 | C.P. Conde de Arruga | 105 | 2.054 | 2.357 | 3.655",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3615.0,
+"texto": "17 | C.P. Real Armada | Luján 114 | 3.615 | 4.028 | 5.590",
+"how": "0"
+},
+{
+"key": "40.40884,-3.66029",
+"lote": "2",
+"peso": 3847.0,
+"texto": "C.P. Francisco de Luis | C/ Cgdor Rodrigo | 3.847 | 3.399 | 3.655",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 7.0,
+"texto": "Rodríguez, 5 y 7",
+"how": "anulada"
+},
+{
+"key": "40.40944,-3.64999",
+"lote": "2",
+"peso": 4420.0,
+"texto": "19 | C.P. Sainz de Vicuña | 104 | 4.420 | 5.867 | 5.160",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 4654.0,
+"texto": "20 | C.P. Pasamonte | 47 | 4.654 | 16.209 | 4.300",
+"how": "0"
+},
+{
+"key": "40.40739,-3.65739",
+"lote": "2",
+"peso": 3620.0,
+"texto": "21 | del Rey | Av. Moratalaz, 51 | 3.620 | 3.501 | 5.160",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2550.0,
+"texto": "22 | C.P. Gil Alberdi | Fontarrón | 2.550 | 4.990 | 0*",
+"how": "0"
+}
+]
+},
+"300/2024/00069": {
+"metodo": "horas de limpieza al año (anexo II del pliego)",
+"doc": "300_2024_00069__ppt0.txt",
+"filas": [
+{
+"key": "40.42679,-3.70458",
+"lote": "1",
+"peso": 3354.0,
+"texto": "CEIP PI I MARGALL | LIMPIADOR/A | 30,00 | 1.118,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.42664,-3.69972",
+"lote": "1",
+"peso": 5031.0,
+"texto": "CEIP ISABEL LA CATÓLICA | LIMPIADOR/A | 20,00 | 745,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41210,-3.71400",
+"lote": "1",
+"peso": 3913.0,
+"texto": "CEIP VÁZQUEZ DE MELLA | LIMPIADOR/A | 16,00 | 596,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41147,-3.70127",
+"lote": "1",
+"peso": 3728.0,
+"texto": "CEIP ANTONIO MORENO ROSALES | LIMPIADOR/A | 25,00 | 932,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41056,-3.69292",
+"lote": "1",
+"peso": 4026.0,
+"texto": "CEIP PALACIO VALDÉS | LIMPIADOR/A | 24,00 | 894,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41108,-3.71138",
+"lote": "1",
+"peso": 5178.0,
+"texto": "CEIP NUESTRA SEÑORA DE LA PALOMA | LIMPIADOR/A | 20,00 | 745,00 | 22,00 | 22,00",
+"how": "fz"
+},
+{
+"key": "40.40678,-3.70553",
+"lote": "1",
+"peso": 4250.0,
+"texto": "CEIP EMILIA PARDO BAZÁN | LIMPIADOR/A | 21,00 | 783,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41308,-3.71217",
+"lote": "1",
+"peso": 3763.0,
+"texto": "CEIP SAN ILDEFONSO | LIMPIADOR/A | 19,00 | 708,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.40613,-3.70692",
+"lote": "1",
+"peso": 3541.0,
+"texto": "CEIP SANTA MARÍA | LIMPIADOR/A | 39,00 | 1.454,00 | 22,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41065,-3.71158",
+"lote": "1",
+"peso": 3360.0,
+"texto": "ESCUELA INFANTIL LA PALOMA | LIMPIADOR/A | 15,00 | 720,00 | 0,00 | 22,00",
+"how": "1"
+},
+{
+"key": "40.41303,-3.71213",
+"lote": "1",
+"peso": 5760.0,
+"texto": "INTERNADO SAN ILDEFONSO | LIMPIADOR/A | 32,50 | 1.560,00 | 0,00 | 0,00",
+"how": "fz"
+},
+{
+"key": "40.42741,-3.70954",
+"lote": "2",
+"peso": 3552.0,
+"texto": "C.C. CLARA DEL REY (MUSEO ABC) | LIMPIADOR/A | 39,00 | 1.872,00",
+"how": "1+abr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 2544.0,
+"texto": "C.C. LAPAPIES | LIMPIADOR/A | 39,00 | 1.872,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 5200.0,
+"texto": "C.COM. Y GUARD.CASINO DE LA REINA | LIMPIADOR/A | 13,00 | 676,00",
+"how": "amb3"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3848.0,
+"texto": "C.S.S. LA PALOMA | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "0"
+},
+{
+"key": "40.40750,-3.71145",
+"lote": "2",
+"peso": 520.0,
+"texto": "CENTRO MARES /PUERTA INNOVACION | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "1"
+},
+{
+"key": "40.40741,-3.71192",
+"lote": "2",
+"peso": 3504.0,
+"texto": "C.C. PUERTA DE TOLEDO | LIMPIADOR/A | 39,00 | 1.872,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3536.0,
+"texto": "OAC LINEA MADRID | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "0"
+},
+{
+"key": "40.42461,-3.70147",
+"lote": "2",
+"peso": 2808.0,
+"texto": "C.S.S. MARAVILLAS | LIMPIADOR/A | 20,00 | 1.040,00",
+"how": "1+abr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3328.0,
+"texto": "C.DIA CASINO DE LA REINA | LIMPIADOR/A | 25,00 | 1.300,00",
+"how": "amb3"
+},
+{
+"key": "40.41077,-3.71555",
+"lote": "2",
+"peso": 4368.0,
+"texto": "C.M. SAN FRANCISCO | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "1+abr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1040.0,
+"texto": "ESCUELA DE HOSTELERIA | LIMPIADOR/A | 20,00 | 20,00 | 1.040,00 | 1.040,00",
+"how": "0"
+},
+{
+"key": "40.41184,-3.70031",
+"lote": "2",
+"peso": 3120.0,
+"texto": "C.DIA CARMEN CONDE | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "1+abr"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 3832.0,
+"texto": "ALOJAMIENTOS TUTELADOS | LIMPIADOR/A | 22,50 | 1.170,00",
+"how": "0"
+},
+{
+"key": "40.41555,-3.71079",
+"lote": "2",
+"peso": 8112.0,
+"texto": "J.M. DISTRITO CENTRO | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "1+abr"
+},
+{
+"key": "40.42469,-3.71026",
+"lote": "2",
+"peso": 3016.0,
+"texto": "C.M. DOS AMIGOS | LIMPIADOR/A | 39,00 | 2.028,00",
+"how": "1+abr"
+},
+{
+"key": "40.41184,-3.70292",
+"lote": "2",
+"peso": 2964.0,
+"texto": "C.M. ANTON MARTIN | LIMPIADOR/A | 32,00 | 1.664,00",
+"how": "1+abr"
+},
+{
+"key": "40.42440,-3.69921",
+"lote": "2",
+"peso": 2665.0,
+"texto": "C.DIA SAN ANTON | LIMPIADOR/A | 12,25 | 637,00",
+"how": "fz"
+},
+{
+"key": "40.42440,-3.69921",
+"lote": "2",
+"peso": 2756.0,
+"texto": "C.M. BENITO MARTIN LOZANO | LIMPIADOR/A | 26,00 | 1.352,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1300.0,
+"texto": "ZONAS COMUNES EDIFICIO POLIVALENTE | LIMPIADOR/A | 25,00 | 25,00 | 1.300,00 | 1.300,00",
+"how": "0"
+},
+{
+"key": "40.42664,-3.69972",
+"lote": "2",
+"peso": 4368.0,
+"texto": "BIBLIOTECA MARIO VARGAS LLOSA | LIMPIADOR/A | 31,00 | 1.612,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 520.0,
+"texto": "ENREDADERO / ESPACIO ADOLESCENTE | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "0"
+},
+{
+"key": "40.40920,-3.70746",
+"lote": "2",
+"peso": 1300.0,
+"texto": "C.S.C. ANNETTE CABELLI | LIMPIADOR/A | 25,00 | 25,00 | 1.300,00 | 1.300,00",
+"how": "fz"
+},
+{
+"key": "40.42668,-3.70446",
+"lote": "2",
+"peso": 864.0,
+"texto": "C.S.C. CASA DEL CURA | LIMPIADOR/A | 15,00 | 720,00",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 1820.0,
+"texto": "I.D.B. CASINO DE LA REINA | LIMPIADOR/A | 25,00 | 1.300,00",
+"how": "amb3"
+},
+{
+"key": "40.42890,-3.71039",
+"lote": "2",
+"peso": 520.0,
+"texto": "I.D.B. CONDE DUQUE | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "1"
+},
+{
+"key": "40.41525,-3.71990",
+"lote": "2",
+"peso": 520.0,
+"texto": "I.D.B. PARQUE ATENAS | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 520.0,
+"texto": "I.D.B. NTRA.SRA. LA PALOMA - EL CAMPITO | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 390.0,
+"texto": "I.D.B. EMBAJADORES | LIMPIADOR/A | 7,50 | 7,50 | 390,00 | 390,00",
+"how": "0"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 390.0,
+"texto": "I.D.B. AREA GIMNASTICA CANINA | LIMPIADOR/A | 7,50 | 7,50 | 390,00 | 390,00",
+"how": "0"
+},
+{
+"key": "40.41078,-3.71585",
+"lote": "2",
+"peso": 520.0,
+"texto": "I.D.B. PARQUE DE LA CORNISA | LIMPIADOR/A | 10,00 | 10,00 | 520,00 | 520,00",
+"how": "1"
+},
+{
+"key": "40.41206,-3.71509",
+"lote": "2",
+"peso": 390.0,
+"texto": "I.D.B. LAS VISTILLAS | LIMPIADOR/A | 7,50 | 7,50 | 390,00 | 390,00",
+"how": "1"
+},
+{
+"key": "40.40698,-3.70811",
+"lote": "2",
+"peso": 390.0,
+"texto": "I.D.B. PZ CAMPILLO DEL MUNDO NUEVO | LIMPIADOR/A | 7,50 | 7,50 | 390,00 | 390,00",
+"how": "fz"
+},
+{
+"key": "40.41055,-3.70940",
+"lote": "2",
+"peso": 156.0,
+"texto": "I.D.B. PLAZA DE LA CEBADA (Rocódromo) | LIMPIADOR/A | 3,00 | 3,00 | 156,00 | 156,00",
+"how": "1"
+},
+{
+"key": null,
+"lote": "2",
+"peso": 78.0,
+"texto": "I.D.B. PZ ARTURO BAREA (Rocódromo) | LIMPIADOR/A | 1,50 | 1,50 | 78,00 | 78,00",
+"how": "0"
+}
+]
+},
+"300/2024/00851": {
+"metodo": "horas de limpieza por semana de cada edificio (anexo del pliego)",
+"doc": "300_2024_00851__ppt0.txt",
+"filas": [
+{
+"key": "40.43992,-3.71097",
+"lote": "",
+"peso": 145.0,
+"texto": "CEIP ASUNCIÓN RINCÓN",
+"how": "fz"
+},
+{
+"key": "40.43821,-3.70246",
+"lote": "",
+"peso": 170.0,
+"texto": "CEIP RUFINO BLANCO",
+"how": "1"
+},
+{
+"key": "40.43743,-3.70446",
+"lote": "",
+"peso": 110.0,
+"texto": "CEIP SAN CRISTOBAL",
+"how": "1"
+},
+{
+"key": "40.43897,-3.70884",
+"lote": "",
+"peso": 175.0,
+"texto": "CEIP CLAUDIO MOYANO",
+"how": "1"
+},
+{
+"key": "40.43410,-3.70974",
+"lote": "",
+"peso": 140.0,
+"texto": "CEIP FERNANDO EL CATÓLICO",
+"how": "1"
+},
+{
+"key": "40.44661,-3.70311",
+"lote": "",
+"peso": 115.0,
+"texto": "CEIP CERVANTES",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 94.0,
+"texto": "SALA ESTUDIO VIZCAÍNO CASAS (Anterior CMM        Sáb Blasco Garay) Ampl examenes",
+"how": "0"
+},
+{
+"key": "40.43460,-3.70877",
+"lote": "",
+"peso": 148.0,
+"texto": "C. M ANTONIO MINGOTE",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "",
+"peso": 148.0,
+"texto": "C. M SANTA ENGRACIA",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 50.0,
+"texto": "OF. DISTRITO",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 28.0,
+"texto": "CENTRO JUVENIL",
+"how": "0"
+},
+{
+"key": "40.43456,-3.71049",
+"lote": "",
+"peso": 95.0,
+"texto": "CSS MARTA ESQUIVIAS",
+"how": "fz"
+},
+{
+"key": null,
+"lote": "",
+"peso": 80.0,
+"texto": "ATENCION FAMILIAS (CAF)",
+"how": "0"
+},
+{
+"key": "40.43057,-3.70087",
+"lote": "",
+"peso": 77.5,
+"texto": "OAC CHAMBERI - LINEA MADRID (Palafox, 4)",
+"how": "1"
+},
+{
+"key": null,
+"lote": "",
+"peso": 39.0,
+"texto": "INTELIGENCIA ARTIFICIAL (Bravo Murillo, 37-",
+"how": "0"
+},
+{
+"key": null,
+"lote": "",
+"peso": 94.0,
+"texto": "SALA ESTUDIO VIZCAÍNO CASAS (Anterior CMM        S Blasco Garay) Ampl examenes",
+"how": "0"
+}
+]
+}
+}
