@@ -7,3 +7,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 ~$*.xlsx
+
+# Ciudadano Madrid: BD completa y ficheros originales (van a GitHub Releases)
+ciudadano_madrid.sqlite*
+crudos/
