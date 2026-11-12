@@ -30,7 +30,12 @@ async function openSrc(ids){const F=await get('fuentes');let d=document.getEleme
 document.addEventListener('click',e=>{const b=e.target.closest('.srcb');if(b){e.preventDefault();openSrc(b.dataset.src.split(',').map(Number))}});
 
 // ---------- piezas comunes ----------
-const kpi=(v,l,c)=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div>${c?`<div class="cmpv">${c}</div>`:''}</div>`;
+const kpi=(v,l,c,inf)=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}${inf?info(inf[0],inf[1]):''}</div>${c?`<div class="cmpv">${c}</div>`:''}</div>`;
+/* Icono ⓘ: al pasar el cursor (o con el teclado) muestra cómo se calcula; al pulsarlo abre los ficheros de origen. */
+let infN=0;
+function info(txt,ids){const id='inf'+(++infN),k=(ids||[]).filter(x=>x!=null).join(',');
+  return `<span class="inf"><button type="button" class="infb" aria-describedby="${id}" data-src="${k}" aria-label="De dónde sale esta cifra">i</button><span class="infp" role="tooltip" id="${id}">${txt}${k?'<br><em>Pulsa el icono para ver los ficheros, sus direcciones y los pasos.</em>':''}</span></span>`}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.infb');if(b&&b.dataset.src){e.preventDefault();openSrc(b.dataset.src.split(',').map(Number))}});
 const card=(t,body,src,sub)=>`<section class="card"><h2 class="sxh">${t}</h2>${sub?`<p class="sub">${sub}</p>`:''}${body}${src?`<div class="sxf">${src}</div>`:''}</section>`;
 const hbars=(rows,fmt,o={})=>{const mx=Math.max(...rows.map(r=>r[1]||0))||1;
   return `<div class="sxhb">${rows.map(r=>`<span class="l${r[2]?' on':''}">${esc(r[0])}</span><span class="t"><i style="width:${(100*(r[1]||0)/mx).toFixed(1)}%;background:${r[2]?'#e8590c':(o.c||AZ)}"></i></span><span class="v${r[2]?' on':''}">${fmt(r[1])}</span>`).join('')}</div>`};
@@ -65,9 +70,18 @@ async function ciudadano(el){const C=await get('ciudadano');
   const ingS=Object.keys(C.ingresos).map(Number).sort().map(y=>{const x=C.ingresos[y];return [y,(x['1']||0)+(x['2']||0),x['3']||0,(x['4']||0)+(x['7']||0),(x['5']||0)+(x['6']||0),(x['8']||0)+(x['9']||0)]});
   const imp=(C.impuestos[yI]||[]).filter(r=>r[2]>0).sort((a,b)=>b[2]-a[2]).slice(0,8).map(r=>[tributo(r[1]),r[2]]);
   el.innerHTML=`<h1>Ciudadano: cuánto ingresa y gasta el Ayuntamiento</h1>${ambBar('ciudadano')}<p class="lead">${esc(frase)}</p>
-  <div class="kpis">${kpi(M(u.gasto),`gastado en ${u.anio} (sin deuda ni préstamos)`,`${nf(u.pct,1)} % de lo presupuestado`)}${kpi(N(uh.hab_gasto)+' €',`por habitante en ${uh.anio}`,`${N(uh.hab)} habitantes a 1 de enero`)}
-   ${kpi(M(tribut),`impuestos, tasas y precios cobrados en ${yI}`,'Ayuntamiento, derechos reconocidos')}${kpi(M((I['4']||0)+(I['7']||0)),`transferencias recibidas en ${yI}`,'del Estado, la Comunidad y la UE')}
-   ${sel?kpi(nf(sel.pag_hab)+' €',`gasto de la Junta de ${esc(DISTN[CM.DSEL])} por habitante (${yD})`,`media de los 21 distritos: ${nf(media('pag_hab'))} €`)+kpi(nf(sel.inv_hab)+' €',`inversión en ${esc(DISTN[CM.DSEL])} por habitante (${yD})`,`media: ${nf(media('inv_hab'))} €`):''}</div>
+  <div class="kpis">${kpi(M(u.gasto),`gastado en ${u.anio} (sin deuda ni préstamos)`,`${nf(u.pct,1)} % de lo presupuestado`,
+      [`<b>Cálculo:</b> obligaciones reconocidas de los capítulos 1 a 7 (personal, compras y servicios, intereses, transferencias e inversiones) del Ayuntamiento y sus organismos autónomos, menos las operaciones internas entre ellos (para no contar dos veces el mismo euro). No incluye devolver deuda (capítulo 9) ni préstamos concedidos (capítulo 8).<br><b>Porcentaje:</b> gastado ÷ crédito definitivo (presupuesto final del año).<br><b>Fuente:</b> «Presupuestos. Ejecución anual» y «Eliminaciones» de datos.madrid.es.${u.aprox?'<br>Hasta 2022 las operaciones internas son aproximadas.':''}`,C.src.ciudad])}
+   ${kpi(N(uh.hab_gasto)+' €',`por habitante en ${uh.anio}`,`${N(uh.hab)} habitantes a 1 de enero`,
+      [`<b>Cálculo:</b> el gasto anterior ÷ habitantes empadronados a 1 de enero de ese año.<br><b>Fuente:</b> ejecución presupuestaria y «Población por distrito y barrio» (padrón) de datos.madrid.es.`,C.src.ciudad])}
+   ${kpi(M(tribut),`impuestos, tasas y precios cobrados en ${yI}`,'Ayuntamiento, derechos reconocidos',
+      [`<b>Cálculo:</b> derechos reconocidos netos de los capítulos de ingresos 1 (impuestos directos: IBI, plusvalía, IAE, vehículos), 2 (impuestos indirectos: construcciones, IVA cedido…) y 3 (tasas y precios públicos). Solo el Ayuntamiento, sin organismos autónomos. «Reconocido» es lo que el Ayuntamiento tiene derecho a cobrar ese año; lo cobrado de verdad puede ser algo menor.<br><b>Fuente:</b> ejecución del presupuesto de ingresos de datos.madrid.es.`,C.src.ingresos])}
+   ${kpi(M((I['4']||0)+(I['7']||0)),`transferencias recibidas en ${yI}`,'del Estado, la Comunidad y la UE',
+      [`<b>Cálculo:</b> derechos reconocidos de los capítulos de ingresos 4 (transferencias corrientes, sobre todo la participación en los tributos del Estado) y 7 (transferencias de capital para inversiones). Solo el Ayuntamiento.<br><b>Fuente:</b> ejecución del presupuesto de ingresos de datos.madrid.es.`,C.src.ingresos])}
+   ${sel?kpi(nf(sel.pag_hab)+' €',`gasto de la Junta de ${esc(DISTN[CM.DSEL])} por habitante (${yD})`,`media de los 21 distritos: ${nf(media('pag_hab'))} €`,
+      [`<b>Cálculo:</b> obligaciones reconocidas de la sección presupuestaria de la Junta Municipal (colegios, centros culturales y de mayores, servicios sociales, mantenimiento del distrito…) ÷ habitantes del distrito a 1 de enero. No incluye lo que gastan en el distrito las Áreas de gobierno.<br><b>Fuente:</b> ejecución presupuestaria y padrón de datos.madrid.es.`,C.src.distritos])
+     +kpi(nf(sel.inv_hab)+' €',`inversión en ${esc(DISTN[CM.DSEL])} por habitante (${yD})`,`media: ${nf(media('inv_hab'))} €`,
+      [`<b>Cálculo:</b> pagos de los proyectos de inversión asignados al distrito (de la Junta y de las Áreas) ÷ habitantes. Los proyectos que afectan a varios distritos no se reparten, y una obra grande puede disparar un año concreto.<br><b>Fuente:</b> «Proyectos de inversión» de la ejecución presupuestaria y padrón de datos.madrid.es.`,C.src.distritos]):''}</div>
   <div class="grid2">${card('Gasto por año',barChart(serie,[{n:'Gastado (consolidado)',c:AZ,i:1}],{title:'Gasto por año',unit:'Capítulos 1 a 7, Ayuntamiento + organismos autónomos, sin operaciones internas'}),srcBtn(C.src.ciudad),
       ci.some(r=>r.aprox)?'Hasta 2022 el portal solo publica el importe presupuestado de las operaciones internas: esos años son una aproximación.':'')}
    ${card(`En qué se gasta (${u.anio})`,hbars(pol.slice(0,12).map(([k,v])=>[C.nombres_politicas[k]||k,v]),M),srcBtn(C.src.politicas),'Políticas de gasto, sin descontar operaciones internas. «Seguridad y movilidad» incluye policía, bomberos y tráfico.')}</div>
