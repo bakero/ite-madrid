@@ -143,6 +143,29 @@ def tabla(con, nombre, sql_select, descripcion):
     return n
 
 
+def deuda_pmp(con):
+    """Deuda (filas = conceptos, columnas = 31/12 de cada año) a formato largo; periodo medio de pago mensual."""
+    D = 'ds_300113_deuda'
+    cols = [r[1] for r in con.execute(f'PRAGMA table_info("{D}")') if re.match(r'\d{4}_12_31', r[1])]
+    con.execute('DROP TABLE IF EXISTS cm_deuda')
+    con.execute('CREATE TABLE cm_deuda(anio INTEGER, concepto TEXT, importe REAL, _descarga_id INTEGER)')
+    for concepto, did, *vals in con.execute(f'SELECT prestamos_a_largo_plazo_por_entidades_financieras, _descarga_id, {",".join(chr(34)+c+chr(34) for c in cols)} FROM "{D}"').fetchall():
+        if concepto and concepto.strip().upper() in ('TOTAL DEUDA LARGO Y CORTO PLAZO', 'TOTAL DEUDA PDE', 'TOTAL DEUDA LARGO PLAZO', 'TOTAL DEUDA CORTO PLAZO', 'AMORTIZACIONES LARGO PLAZO', 'NUEVA DEUDA LARGO PLAZO CONCERTADA'):
+            for c, v in zip(cols, vals):
+                if num(v) is not None:
+                    con.execute('INSERT INTO cm_deuda VALUES (?,?,?,?)', (int(c[:4]), concepto.strip(), num(v), did))
+    con.execute('INSERT OR REPLACE INTO cm_tablas VALUES (?,?,?,?)', ('cm_deuda', 'Deuda del Ayuntamiento a 31 de diciembre (total y PDE) y nueva deuda/amortizaciones',
+                con.execute('SELECT count(*) FROM cm_deuda').fetchone()[0], D))
+    M = {'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12}
+    con.execute('DROP TABLE IF EXISTS cm_pmp')
+    con.execute('CREATE TABLE cm_pmp(anio INTEGER, mes INTEGER, dias REAL, _descarga_id INTEGER)')
+    for mes, anio, dias, did in con.execute('SELECT meses, anos, pmp_global_sec_2010_dias, _descarga_id FROM ds_900045_periodo_medio_de_pago_a_proveedores'):
+        if mes and anio and M.get(mes.strip().lower()):
+            con.execute('INSERT INTO cm_pmp VALUES (?,?,?,?)', (int(float(anio)), M[mes.strip().lower()], num(dias), did))
+    con.execute('INSERT OR REPLACE INTO cm_tablas VALUES (?,?,?,?)', ('cm_pmp', 'Periodo medio de pago a proveedores (días), mensual',
+                con.execute('SELECT count(*) FROM cm_pmp').fetchone()[0], 'ds_900045_periodo_medio_de_pago_a_proveedores'))
+
+
 def main():
     con = P.abrir()
     for f, k in [(num, 'num'), (cod_distrito, 'cod_distrito'), (es_persona_fisica, 'es_pf'), (coord, 'coord'), (adj_nif, 'adj_nif'), (adj_nombre, 'adj_nombre'), (via_clave, 'via_clave')]:
@@ -301,6 +324,66 @@ def main():
                num(obligaciones_economicas_ayuntamiento) AS obligacion_ayuntamiento, num(obligaciones_economicas_otras_entidades) AS obligacion_otras,
                documento_del_convenio, _descarga_id
         FROM "{C}" ''', 'Convenios inscritos desde noviembre de 2018 (con administraciones, universidades y entidades privadas)')
+
+    # ---------- Tanda 2 (12/11/2026 tarde) ----------
+    # Pagos reales a terceros (obligaciones reconocidas por perceptor). Personas físicas: sin nombre.
+    partes = []
+    for t, org in [('ds_300272_pagos_a_terceros_areas_y_distritos', 'Ayuntamiento'), ('ds_300272_pagos_a_terceros_organismos_autonomos', 'Organismo autónomo')]:
+        partes.append(f"""SELECT CAST(substr(COALESCE(NULLIF(ejercicio,''),_periodo),1,4) AS INTEGER) AS anio, '{org}' AS tipo_centro, centro_gestor,
+               seccion, cod_distrito(CASE WHEN seccion BETWEEN '201' AND '221' THEN seccion END) AS cod_distrito,
+               programa, substr(programa,1,2) AS politica_gasto, subconcepto,
+               upper(replace(n_ident_fis_1,' ','')) AS nif, nombre_del_tercero AS tercero,
+               CASE WHEN significado LIKE '%sica%' AND significado NOT LIKE '%Jur%' THEN 1 ELSE es_pf(n_ident_fis_1) END AS persona_fisica,
+               significado AS tipo_tercero, num(importe_mon_encp) AS importe, texto AS concepto,
+               COALESCE(NULLIF(expediente_administrativo,''), numero_del_expediente) AS expediente, _descarga_id FROM "{t}" """)
+    tabla(con, 'cm_pago', ' UNION ALL '.join(partes), 'Pagos a terceros: lo que el Ayuntamiento ha reconocido pagar a cada proveedor o perceptor (2011–2025)')
+
+    # Presupuesto aprobado del año en curso y proyecto del siguiente, por sección y programa
+    partes = []
+    for t, col, anio, est in [('ds_300666_gastos', 'presupuesto_2026', 2026, 'aprobado'),
+                              ('ds_128004_proyecto_de_presupuesto_general_gastos', 'sumadeimporte', 2027, 'proyecto')]:
+        partes.append(f"""SELECT {anio} AS anio, '{est}' AS estado, printf('%03d', CAST(centro AS INTEGER)) AS centro, seccion, descripcion_seccion,
+               cod_distrito(CASE WHEN descripcion_seccion LIKE 'DISTRITO%' THEN seccion END) AS cod_distrito,
+               programa, descripcion_programa, substr(programa,1,2) AS politica_gasto, capitulo, num({col}) AS importe, _descarga_id FROM "{t}" """)
+    tabla(con, 'cm_presupuesto_futuro', ' UNION ALL '.join(partes), 'Presupuesto aprobado 2026 y proyecto de presupuesto 2027 (gastos) por sección y programa')
+
+    # Ayudas sociales a vecinos (sin datos de beneficiarios)
+    S = 'ds_300350_ayudas_sociales'
+    tabla(con, 'cm_ayuda_social', f"""
+        SELECT CAST(substr(_periodo,1,4) AS INTEGER) AS anio,
+               cod_distrito({co(con, S, 'descripcion_organo_gestor', 'area_title')}) AS cod_distrito,
+               {co(con, S, 'descripcion_organo_gestor', 'area_title')} AS organo,
+               {co(con, S, 'objeto_ayuda', 'title', 'linea_financiacion_title')} AS objeto,
+               num({co(con, S, 'importe_concedido', 'importe')}) AS importe, _descarga_id FROM "{S}" """,
+          'Ayudas sociales concedidas por el Ayuntamiento y las Juntas (sin datos personales de beneficiarios)')
+
+    # Listas de espera de servicios a mayores: solo campos no identificativos
+    partes = []
+    for t, srv in [('ds_300619_lista_de_espera_de_apartamentos_municipales_para_person', 'Apartamentos municipales para mayores'),
+                   ('ds_300620_lista_de_espera_de_residencia_municipal_para_personas_m', 'Residencia municipal (Alzheimer y otras demencias)'),
+                   ('ds_300621_lista_de_espera_de_residencia_municipal_para_personas_m', 'Residencia municipal (deterioro físico)'),
+                   ('ds_300622_listas_de_espera_de_centros_de_dia_para_personas_mayore', 'Centro de día (Alzheimer)'),
+                   ('ds_300623_lista_de_espera_de_centros_de_dia_para_personas_mayores', 'Centro de día (deterioro físico)')]:
+        if con.execute("SELECT 1 FROM sqlite_master WHERE name=?", (t,)).fetchone():
+            partes.append(f"""SELECT '{srv}' AS servicio, CAST(distrito_cod AS INTEGER) AS cod_distrito, tramo_edad, sexo,
+                   substr(fecha_de_entrada,1,10) AS fecha_entrada, fx_carga AS fecha_datos,
+                   CAST(julianday(fx_carga) - julianday(substr(fecha_de_entrada,1,10)) AS INTEGER) AS dias_espera, _descarga_id FROM "{t}" """)
+    tabla(con, 'cm_lista_espera', ' UNION ALL '.join(partes), 'Listas de espera de servicios municipales para mayores (sin DNI ni iniciales)')
+
+    # Operación Asfalto (Geoportal)
+    A2 = 'ds_sigma_operacion_asfalto'
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name=?", (A2,)).fetchone():
+        dist = co(con, A2, 'distrito_txt', 'distrito_t', 'distrito_nombre', 'distrito')
+        tabla(con, 'cm_asfalto', f"""
+            SELECT CAST(anio AS INTEGER) AS anio, {co(con, A2, 'calleactuacion', 'calleactua', 'calle')} AS calle,
+                   {co(con, A2, 'tramocalle', 'areaactuacion')} AS tramo,
+                   cod_distrito(substr(replace(replace({dist},'.',' '),'  ',' '),4), {dist}) AS cod_distrito,
+                   {co(con, A2, 'estado')} AS estado, {co(con, A2, 'fecha_ini', 'fecha_ini_eje', 'f_inicio', 'fecha_inicio')} AS inicio,
+                   {co(con, A2, 'fecha_fin', 'fecha_fin_eje', 'f_fin', 'fecha_final')} AS fin, num({co(con, A2, 'sup_m2')}) AS superficie_m2,
+                   num({co(con, A2, 'precio_aprox')}) AS precio_aprox, num({co(con, A2, 'ton')}) AS toneladas,
+                   coord(lat) AS lat, coord(lng) AS lng, _descarga_id FROM "{A2}" """,
+              'Operación Asfalto 2020–2026: tramos asfaltados (Geoportal); 2025 con precio aproximado')
+    deuda_pmp(con)
     con.commit()
 
 

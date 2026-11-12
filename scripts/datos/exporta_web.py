@@ -63,9 +63,24 @@ def ciudadano(con, usados):
                       pct=r['junta_pct_ejecucion'], inv=r0(r['inversion_presupuestada']), invp=r0(r['inversion_ejecutada']),
                       pag_hab=r0(r['junta_gastado_por_habitante'], 1), inv_hab=r0(r['inversion_por_habitante'], 1))
                  for r in filas(con, 'SELECT * FROM cm_distrito_anio ORDER BY anio, cod_distrito')]
+    s_d, s_m, s_f, s_a = srcs(con, 'cm_deuda'), srcs(con, 'cm_pmp'), srcs(con, 'cm_presupuesto_futuro'), srcs(con, 'cm_ayuda_social')
+    usados.update(s_d + s_m + s_f + s_a)
+    deuda = [[r['anio'], r['concepto'], r0(r['importe'])] for r in filas(con, "SELECT * FROM cm_deuda WHERE concepto IN ('TOTAL DEUDA LARGO Y CORTO PLAZO','TOTAL DEUDA PDE') ORDER BY anio")]
+    pmp = [[r['anio'], r['mes'], r['dias']] for r in filas(con, 'SELECT * FROM cm_pmp ORDER BY anio, mes')]
+    futuro = [[r['anio'], r['estado'], r['cd'], r0(r['v'])] for r in filas(con, 'SELECT anio, estado, cod_distrito cd, sum(importe) v FROM cm_presupuesto_futuro GROUP BY 1,2,3')]
+    futuro_pol = [[r['anio'], r['p'], r0(r['v'])] for r in filas(con, "SELECT anio, politica_gasto p, sum(importe) v FROM cm_presupuesto_futuro WHERE CAST(capitulo AS INTEGER) BETWEEN 1 AND 7 GROUP BY 1,2")]
+    ays = [[r['anio'], r['cd'], r['n'], r0(r['v'])] for r in filas(con, 'SELECT anio, cod_distrito cd, count(*) n, sum(importe) v FROM cm_ayuda_social GROUP BY 1,2')]
+    ays_tipo = [[r['o'], r['n'], r0(r['v'])] for r in filas(con, '''SELECT CASE WHEN upper(objeto) LIKE '%ALIMENT%' THEN 'Alimentos'
+            WHEN upper(objeto) LIKE '%COMEDOR%' THEN 'Comedor escolar' WHEN upper(objeto) LIKE '%ESCUELA INFANTIL%' THEN 'Escuela infantil'
+            WHEN upper(objeto) LIKE '%PREPAGO%' OR upper(objeto) LIKE 'TF %' OR upper(objeto) LIKE 'TF(%' THEN 'Tarjeta prepago (necesidades básicas)'
+            WHEN upper(objeto) LIKE '%BUCODENTAL%' OR upper(objeto) LIKE '%GAFAS%' OR upper(objeto) LIKE '%TRATAMIENTO%' OR upper(objeto) LIKE '%AUDIFON%' THEN 'Salud (dental, gafas, tratamientos)' WHEN upper(objeto) LIKE '%ALOJAMIENTO%' OR upper(objeto) LIKE '%VIVIENDA%' OR upper(objeto) LIKE '%ALQUILER%' THEN 'Vivienda y alojamiento'
+            WHEN upper(objeto) LIKE '%FAMILIAR%' THEN 'Ayudas familiares' ELSE 'Otras (descripción libre del portal)' END o, count(*) n, sum(importe) v
+            FROM cm_ayuda_social WHERE anio >= 2021 GROUP BY 1 ORDER BY v DESC''')]
     return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, impuestos=impuestos, politicas=politicas,
-                nombres_politicas=POLITICAS, distritos=distritos,
-                src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p))))
+                nombres_politicas=POLITICAS, distritos=distritos, deuda=deuda, pmp=pmp, futuro=futuro, futuro_pol=futuro_pol,
+                ayudas_sociales=ays, ayudas_sociales_tipo=ays_tipo,
+                src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p)),
+                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a))
 
 
 def via(con, usados):
@@ -106,9 +121,14 @@ def via(con, usados):
         for r in filas(con, f'''SELECT anio, sum(obligaciones_reconocidas) v FROM cm_gasto
                                 WHERE programa LIKE '{pref}%' GROUP BY 1'''):
             ciudad_via.setdefault(pref, []).append([r['anio'], r0(r['v'])])
-    return dict(licencias=lic, calles=calles, inversiones=inv, obras=obras, programas=dict(VIA),
+    s_as = srcs(con, 'cm_asfalto')
+    usados.update(s_as)
+    asf = [[r['anio'], r['cd'], r['n'], r0(r['sup']), r0(r['precio'])] for r in filas(con, 'SELECT anio, cod_distrito cd, count(*) n, sum(superficie_m2) sup, sum(precio_aprox) precio FROM cm_asfalto GROUP BY 1,2')]
+    asf_calles = [[r['anio'], r['cod_distrito'], r['calle'], r['tramo'], r['estado'], r0(r['precio_aprox']), r['lat'], r['lng'], r['_descarga_id']]
+                  for r in filas(con, 'SELECT * FROM cm_asfalto ORDER BY anio DESC, cod_distrito, calle')]
+    return dict(asfalto=asf, asfalto_calles=asf_calles, licencias=lic, calles=calles, inversiones=inv, obras=obras, programas=dict(VIA),
                 inversion_via_distrito=gasto_via, gasto_via_ciudad=ciudad_via,
-                src=dict(licencias=s_l, inversiones=s_i, obras=s_o, inversion_via=s_v, gasto_via=s_g))
+                src=dict(licencias=s_l, inversiones=s_i, obras=s_o, inversion_via=s_v, gasto_via=s_g, asfalto=s_as))
 
 
 def servicios(con, usados):
@@ -130,7 +150,23 @@ def servicios(con, usados):
                              FROM cm_contrato WHERE {w} AND COALESCE(nif, adjudicatario) IS NOT NULL
                              GROUP BY {clave} ORDER BY v DESC LIMIT {50 if cd is None else 20}''', *args)
         ranking[str(cd or 0)] = [[t['nombre'], (None if t['pf'] else t['k']), t['n'], r0(t['v']), t['nm'], t['desde'], t['hasta'], t['nd']] for t in top]
-    return dict(por_anio=por_anio, por_distrito=por_dist, ranking=ranking, src=dict(contratos=s))
+    s_p, s_e = srcs(con, 'cm_pago'), srcs(con, 'cm_lista_espera')
+    usados.update(s_p + s_e)
+    pag_anio = [[r['anio'], r['cd'], r0(r['v'])] for r in filas(con, 'SELECT anio, cod_distrito cd, sum(importe) v FROM cm_pago GROUP BY 1,2')]
+    pclave = "CASE WHEN persona_fisica=1 THEN 'PF' ELSE COALESCE(NULLIF(nif,''), upper(tercero)) END"
+    pagos = {}
+    for cd in [None] + list(range(1, 22)):
+        w, args = ('cod_distrito=?', (cd,)) if cd else ('1=1', ())
+        top = filas(con, f'''SELECT {pclave} k, CASE WHEN max(persona_fisica)=1 THEN 'Persona física' ELSE max(tercero) END nombre, max(persona_fisica) pf,
+                                    sum(importe) v, sum(CASE WHEN anio=(SELECT max(anio) FROM cm_pago) THEN importe END) vu, count(DISTINCT anio) anios,
+                                    min(anio) desde, max(anio) hasta, max(tipo_tercero) tipo
+                             FROM cm_pago WHERE {w} AND importe > 0 GROUP BY {pclave} ORDER BY v DESC LIMIT {40 if cd is None else 20}''', *args)
+        pagos[str(cd or 0)] = [[t['nombre'].rstrip(' .'), None if t['pf'] else t['k'], r0(t['v']), r0(t['vu']), t['desde'], t['hasta'], t['tipo']] for t in top]
+    espera = [[r['servicio'], r['cd'], r['n'], r['med'], r['mx']] for r in filas(con, '''
+        SELECT servicio, cod_distrito cd, count(*) n, CAST(avg(dias_espera) AS INTEGER) med, max(dias_espera) mx FROM cm_lista_espera GROUP BY 1,2''')]
+    fecha_espera = con.execute('SELECT max(fecha_datos) FROM cm_lista_espera').fetchone()[0]
+    return dict(por_anio=por_anio, por_distrito=por_dist, ranking=ranking, pagos_anio=pag_anio, pagos=pagos,
+                espera=espera, espera_fecha=fecha_espera, src=dict(contratos=s, pagos=s_p, espera=s_e))
 
 
 def ayudas(con, usados):

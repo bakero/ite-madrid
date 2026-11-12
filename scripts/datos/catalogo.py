@@ -42,4 +42,5 @@ CATALOGO = [
     dict(id='300295-0-convenios', seccion='Ayudas', prioridad='P1'),
     dict(id='300025-0-inventario-bienes', seccion='Edificios', prioridad='P1'),
     dict(id='300331-0-equipamientos-municipales', seccion='Edificios', prioridad='P1'),
+    dict(id='900045-0-periodo-pago-proveedores', seccion='Ciudadano', prioridad='P1'),
 ]

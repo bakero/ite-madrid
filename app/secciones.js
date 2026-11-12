@@ -34,6 +34,14 @@ const kpi=(v,l,c)=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l
 const card=(t,body,src,sub)=>`<section class="card"><h2 class="sxh">${t}</h2>${sub?`<p class="sub">${sub}</p>`:''}${body}${src?`<div class="sxf">${src}</div>`:''}</section>`;
 const hbars=(rows,fmt,o={})=>{const mx=Math.max(...rows.map(r=>r[1]||0))||1;
   return `<div class="sxhb">${rows.map(r=>`<span class="l${r[2]?' on':''}">${esc(r[0])}</span><span class="t"><i style="width:${(100*(r[1]||0)/mx).toFixed(1)}%;background:${r[2]?'#e8590c':(o.c||AZ)}"></i></span><span class="v${r[2]?' on':''}">${fmt(r[1])}</span>`).join('')}</div>`};
+const colChart=(rows,o={})=>{rows=rows.filter(r=>r[1]!=null);if(!rows.length)return '<p class="sub">Sin datos.</p>';
+  const W=560,H=170,L=46,B=22,T=10,mx=Math.max(...rows.map(r=>r[1]))||1,cw=(W-L-6)/rows.length,bw=Math.max(3,Math.min(28,cw-4));
+  const nice=v=>{const p=Math.pow(10,Math.floor(Math.log10(v)));const m=v/p;return (m<=1?1:m<=2?2:m<=5?5:10)*p},top=nice(mx),sy=v=>T+(H-T-B)*(1-v/top);
+  let g=`<line x1="${L}" x2="${W}" y1="${sy(0)}" y2="${sy(0)}" stroke="#c9c6bf"/>`;
+  for(const f of [.5,1])g+=`<line x1="${L}" x2="${W}" y1="${sy(top*f)}" y2="${sy(top*f)}" stroke="#ecebe7"/><text x="${L-4}" y="${sy(top*f)+3}" text-anchor="end" class="ax">${grp(nf(top*f))}</text>`;
+  rows.forEach((r,k)=>{const x=L+k*cw+(cw-bw)/2;g+=`<rect x="${x.toFixed(1)}" y="${sy(r[1]).toFixed(1)}" width="${bw.toFixed(1)}" height="${(sy(0)-sy(r[1])).toFixed(1)}" fill="${r[2]?'#e8590c':(o.c||AZ)}" rx="1"><title>${r[0]}: ${grp(nf(r[1],o.d||0))} ${o.u||''}</title></rect>`;
+    const step=rows.length>14?Math.ceil(rows.length/12):1;if(k%step===0||k===rows.length-1)g+=`<text x="${(x+bw/2).toFixed(1)}" y="${H-5}" text-anchor="middle" class="ax">${String(r[0]).length===4&&rows.length>10?String(r[0]).slice(2):r[0]}</text>`});
+  return `<figure class="chart"><svg viewBox="-10 0 ${W+10} ${H}" role="img" aria-label="${esc(o.title||'Gráfico')}">${g}</svg>${o.unit?`<figcaption><span class="sub">${esc(o.unit)}</span></figcaption>`:''}</figure>`};
 const tabla=(cab,filas,o={})=>`<div class="sxt"><table><thead><tr>${cab.map((c,i)=>`<th${o.num&&o.num.includes(i)?' class="n"':''}>${c}</th>`).join('')}</tr></thead><tbody>${filas.map(f=>`<tr${f.on?' class="on"':''}>${f.map((v,i)=>`<td${o.num&&o.num.includes(i)?' class="n"':''}>${v??'—'}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const ambBar=v=>`<p class="sxamb">Ámbito: <b>${esc(amb())}</b>. ${CM.DSEL==null?'Elige un distrito arriba para ver sus datos.':`<a href="#${v}" data-dclear="1">Ver todo Madrid</a>`}</p>`;
 document.addEventListener('click',e=>{const a=e.target.closest('[data-dclear]');if(a){e.preventDefault();setDistrict(null)}});
@@ -70,9 +78,32 @@ async function ciudadano(el){const C=await get('ciudadano');
   <div class="grid2"><div class="card"><h2 class="sxh">Gasto de la Junta por habitante</h2><div id="sxM1"></div>${srcBtn(C.src.distritos)}</div><div class="card"><h2 class="sxh">Inversión pagada por habitante</h2><div id="sxM2"></div>${srcBtn(C.src.distritos)}</div></div>
   ${card('Los 21 distritos',tabla(['Distrito','Habitantes','Presupuesto Junta','Gastado','Sin gastar','% ejecución','€/hab. Junta','Inversión pagada','€/hab. inversión'],
      D.slice().sort((a,b)=>a.cd-b.cd).map(r=>Object.assign([`<a href="#ciudadano?d=${r.cd}">${esc(DISTN[r.cd])}</a>`,N(r.hab),M(r.cdf),M(r.pag),M(r.nog),nf(r.pct,1)+' %',nf(r.pag_hab),M(r.invp),nf(r.inv_hab)],{on:r.cd===CM.DSEL})),{num:[1,2,3,4,5,6,7,8]}),srcBtn(C.src.distritos))}`;
+  el.insertAdjacentHTML('beforeend',ciudadano2(C,u));
   const o={cd:CM.DSEL,per:String(yD)};
   choro('sxM1',D.map(r=>({cd:r.cd,v:r.pag_hab})),Object.assign({},o,{fmt:v=>nf(v),u:'€ por habitante',fuente:'Ejecución presupuestaria (datos.madrid.es 211496) y padrón (300557)'}));
   choro('sxM2',D.map(r=>({cd:r.cd,v:r.inv_hab})),Object.assign({},o,{fmt:v=>nf(v),u:'€ por habitante',aviso:'Una sola obra grande puede disparar un año la cifra de un distrito.',fuente:'Proyectos de inversión territorializados (211496) y padrón (300557)'}))}
+
+function ciudadano2(C,u){
+  const D=C.deuda.filter(r=>r[1]==='TOTAL DEUDA LARGO Y CORTO PLAZO'),dU=last(D),d0=D.find(r=>r[0]===2012);
+  const pm={};C.pmp.forEach(r=>{(pm[r[0]]=pm[r[0]]||[]).push(r[2])});const pU=last(C.pmp);
+  const cd=CM.DSEL,fut=C.futuro.filter(r=>cd==null||r[2]===cd),sumF=(a,e)=>fut.filter(r=>r[0]===a&&r[1]===e).reduce((x,r)=>x+(r[3]||0),0);
+  const yD=Math.max(...C.distritos.map(x=>x.anio)),dd=cd!=null?C.distritos.find(r=>r.anio===yD&&r.cd===cd):null;
+  const f26=sumF(2026,'aprobado'),f27=sumF(2027,'proyecto');
+  const tabF=Array.from({length:21},(_,i)=>i+1).map(c=>{const a=C.futuro.filter(r=>r[2]===c&&r[0]===2026).reduce((x,r)=>x+r[3],0),b=C.futuro.filter(r=>r[2]===c&&r[0]===2027).reduce((x,r)=>x+r[3],0);
+    return Object.assign([`<a href="#ciudadano?d=${c}">${esc(DISTN[c])}</a>`,M(a),M(b),a?((b>=a?'+':'−')+nf(Math.abs(100*(b-a)/a),1)+' %'):'—'],{on:c===cd})});
+  const AS=C.ayudas_sociales.filter(r=>cd==null||r[1]===cd),años=[...new Set(AS.map(r=>r[0]))].sort();
+  const asN=años.map(y=>[y,AS.filter(r=>r[0]===y).reduce((x,r)=>x+r[2],0)]),asV=años.map(y=>[y,AS.filter(r=>r[0]===y).reduce((x,r)=>x+(r[3]||0),0)]);
+  return `<h2 class="asec">Deuda, pagos y presupuesto del año que viene</h2>
+  <div class="kpis">${kpi(M(dU[2]),`deuda a 31/12/${dU[0]}`,d0?`${M(d0[2])} en 2012`:'')}${kpi(nf(pU[2],1)+' días',`tarda en pagar a proveedores (${pU[1]}/${pU[0]})`,'el máximo legal es 30 días')}
+   ${kpi(M(f27),`presupuesto de gastos 2027 (proyecto)${cd!=null?' · Junta de '+esc(DISTN[cd]):''}`,f26?`${f27>=f26?'+':'−'}${nf(Math.abs(100*(f27-f26)/f26),1)} % frente a 2026`:'')}</div>
+  <div class="grid2">${card('Deuda del Ayuntamiento',barChart(D.map(r=>[r[0],r[2]]),[{n:'Deuda a 31 de diciembre',c:AZ,i:1}],{title:'Deuda por año',unit:'Préstamos y emisiones a largo y corto plazo del Ayuntamiento'}),srcBtn(C.src.deuda))}
+   ${card('Días que tarda en pagar a proveedores',colChart(Object.keys(pm).map(Number).sort().map(y=>[y,pm[y].reduce((a,b)=>a+b,0)/pm[y].length]),{u:'días',d:1,title:'Periodo medio de pago',unit:'media de los meses de cada año · el año en curso, incompleto'}),srcBtn(C.src.pmp))}</div>
+  ${cd==null?card('Presupuesto de cada Junta: 2026 aprobado y 2027 en proyecto',tabla(['Distrito','2026 aprobado','2027 proyecto','Cambio'],tabF,{num:[1,2,3]}),srcBtn(C.src.futuro),'Solo lo que gestiona la Junta; el proyecto de 2027 puede cambiar hasta que lo apruebe el Pleno.')
+     :card(`Presupuesto de la Junta de ${esc(DISTN[cd])}`,barChart([[yD,dd?dd.pag:0,0,0],[2026,0,f26,0],[2027,0,0,f27]],[{n:'Gastado',c:AZ,i:1},{n:'Aprobado',c:'#6f9fd0',i:2},{n:'Proyecto',c:'#e8590c',i:3}],{stack:true,title:'Presupuesto',unit:`${yD} gastado · 2026 aprobado · 2027 en proyecto`}),srcBtn([...C.src.futuro,...C.src.distritos]))}
+  <h2 class="asec">Ayudas sociales a vecinos · ${esc(amb())}</h2>
+  <div class="grid2">${card('Ayudas concedidas por año',colChart(asN,{u:'ayudas',title:'Ayudas por año',unit:'número de ayudas'})+`<p class="sub">Importe del último año: ${M(last(asV)?last(asV)[1]:0)}.</p>`,srcBtn(C.src.ayudas_sociales),
+      cd!=null?'De 2016 a 2018 el portal no indica el distrito; desde 2024 solo en parte de las ayudas.':'Alimentos, comedor escolar, escuela infantil, necesidades básicas… Sin datos de las personas beneficiarias.')}
+   ${card('Para qué son (desde 2021, toda la ciudad)',hbars(C.ayudas_sociales_tipo.map(r=>[r[0],r[2]]),M,{c:'#6f9fd0'}),srcBtn(C.src.ayudas_sociales))}</div>`}
 
 // ---------- Vía pública ----------
 const TIPOS=[['Avería urgente','#e8590c',4],['Cala programada','#1f5fa8',5],['Canalización','#6f9fd0',6],['Alcantarillado','#2b8a3e',7],['Obra municipal','#845ef7',8]];
@@ -101,7 +132,16 @@ async function via(el){const V=await get('via');
    ${card('Inversión en vía pública por año',barChart(serieInv,prog.map((p,i)=>({n:V.programas[p],c:PAL[i],i:i+1})),{stack:true,title:'Inversión pagada',unit:`${esc(amb())} · proyectos de inversión con distrito asignado`}),srcBtn(V.src.inversion_via))}</div>
   ${card('Obras públicas planificadas y en ejecución',obras.length?tabla(['Obra','Calles','Empresa','Presupuesto','Inicio','Fin'],obras.map(o=>[esc(o.nombre),esc((o.calles||'').slice(0,120)),esc(o.empresa||'—'),o.presupuesto?eurS(+String(o.presupuesto).replace(',','.')):'—',esc(o.inicio||''),esc(o.fin||'')]),{num:[3]}):'<p class="sub">No hay obras de este ámbito en el listado actual.</p>',srcBtn(obras.map(o=>o.src)))}
   ${card(`Inversiones principales en ${esc(amb())}`,tabla(['Inversión','Dirección','Línea','Estado','Presupuesto','Gastado','Mapa'],inv.slice(0,40).map(r=>[esc(r[1]),esc(r[3]||''),esc(r[6]||''),esc(r[7]||''),eurS(r[10]),eurS(r[11]),r[4]?`<a href="https://www.openstreetmap.org/?mlat=${r[4]}&mlon=${r[5]}#map=18/${r[4]}/${r[5]}" target="_blank" rel="noopener">Ver</a>`:'—']),{num:[4,5]})+(inv.length>40?`<p class="sub">Las 40 de mayor presupuesto de ${nf(inv.length)}.</p>`:''),srcBtn(V.src.inversiones))}`;
+  el.insertAdjacentHTML('beforeend',asfalto(V));
   choro('sxM3',porD,{cd:CM.DSEL,per:String(yv),fmt:v=>nf(v/1e6,1),u:'M€',aviso:'Total del distrito, no por habitante: los distritos grandes reciben más.',fuente:'Proyectos de inversión (datos.madrid.es 211496), programas de vías públicas, zonas verdes, alumbrado, tráfico y limpieza'})}
+
+function asfalto(V){const cd=CM.DSEL,A=V.asfalto.filter(r=>cd==null||r[1]===cd),años=[...new Set(V.asfalto.map(r=>r[0]))].sort();
+  const serie=años.map(y=>[y,A.filter(r=>r[0]===y).reduce((x,r)=>x+r[2],0)]),yU=last(años);
+  const pr=A.filter(r=>r[4]).reduce((x,r)=>x+r[4],0),yP=(A.find(r=>r[4])||[])[0];
+  const L=V.asfalto_calles.filter(r=>(cd==null||r[1]===cd)&&r[0]>=yU-1);
+  return card(`Operación Asfalto · ${esc(amb())}`,`<div class="grid2"><div>${colChart(serie,{u:'tramos',title:'Tramos asfaltados por año',unit:'tramos de calle de la Operación Asfalto'})}${pr?`<p class="sub">Precio aproximado de los tramos de ${yP}: <b>${M(pr)}</b>.</p>`:''}</div>
+    <div>${tabla(['Año','Calle','Tramo','Estado','Precio aprox.','Mapa'],L.slice(0,40).map(r=>[r[0],esc(r[2]||''),esc((r[3]||'').slice(0,60)),esc(r[4]||''),r[5]?eurS(r[5]):'—',r[6]?`<a href="https://www.openstreetmap.org/?mlat=${r[6].toFixed(5)}&mlon=${r[7].toFixed(5)}#map=17/${r[6].toFixed(5)}/${r[7].toFixed(5)}" target="_blank" rel="noopener">Ver</a>`:'—']),{num:[4]})}
+    ${L.length>40?`<p class="sub">40 de ${N(L.length)} tramos de ${yU-1} y ${yU}.</p>`:''}</div></div>`,srcBtn(V.src.asfalto),'Calles y tramos de la campaña anual de asfaltado, tomados del Geoportal del Ayuntamiento.')}
 
 // ---------- Servicios ----------
 const TR={registro:['Contratos (registro)',AZ],'acuerdo marco':['Basados en acuerdo marco','#6f9fd0'],homologación:['Homologación','#845ef7'],menor:['Contratos menores','#e8590c']};
@@ -120,7 +160,15 @@ async function servicios(el){const S=await get('servicios');
   <div class="grid2">${card('Importe adjudicado por año',barChart(rows,ks.map((k,i)=>({n:TR[k][0],c:TR[k][1],i:i+1})),{stack:true,title:'Importe por año',unit:'IVA incluido · en los acuerdos marco es el techo de gasto, no lo pagado'}),srcBtn(S.src.contratos))}
    ${card('Número de contratos por año',barChart(nrow,ks.map((k,i)=>({n:TR[k][0],c:TR[k][1],i:i+1})),{stack:true,title:'Contratos por año',unit:'contratos inscritos'}),srcBtn(S.src.contratos))}</div>
   ${card(`Empresas con más importe adjudicado · ${esc(amb())}`,tabla(['Empresa','NIF','Contratos','Importe','Menores','Años'],R.map(r=>[esc(r[0]),esc(r[1]||'—'),N(r[2]),M(r[3]),nf(r[4]),r[5]===r[6]?r[5]:r[5]+'–'+r[6]]),{num:[2,3,4]}),srcBtn(S.src.contratos),
-    'Importe adjudicado, no pagado. Las personas físicas no se muestran por su nombre. Las UTE cuentan aparte de sus socias.')}`}
+    'Importe adjudicado, no pagado. Las personas físicas no se muestran por su nombre. Las UTE cuentan aparte de sus socias.')}`+servicios2(S)}
+function servicios2(S){const cd=CM.DSEL,P=S.pagos[String(cd||0)]||[],PA=S.pagos_anio.filter(r=>cd==null||r[1]===cd),años=[...new Set(PA.map(r=>r[0]))].sort();
+  const serie=años.map(y=>[y,PA.filter(r=>r[0]===y).reduce((x,r)=>x+(r[2]||0),0)]),yU=last(años);
+  const E=S.espera.filter(r=>cd==null||r[1]===cd),sv=[...new Set(S.espera.map(r=>r[0]))];
+  const tE=sv.map(v=>{const x=E.filter(r=>r[0]===v),n=x.reduce((a,r)=>a+r[2],0),med=n?Math.round(x.reduce((a,r)=>a+r[3]*r[2],0)/n):null;return [esc(v),N(n),med==null?'—':N(med)+' días',x.length?N(Math.max(...x.map(r=>r[4])))+' días':'—']});
+  return `<h2 class="asec">Lo que se paga de verdad · ${esc(amb())}</h2>
+  <div class="grid2">${card('Pagado por año',barChart(serie,[{n:'Pagado',c:AZ,i:1}],{title:'Pagado por año',unit:cd==null?'Ayuntamiento y organismos autónomos, todos los perceptores':'Pagos de la Junta del distrito'}),srcBtn(S.src.pagos),'Pagos a terceros: lo que el Ayuntamiento reconoce que debe pagar a cada proveedor, entidad o administración, no lo adjudicado.')}
+   ${card('Quién cobra más (2011–'+yU+')',tabla(['Perceptor','NIF','Total','Último año','Años'],P.slice(0,20).map(r=>[esc(r[0]),esc(r[1]||'—'),M(r[2]),M(r[3]),r[4]===r[5]?r[4]:r[4]+'–'+r[5]]),{num:[2,3]}),srcBtn(S.src.pagos),'Incluye empresas, entidades y otras administraciones (como el Consorcio de Transportes).')}</div>
+  ${card('Listas de espera de servicios para mayores · '+esc(amb()),tabla(['Servicio','Personas esperando','Espera media','Espera máxima'],tE,{num:[1,2,3]}),srcBtn(S.src.espera),`Datos a ${esc((S.espera_fecha||'').slice(0,10))}. Solo cifras: el fichero original incluye DNI parcial e iniciales, que no se muestran.`)}`}
 
 // ---------- Ayudas y convenios ----------
 async function ayudas(el){const A=await get('ayudas');
