@@ -100,7 +100,7 @@ function contexto(C){
 function comparada(C){
   const R=C.comparada||[];if(!R.length)return '';
   const yU=Math.max(...R.map(r=>r[0])),U=R.filter(r=>r[0]===yU),ciu=[...new Set(R.map(r=>r[1]))];
-  const ph=(v,p)=>p?v/p:0,rk=(i)=>U.map(r=>[r[1],ph(r[i]||0,r[2])]).sort((a,b)=>b[1]-a[1]),E=v=>nf(v)+' €';
+  const ph=(v,p)=>p?v/p:0,rk=(i)=>U.map(r=>[r[1],ph(r[i]||0,r[2])]).sort((a,b)=>b[1]-a[1]),E=v=>N(v)+' €';
   const mad=R.filter(r=>r[1]==='Madrid').map(r=>[r[0],Math.round(ph(r[3],r[2]))]);
   const bcn=Object.fromEntries(R.filter(r=>r[1]==='Barcelona').map(r=>[r[0],ph(r[3],r[2])]));
   const med=Object.fromEntries([...new Set(R.map(r=>r[0]))].map(y=>{const t=R.filter(r=>r[0]===y);return [y,t.reduce((a,r)=>a+(r[3]||0),0)/t.reduce((a,r)=>a+r[2],0)]}));
