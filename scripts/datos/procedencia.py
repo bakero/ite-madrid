@@ -76,7 +76,7 @@ def commit_actual():
 
 
 def abrir(db=DB):
-    con = sqlite3.connect(db)
+    con = sqlite3.connect(db, timeout=900)
     con.execute('PRAGMA journal_mode=WAL')
     con.executescript(SCHEMA)
     return con

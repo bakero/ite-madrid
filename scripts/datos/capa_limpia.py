@@ -310,6 +310,7 @@ def main():
                url_bases_reguladoras, fecha_de_concesion AS fecha, CAST(substr(fecha_de_concesion,-4) AS INTEGER) AS anio,
                beneficiario, num(importe) AS importe, instrumento, _descarga_id
         FROM "{A}" ''', 'Subvenciones y ayudas que otras administraciones conceden al Ayuntamiento, sus organismos y empresas')
+    bdns_completar(con)
     F = 'ds_369053_fondos_europeos'
     tabla(con, 'cm_fondo_europeo', f'''
         SELECT subproyecto, denominacion, fecha_solicitud, fecha_resolucion, CAST(substr(fecha_resolucion,-4) AS INTEGER) AS anio,
@@ -384,7 +385,46 @@ def main():
                    coord(lat) AS lat, coord(lng) AS lng, _descarga_id FROM "{A2}" """,
               'Operación Asfalto 2020–2026: tramos asfaltados (Geoportal); 2025 con precio aproximado')
     deuda_pmp(con)
+    contexto_comunidad(con)
     con.commit()
+
+
+def bdns_completar(con):
+    """Añade a cm_ayuda_recibida las concesiones de la BDNS que no estén ya (misma convocatoria, fecha e importe)."""
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name='ds_bdns_concesiones'").fetchone():
+        return
+    n0 = con.execute('SELECT count(*) FROM cm_ayuda_recibida').fetchone()[0]
+    con.execute('''INSERT INTO cm_ayuda_recibida
+        SELECT CASE nivel1 WHEN 'AUTONOMICA' THEN 'Autonómica' WHEN 'ESTADO' THEN 'Estatal' WHEN 'LOCAL' THEN 'Local' ELSE nivel1 END,
+               nivel2, nivel3, numeroconvocatoria, convocatoria, urlbr,
+               substr(fechaconcesion,9,2)||'/'||substr(fechaconcesion,6,2)||'/'||substr(fechaconcesion,1,4), CAST(substr(fechaconcesion,1,4) AS INTEGER),
+               trim(substr(beneficiario, instr(beneficiario,' ')+1)), num(importe), trim(instrumento), b._descarga_id
+        FROM ds_bdns_concesiones b
+        WHERE NOT EXISTS (SELECT 1 FROM cm_ayuda_recibida a WHERE a.codigo_bdns = b.numeroconvocatoria
+                          AND a.fecha = substr(fechaconcesion,9,2)||'/'||substr(fechaconcesion,6,2)||'/'||substr(fechaconcesion,1,4)
+                          AND abs(coalesce(a.importe,0) - num(b.importe)) < 1)''')
+    print('   BDNS añade', con.execute('SELECT count(*) FROM cm_ayuda_recibida').fetchone()[0] - n0, 'concesiones nuevas')
+
+
+def contexto_comunidad(con):
+    """Indicadores por distrito publicados por la Comunidad de Madrid (el distrito va dentro del texto «concepto»)."""
+    T = {'P': 'ds_cm_pensiones_pensiones_contributivas_pensionistas_por_distritos_y_se',
+         'E': 'ds_cm_empresas_colectivo_empresarial_base_unidades_productivas_y_ocupa',
+         'K': 'ds_cm_catastro_catastro_inmobiliario_inmuebles_por_distrito_y_uso_csv'}
+    if not all(con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone() for t in T.values()):
+        return
+    tabla(con, 'cm_distrito_contexto', f'''
+        SELECT CAST(ano AS INTEGER) AS anio, cod_distrito(replace(concepto, ' del municipio de Madrid', '')) AS cod_distrito,
+               'pensionistas' AS indicador, sexo AS detalle, num(valor) AS valor, _descarga_id FROM "{T['P']}"
+         WHERE concepto LIKE '%distrito de %' AND concepto NOT LIKE '%no consta%'
+        UNION ALL
+        SELECT CAST(ano AS INTEGER), cod_distrito(replace(concepto, ' del municipio de Madrid', '')),
+               CASE medida WHEN 'Ocupados' THEN 'ocupados' ELSE 'unidades_productivas' END, estrato_empleo, num(valor), _descarga_id FROM "{T['E']}"
+        UNION ALL
+        SELECT CAST(ano AS INTEGER), cod_distrito(replace(concepto, ' del municipio de Madrid', '')), 'inmuebles', uso, num(valor), _descarga_id FROM "{T['K']}"''',
+          'Contexto por distrito (Comunidad de Madrid): pensionistas, empresas y empleo, inmuebles por uso')
+    malos = con.execute('SELECT count(*) FROM cm_distrito_contexto WHERE cod_distrito IS NULL').fetchone()[0]
+    print('   sin distrito:', malos)
 
 
 if __name__ == '__main__':

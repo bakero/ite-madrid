@@ -76,11 +76,27 @@ def ciudadano(con, usados):
             WHEN upper(objeto) LIKE '%BUCODENTAL%' OR upper(objeto) LIKE '%GAFAS%' OR upper(objeto) LIKE '%TRATAMIENTO%' OR upper(objeto) LIKE '%AUDIFON%' THEN 'Salud (dental, gafas, tratamientos)' WHEN upper(objeto) LIKE '%ALOJAMIENTO%' OR upper(objeto) LIKE '%VIVIENDA%' OR upper(objeto) LIKE '%ALQUILER%' THEN 'Vivienda y alojamiento'
             WHEN upper(objeto) LIKE '%FAMILIAR%' THEN 'Ayudas familiares' ELSE 'Otras (descripción libre del portal)' END o, count(*) n, sum(importe) v
             FROM cm_ayuda_social WHERE anio >= 2021 GROUP BY 1 ORDER BY v DESC''')]
-    return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, impuestos=impuestos, politicas=politicas,
+    comp, s_c = [], []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_ciudad_comparada'").fetchone():
+        comp = [list(r) for r in con.execute('''SELECT anio, ciudad, poblacion,
+              round(sum(CASE WHEN tipo='gasto' AND capitulo IN ('1','2','3','4','5','6','7') THEN importe END)),
+              round(sum(CASE WHEN tipo='gasto' AND capitulo IN ('6','7') THEN importe END)),
+              round(sum(CASE WHEN tipo='ingreso' AND capitulo IN ('1','2','3') THEN importe END)),
+              round(sum(CASE WHEN tipo='gasto' AND capitulo='1' THEN importe END))
+            FROM cm_ciudad_comparada GROUP BY 1, 2 ORDER BY 1, 2''')]
+        s_c = srcs(con, 'cm_ciudad_comparada')
+        usados.update(s_c)
+    ctx, s_x = [], []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_distrito_contexto'").fetchone():
+        ctx = [list(r) for r in con.execute('''SELECT anio, cod_distrito, indicador, detalle, valor FROM cm_distrito_contexto
+            WHERE cod_distrito IS NOT NULL AND (detalle='Total' OR indicador='inmuebles') ORDER BY 1, 2''')]
+        s_x = srcs(con, 'cm_distrito_contexto')
+        usados.update(s_x)
+    return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, comparada=comp, contexto=ctx, impuestos=impuestos, politicas=politicas,
                 nombres_politicas=POLITICAS, distritos=distritos, deuda=deuda, pmp=pmp, futuro=futuro, futuro_pol=futuro_pol,
                 ayudas_sociales=ays, ayudas_sociales_tipo=ays_tipo,
                 src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p)),
-                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a))
+                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a, comparada=s_c, contexto=s_x))
 
 
 def via(con, usados):

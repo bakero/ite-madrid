@@ -78,11 +78,39 @@ async function ciudadano(el){const C=await get('ciudadano');
   <div class="grid2"><div class="card"><h2 class="sxh">Gasto de la Junta por habitante</h2><div id="sxM1"></div>${srcBtn(C.src.distritos)}</div><div class="card"><h2 class="sxh">Inversión pagada por habitante</h2><div id="sxM2"></div>${srcBtn(C.src.distritos)}</div></div>
   ${card('Los 21 distritos',tabla(['Distrito','Habitantes','Presupuesto Junta','Gastado','Sin gastar','% ejecución','€/hab. Junta','Inversión pagada','€/hab. inversión'],
      D.slice().sort((a,b)=>a.cd-b.cd).map(r=>Object.assign([`<a href="#ciudadano?d=${r.cd}">${esc(DISTN[r.cd])}</a>`,N(r.hab),M(r.cdf),M(r.pag),M(r.nog),nf(r.pct,1)+' %',nf(r.pag_hab),M(r.invp),nf(r.inv_hab)],{on:r.cd===CM.DSEL})),{num:[1,2,3,4,5,6,7,8]}),srcBtn(C.src.distritos))}`;
-  el.insertAdjacentHTML('beforeend',ciudadano2(C,u));
+  el.insertAdjacentHTML('beforeend',ciudadano2(C,u)+contexto(C)+comparada(C));
   const o={cd:CM.DSEL,per:String(yD)};
   choro('sxM1',D.map(r=>({cd:r.cd,v:r.pag_hab})),Object.assign({},o,{fmt:v=>nf(v),u:'€ por habitante',fuente:'Ejecución presupuestaria (datos.madrid.es 211496) y padrón (300557)'}));
   choro('sxM2',D.map(r=>({cd:r.cd,v:r.inv_hab})),Object.assign({},o,{fmt:v=>nf(v),u:'€ por habitante',aviso:'Una sola obra grande puede disparar un año la cifra de un distrito.',fuente:'Proyectos de inversión territorializados (211496) y padrón (300557)'}))}
 
+function contexto(C){
+  const X=C.contexto||[];if(!X.length)return '';const cd=CM.DSEL;
+  const ult=ind=>Math.max(...X.filter(r=>r[2]===ind).map(r=>r[0]));
+  const val=(ind,c,det,y)=>{y=y||ult(ind);return X.filter(r=>r[0]===y&&r[1]===c&&r[2]===ind&&(det==null||r[3]===det)).reduce((a,r)=>a+(r[4]||0),0)};
+  const yP=ult('pensionistas'),yE=ult('unidades_productivas'),yI=ult('inmuebles'),e0=Math.min(...X.filter(r=>r[2]==='unidades_productivas').map(r=>r[0]));
+  const yH=Math.max(...C.distritos.map(x=>x.anio)),hab=c=>{const d=C.distritos.find(r=>r.anio===yH&&r.cd===c);return d?d.hab:0};
+  const rows=Array.from({length:21},(_,i)=>i+1).map(c=>{const h=hab(c),p=val('pensionistas',c,'Total'),u=val('unidades_productivas',c,'Total'),u0=val('unidades_productivas',c,'Total',e0),
+    o=val('ocupados',c,'Total'),v=val('inmuebles',c,'Viviendas colectivas')+val('inmuebles',c,'Viviendas unifamiliares');
+    return Object.assign([`<a href="#ciudadano?d=${c}">${esc(DISTN[c])}</a>`,N(p),h?nf(100*p/h,1):'—',N(u),u0?((u>=u0?'+':'−')+nf(Math.abs(100*(u-u0)/u0),1)+' %'):'—',N(o),N(v),N(val('inmuebles',c,'Comercial')),N(val('inmuebles',c,'Oficinas'))],{on:c===cd})});
+  const usos=cd!=null?['Viviendas colectivas','Viviendas unifamiliares','Aparcamientos','Comercial','Oficinas','Industrial','Resto de usos'].map(u=>[u,val('inmuebles',cd,u)]):null;
+  return `<h2 class="asec">Cómo es cada distrito</h2>
+  ${card('Pensionistas, empresas e inmuebles por distrito',tabla(['Distrito',`Pensionistas (${yP})`,'Por cada 100 hab.',`Empresas y locales (${yE})`,`Cambio desde ${e0}`,`Empleos (${yE})`,`Viviendas (${yI})`,'Locales comerciales','Oficinas'],rows,{num:[1,2,3,4,5,6,7,8]}),srcBtn(C.src.contexto),'Datos del Instituto de Estadística de la Comunidad de Madrid. Pensionistas: pensiones contributivas de la Seguridad Social. Empresas: unidades productivas con actividad en el distrito. Inmuebles: recibos del Catastro por uso.')}
+  ${usos?card(`Inmuebles de ${esc(DISTN[cd])} por uso (${yI})`,hbars(usos,N,{c:'#6f9fd0'}),srcBtn(C.src.contexto)):''}`;
+}
+function comparada(C){
+  const R=C.comparada||[];if(!R.length)return '';
+  const yU=Math.max(...R.map(r=>r[0])),U=R.filter(r=>r[0]===yU),ciu=[...new Set(R.map(r=>r[1]))];
+  const ph=(v,p)=>p?v/p:0,rk=(i)=>U.map(r=>[r[1],ph(r[i]||0,r[2])]).sort((a,b)=>b[1]-a[1]),E=v=>nf(v)+' €';
+  const mad=R.filter(r=>r[1]==='Madrid').map(r=>[r[0],Math.round(ph(r[3],r[2]))]);
+  const bcn=Object.fromEntries(R.filter(r=>r[1]==='Barcelona').map(r=>[r[0],ph(r[3],r[2])]));
+  const med=Object.fromEntries([...new Set(R.map(r=>r[0]))].map(y=>{const t=R.filter(r=>r[0]===y);return [y,t.reduce((a,r)=>a+(r[3]||0),0)/t.reduce((a,r)=>a+r[2],0)]}));
+  const tb=U.slice().sort((a,b)=>ph(b[3],b[2])-ph(a[3],a[2])).map(r=>Object.assign([esc(r[1]),N(r[2]),E(ph(r[3],r[2])),E(ph(r[5]||0,r[2])),E(ph(r[4]||0,r[2])),E(ph(r[6]||0,r[2]))],{on:r[1]==='Madrid'}));
+  return `<h2 class="asec">Madrid frente a otras grandes ciudades</h2>
+  <div class="grid2">${card(`Gasto por habitante (${yU})`,hbars(rk(3),E),srcBtn(C.src.comparada),'Gasto no financiero (capítulos 1 a 7) consolidado de cada ayuntamiento con sus organismos y empresas, según la liquidación que cada ciudad envía a Hacienda (CONPREL).')}
+   ${card(`Impuestos y tasas por habitante (${yU})`,hbars(rk(5),E,{c:'#6f9fd0'}),srcBtn(C.src.comparada),'Ingresos de los capítulos 1 a 3: impuestos directos, indirectos y tasas.')}</div>
+  <div class="grid2">${card('Gasto por habitante a lo largo del tiempo',barChart(mad.map(([y,v])=>[y,v,Math.round(bcn[y]||0),Math.round(med[y]||0)]),[{n:'Madrid',c:AZ,i:1},{n:'Barcelona',c:'#e8590c',i:2},{n:'Media de las 10 ciudades',c:GR,i:3}],{title:'€ por habitante',unit:'gasto no financiero consolidado',eur:false}),srcBtn(C.src.comparada))}
+   ${card(`Las ${ciu.length} ciudades en ${yU}`,tabla(['Ciudad','Habitantes','Gasto/hab','Impuestos y tasas/hab','Inversión/hab','Personal/hab'],tb,{num:[1,2,3,4,5]}),srcBtn(C.src.comparada),'Mismas reglas para todas las ciudades, por eso las cifras de Madrid pueden diferir algo de las del presupuesto municipal.')}</div>`;
+}
 function ciudadano2(C,u){
   const D=C.deuda.filter(r=>r[1]==='TOTAL DEUDA LARGO Y CORTO PLAZO'),dU=last(D),d0=D.find(r=>r[0]===2012);
   const pm={};C.pmp.forEach(r=>{(pm[r[0]]=pm[r[0]]||[]).push(r[2])});const pU=last(C.pmp);

@@ -21,6 +21,11 @@ from catalogo import CATALOGO
 
 API = 'https://datos.madrid.es/api/3/action/package_show?id='
 FICHA = 'https://datos.madrid.es/dataset/'
+PORTALES = {  # portal: (API package_show, ficha, prefijo de clave, organismo por defecto)
+    'dm': (API, FICHA, 'dm', 'Ayuntamiento de Madrid', 'datos.madrid.es'),
+    'cm': ('https://datos.comunidad.madrid/api/3/action/package_show?id=', 'https://datos.comunidad.madrid/dataset/', 'cm',
+           'Comunidad de Madrid', 'datos.comunidad.madrid'),
+}
 csv.field_size_limit(1 << 30)
 MESES = r'enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre'
 PREF = ['CSV', 'XLSX', 'XLS', 'ZIP', 'KMZ', 'JSON', 'XML']
@@ -259,19 +264,21 @@ def revolcar_todo(con):
 
 def cargar(con, item):
     pid = item['id']
-    pkg = json.load(urllib.request.urlopen(urllib.request.Request(API + pid, headers={'User-Agent': P.UA}), timeout=120))['result']
+    api, ficha, pref, org0, portal = PORTALES[item.get('portal', 'dm')]
+    pkg = json.load(urllib.request.urlopen(urllib.request.Request(api + pid, headers={'User-Agent': P.UA}), timeout=120))['result']
     tc = pkg.get('temporal_coverage') or []
     cobertura = ', '.join(f"{c.get('start', '')[:10]}–{c.get('end', '')[:10]}" for c in tc) or None
-    fid = P.fuente(con, f"dm:{pid.split('-')[0]}", pkg['title'], organismo=(pkg.get('organization') or {}).get('title') or 'Ayuntamiento de Madrid',
-                   portal='datos.madrid.es', url_ficha=FICHA + pkg['name'], url_api=API + pkg['name'],
+    clave = f"dm:{pid.split('-')[0]}" if pref == 'dm' else f"{pref}:{pkg['name']}"
+    fid = P.fuente(con, clave, pkg['title'], organismo=(pkg.get('organization') or {}).get('title') or org0,
+                   portal=portal, url_ficha=ficha + pkg['name'], url_api=api + pkg['name'],
                    licencia=pkg.get('license_title'), acceso='api', seccion=item['seccion'], prioridad=item.get('prioridad', 'P1'),
                    frecuencia=(pkg.get('frequency') or '').rsplit('/', 1)[-1] or None, cobertura=cobertura, notas=item.get('notas'))
     hechos = {r[0] for r in con.execute('SELECT url FROM descarga WHERE fuente_id=?', (fid,))}
     grupos, docs = elegir(pkg['resources'])
     if item.get('filtro'):
         grupos = [g for g in grupos if re.search(item['filtro'], g[3], re.I)]
-    sub = pkg['name'].split('-')[0]
-    pasos_base = (f"1) Abrir {FICHA + pkg['name']} (o la API {API + pkg['name']}). "
+    sub = pkg['name'].split('-')[0] if pref == 'dm' else 'cm_' + item.get('corto', pkg['name'][:24])
+    pasos_base = (f"1) Abrir {ficha + pkg['name']} (o la API {api + pkg['name']}). "
                   "2) Descargar el recurso «{t}» en formato {f}. ")
     for titulo, x in docs:
         if x['url'] in hechos:

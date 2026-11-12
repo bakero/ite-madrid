@@ -43,4 +43,8 @@ CATALOGO = [
     dict(id='300025-0-inventario-bienes', seccion='Edificios', prioridad='P1'),
     dict(id='300331-0-equipamientos-municipales', seccion='Edificios', prioridad='P1'),
     dict(id='900045-0-periodo-pago-proveedores', seccion='Ciudadano', prioridad='P1'),
+    # Comunidad de Madrid (datos por distrito de la capital)
+    dict(id='pensiones_contributivas_pensionistas_por_distritos_y_sexo', portal='cm', corto='pensiones', seccion='Ciudadano', prioridad='P2'),
+    dict(id='colectivo_empresarial_base_2015_por_distrito_y_estrato_empleo', portal='cm', corto='empresas', seccion='Ciudadano', prioridad='P2'),
+    dict(id='catastro_inmuebles_por_distrito_y_uso', portal='cm', corto='catastro', seccion='Ciudadano', prioridad='P2'),
 ]
