@@ -58,21 +58,54 @@ def es_documentacion(titulo):
     return bool(re.search(r'contenido y estructura|glosario', titulo, re.I))
 
 
+ES = set('áéíóúñÁÉÍÓÚÑüÜ')
+RARO = set('µ¢¥¤¦§¨©®±²³¶·¸¹º¼½¾¿×÷ÃÂ¡')
+
+
 def decodificar(b):
-    for enc in ('utf-8-sig', 'cp1252', 'latin-1'):
+    """UTF-8 si es válido; si no, entre cp1252 y cp850 (algunos CSV del portal vienen en codificación DOS) el que dé
+    más letras españolas y menos símbolos raros («µREA» = «ÁREA», «Tramitaci¢n» = «Tramitación»)."""
+    try:
+        return b.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        pass
+    mejor, nota = None, None
+    for enc in ('cp1252', 'cp850', 'latin-1'):
         try:
-            return b.decode(enc)
+            t = b.decode(enc)
         except UnicodeDecodeError:
-            pass
+            continue
+        m = t[:200000]
+        n = sum(ch in ES for ch in m) - 3 * sum(ch in RARO for ch in m)
+        if mejor is None or n > nota:
+            mejor, nota = t, n
+    return mejor
+
+
+def separador(texto):
+    """El separador con el que más líneas de las primeras 40 tienen el mismo número de campos (>= 3)."""
+    lineas = texto.splitlines()[:40]
+    mejor, pmejor = ';', -1
+    for d in (';', ',', '\t', '|'):
+        cuentas = [len(f) for f in csv.reader(lineas, delimiter=d)]
+        cuentas = [c for c in cuentas if c >= 3]
+        if not cuentas:
+            continue
+        moda = max(set(cuentas), key=cuentas.count)
+        p = cuentas.count(moda) * 1000 + moda
+        if p > pmejor:
+            mejor, pmejor = d, p
+    return mejor
 
 
 def filas_csv(ruta):
     texto = decodificar(ruta.read_bytes())
-    muestra = texto[:20000]
-    delim = max([';', ',', '\t', '|'], key=lambda d: muestra.split('\n', 1)[0].count(d))
+    delim = separador(texto)
     r = csv.reader(io.StringIO(texto), delimiter=delim)
-    cab = next(r, None)
-    return cab, r
+    for cab in r:                         # salta títulos encima de la cabecera («Contratos … a 31 de diciembre de 2023»)
+        if sum(1 for v in cab if v.strip()) >= 3:
+            return cab, r
+    return None, r
 
 
 def filas_xlsx(ruta):

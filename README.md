@@ -1,3 +1,20 @@
+# Ciudadano Madrid
+
+Portal de datos públicos de la ciudad de Madrid. Cinco secciones: **Edificios** (estado de la ITE de los edificios públicos, inversiones y servicios por edificio), **Ciudadano** (cuánto ingresa y gasta el Ayuntamiento, por habitante y por distrito), **Vía pública** (obras, calles con más intervenciones, inversión en calles, zonas verdes y alumbrado), **Servicios** (contratos, contratos menores y empresas adjudicatarias) y **Ayudas** (ayudas de otras administraciones, fondos europeos y convenios).
+
+Cada cifra tiene un enlace «De dónde sale» con la URL oficial del fichero, la fecha de descarga, su SHA-256 y los pasos para repetirla. Método y esquema: [docs/trazabilidad.md](docs/trazabilidad.md).
+
+| Paso | Script |
+| --- | --- |
+| Datos del Mapa ITE con su procedencia | `scripts/datos/migrar_existente.py` |
+| Conjuntos de datos.madrid.es (catálogo en `scripts/datos/catalogo.py`) | `scripts/datos/ckan_madrid.py` |
+| Capa limpia (tablas `cm_*`) | `scripts/datos/capa_limpia.py` |
+| JSON de la web (`app/sec/`) | `scripts/datos/exporta_web.py` |
+
+La base de datos completa (`ciudadano_madrid.sqlite`, ~1 GB) y los ficheros originales (`crudos/`) no van en el repositorio: se publican en GitHub Releases.
+
+---
+
 # Mapa ITE de edificios públicos de Madrid
 
 Este proyecto sitúa en un mapa del municipio de Madrid los centros e instalaciones públicas de los 21 distritos. Cada edificio se colorea según el estado de su **última Inspección Técnica de Edificios (ITE/IEE)** en el Registro municipal. Los edificios sin ITE aparecen en gris.

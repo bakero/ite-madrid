@@ -1,0 +1,171 @@
+"""Genera los JSON que lee la web (app/sec/*.json) desde las tablas cm_* de ciudadano_madrid.sqlite.
+
+Cada bloque lleva `src`: la lista de descargas de las que sale; app/sec/fuentes.json da, para cada una,
+la URL oficial, la fecha, el SHA-256 y los pasos (enlace «De dónde sale» de la web).
+Los nombres de personas físicas no se exportan («Persona física»).
+
+Uso: python3 scripts/datos/exporta_web.py
+"""
+import json, pathlib, sqlite3, sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import procedencia as P
+
+OUT = P.ROOT / 'app' / 'sec'
+POLITICAS = {'01': 'Deuda pública', '11': 'Justicia', '13': 'Seguridad y movilidad', '15': 'Vivienda y urbanismo',
+             '16': 'Bienestar comunitario (limpieza, residuos, alumbrado, cementerios)', '17': 'Medio ambiente y zonas verdes',
+             '22': 'Prestaciones a empleados', '23': 'Servicios sociales', '24': 'Fomento del empleo', '31': 'Sanidad',
+             '32': 'Educación', '33': 'Cultura', '34': 'Deporte', '43': 'Comercio, turismo y pymes', '44': 'Transporte público',
+             '46': 'Investigación e innovación', '49': 'Otras actuaciones económicas', '91': 'Órganos de gobierno',
+             '92': 'Servicios generales', '93': 'Administración financiera y tributaria'}
+VIA = [('153', 'Vías públicas (calzadas, aceras, infraestructuras)'), ('171', 'Parques y zonas verdes'),
+       ('165', 'Alumbrado y equipamientos urbanos'), ('133', 'Tráfico y señalización'), ('163', 'Limpieza viaria')]
+
+
+def filas(con, sql, *a):
+    cur = con.execute(sql, a)
+    cols = [c[0] for c in cur.description]
+    return [dict(zip(cols, r)) for r in cur.fetchall()]
+
+
+def srcs(con, tabla, where='1'):
+    return [r[0] for r in con.execute(f'SELECT DISTINCT _descarga_id FROM {tabla} WHERE {where} AND _descarga_id IS NOT NULL ORDER BY 1')]
+
+
+def r0(v, n=0):
+    return None if v is None else round(v, n) if n else int(round(v))
+
+
+def ciudadano(con, usados):
+    s_g, s_i, s_p = srcs(con, 'cm_gasto'), srcs(con, 'cm_ingresos'), srcs(con, 'cm_poblacion')
+    s_e = srcs(con, 'ds_211496_eliminaciones_de_gastos')
+    s_v = srcs(con, 'cm_inversion_proyecto')
+    usados.update(s_g + s_i + s_p + s_e + s_v)
+    ciudad = [dict(anio=r['anio'], hab=r0(r['personas']), gasto=r0(r['gasto_no_financiero_ejecutado']),
+                   presup=r0(r['gasto_no_financiero_definitivo']), pct=r['pct_ejecucion'], hab_gasto=r0(r['gasto_por_habitante']),
+                   aprox=r['eliminacion_aproximada'])
+              for r in filas(con, 'SELECT * FROM cm_ciudad_anio ORDER BY anio')]
+    ingresos = {}
+    for r in filas(con, "SELECT anio, capitulo, descripcion_capitulo d, sum(derechos_reconocidos) v FROM cm_ingresos "
+                        "WHERE centro='001' GROUP BY 1,2 ORDER BY 1,2"):
+        ingresos.setdefault(r['anio'], {})[r['capitulo']] = r0(r['v'])
+    cap_ing = {r['capitulo']: r['d'].capitalize() for r in filas(con, "SELECT capitulo, max(descripcion_capitulo) d FROM cm_ingresos GROUP BY 1")}
+    impuestos = {}
+    for r in filas(con, "SELECT anio, economico, max(descripcion_economico) d, sum(derechos_reconocidos) v FROM cm_ingresos "
+                        "WHERE centro='001' AND capitulo IN ('1','2') GROUP BY 1,2"):
+        impuestos.setdefault(r['anio'], []).append([r['economico'], r['d'], r0(r['v'])])
+    politicas = {}
+    for r in filas(con, "SELECT anio, politica_gasto p, sum(obligaciones_reconocidas) v FROM cm_gasto "
+                        "WHERE CAST(capitulo AS INTEGER) BETWEEN 1 AND 7 GROUP BY 1,2"):
+        politicas.setdefault(r['anio'], {})[r['p']] = r0(r['v'])
+    distritos = [dict(anio=r['anio'], cd=r['cod_distrito'], hab=r0(r['personas']), ci=r0(r['junta_credito_inicial']),
+                      cdf=r0(r['junta_credito_definitivo']), pag=r0(r['junta_gastado']), nog=r0(r['junta_no_gastado']),
+                      pct=r['junta_pct_ejecucion'], inv=r0(r['inversion_presupuestada']), invp=r0(r['inversion_ejecutada']),
+                      pag_hab=r0(r['junta_gastado_por_habitante'], 1), inv_hab=r0(r['inversion_por_habitante'], 1))
+                 for r in filas(con, 'SELECT * FROM cm_distrito_anio ORDER BY anio, cod_distrito')]
+    return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, impuestos=impuestos, politicas=politicas,
+                nombres_politicas=POLITICAS, distritos=distritos,
+                src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p))))
+
+
+def via(con, usados):
+    s_l = srcs(con, 'cm_obra_licencia')
+    s_i = srcs(con, 'cm_inversion_principal')
+    s_o = srcs(con, 'cm_obra_publica')
+    s_v = srcs(con, 'cm_inversion_proyecto')
+    s_g = srcs(con, 'cm_gasto')
+    usados.update(s_l + s_i + s_o + s_v + s_g)
+    lic = [[r['anio'], r['cod_distrito'], r['tipo_obra'], r['n']] for r in
+           filas(con, 'SELECT anio, cod_distrito, tipo_obra, count(*) n FROM cm_obra_licencia GROUP BY 1,2,3')]
+    calles = {}
+    for cd in [None] + list(range(1, 22)):
+        w = 'cod_distrito=?' if cd else '1=1'
+        args = (cd,) if cd else ()
+        top = filas(con, f'''SELECT max(via) via, count(*) n, count(DISTINCT anio) anios, min(anio) desde,
+                               sum(tipo_obra='Avería urgente') av, sum(tipo_obra='Cala programada') ca, sum(tipo_obra='Canalización') cn,
+                               sum(tipo_obra='Alcantarillado') al, sum(tipo_obra='Obra municipal') om, group_concat(DISTINCT cod_distrito) ds
+                             FROM cm_obra_licencia WHERE {w} AND via_clave IS NOT NULL GROUP BY via_clave ORDER BY n DESC LIMIT {50 if cd is None else 30}''', *args)
+        calles[str(cd or 0)] = [[t['via'], t['n'], t['anios'], t['desde'], t['av'], t['ca'], t['cn'], t['al'], t['om'], t['ds']] for t in top]
+    ult = filas(con, '''SELECT i.* FROM cm_inversion_principal i
+                        JOIN (SELECT codigo_pep, max(anio_datos) a FROM cm_inversion_principal GROUP BY 1) u
+                          ON u.codigo_pep = i.codigo_pep AND u.a = i.anio_datos''')
+    inv = [[r['codigo_pep'], r['denominacion'], r['cod_distrito'], r['direccion'], r['lat'], r['lng'], r['linea'], r['estado'],
+            r['ano_inicio'], r['ano_fin'], r0(r['presupuesto_total']), r0(r['gasto_ejecutado']), r['gestor'], r['url_fotografia'],
+            r['anio_datos'], r['_descarga_id']] for r in ult]
+    ob = filas(con, 'SELECT * FROM cm_obra_publica')
+    obras = [dict(nombre=r.get('denominaci'), cd=r.get('cod_distrito'), calles=r.get('viario_afe'), presupuesto=r.get('presupuest'),
+                  empresa=r.get('empresa'), plazo=r.get('plazo_ejec'), inicio=r.get('fecha_inic'), fin=r.get('fecha_fina'),
+                  descripcion=r.get('descripcio'), expediente=r.get('n_expedi'), src=r['_descarga_id']) for r in ob]
+    gasto_via = {}
+    for pref, nombre in VIA:
+        for r in filas(con, f'''SELECT anio, cod_distrito cd, sum(obligaciones_reconocidas) v FROM cm_inversion_proyecto
+                                WHERE programa LIKE '{pref}%' AND cod_distrito BETWEEN 1 AND 21 GROUP BY 1,2'''):
+            gasto_via.setdefault(pref, []).append([r['anio'], r['cd'], r0(r['v'])])
+    ciudad_via = {}
+    for pref, nombre in VIA:
+        for r in filas(con, f'''SELECT anio, sum(obligaciones_reconocidas) v FROM cm_gasto
+                                WHERE programa LIKE '{pref}%' GROUP BY 1'''):
+            ciudad_via.setdefault(pref, []).append([r['anio'], r0(r['v'])])
+    return dict(licencias=lic, calles=calles, inversiones=inv, obras=obras, programas=dict(VIA),
+                inversion_via_distrito=gasto_via, gasto_via_ciudad=ciudad_via,
+                src=dict(licencias=s_l, inversiones=s_i, obras=s_o, inversion_via=s_v, gasto_via=s_g))
+
+
+def servicios(con, usados):
+    s = srcs(con, 'cm_contrato')
+    usados.update(s)
+    nom = "CASE WHEN persona_fisica=1 THEN 'Persona física' ELSE max(adjudicatario) END"
+    clave = "CASE WHEN persona_fisica=1 THEN 'PF' ELSE COALESCE(NULLIF(nif,''), upper(adjudicatario)) END"
+    por_anio = [[r['anio'], r['tipo_registro'], r['n'], r0(r['v'])] for r in
+                filas(con, 'SELECT anio, tipo_registro, count(*) n, sum(importe_iva_inc) v FROM cm_contrato WHERE anio IS NOT NULL GROUP BY 1,2')]
+    por_dist = [[r['anio'], r['cd'], r['tipo_registro'], r['n'], r0(r['v'])] for r in
+                filas(con, 'SELECT anio, cod_distrito cd, tipo_registro, count(*) n, sum(importe_iva_inc) v FROM cm_contrato '
+                           'WHERE cod_distrito IS NOT NULL AND anio IS NOT NULL GROUP BY 1,2,3')]
+    ranking = {}
+    for cd in [None] + list(range(1, 22)):
+        w = 'cod_distrito=?' if cd else '1=1'
+        args = (cd,) if cd else ()
+        top = filas(con, f'''SELECT {clave} k, {nom} nombre, max(persona_fisica) pf, count(*) n, sum(importe_iva_inc) v,
+                                    sum(tipo_registro='menor') nm, min(anio) desde, max(anio) hasta, count(DISTINCT cod_distrito) nd
+                             FROM cm_contrato WHERE {w} AND COALESCE(nif, adjudicatario) IS NOT NULL
+                             GROUP BY {clave} ORDER BY v DESC LIMIT {50 if cd is None else 20}''', *args)
+        ranking[str(cd or 0)] = [[t['nombre'], (None if t['pf'] else t['k']), t['n'], r0(t['v']), t['nm'], t['desde'], t['hasta'], t['nd']] for t in top]
+    return dict(por_anio=por_anio, por_distrito=por_dist, ranking=ranking, src=dict(contratos=s))
+
+
+def ayudas(con, usados):
+    s_a, s_f, s_c = srcs(con, 'cm_ayuda_recibida'), srcs(con, 'cm_fondo_europeo'), srcs(con, 'cm_convenio')
+    usados.update(s_a + s_f + s_c)
+    rec = [[r['nivel'], r['administracion_concedente'], r['organo_concedente'], r['convocatoria'], r['fecha'], r['anio'],
+            r['beneficiario'], r0(r['importe'], 2), r['codigo_bdns'], r['url_bases_reguladoras'], r['_descarga_id']]
+           for r in filas(con, 'SELECT * FROM cm_ayuda_recibida ORDER BY importe DESC')]
+    fe = [[r['subproyecto'], r['denominacion'], r['anio'], r0(r['importe_concedido'], 2), r0(r['coste_real_iva'], 2), r['tipo_de_subvencion'],
+           r['territorio'], r['cod_distrito'], r['nombre_beneficiario'], r['url'], r['_descarga_id']]
+          for r in filas(con, 'SELECT * FROM cm_fondo_europeo ORDER BY importe_concedido DESC')]
+    conv = [[r['fecha_suscripcion'], r['anio'], r['organo'], r['cod_distrito'], (r['titulo_objeto'] or '')[:220],
+             (r['otras_entidades_firmantes'] or '')[:160], r0(r['obligacion_ayuntamiento']), r0(r['obligacion_otras']),
+             r['documento_del_convenio'], r['_descarga_id']]
+            for r in filas(con, 'SELECT * FROM cm_convenio ORDER BY fecha_suscripcion DESC')]
+    return dict(recibidas=rec, fondos_europeos=fe, convenios=conv, src=dict(recibidas=s_a, fondos=s_f, convenios=s_c))
+
+
+def main():
+    con = P.abrir()
+    OUT.mkdir(parents=True, exist_ok=True)
+    usados = set()
+    for nombre, fn in [('ciudadano', ciudadano), ('via', via), ('servicios', servicios), ('ayudas', ayudas)]:
+        d = fn(con, usados)
+        txt = json.dumps(d, ensure_ascii=False, separators=(',', ':'))
+        (OUT / f'{nombre}.json').write_text(txt, encoding='utf-8')
+        print(f'{nombre:10} {len(txt) / 1024:8.0f} KB')
+    F = {}
+    for r in filas(con, f"SELECT * FROM v_procedencia WHERE descarga_id IN ({','.join(map(str, sorted(usados)))})"):
+        F[r['descarga_id']] = dict(f=r['fuente'], k=r['clave'], o=r['organismo'], fi=r['url_ficha'], l=r['licencia'], r=r['recurso'],
+                                   u=r['url'], d=r['fecha'], h=r['sha256'], a=r['archivo_url'], p=r['pasos'], s=r['script'], c=r['commit_git'])
+    txt = json.dumps(F, ensure_ascii=False, separators=(',', ':'))
+    (OUT / 'fuentes.json').write_text(txt, encoding='utf-8')
+    print(f'fuentes    {len(txt) / 1024:8.0f} KB  ({len(F)} descargas)')
+
+
+if __name__ == '__main__':
+    main()
