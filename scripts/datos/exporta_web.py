@@ -92,11 +92,18 @@ def ciudadano(con, usados):
             WHERE cod_distrito IS NOT NULL AND (detalle='Total' OR indicador='inmuebles') ORDER BY 1, 2''')]
         s_x = srcs(con, 'cm_distrito_contexto')
         usados.update(s_x)
-    return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, comparada=comp, contexto=ctx, impuestos=impuestos, politicas=politicas,
+    renta, s_r = [], []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_renta'").fetchone():
+        renta = [list(r) for r in con.execute('''SELECT anio, cod_distrito, CASE indicador WHEN 'Renta neta media por persona' THEN 'p'
+                   WHEN 'Renta neta media por hogar' THEN 'h' ELSE 'm' END, euros FROM cm_renta
+                   WHERE indicador IN ('Renta neta media por persona','Renta neta media por hogar','Mediana de la renta por unidad de consumo') ORDER BY 1, 2''')]
+        s_r = srcs(con, 'cm_renta')
+        usados.update(s_r)
+    return dict(ciudad=ciudad, ingresos=ingresos, cap_ingresos=cap_ing, comparada=comp, contexto=ctx, renta=renta, impuestos=impuestos, politicas=politicas,
                 nombres_politicas=POLITICAS, distritos=distritos, deuda=deuda, pmp=pmp, futuro=futuro, futuro_pol=futuro_pol,
                 ayudas_sociales=ays, ayudas_sociales_tipo=ays_tipo,
                 src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p)),
-                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a, comparada=s_c, contexto=s_x))
+                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a, comparada=s_c, contexto=s_x, renta=s_r))
 
 
 def via(con, usados):

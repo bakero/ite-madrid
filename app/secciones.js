@@ -90,7 +90,7 @@ async function ciudadano(el){const C=await get('ciudadano');
   const pg=curP('ciudadano');
   if(pg==='deuda'){el.innerHTML=cab('ciudadano')+deudaPagos(C);return}
   if(pg==='ciudades'){el.innerHTML=cab('ciudadano')+comparada(C);return}
-  if(pg==='distritos'){el.innerHTML=cab('ciudadano',`<p class="lead">${esc(frase)}</p>`)+distritos(C,D,yD);mapas(D,yD);return}
+  if(pg==='distritos'){el.innerHTML=cab('ciudadano',`<p class="lead">${esc(frase)}</p>`)+distritos(C,D,yD);mapas(D,yD);if(CM._rentaMap)CM._rentaMap();return}
   el.innerHTML=`${cab('ciudadano',`<p class="lead">${esc(frase)}</p>`)}
   <div class="kpis">${kpi(M(u.gasto),`gastado en ${u.anio} (sin deuda ni préstamos)`,`${nf(u.pct,1)} % de lo presupuestado`,
       [`<b>Cálculo:</b> obligaciones reconocidas de los capítulos 1 a 7 (personal, compras y servicios, intereses, transferencias e inversiones) del Ayuntamiento y sus organismos autónomos, menos las operaciones internas entre ellos (para no contar dos veces el mismo euro). No incluye devolver deuda (capítulo 9) ni préstamos concedidos (capítulo 8).<br><b>Porcentaje:</b> gastado ÷ crédito definitivo (presupuesto final del año).<br><b>Fuente:</b> «Presupuestos. Ejecución anual» y «Eliminaciones» de datos.madrid.es.${u.aprox?'<br>Hasta 2022 las operaciones internas son aproximadas.':''}`,C.src.ciudad])}
@@ -129,12 +129,19 @@ function contexto(C){
   const val=(ind,c,det,y)=>{y=y||ult(ind);return X.filter(r=>r[0]===y&&r[1]===c&&r[2]===ind&&(det==null||r[3]===det)).reduce((a,r)=>a+(r[4]||0),0)};
   const yP=ult('pensionistas'),yE=ult('unidades_productivas'),yI=ult('inmuebles'),e0=Math.min(...X.filter(r=>r[2]==='unidades_productivas').map(r=>r[0]));
   const yH=Math.max(...C.distritos.map(x=>x.anio)),hab=c=>{const d=C.distritos.find(r=>r.anio===yH&&r.cd===c);return d?d.hab:0};
-  const rows=Array.from({length:21},(_,i)=>i+1).map(c=>{const h=hab(c),p=val('pensionistas',c,'Total'),u=val('unidades_productivas',c,'Total'),u0=val('unidades_productivas',c,'Total',e0),
+  const R0=C.renta||[],yR0=R0.length?Math.max(...R0.map(r=>r[0])):null;
+  const rows=Array.from({length:21},(_,i)=>i+1).map(c=>{const h=hab(c),rp=(R0.find(r=>r[0]===yR0&&r[1]===c&&r[2]==='p')||[])[3],p=val('pensionistas',c,'Total'),u=val('unidades_productivas',c,'Total'),u0=val('unidades_productivas',c,'Total',e0),
     o=val('ocupados',c,'Total'),v=val('inmuebles',c,'Viviendas colectivas')+val('inmuebles',c,'Viviendas unifamiliares');
-    return Object.assign([`<a href="${lk('ciudadano','distritos',c)}">${esc(DISTN[c])}</a>`,N(p),h?nf(100*p/h,1):'—',N(u),u0?((u>=u0?'+':'−')+nf(Math.abs(100*(u-u0)/u0),1)+' %'):'—',N(o),N(v),N(val('inmuebles',c,'Comercial')),N(val('inmuebles',c,'Oficinas'))],{on:c===cd})});
+    return Object.assign([`<a href="${lk('ciudadano','distritos',c)}">${esc(DISTN[c])}</a>`,rp?N(rp)+' €':'—',N(p),h?nf(100*p/h,1):'—',N(u),u0?((u>=u0?'+':'−')+nf(Math.abs(100*(u-u0)/u0),1)+' %'):'—',N(o),N(v),N(val('inmuebles',c,'Comercial')),N(val('inmuebles',c,'Oficinas'))],{on:c===cd})});
   const usos=cd!=null?['Viviendas colectivas','Viviendas unifamiliares','Aparcamientos','Comercial','Oficinas','Industrial','Resto de usos'].map(u=>[u,val('inmuebles',cd,u)]):null;
-  return `<h2 class="asec">Cómo es cada distrito</h2>
-  ${card('Pensionistas, empresas e inmuebles por distrito',tabla(['Distrito',`Pensionistas (${yP})`,'Por cada 100 hab.',`Empresas y locales (${yE})`,`Cambio desde ${e0}`,`Empleos (${yE})`,`Viviendas (${yI})`,'Locales comerciales','Oficinas'],rows,{num:[1,2,3,4,5,6,7,8]}),srcBtn(C.src.contexto),'Datos del Instituto de Estadística de la Comunidad de Madrid. Pensionistas: pensiones contributivas de la Seguridad Social. Empresas: unidades productivas con actividad en el distrito. Inmuebles: recibos del Catastro por uso.')}
+  const R=C.renta||[],yR=R.length?Math.max(...R.map(r=>r[0])):null,ren=(c,k,y)=>(R.find(r=>r[0]===(y||yR)&&r[1]===c&&r[2]===k)||[])[3];
+  const rMad=ren(0,'p'),rSel=cd!=null?ren(cd,'p'):null,r0=cd!=null?ren(cd,'p',2015):ren(0,'p',2015);
+  const rentaHTML=R.length?`<div class="grid2"><div class="card"><h2 class="sxh">Renta neta media por persona (${yR})</h2><div id="sxM5"></div>${srcBtn(C.src.renta)}</div>
+   ${card('Renta por año',barChart([...new Set(R.map(r=>r[0]))].sort().map(y=>[y,Math.round(ren(0,'p',y)||0),cd!=null?Math.round(ren(cd,'p',y)||0):0]),[{n:'Madrid',c:GR,i:1}].concat(cd!=null?[{n:DISTN[cd],c:AZ,i:2}]:[]),{title:'Renta neta media por persona',unit:'euros al año · año de los ingresos (el INE los publica con unos dos años de retraso)'}),srcBtn(C.src.renta),
+     `${cd!=null?`${esc(DISTN[cd])}: ${N(rSel)} € por persona, ${nf(100*rSel/rMad,0)} % de la media de Madrid (${N(rMad)} €).`:`Madrid: ${N(rMad)} € por persona en ${yR}.`} Desde 2015: ${r0?((cd!=null?rSel:rMad)>=r0?'+':'−')+nf(Math.abs(100*((cd!=null?rSel:rMad)-r0)/r0),0)+' %':'—'}.`)}</div>`:'';
+  CM._rentaMap=R.length?()=>choro('sxM5',Array.from({length:21},(_,i)=>i+1).map(c=>({cd:c,v:ren(c,'p')})),{cd,per:String(yR),fmt:v=>nf(v),u:'€ por persona',fuente:'INE, Atlas de Distribución de Renta de los Hogares (tabla 31097)'}):null;
+  return `<h2 class="asec">Cómo es cada distrito</h2>${rentaHTML}
+  ${card('Pensionistas, empresas e inmuebles por distrito',tabla(['Distrito',`Renta/persona (${yR0})`,`Pensionistas (${yP})`,'Por cada 100 hab.',`Empresas y locales (${yE})`,`Cambio desde ${e0}`,`Empleos (${yE})`,`Viviendas (${yI})`,'Locales comerciales','Oficinas'],rows,{num:[1,2,3,4,5,6,7,8,9]}),srcBtn([...C.src.contexto,...(C.src.renta||[])]),'Renta: INE (Atlas de Distribución de Renta de los Hogares). Resto: Instituto de Estadística de la Comunidad de Madrid. Pensionistas: pensiones contributivas de la Seguridad Social. Empresas: unidades productivas con actividad en el distrito. Inmuebles: recibos del Catastro por uso.')}
   ${usos?'<div class="sxhalf">'+card(`Inmuebles de ${esc(DISTN[cd])} por uso (${yI})`,hbars(usos,N,{c:'#6f9fd0'}),srcBtn(C.src.contexto))+'</div>':''}`;
 }
 function comparada(C){
