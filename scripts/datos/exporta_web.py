@@ -92,6 +92,9 @@ def ciudadano(con, usados):
             WHERE cod_distrito IS NOT NULL AND (detalle='Total' OR indicador='inmuebles') ORDER BY 1, 2''')]
         s_x = srcs(con, 'cm_distrito_contexto')
         usados.update(s_x)
+    s_ed = [r[0] for r in con.execute('''SELECT d.id FROM descarga d JOIN fuente f ON f.id = d.fuente_id
+             WHERE f.clave IN ('madrid.es:distritos-listados', 'madrid:registro-edificios', 'ign:cartociudad') ORDER BY 1''')]
+    usados.update(s_ed)
     renta, s_r = [], []
     if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_renta'").fetchone():
         renta = [list(r) for r in con.execute('''SELECT anio, cod_distrito, CASE indicador WHEN 'Renta neta media por persona' THEN 'p'
@@ -103,7 +106,7 @@ def ciudadano(con, usados):
                 nombres_politicas=POLITICAS, distritos=distritos, deuda=deuda, pmp=pmp, futuro=futuro, futuro_pol=futuro_pol,
                 ayudas_sociales=ays, ayudas_sociales_tipo=ays_tipo,
                 src=dict(ciudad=sorted(set(s_g + s_e + s_p)), ingresos=s_i, politicas=s_g, distritos=sorted(set(s_g + s_v + s_p)),
-                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a, comparada=s_c, contexto=s_x, renta=s_r))
+                         deuda=s_d, pmp=s_m, futuro=s_f, ayudas_sociales=s_a, comparada=s_c, contexto=s_x, renta=s_r, edificios=s_ed))
 
 
 def via(con, usados):
