@@ -300,7 +300,10 @@ def tablas(con):
     """Qué hay guardado: cada tabla limpia con sus filas, años, descargas y fecha de la última descarga."""
     T = {}
     nombres = [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'cm\\_%' ESCAPE '\\' AND name <> 'cm_tablas'")]
+    nombres += [t for t in ('centros', 'direcciones', 'ite', 'coordenadas_manual') if con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone()]
     desc = dict(con.execute('SELECT tabla, descripcion FROM cm_tablas').fetchall())
+    desc.update(centros='Centros municipales de los listados de los 21 distritos', direcciones='Direcciones únicas geolocalizadas',
+                ite='Última ITE/IEE de cada dirección en el Registro de Edificios', coordenadas_manual='Coordenadas corregidas a mano (8 direcciones)')
     for t in nombres:
         cols = [r[1] for r in con.execute(f'PRAGMA table_info("{t}")')]
         n = con.execute(f'SELECT count(*) FROM "{t}"').fetchone()[0]
