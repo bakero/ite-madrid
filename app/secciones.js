@@ -726,7 +726,7 @@ function barrioBloque(B,v){const cd=CM.DSEL,k=BMAP[v],L=bInds(B,v);
   const tit=`<h2 class="asec">Barrios de ${cd==null?'Madrid':esc(DISTN[cd])}</h2>`;
   if(!k||!L.length)return tit+`<p class="chw">No hay datos de esta sección por barrio: el Ayuntamiento solo los publica por distrito o para toda la ciudad. En el resto de secciones sí hay datos por barrio.</p>`;
   const o=B.BI.I[k];
-  return tit+`<div class="grid2"><div class="card"><h2 class="sxh">${esc(o.n)} por barrio (${esc(String(o.per??''))})${info(`<b>Cálculo:</b> ${o.calc}`,o.src)}</h2><div id="sxBM"></div>${srcBtn(o.src)}</div>
+  return tit+`<div class="sxbar"><div class="card"><h2 class="sxh">${esc(o.n)} por barrio (${esc(String(o.per??''))})${info(`<b>Cálculo:</b> ${o.calc}`,o.src)}</h2><div id="sxBM"></div>${srcBtn(o.src)}</div>
     ${card(cd==null?'Todos los barrios':`Los barrios de ${esc(DISTN[cd])} frente al distrito y a Madrid`,barrioTabla(B,v,L),srcBtn([...new Set(L.flatMap(x=>x.src||[]))]),cd==null?'Elige un distrito arriba para ver solo sus barrios.':'')}</div>`}
 const barrioMapa=(B,v)=>{const k=BMAP[v];if(k&&B.BI.I[k])bchoro('sxBM',B.BI.I[k],CM.DSEL)};
 function barrioInforme(B,v){const cd=CM.DSEL,L=bInds(B,v);if(!L.length)return '';const bs=B.BI.BR.filter(r=>cd==null||r[2]===cd);
