@@ -135,7 +135,7 @@ function contexto(C){
   const usos=cd!=null?['Viviendas colectivas','Viviendas unifamiliares','Aparcamientos','Comercial','Oficinas','Industrial','Resto de usos'].map(u=>[u,val('inmuebles',cd,u)]):null;
   return `<h2 class="asec">Cómo es cada distrito</h2>
   ${card('Pensionistas, empresas e inmuebles por distrito',tabla(['Distrito',`Pensionistas (${yP})`,'Por cada 100 hab.',`Empresas y locales (${yE})`,`Cambio desde ${e0}`,`Empleos (${yE})`,`Viviendas (${yI})`,'Locales comerciales','Oficinas'],rows,{num:[1,2,3,4,5,6,7,8]}),srcBtn(C.src.contexto),'Datos del Instituto de Estadística de la Comunidad de Madrid. Pensionistas: pensiones contributivas de la Seguridad Social. Empresas: unidades productivas con actividad en el distrito. Inmuebles: recibos del Catastro por uso.')}
-  ${usos?card(`Inmuebles de ${esc(DISTN[cd])} por uso (${yI})`,hbars(usos,N,{c:'#6f9fd0'}),srcBtn(C.src.contexto)):''}`;
+  ${usos?'<div class="sxhalf">'+card(`Inmuebles de ${esc(DISTN[cd])} por uso (${yI})`,hbars(usos,N,{c:'#6f9fd0'}),srcBtn(C.src.contexto))+'</div>':''}`;
 }
 function comparada(C){
   const R=C.comparada||[];if(!R.length)return '';
@@ -167,8 +167,8 @@ function presupJuntas(C){
     return Object.assign([`<a href="${lk('ciudadano','distritos',c)}">${esc(DISTN[c])}</a>`,M(a),M(b),a?((b>=a?'+':'−')+nf(Math.abs(100*(b-a)/a),1)+' %'):'—'],{on:c===cd})});
   return `<h2 class="asec">Presupuesto de las Juntas: 2026 aprobado y 2027 en proyecto</h2>
   ${cd==null?card('Presupuesto de cada Junta',tabla(['Distrito','2026 aprobado','2027 proyecto','Cambio'],tabF,{num:[1,2,3]}),srcBtn(C.src.futuro),'Solo lo que gestiona la Junta; el proyecto de 2027 puede cambiar hasta que lo apruebe el Pleno.')
-     :card(`Presupuesto de la Junta de ${esc(DISTN[cd])}`,barChart([[yD,dd?dd.pag:0,0,0],[2026,0,f26,0],[2027,0,0,f27]],[{n:'Gastado',c:AZ,i:1},{n:'Aprobado',c:'#6f9fd0',i:2},{n:'Proyecto',c:'#e8590c',i:3}],{stack:true,title:'Presupuesto',unit:`${yD} gastado · 2026 aprobado · 2027 en proyecto`}),srcBtn([...C.src.futuro,...C.src.distritos]),
-       f26?`2027: ${M(f27)} (${f27>=f26?'+':'−'}${nf(Math.abs(100*(f27-f26)/f26),1)} % frente a 2026).`:'')}`}
+     :'<div class="sxhalf">'+card(`Presupuesto de la Junta de ${esc(DISTN[cd])}`,barChart([[yD,dd?dd.pag:0,0,0],[2026,0,f26,0],[2027,0,0,f27]],[{n:'Gastado',c:AZ,i:1},{n:'Aprobado',c:'#6f9fd0',i:2},{n:'Proyecto',c:'#e8590c',i:3}],{stack:true,title:'Presupuesto',unit:`${yD} gastado · 2026 aprobado · 2027 en proyecto`}),srcBtn([...C.src.futuro,...C.src.distritos]),
+       f26?`2027: ${M(f27)} (${f27>=f26?'+':'−'}${nf(Math.abs(100*(f27-f26)/f26),1)} % frente a 2026).`:'')+'</div>'}`}
 /* Enlaces al final de una página hacia las otras pestañas */
 const mas=(v,L)=>`<div class="sxmas"><b>Sigue en ${SECS[v].t}:</b> ${L.map(([k,t])=>`<a href="${lk(v,k)}">${t} →</a>`).join('')}</div>`;
 
@@ -253,7 +253,7 @@ async function social(el){const [C,S]=await Promise.all([get('ciudadano'),get('s
   const asN=años.map(y=>[y,AS.filter(r=>r[0]===y).reduce((x,r)=>x+r[2],0)]),asV=años.map(y=>[y,AS.filter(r=>r[0]===y).reduce((x,r)=>x+(r[3]||0),0)]);
   const yC=last(años.filter(y=>y<new Date().getFullYear())),nC=(asN.find(r=>r[0]===yC)||[])[1]||0,vC=(asV.find(r=>r[0]===yC)||[])[1]||0;
   el.innerHTML=`${cab('social')}
-  <div class="kpis">${kpi(N(nC),`ayudas concedidas en ${yC}`,M(vC),[`<b>Cálculo:</b> ayudas económicas de servicios sociales concedidas ese año (alimentos, comedor, escuela infantil, necesidades básicas, vivienda…), contadas por el distrito que indica el portal.<br><b>Fuente:</b> «Ayudas económicas de servicios sociales» de datos.madrid.es. Sin datos de las personas beneficiarias.`,C.src.ayudas_sociales])}</div>
+  <div class="kpis">${kpi(N(nC),`ayudas concedidas en ${yC}`,M(vC)+(cd!=null&&yC>=2024?' · desde 2024 el portal solo indica el distrito en parte de las ayudas: la cifra real es mayor':''),[`<b>Cálculo:</b> ayudas económicas de servicios sociales concedidas ese año (alimentos, comedor, escuela infantil, necesidades básicas, vivienda…), contadas por el distrito que indica el portal.<br><b>Fuente:</b> «Ayudas económicas de servicios sociales» de datos.madrid.es. Sin datos de las personas beneficiarias.`,C.src.ayudas_sociales])}</div>
   <div class="grid2">${card('Ayudas concedidas por año',colChart(asN,{u:'ayudas',title:'Ayudas por año',unit:'número de ayudas'}),srcBtn(C.src.ayudas_sociales),
       cd!=null?'De 2016 a 2018 el portal no indica el distrito; desde 2024 solo en parte de las ayudas.':'Sin datos de las personas beneficiarias.')}
    ${card('Para qué son (desde 2021, toda la ciudad)',hbars(C.ayudas_sociales_tipo.map(r=>[r[0],r[2]]),M,{c:'#6f9fd0'}),srcBtn(C.src.ayudas_sociales))}</div>
@@ -298,7 +298,7 @@ async function inicio(el){
   <p class="lead">Qué ingresa y gasta el Ayuntamiento, qué obras se hacen en tu calle, quién cobra por los servicios y cómo están los edificios municipales. Cada cifra tiene un botón «De dónde sale» con el fichero oficial y los pasos para repetir el cálculo.</p>
   ${ambBar('inicio')}</div>
   <div class="inig">
-   ${bloque('ciudadano','€','Presupuesto',sel?nf(sel.pag_hab)+' € por habitante':N(uh.hab_gasto)+' € por habitante',sel?`gastó la Junta de ${esc(DISTN[cd])} en ${D[0].anio} (media de los distritos: ${nf(D.reduce((a,r)=>a+r.pag_hab,0)/D.length)} €)`:`gastó el Ayuntamiento en ${u.anio}: ${M(u.gasto)} en total`,'Ingresos y gastos · Por distritos · Deuda y pagos · Otras ciudades')}
+   ${bloque('ciudadano','€','Presupuesto',sel?nf(sel.pag_hab)+' €/hab.':N(uh.hab_gasto)+' €/hab.',sel?`por habitante gastó la Junta de ${esc(DISTN[cd])} en ${D[0].anio} (media de los distritos: ${nf(D.reduce((a,r)=>a+r.pag_hab,0)/D.length)} €)`:`por habitante gastó el Ayuntamiento en ${u.anio}: ${M(u.gasto)} en total`,'Ingresos y gastos · Por distritos · Deuda y pagos · Otras ciudades')}
    ${bloque('via','⛏','Calles y obras',N(lic)+' licencias',`de obras en la vía pública en ${yA} · ${N(asf)} tramos asfaltados en ${yAs}`,'Obras en la calle · Asfaltado · Inversión')}
    ${bloque('servicios','✎','Contratos',M(conImp),`adjudicados en ${yA} en ${N(conN)} contratos${cd!=null?' de la Junta':''}`,'Contratos adjudicados · Pagos a proveedores')}
    ${bloque('social','♥','Servicios sociales',N(esp)+' personas',`mayores en lista de espera · ${N(asN)} ayudas a vecinos en ${yA}`,'Ayudas a vecinos · Listas de espera')}
