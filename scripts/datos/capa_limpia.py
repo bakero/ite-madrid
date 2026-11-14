@@ -395,7 +395,7 @@ def bdns_completar(con):
         return
     n0 = con.execute('SELECT count(*) FROM cm_ayuda_recibida').fetchone()[0]
     con.execute('''INSERT INTO cm_ayuda_recibida
-        SELECT CASE nivel1 WHEN 'AUTONOMICA' THEN 'Autonómica' WHEN 'ESTADO' THEN 'Estatal' WHEN 'LOCAL' THEN 'Local' ELSE nivel1 END,
+        SELECT CASE nivel1 WHEN 'AUTONOMICA' THEN 'AUTONÓMICA' WHEN 'ESTADO' THEN 'ESTATAL' WHEN 'LOCAL' THEN 'LOCAL' ELSE 'OTROS' END,
                nivel2, nivel3, numeroconvocatoria, convocatoria, urlbr,
                substr(fechaconcesion,9,2)||'/'||substr(fechaconcesion,6,2)||'/'||substr(fechaconcesion,1,4), CAST(substr(fechaconcesion,1,4) AS INTEGER),
                trim(substr(beneficiario, instr(beneficiario,' ')+1)), num(importe), trim(instrumento), b._descarga_id
