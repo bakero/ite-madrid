@@ -348,7 +348,7 @@ const D21=Array.from({length:21},(_,i)=>i+1);
 async function edif(){for(let i=0;i<40;i++){const e=CM.edif;if(e&&e.length)return e;await new Promise(r=>setTimeout(r,250))}return CM.edif||[]}
 let BASE=null;
 async function datos(){if(BASE)return BASE;
-  const [C,V,S,A]=await Promise.all(['ciudadano','via','servicios','ayudas'].map(get));const E=await edif();
+  const [C,V,S,A,Bb,TB]=await Promise.all(['ciudadano','via','servicios','ayudas','barrios','tablas'].map(n=>get(n).catch(()=>({}))));const E=await edif();
   const yH=Math.max(...C.distritos.map(x=>x.anio)),HAB={};C.distritos.filter(r=>r.anio===yH).forEach(r=>HAB[r.cd]=r.hab);HAB[0]=D21.reduce((a,c)=>a+(HAB[c]||0),0);
   const T=V.t3||{},I={};
   const add=(k,o)=>{o.k=k;I[k]=o};const por=(v,c,m)=>HAB[c]?m*v/HAB[c]:null;
@@ -383,9 +383,13 @@ async function datos(){if(BASE)return BASE;
   const SB=(A.subvenciones||{}).anio||[];
   add('subv_hab',{n:'Subvenciones de la Junta por habitante',sec:'ayudas',u:'€ por habitante',per:YC,fmt:v=>nf(v,2),v:Object.fromEntries(D21.map(c=>[c,por(SB.filter(r=>r[0]===YC&&r[1]===c).reduce((a,r)=>a+(r[3]||0),0),c,1)])),src:A.src.subvenciones,
     calc:'Importe de las subvenciones concedidas en el año por la Junta del distrito ÷ habitantes. No incluye las que conceden las Áreas para toda la ciudad.'});
+  const AVD=(Bb||{}).avisos_distrito||[];if(AVD.length)add('avisos_d_1000',{n:'Avisos ciudadanos por 1.000 habitantes',sec:'via',u:'por 1.000 hab.',per:YC,fmt:v=>N(v),v:Object.fromEntries(D21.map(c=>[c,por(AVD.filter(r=>r[0]===YC&&r[1]===c).reduce((a,r)=>a+r[3],0),c,1000)])),src:(Bb.src||{}).avisos||[],
+    calc:'Avisos de incidencias en la vía pública recibidos en el año con el distrito indicado ÷ habitantes × 1.000.'});
+  const SY=(Bb||{}).syr||[];if(SY.length)add('reclam_1000',{n:'Reclamaciones al Ayuntamiento por 1.000 habitantes',sec:'servicios',u:'por 1.000 hab.',per:YC,fmt:v=>nf(v,1),v:Object.fromEntries(D21.map(c=>[c,por(SY.filter(r=>r[0]===YC&&r[1]===c&&r[3]==='RECLAMACION').reduce((a,r)=>a+r[4],0),c,1000)])),src:(Bb.src||{}).syr||[],
+    calc:'Reclamaciones (generales y tributarias) presentadas en el año que indican el distrito ÷ habitantes × 1.000.'});
   if(E.length){const cnt=c=>E.filter(b=>b.cd===c);add('ite_desf',{n:'Edificios municipales con ITE desfavorable sin subsanar',sec:'edificios',u:'% de sus edificios',per:'Registro de Edificios',fmt:v=>nf(v,1),v:Object.fromEntries(D21.map(c=>{const t=cnt(c);return [c,t.length?100*t.filter(b=>b.s==='desf').length/t.length:null]})),src:C.src.edificios,
     calc:'Edificios municipales del distrito cuya última inspección técnica (ITE) en el Registro de Edificios es desfavorable y no consta que se hayan subsanado las deficiencias ÷ edificios municipales del distrito × 100.'})}
-  BASE={C,V,S,A,E,T,HAB,yH,I};return BASE}
+  BASE={C,V,S,A,E,T,HAB,yH,I,Bb,TB,BI:barriosInd(Bb,E,C.src.edificios)};return BASE}
 const rkOf=(o,c)=>{const ok=D21.filter(x=>o.v[x]!=null).sort((a,b)=>o.v[b]-o.v[a]);return [ok.indexOf(c)+1,ok.length]};
 const media=o=>{const ok=D21.map(c=>o.v[c]).filter(x=>x!=null);return ok.reduce((a,b)=>a+b,0)/(ok.length||1)};
 const puesto=(o,c)=>{const [p,n]=rkOf(o,c);return p?`puesto ${p}.º de ${n}`:''};
@@ -469,7 +473,7 @@ DEF.via={mapa:'via_hab',
       +(I.arboles_1000&&cd!=null?P(`Hay ${cmpTxt(I.arboles_1000,cd)}.`):'')
       +card('Licencias de obras en la calle por año',colChart(años.map(y=>[y,lic(y),y===años[años.length-1]]),{u:'licencias',title:'Licencias por año',unit:'2017 desde abril · el año en curso, incompleto'}),srcBtn(V.src.licencias));
     if(cd!=null)h+=compBars(I.via_hab);return h},
-  graficos:[['Obras en la calle','via','obras'],['Asfaltado','via','asfalto'],['Inversión','via','inversion'],['Árboles, farolas y señales','via','entorno']],
+  graficos:[['Obras en la calle','via','obras'],['Asfaltado','via','asfalto'],['Inversión','via','inversion'],['Árboles, farolas y señales','via','entorno'],['Avisos ciudadanos',B=>avisosHTML(B)]],
   metodo(B){const {V,T,I}=B;return [
     ['Licencias de obras en la calle','Licencias de obras en la vía pública finalizadas, contadas por su dirección; misma calle escrita de varias formas, agrupada. No incluyen su coste, que no se publica.',V.src.licencias],
     ['Operación Asfalto','Tramos de la campaña anual de asfaltado tomados del Geoportal del Ayuntamiento; en 2025 incluye un precio aproximado por tramo.',V.src.asfalto],
@@ -516,6 +520,18 @@ DEF.seguridad={mapa:'acc_1000',
     ['accidentes_lugares_desde_2022',['ambito','lugar','accidentes','con_graves_o_muertos','atropellos'],Object.entries(T.accidentes_lugar).flatMap(([k,L])=>L.map(r=>[k==='0'?'Madrid':DISTN[+k],...r])),T.accidentes_src],
     ['multas_circulacion',['anio','boletines','recaudacion_voluntaria'],T.multas||[],T.multas_src||[]],
     ['sanciones_limpieza',['anio','cod_distrito','sanciones','importe'],T.limpieza,T.limpieza_src]]}};
+
+function avisosHTML(B){const R=(B.Bb.avisos_distrito||[]),cd=CM.DSEL,f=r=>cd==null||r[1]===cd,src=(B.Bb.src||{}).avisos||[];if(!R.length)return '<p class="sub">Sin datos.</p>';
+  const años=[...new Set(R.map(r=>r[0]))].sort(),ser=años.map(y=>[y,sum(R.filter(r=>r[0]===y&&f(r)),r=>r[3]),y>YC]);
+  const cat={};R.filter(r=>r[0]===YC&&f(r)).forEach(r=>cat[r[2]]=(cat[r[2]]||0)+r[3]);const top=Object.entries(cat).sort((a,b)=>b[1]-a[1]).slice(0,12).map(([k,v])=>[k.charAt(0)+k.slice(1).toLowerCase(),v]);
+  return `<div class="grid2">${card('Avisos ciudadanos por año · '+esc(amb()),colChart(ser,{u:'avisos',title:'Avisos',unit:'avisos recibidos (desde 2018, sistema SIC) · el año en curso, incompleto'}),srcBtn(src),'Incidencias de la vía pública que los vecinos comunican por el 010, la web o la aplicación Madrid Móvil.')}
+   ${card(`De qué se avisa (${YC})`,hbars(top,N,{c:'#e8590c'}),srcBtn(src))}</div>`}
+function syrHTML(B){const R=(B.Bb.syr||[]).filter(r=>r[0]),cd=CM.DSEL,src=(B.Bb.src||{}).syr||[];if(!R.length)return '<p class="sub">Sin datos.</p>';
+  const f=r=>cd==null||r[1]===cd,años=[...new Set(R.map(r=>r[0]))].filter(y=>y>=2016).sort(),T=[['RECLAMACION','Reclamaciones','#c92a2a'],['SUGERENCIA','Sugerencias','#1f5fa8'],['FELICITACION','Felicitaciones','#2b8a3e']];
+  const rows=años.map(y=>[y,...T.map(t=>sum(R.filter(r=>r[0]===y&&f(r)&&r[3]===t[0]),r=>r[4]))]);
+  const hb={};B.BI.BR.forEach(r=>hb[r[0]]=r[3]);const bs=B.BI.BR.filter(r=>cd==null||r[2]===cd).map(r=>[r[1],sum(R.filter(x=>x[0]===YC&&x[2]===r[0]&&x[3]==='RECLAMACION'),x=>x[4]),r[3]]).filter(x=>x[2]).map(x=>[x[0],1000*x[1]/x[2]]).sort((a,b)=>b[1]-a[1]);
+  return `<div class="grid2">${card('Sugerencias, reclamaciones y felicitaciones · '+esc(amb()),barChart(rows,T.map((t,i)=>({n:t[1],c:t[2],i:i+1})),{stack:true,title:'Solicitudes por año',unit:'generales y tributarias · el año en curso, incompleto'}).replace(/ M€|€/g,''),srcBtn(src),cd!=null?'Solo las solicitudes que indican el distrito (alrededor del 95 %).':'')}
+   ${card(`Reclamaciones por 1.000 habitantes y barrio (${YC})`,hbars((cd==null?[...bs.slice(0,15),...bs.slice(-15)]:bs),x=>nf(x,1)),srcBtn(src),cd==null?'Los 15 barrios con más y los 15 con menos.':'Solo las reclamaciones que indican el barrio.')}</div>`}
 // ---------- Contratos ----------
 const contrBase=(S,cd)=>cd==null?S.por_anio.map(r=>[r[0],r[1],r[2],r[3]]):S.por_distrito.filter(r=>r[1]===cd).map(r=>[r[0],r[2],r[3],r[4]]);
 DEF.servicios={mapa:'contr_hab',
@@ -533,7 +549,7 @@ DEF.servicios={mapa:'contr_hab',
       +(cd!=null?P(`Por habitante, los contratos de la Junta suman ${cmpTxt(I.contr_hab,cd)}. Los contratos de las Áreas para toda la ciudad (limpieza, basuras…) no se cuentan aquí.`):'')
       +card('Importe adjudicado por año',barChart(años.map(y=>[y,v(y)]),[{n:'Adjudicado',c:AZ,i:1}],{title:'Importe por año',unit:'IVA incluido'}),srcBtn(S.src.contratos));
     return h},
-  graficos:[['Contratos adjudicados','servicios','contratos'],['Pagos a proveedores','servicios','pagos'],['Encargos a empresas municipales','servicios','encargos']],
+  graficos:[['Contratos adjudicados','servicios','contratos'],['Pagos a proveedores','servicios','pagos'],['Encargos a empresas municipales','servicios','encargos'],['Sugerencias y reclamaciones',B=>syrHTML(B)]],
   metodo(B){const S=B.S;return [
     ['Contratos adjudicados','Registro de contratos del Ayuntamiento, contratos menores, basados en acuerdos marco y homologaciones. Importe de adjudicación con IVA. Las personas físicas no se muestran por su nombre.',S.src.contratos],
     ['Contratos por distrito',B.I.contr_hab.calc,S.src.contratos],
@@ -617,7 +633,7 @@ DEF.edificios={mapa:'ite_desf',
     ['Porcentaje desfavorable',B.I.ite_desf?B.I.ite_desf.calc:'',B.C.src.edificios]]},
   csv(B){return [['edificios_por_distrito',['cod_distrito','distrito','edificios',...EST.map(e=>e[0])],D21.map(c=>{const k=edCount(B.E,c);return [c,DISTN[c],k.total,...EST.map(([s])=>k[s])]}),B.C.src.edificios]]}};
 // ---------- Informe completo ----------
-const ORDEN=['renta','pens_100','gasto_junta_hab','inv_hab','via_hab','licencias_1000','arboles_1000','acc_1000','graves_100k','limpieza_1000','contr_hab','espera_1000','subv_hab','ite_desf'];
+const ORDEN=['renta','pens_100','gasto_junta_hab','inv_hab','via_hab','licencias_1000','arboles_1000','avisos_d_1000','acc_1000','graves_100k','limpieza_1000','contr_hab','reclam_1000','espera_1000','subv_hab','ite_desf'];
 const inds=B=>ORDEN.map(k=>B.I[k]).filter(Boolean);
 DEF.completo={mapa:'renta',
   kpis(B){const cd=CM.DSEL,L=inds(B);
@@ -640,6 +656,144 @@ DEF.completo={mapa:'renta',
   csv(B){const L=inds(B);return [['informe_completo_distritos',['cod_distrito','distrito','habitantes',...L.map(o=>o.k)],D21.map(c=>[c,DISTN[c],B.HAB[c],...L.map(o=>o.v[c]==null?'':Math.round(o.v[c]*100)/100)]),[...new Set(L.flatMap(o=>o.src||[]))]]]}};
 
 // =====================================================================
+// Barrios: indicadores, mapa de barrios y bloque «Barrios de …» en cada sección
+// =====================================================================
+const CHB2=['#dbe7f3','#a9c6e4','#6f9fd0','#3a73b4','#174a8a'];
+function barriosInd(Bb,E,TB){
+  const BR=Bb.barrios||[],P_=Bb.panel||{},PD=Bb.distrito||{},PC=Bb.ciudad||{},MT=Bb.meta||{},S=Bb.src||{},DT=Bb.dato||{};
+  const HB={},CDB={};BR.forEach(r=>{HB[r[0]]=r[3];CDB[r[0]]=r[2]});
+  const I={};
+  const dSum=(m,f)=>{const o={};BR.forEach(r=>{const v=m[r[0]];if(v!=null&&f(r)){o.s=(o.s||0)+v}});return o.s};
+  // indicador cociente: valor por barrio = num/den×mult; distrito y Madrid = suma de numeradores / suma de denominadores
+  const ratio=(k,o,num,den,mult)=>{const v={};BR.forEach(r=>{const c=r[0];if(num[c]!=null&&den[c])v[c]=mult*num[c]/den[c]});
+    o.k=k;o.v=v;o.dv=cd=>{const n=dSum(num,r=>r[2]===cd),d=dSum(den,r=>r[2]===cd&&num[r[0]]!=null);return d?mult*n/d:null};
+    o.mv=()=>{const n=dSum(num,()=>true),d=dSum(den,r=>num[r[0]]!=null);return d?mult*n/d:null};I[k]=o};
+  // indicador directo del panel (media, tasa o año): distrito y Madrid según el propio panel
+  const direct=(k,o)=>{const v={};BR.forEach(r=>{const x=(P_[r[0]]||{})[k];if(x!=null)v[r[0]]=x});o.k=k;o.v=v;
+    o.dv=cd=>(PD[cd]||{})[k]??null;o.mv=()=>PC[k]??null;o.per=o.per||(MT[k]||[])[2];I[k]=o};
+  const pk=k=>{const o={};BR.forEach(r=>{const x=(P_[r[0]]||{})[k];if(x!=null)o[r[0]]=x});return o};
+  const dk=(k,y)=>{const o={};(DT[k]||[]).filter(r=>y==null||r[0]===y).forEach(r=>o[r[1]]=(o[r[1]]||0)+r[2]);return o};
+  const hab={};BR.forEach(r=>hab[r[0]]=r[3]);
+  const sp=S.panel||[],pan='Panel de indicadores de distritos y barrios (datos.madrid.es 300087)';
+  direct('renta_persona',{n:'Renta media disponible por persona',sec:'ciudadano',u:'€',fmt:v=>N(v),src:sp,calc:'Valor del barrio en el '+pan+'.'});
+  direct('renta_hogar',{n:'Renta neta media de los hogares',sec:'ciudadano',u:'€',fmt:v=>N(v),src:sp,calc:'Renta neta media anual de los hogares (Urban Audit), valor del barrio en el '+pan+'.'});
+  direct('tasa_paro',{n:'Tasa de paro registrado',sec:'ciudadano',u:'%',fmt:v=>nf(v,1),src:sp,calc:'Personas paradas registradas en el SEPE en febrero ÷ población de 16 a 64 años, según el '+pan+'.'});
+  ratio('extranjeros_pct',{n:'Población con nacionalidad extranjera',sec:'ciudadano',u:'%',fmt:v=>nf(v,1),per:(MT.extranjeros||[])[2],src:sp,calc:'Personas con nacionalidad extranjera ÷ habitantes × 100 (panel 300087).'},pk('extranjeros'),pk('habitantes'),100);
+  ratio('estudios_sup_pct',{n:'Mayores de 25 años con estudios superiores',sec:'ciudadano',u:'%',fmt:v=>nf(v,1),per:(MT.estudios_sup||[])[2],src:sp,calc:'Población de 25 años o más con estudios superiores ÷ población de 25 años o más × 100 (panel 300087).'},pk('estudios_sup'),pk('pob_25'),100);
+  ratio('locales_cerrados_pct',{n:'Locales cerrados',sec:'ciudadano',u:'% de los locales',fmt:v=>nf(v,1),per:(MT.locales_total||[])[2],src:sp,calc:'Locales dados de alta cerrados ÷ locales dados de alta totales × 100 (Censo de locales, panel 300087).'},pk('locales_cerrados'),pk('locales_total'),100);
+  const yAv=Bb.avisos_anio_cat;
+  if(yAv)ratio('avisos_1000',{n:'Avisos ciudadanos por 1.000 habitantes',sec:'via',u:'por 1.000 hab.',fmt:v=>N(v),per:yAv,src:S.dato_avisos||[],calc:`Avisos de incidencias en la vía pública (alumbrado, limpieza, árboles, baches…) recibidos en ${yAv} con el barrio indicado en el fichero ÷ habitantes × 1.000.`},dk('avisos',yAv),hab,1000);
+  ratio('tramos_10k',{n:'Tramos asfaltados por 10.000 habitantes (2023–2026)',sec:'via',u:'por 10.000 hab.',fmt:v=>nf(v,1),per:'2023–2026',src:S.dato_tramos_asfaltados||[],calc:'Tramos de la Operación Asfalto de 2023 a 2026 cuyo punto central cae dentro del barrio ÷ habitantes × 10.000. Los años anteriores no traen coordenadas.'},dk('tramos_asfaltados'),hab,10000);
+  ratio('inv_barrio_hab',{n:'Inversiones principales por habitante',sec:'via',u:'€ por hab.',fmt:v=>N(v),per:(DT.inversiones_eur||[[null]])[0][0],src:S.dato_inversiones_eur||[],calc:'Presupuesto total de las inversiones principales cuyo punto cae dentro del barrio ÷ habitantes. Solo las inversiones con ubicación.'},dk('inversiones_eur'),hab,1);
+  ratio('farolas_1000',{n:'Farolas por 1.000 habitantes',sec:'via',u:'por 1.000 hab.',fmt:v=>N(v),per:2022,src:S.dato_farolas||[],calc:'Unidades luminosas del inventario de 2022 con el código de barrio del fichero ÷ habitantes × 1.000.'},dk('farolas'),hab,1000);
+  ratio('senales_1000',{n:'Señales de tráfico por 1.000 habitantes',sec:'via',u:'por 1.000 hab.',fmt:v=>N(v),per:'en servicio',src:S.dato_senales||[],calc:'Señales verticales en servicio con el código de barrio del fichero ÷ habitantes × 1.000.'},dk('senales'),hab,1000);
+  ratio('acc_b_1000',{n:'Accidentes por 1.000 habitantes',sec:'seguridad',u:'por 1.000 hab.',fmt:v=>nf(v,1),per:YC,src:S.dato_accidentes||[],calc:`Accidentes de ${YC} cuyas coordenadas caen dentro del barrio ÷ habitantes × 1.000. Solo desde 2019 traen coordenadas.`},dk('accidentes',YC),hab,1000);
+  ratio('graves_b_100k',{n:'Heridos graves y fallecidos por 100.000 habitantes',sec:'seguridad',u:'por 100.000 hab.',fmt:v=>nf(v,1),per:`2019–${YC}`,src:S.dato_graves_fallecidos||[],calc:`Heridos graves y fallecidos de 2019 a ${YC} en accidentes dentro del barrio ÷ habitantes × 100.000 (suma de varios años para que el dato sea estable).`},(()=>{const o={};(DT.graves_fallecidos||[]).filter(r=>r[0]<=YC).forEach(r=>o[r[1]]=(o[r[1]]||0)+r[2]);return o})(),hab,1e5);
+  ratio('atropellos_10k',{n:'Atropellos por 10.000 habitantes',sec:'seguridad',u:'por 10.000 hab.',fmt:v=>nf(v,1),per:YC,src:S.dato_atropellos||[],calc:`Atropellos de ${YC} dentro del barrio ÷ habitantes × 10.000.`},dk('atropellos',YC),hab,1e4);
+  direct('envejecimiento',{n:'Porcentaje de mayores de 65 años',sec:'social',u:'%',fmt:v=>nf(v,1),src:sp,calc:'Población de 65 años o más ÷ población total × 100 (panel 300087).'});
+  ratio('mayores_solos_pct',{n:'Hogares de una persona mayor de 65 años que vive sola',sec:'social',u:'% de los hogares',fmt:v=>nf(v,1),per:(MT.hogares||[])[2],src:sp,calc:'Hogares con una mujer o un hombre solo mayor de 65 años ÷ total de hogares × 100 (panel 300087).'},(()=>{const a=pk('hogar_mujer_sola_65'),b=pk('hogar_hombre_solo_65'),o={};Object.keys(a).forEach(c=>o[c]=a[c]+(b[c]||0));return o})(),pk('hogares'),100);
+  ratio('equip_mayores',{n:'Centros para mayores por 10.000 mayores',sec:'social',u:'por 10.000 mayores',fmt:v=>nf(v,1),per:(MT.c_mayores||[])[2],src:sp,calc:'Centros municipales de mayores + centros de día + residencias + apartamentos municipales ÷ población de 65 años o más × 10.000 (panel 300087).'},(()=>{const o={};['c_mayores','c_dia','residencias','apart_mayores'].forEach(k=>{const x=pk(k);Object.keys(x).forEach(c=>o[c]=(o[c]||0)+x[c])});return o})(),pk('mayores_65'),1e4);
+  direct('c_ss',{n:'Centros de servicios sociales',sec:'social',u:'centros',fmt:v=>N(v),src:sp,calc:'Número de centros de servicios sociales del barrio (panel 300087).'});
+  ratio('asoc_10k',{n:'Asociaciones por 10.000 habitantes',sec:'ayudas',u:'por 10.000 hab.',fmt:v=>nf(v,1),per:(MT.asociaciones||[])[2],src:sp,calc:'Asociaciones inscritas (sección 1.ª del censo municipal de entidades) ÷ habitantes × 10.000 (panel 300087).'},pk('asociaciones'),pk('habitantes'),1e4);
+  direct('asoc_vecinales',{n:'Asociaciones vecinales',sec:'ayudas',u:'asociaciones',fmt:v=>N(v),src:sp,calc:'Número de asociaciones vecinales del barrio (panel 300087).'});
+  if(E&&E.length){const t={},d={};E.forEach(b=>{if(b.b){t[b.b]=(t[b.b]||0)+1;if(b.s==='desf')d[b.b]=(d[b.b]||0)+1}});Object.keys(t).forEach(c=>{d[c]=d[c]||0});
+    ratio('ite_desf_b',{n:'Edificios municipales con ITE desfavorable sin subsanar',sec:'edificios',u:'% de sus edificios',fmt:v=>nf(v,0),per:'Registro de Edificios',src:TB,calc:'Edificios municipales del barrio (según dónde caen sus coordenadas) con ITE desfavorable sin subsanar ÷ edificios municipales del barrio × 100.'},d,t,100);
+    ratio('edif_10k',{n:'Edificios municipales por 10.000 habitantes',sec:'edificios',u:'por 10.000 hab.',fmt:v=>nf(v,1),per:'listados de centros',src:TB,calc:'Edificios municipales del listado de centros cuyo punto cae en el barrio ÷ habitantes × 10.000.'},t,hab,1e4)}
+  direct('anio_construccion',{n:'Año medio de construcción de las viviendas',sec:'edificios',u:'año',fmt:v=>String(Math.round(v)),src:sp,calc:'Año medio de construcción de los inmuebles de uso residencial (Catastro, panel 300087).'});
+  return {I,HB,CDB,BR}}
+// mapa de barrios (de un distrito o de toda la ciudad)
+function bchoro(id,o,cd){const el=document.getElementById(id);if(!el)return;const G=CM.barGeo?CM.barGeo():[];if(!G.length){el.innerHTML='<p class="sub">Mapa de barrios no disponible.</p>';return}
+  const L=G.filter(b=>cd==null||b.cd===cd),ok=L.filter(b=>o.v[b.cod]!=null).sort((a,b)=>o.v[a.cod]-o.v[b.cod]),n=ok.length;
+  if(!n){el.innerHTML='<p class="sub">Sin datos por barrio.</p>';return}
+  const cls=new Map();ok.forEach((b,i)=>cls.set(b.cod,Math.min(4,Math.floor(5*i/n))));
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;L.forEach(b=>{x0=Math.min(x0,b.bb[0]);y0=Math.min(y0,b.bb[1]);x1=Math.max(x1,b.bb[2]);y1=Math.max(y1,b.bb[3])});
+  const rk=new Map(ok.slice().reverse().map((b,i)=>[b.cod,i+1])),sw=(x1-x0)/500;
+  const P_=L.map(b=>{const v=o.v[b.cod],lab=`${b.nom}: ${v!=null?o.fmt(v)+' '+o.u+' · puesto '+rk.get(b.cod)+'.º de '+n:'sin dato'}`;
+    return `<path d="${b.lines.map(l=>'M'+l.map(p=>p[0].toFixed(5)+','+p[1].toFixed(5)).join('L')+'Z').join('')}" fill="${v!=null?CHB2[cls.get(b.cod)]:'#eee'}" stroke="#fff" stroke-width="${sw}"><title>${esc(lab)}</title></path>`}).join('');
+  const hi=ok[n-1],lo=ok[0],labs=[hi,lo].map(b=>`<span class="lb" style="left:${Math.min(86,Math.max(14,100*(b.cx-x0)/(x1-x0))).toFixed(1)}%;top:${(100*(b.cy-y0)/(y1-y0)).toFixed(1)}%">${esc(b.nom)}</span>`).join('');
+  const rng=[0,1,2,3,4].map(c=>{const g=ok.filter(b=>cls.get(b.cod)===c);return g.length?[o.v[g[0].cod],o.v[g[g.length-1].cod]]:null});
+  el.innerHTML=`<p class="chs">${cd==null?'Los 131 barrios de Madrid':`Los ${L.length} barrios de ${esc(DISTN[cd])}`}. Más alto: <b>${esc(hi.nom)}</b> (${o.fmt(o.v[hi.cod])} ${esc(o.u)}); más bajo: <b>${esc(lo.nom)}</b> (${o.fmt(o.v[lo.cod])}).</p>
+   <div class="chm" style="max-width:${Math.round(380*(x1-x0)/(y1-y0))}px"><svg viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}" role="img" aria-label="${esc(o.n)} por barrio">${P_}</svg>${labs}</div>
+   <div class="chl">${rng.map((r,c)=>r?`<span><i style="background:${CHB2[c]}"></i>${o.fmt(r[0])}${r[1]!==r[0]?' – '+o.fmt(r[1]):''}</span>`:'').join('')}<span>${esc(o.u)}</span></div>`}
+const BMAP={ciudadano:'renta_persona',via:'avisos_1000',seguridad:'acc_b_1000',servicios:null,social:'envejecimiento',ayudas:'asoc_10k',edificios:'ite_desf_b',completo:'renta_persona'};
+const bInds=(B,v)=>Object.values(B.BI.I).filter(o=>v==='completo'||o.sec===v);
+function barrioTabla(B,v,L){const cd=CM.DSEL,BI=B.BI,bs=BI.BR.filter(r=>cd==null||r[2]===cd);
+  const rows=bs.map(r=>[esc(r[1])+(cd==null?` <span class="sub">${esc(DISTN[r[2]])}</span>`:''),N(r[3]),...L.map(o=>o.v[r[0]]==null?'—':o.fmt(o.v[r[0]]))]);
+  if(cd!=null)rows.push(Object.assign([`<b>Distrito ${esc(DISTN[cd])}</b>`,N(sum(bs,r=>r[3])),...L.map(o=>{const x=o.dv(cd);return x==null?'—':'<b>'+o.fmt(x)+'</b>'})],{on:true}));
+  rows.push([`<b>Madrid</b>`,N(sum(BI.BR,r=>r[3])),...L.map(o=>{const x=o.mv();return x==null?'—':'<b>'+o.fmt(x)+'</b>'})]);
+  return tabla(['Barrio','Habitantes',...L.map(o=>`${esc(o.n)}<br><span class="sub">${esc(o.u)} · ${esc(String(o.per??''))}</span>`)],rows,{num:[1,...L.map((_,i)=>i+2)]})}
+function barrioBloque(B,v){const cd=CM.DSEL,k=BMAP[v],L=bInds(B,v);
+  const tit=`<h2 class="asec">Barrios de ${cd==null?'Madrid':esc(DISTN[cd])}</h2>`;
+  if(!k||!L.length)return tit+`<p class="chw">No hay datos de esta sección por barrio: el Ayuntamiento solo los publica por distrito o para toda la ciudad. En el resto de secciones sí hay datos por barrio.</p>`;
+  const o=B.BI.I[k];
+  return tit+`<div class="grid2"><div class="card"><h2 class="sxh">${esc(o.n)} por barrio (${esc(String(o.per??''))})${info(`<b>Cálculo:</b> ${o.calc}`,o.src)}</h2><div id="sxBM"></div>${srcBtn(o.src)}</div>
+    ${card(cd==null?'Todos los barrios':`Los barrios de ${esc(DISTN[cd])} frente al distrito y a Madrid`,barrioTabla(B,v,L),srcBtn([...new Set(L.flatMap(x=>x.src||[]))]),cd==null?'Elige un distrito arriba para ver solo sus barrios.':'')}</div>`}
+const barrioMapa=(B,v)=>{const k=BMAP[v];if(k&&B.BI.I[k])bchoro('sxBM',B.BI.I[k],CM.DSEL)};
+function barrioInforme(B,v){const cd=CM.DSEL,L=bInds(B,v);if(!L.length)return '';const bs=B.BI.BR.filter(r=>cd==null||r[2]===cd);
+  const fr=L.map(o=>{const ok=bs.filter(r=>o.v[r[0]]!=null).sort((a,b)=>o.v[b[0]]-o.v[a[0]]);if(ok.length<2)return '';const h=ok[0],l=ok[ok.length-1],dv=cd!=null?o.dv(cd):o.mv();
+    return `<li><b>${esc(o.n)}</b> (${esc(String(o.per??''))}): el valor más alto es ${esc(h[1])} (${o.fmt(o.v[h[0]])} ${esc(o.u)}) y el más bajo ${esc(l[1])} (${o.fmt(o.v[l[0]])}); ${cd!=null?'el distrito':'Madrid'}: ${dv==null?'—':o.fmt(dv)}.</li>`}).join('');
+  return `<h2>Barrios de ${cd==null?'Madrid':esc(DISTN[cd])}</h2><ul>${fr}</ul>`}
+function barrioGraficos(B,v){const cd=CM.DSEL,L=bInds(B,v);if(!L.length)return '';const bs=B.BI.BR.filter(r=>cd==null||r[2]===cd);
+  return L.map(o=>{let ok=bs.filter(r=>o.v[r[0]]!=null).sort((a,b)=>o.v[b[0]]-o.v[a[0]]);const extra=cd==null&&ok.length>30;if(extra)ok=[...ok.slice(0,15),...ok.slice(-15)];
+    const dv=cd!=null?o.dv(cd):null,mv=o.mv();
+    return card(`${esc(o.n)} por barrio (${esc(String(o.per??''))})`,hbars(ok.map(r=>[r[1],o.v[r[0]]]),x=>o.fmt(x)+' '+o.u.split(' ')[0])+`<p class="sub">${extra?'Los 15 barrios más altos y los 15 más bajos de Madrid. ':''}${dv!=null?`Distrito: <b>${o.fmt(dv)}</b>. `:''}${mv!=null?`Madrid: <b>${o.fmt(mv)}</b>.`:''}</p>`,srcBtn(o.src))}).reduce((a,x,i,arr)=>i%2?a:a+`<div class="grid2">${x}${arr[i+1]||''}</div>`,'')}
+
+// =====================================================================
+// «Datos de esta página»: cada dato, cómo se obtiene, qué está guardado, si se puede recrear y su fiabilidad
+// =====================================================================
+const SI='Sí',EP='En parte',AL='Alta',ME='Media',BA='Baja';
+const RECR_STD='Descargando el fichero de la ficha y aplicando el cálculo descrito; el script y los pasos están en «De dónde sale».';
+const REG={
+ ciudadano:B=>{const C=B.C;return [
+  {n:'Gasto consolidado y por habitante',r:1,c:'Ejecución presupuestaria (capítulos 1 a 7) menos operaciones internas, dividido por el padrón.',t:['cm_gasto','cm_ciudad_anio','cm_poblacion'],re:SI,rem:RECR_STD,f:ME,fm:'Coincide con las cifras oficiales de 2023 y 2025; hasta 2022 las operaciones internas son aproximadas.',s:C.src.ciudad},
+  {n:'Impuestos, tasas e ingresos',r:1,c:'Derechos reconocidos netos por capítulo del presupuesto de ingresos.',t:['cm_ingresos'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial sin transformar; solo se suman partidas.',s:C.src.ingresos},
+  {n:'Deuda y periodo medio de pago',r:1,c:'Deuda viva a 31 de diciembre y periodo medio de pago mensual, tal como los publica el Ayuntamiento.',t:['cm_deuda','cm_pmp'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial publicado directamente.',s:[...C.src.deuda,...C.src.pmp]},
+  {n:'Gasto de la Junta e inversión por distrito',r:1,c:'Ejecución de la sección presupuestaria de cada Junta e inversiones territorializadas, por habitante.',t:['cm_distrito_anio','cm_inversion_proyecto'],re:SI,rem:RECR_STD,f:ME,fm:'Las inversiones de varios distritos no se reparten; una obra grande dispara un año.',s:C.src.distritos},
+  {n:'Presupuesto de las Juntas 2026 y 2027',c:'Créditos iniciales de cada Junta en el presupuesto aprobado de 2026 y en el proyecto de 2027.',t:['cm_presupuesto_futuro'],re:SI,rem:RECR_STD,f:ME,fm:'El proyecto de 2027 puede cambiar hasta que lo apruebe el Pleno.',s:C.src.futuro},
+  {n:'Renta por persona por distrito',r:1,c:'INE, Atlas de Distribución de Renta de los Hogares, por API.',t:['cm_renta'],re:SI,rem:'Consultando la tabla 31097 del INE (enlace en «De dónde sale»).',f:AL,fm:'Estadística oficial del INE a partir de datos tributarios; dos años de retraso.',s:C.src.renta||[]},
+  {n:'Pensionistas, empresas e inmuebles por distrito',c:'Instituto de Estadística de la Comunidad de Madrid; el distrito viene dentro del texto del indicador.',t:['cm_distrito_contexto'],re:SI,rem:RECR_STD,f:AL,fm:'Estadística oficial; 266 filas «sin distrito» no se usan.',s:C.src.contexto||[]},
+  {n:'Comparativa con otras ciudades',c:'Liquidaciones consolidadas que cada ayuntamiento envía a Hacienda (CONPREL), ficheros Access.',t:['cm_ciudad_comparada'],re:EP,rem:'Hay que abrir los ficheros Access (mdbtools o Access); los pasos están descritos.',f:AL,fm:'Mismo criterio para todas las ciudades; puede diferir algo del presupuesto municipal.',s:C.src.comparada||[]},
+  {n:'Indicadores por barrio (renta, paro, población extranjera, estudios, locales)',c:'Panel de indicadores de distritos y barrios del Ayuntamiento, último valor de cada indicador.',t:['cm_barrio_panel','cm_barrio'],re:SI,rem:RECR_STD,f:AL,fm:'Estadística municipal oficial; cada indicador tiene su año.',s:(B.Bb.src||{}).panel||[]}]},
+ via:B=>{const V=B.V,T=B.T,S=B.Bb.src||{};return [
+  {n:'Licencias de obras en la calle',r:1,c:'Licencias de obras en vía pública finalizadas, por dirección; calles agrupadas por nombre normalizado.',t:['cm_obra_licencia'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial; la agrupación de calles es automática y puede unir o separar alguna variante.',s:V.src.licencias},
+  {n:'Operación Asfalto',r:1,c:'Capas del Geoportal municipal (ArcGIS), una por año, con su geometría.',t:['cm_asfalto'],re:SI,rem:'Consultando el servicio del Geoportal con la URL guardada.',f:ME,fm:'Solo 2025 trae precio, y es aproximado; los tramos de 2020 a 2022 no traen coordenadas.',s:V.src.asfalto},
+  {n:'Inversión en vía pública',r:1,c:'Proyectos de inversión con distrito de los programas de vías públicas, zonas verdes, alumbrado, tráfico y limpieza.',t:['cm_inversion_proyecto'],re:SI,rem:RECR_STD,f:ME,fm:'Los proyectos de toda la ciudad no se asignan a ningún distrito.',s:V.src.inversion_via},
+  {n:'Inversiones principales y obras públicas',c:'Listados municipales con dirección y coordenadas.',t:['cm_inversion_principal','cm_obra_publica'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial con ubicación.',s:[...V.src.inversiones,...(V.src.obras||[])]},
+  {n:'Árboles, farolas y señales',r:1,c:'Inventarios municipales de arbolado (anual), alumbrado (2022) y señalización vertical.',t:['cm_arbolado','cm_farola','cm_senal'],re:SI,rem:RECR_STD,f:ME,fm:'El inventario de farolas es de 2022; las señales «en servicio» se deducen de la fecha de baja.',s:[...(T.arbolado_src||[]),...(T.farolas_src||[]),...(T.senales_src||[])]},
+  {n:'Avisos ciudadanos por barrio',c:'Avisos recibidos (AVISA hasta 2017, SIC desde 2018) contados por año, barrio y categoría.',t:['cm_aviso','cm_barrio_dato'],re:SI,rem:'Descargando los CSV anuales (70–160 MB) y contando por barrio; el script está en «De dónde sale».',f:ME,fm:'Las categorías cambian entre AVISA y SIC; un mismo problema puede avisarse varias veces.',s:S.avisos||[]},
+  {n:'Datos por barrio (asfaltado, inversiones, farolas, señales)',c:'Por el código de barrio del fichero o por el barrio donde caen las coordenadas.',t:['cm_barrio_dato'],re:SI,rem:'Cruzando las coordenadas con los contornos oficiales de barrios (datos.madrid.es 900012).',f:ME,fm:'Un punto en el límite entre barrios puede caer en el vecino.',s:[...(S.dato_tramos_asfaltados||[]),...(S.dato_farolas||[]),...(S.dato_senales||[]),...(S.dato_inversiones_eur||[])]}]},
+ seguridad:B=>{const T=B.T,S=B.Bb.src||{};return [
+  {n:'Accidentes, heridos graves y fallecidos',r:1,c:'Ficheros anuales de la Policía Municipal, una fila por persona implicada; accidente = expediente.',t:['cm_accidente','cm_accidente_anio'],re:SI,rem:RECR_STD,f:ME,fm:'Cambio de método en 2019 (incluye accidentes sin heridos y otra escala de gravedad).',s:T.accidentes_src},
+  {n:'Lugares con más accidentes',c:'Dirección del atestado, desde 2022.',t:['cm_accidente'],re:SI,rem:RECR_STD,f:ME,fm:'La dirección se escribe de forma libre: el mismo cruce puede aparecer de dos formas.',s:T.accidentes_src},
+  {n:'Multas de circulación',r:1,c:'Estadística anual: boletines formulados y recaudación voluntaria.',t:['cm_multa_circulacion'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial; solo para toda la ciudad.',s:T.multas_src||[]},
+  {n:'Sanciones de limpieza',r:1,c:'Expedientes sancionadores de la ordenanza de limpieza, por año de la infracción.',t:['cm_sancion_limpieza'],re:SI,rem:RECR_STD,f:ME,fm:'El formato del fichero cambia entre años; unas 200 al año sin distrito.',s:T.limpieza_src},
+  {n:'Accidentes por barrio',c:'Coordenadas UTM de cada accidente (desde 2019) cruzadas con los contornos de barrio.',t:['cm_barrio_dato'],re:SI,rem:'Convirtiendo las coordenadas (EPSG:25830) y cruzándolas con los barrios oficiales.',f:ME,fm:'Unos pocos accidentes sin coordenadas o fuera de los límites no se asignan.',s:[...(S.dato_accidentes||[]),...(S.dato_graves_fallecidos||[])]}]},
+ servicios:B=>{const S=B.S,Y=B.Bb.src||{};return [
+  {n:'Contratos adjudicados y contratos menores',r:1,c:'Registro de contratos, contratos menores, acuerdos marco y homologaciones; importe con IVA.',t:['cm_contrato'],re:SI,rem:RECR_STD,f:ME,fm:'En los acuerdos marco el importe es un techo; 2015 parece incompleto (246 M€).',s:S.src.contratos},
+  {n:'Pagos a proveedores',r:1,c:'Pagos a terceros por perceptor y año.',t:['cm_pago'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial de lo realmente reconocido para pagar.',s:S.src.pagos},
+  {n:'Encargos a empresas municipales',c:'Encargos a medios propios y encomiendas de gestión publicados.',t:['cm_encargo'],re:SI,rem:RECR_STD,f:ME,fm:'Pocos registros publicados (70); algunos sin importe.',s:S.src.encargos||[]},
+  {n:'Sugerencias y reclamaciones',c:'Solicitudes recibidas (generales y tributarias) contadas por año, distrito, barrio, tipo y materia.',t:['cm_syr'],re:SI,rem:'Descargando los CSV anuales y contando; el script está en «De dónde sale».',f:ME,fm:'Una parte de las solicitudes no indica distrito ni barrio.',s:Y.syr||[]}]},
+ social:B=>{const C=B.C,S=B.S,Y=B.Bb.src||{};return [
+  {n:'Ayudas a vecinos',r:1,c:'Ayudas económicas de servicios sociales concedidas, por año y distrito; tipo deducido del texto.',t:['cm_ayuda_social'],re:SI,rem:RECR_STD,f:BA,fm:'Desde 2024 el portal solo indica el distrito en parte de las ayudas; el tipo es una clasificación automática.',s:C.src.ayudas_sociales},
+  {n:'Listas de espera de mayores',r:1,c:'Solicitudes pendientes de servicios para mayores; espera = fecha de los datos − fecha de entrada.',t:['cm_lista_espera'],re:SI,rem:RECR_STD+' No se usan DNI ni iniciales.',f:AL,fm:'Dato oficial; foto de un día concreto.',s:S.src.espera},
+  {n:'Envejecimiento, mayores solos y equipamientos por barrio',c:'Panel de indicadores de distritos y barrios.',t:['cm_barrio_panel'],re:SI,rem:RECR_STD,f:AL,fm:'Estadística municipal oficial.',s:Y.panel||[]}]},
+ ayudas:B=>{const A=B.A,Y=B.Bb.src||{};return [
+  {n:'Ayudas recibidas de otras administraciones',r:1,c:'Conjunto municipal, contrastado y completado con la BDNS.',t:['cm_ayuda_recibida'],re:SI,rem:RECR_STD,f:AL,fm:'Coincide con la BDNS en 84 de 86 concesiones.',s:A.src.recibidas},
+  {n:'Fondos europeos y proyectos de investigación',r:1,c:'Proyectos del Plan de Recuperación y FEDER publicados por el Ayuntamiento, y CORDIS por NIF.',t:['cm_fondo_europeo','cm_proyecto_ue'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial; CORDIS solo incluye el NIF del Ayuntamiento, no sus empresas.',s:[...A.src.fondos,...(A.src.proyectos_ue||[])]},
+  {n:'Subvenciones que concede el Ayuntamiento',r:1,c:'Subvenciones concedidas por órgano, beneficiario e importe; personas físicas sin nombre.',t:['cm_subvencion'],re:SI,rem:RECR_STD,f:ME,fm:'2014 y 2015 parecen incompletos; el distrito solo se conoce cuando concede la Junta.',s:A.src.subvenciones},
+  {n:'Convenios',r:1,c:'Registro municipal de convenios desde noviembre de 2018.',t:['cm_convenio'],re:SI,rem:RECR_STD,f:AL,fm:'Dato oficial.',s:A.src.convenios},
+  {n:'Asociaciones por barrio',c:'Panel de indicadores de distritos y barrios.',t:['cm_barrio_panel'],re:SI,rem:RECR_STD,f:AL,fm:'Censo municipal de entidades.',s:Y.panel||[]}]},
+ edificios:B=>[
+  {n:'Edificios municipales y estado de la ITE',r:1,c:'Listados de centros de los 21 distritos, geolocalizados, y consulta de cada dirección en el Registro de Edificios.',t:['ite (tablas del mapa ITE)'],re:EP,rem:'El listado y el Registro son públicos, pero la consulta del Registro es dirección a dirección (miles de consultas).',f:ME,fm:'El Registro no tiene carácter de certificado; 1.381 direcciones no se pudieron consultar.',s:B.C.src.edificios},
+  {n:'Año de construcción y equipamientos por barrio',c:'Panel de indicadores de distritos y barrios.',t:['cm_barrio_panel'],re:SI,rem:RECR_STD,f:AL,fm:'Estadística municipal oficial.',s:(B.Bb.src||{}).panel||[]}],
+ completo:B=>{const L=inds(B);return L.map(o=>({n:o.n,r:1,c:o.calc,t:['ver la sección '+SECS[o.sec].t],re:SI,rem:'Siguiendo el cálculo de la sección de origen.',f:o.k==='ite_desf'||o.k==='espera_1000'?ME:AL,fm:'Indicador por habitante con el padrón municipal; hereda la fiabilidad del dato de origen.',s:o.src}))}};
+function fichaHTML(v,B,p){const TB=B.TB||{},L=(REG[v]?REG[v](B):[]).filter(e=>p!=='resumen'||e.r);
+  const guard=e=>e.t.map(t=>{const x=TB[t];return x?`<b>${esc(t)}</b>: ${N(x.n)} filas${x.a0?`, ${x.a0}–${x.a1}`:''}${x.nd?`, ${N(x.nd)} fichero${x.nd===1?'':'s'}`:''}${x.u?`, última descarga ${x.u.split('-').reverse().join('/')}`:''}`:esc(t)}).join('<br>');
+  const cls=x=>x===AL||x===SI?'ok':x===ME||x===EP?'mid':'bad';
+  return `<section class="card sxficha"><h2 class="sxh">Datos de esta página</h2><p class="sub">Todos los datos que se muestran en esta página, cómo se obtienen, qué está guardado ahora mismo, si cualquier persona puede recrearlos siguiendo el mismo camino y lo fiables que son.</p>
+   ${tabla(['Dato','Cómo se obtiene','Qué tenemos guardado','¿Se puede recrear?','Fiabilidad','Fuente'],L.map(e=>[`<b>${esc(e.n)}</b>`,esc(e.c),guard(e),`<span class="tag ${cls(e.re)}">${e.re}</span> ${esc(e.rem)}`,`<span class="tag ${cls(e.f)}">${e.f}</span> ${esc(e.fm)}`,srcBtn(e.s,'Ver ficheros')]))}</section>`}
+
+// =====================================================================
 // Pintado de las 4 páginas
 // =====================================================================
 let CSVS=[];
@@ -652,21 +806,23 @@ async function fuentesHTML(ids){const F=await get('fuentes'),L=[...new Set((ids|
 async function pagina(v,el){const B=await datos(),d=DEF[v],p=curP(v),o=B.I[d.mapa];
   if(p==='resumen'){
     el.innerHTML=cab(v)+`<div class="sxres">${o?mapCard(o,'sxMR'):''}<div class="kpis k4">${d.kpis(B).join('')}</div></div>
-      <div class="sxmas"><b>En ${esc(SECS[v].t)}:</b>${PAGS.slice(1).map(([k,n])=>`<a href="${lk(v,k)}">${n} →</a>`).join('')}</div>`;
-    if(o)mapDraw(o,'sxMR');return}
-  if(p==='informe'){el.innerHTML=cab(v)+`<article class="sxinf">${d.informe(B)}</article>`;return}
-  if(p==='graficos'){el.innerHTML=cab(v)+(o?compBars(o):'')+d.graficos.map((g,i)=>`<h2 class="asec">${esc(g[0])}</h2><div id="sxG${i}"><p class="sub">Cargando…</p></div>`).join('');
+      ${barrioBloque(B,v)}
+      <div class="sxmas"><b>En ${esc(SECS[v].t)}:</b>${PAGS.slice(1).map(([k,n])=>`<a href="${lk(v,k)}">${n} →</a>`).join('')}</div>${fichaHTML(v,B,p)}`;
+    if(o)mapDraw(o,'sxMR');barrioMapa(B,v);return}
+  if(p==='informe'){el.innerHTML=cab(v)+`<article class="sxinf">${d.informe(B)}${barrioInforme(B,v)}</article>`+fichaHTML(v,B,p);return}
+  if(p==='graficos'){const bg=barrioGraficos(B,v);el.innerHTML=cab(v)+(o?compBars(o):'')+d.graficos.map((g,i)=>`<h2 class="asec">${esc(g[0])}</h2><div id="sxG${i}"><p class="sub">Cargando…</p></div>`).join('')+(bg?`<h2 class="asec">Barrios de ${CM.DSEL==null?'Madrid':esc(DISTN[CM.DSEL])}</h2>`+bg:'')+fichaHTML(v,B,p);
     for(let i=0;i<d.graficos.length;i++){const g=d.graficos[i],box=document.getElementById('sxG'+i);if(!box)return;
       if(typeof g[1]==='function'){box.innerHTML=g[1](B);continue}
       EMBED={v:g[1],p:g[2]};try{await OLD[g[1]](box)}finally{EMBED=null}}
     return}
   // Cómo se calcula y datos
-  const met=d.metodo(B),cs=d.csv(B);CSVS=cs;
+  const BL=bInds(B,v),met=[...d.metodo(B),...BL.map(o=>[o.n+' (por barrio)',o.calc+' El valor del distrito y de Madrid se calcula sumando numeradores y denominadores de sus barrios, o se toma del propio panel cuando es una media o una tasa.',o.src])];
+  const cs=[...d.csv(B),...(BL.length?[['barrios_'+v,['cod_barrio','barrio','cod_distrito','distrito','habitantes',...BL.map(o=>o.k)],B.BI.BR.map(r=>[r[0],r[1],r[2],DISTN[r[2]],r[3],...BL.map(o=>o.v[r[0]]==null?'':Math.round(o.v[r[0]]*100)/100)]),[...new Set(BL.flatMap(o=>o.src||[]))]]]:[])];CSVS=cs;
   const fs=await Promise.all(met.map(m=>fuentesHTML(m[2])));
   el.innerHTML=cab(v)+`<p class="sub">Cada cifra de esta sección sale de ficheros oficiales descargados y guardados con su fecha y su huella SHA-256. Aquí se explica el cálculo y se enlaza el dato en bruto en la página original. Método general: <a href="https://github.com/bakero/ite-madrid/blob/main/docs/trazabilidad.md" target="_blank" rel="noopener">docs/trazabilidad.md</a>.</p>
    <h2 class="asec">Cómo se calcula cada dato</h2>${met.map((m,i)=>`<section class="card sxmet"><h3>${esc(m[0])}</h3><p>${esc(m[1])}</p>${fs[i]?`<ul class="sxsrc">${fs[i]}</ul>`:''}${srcBtn(m[2],'Ver ficheros, huellas y pasos')}</section>`).join('')}
    <h2 class="asec">Descargar los datos de esta sección</h2><p class="sub">Ficheros CSV (separador «;», codificación UTF-8) con los datos ya limpios que usan los gráficos. Códigos de distrito del 1 (Centro) al 21 (Barajas).</p>
-   <div class="sxcsv">${cs.map((c,i)=>`<div class="card"><b>${esc(c[0])}.csv</b><span class="sub">${N(c[2].length)} filas · ${c[1].length} columnas</span><button type="button" class="btn" data-csv="${i}">Descargar CSV</button>${srcBtn(c[3],'De dónde sale')}</div>`).join('')}</div>`}
+   <div class="sxcsv">${cs.map((c,i)=>`<div class="card"><b>${esc(c[0])}.csv</b><span class="sub">${N(c[2].length)} filas · ${c[1].length} columnas</span><button type="button" class="btn" data-csv="${i}">Descargar CSV</button>${srcBtn(c[3],'De dónde sale')}</div>`).join('')}</div>${fichaHTML(v,B,p)}`}
 
 // ---------- Portada: mapa de Madrid dividido en las secciones ----------
 async function inicio(el){const G=CM.geo&&CM.geo();

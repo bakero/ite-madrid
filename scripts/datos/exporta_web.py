@@ -261,15 +261,71 @@ def ayudas(con, usados):
                 src=dict(recibidas=s_a, fondos=s_f, convenios=s_c, subvenciones=s_s, proyectos_ue=s_u))
 
 
+def barrios(con, usados):
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_barrio'").fetchone():
+        return {}
+    B = [[r[0], r[1], r[2], r[3]] for r in con.execute('SELECT cod_barrio, barrio, cod_distrito, habitantes FROM cm_barrio ORDER BY 1')]
+    panel, meta, dist, ciudad = {}, {}, {}, {}
+    for b, d, k, n, u, a, v in con.execute('SELECT cod_barrio, cod_distrito, indicador, nombre, unidad, anio, valor FROM cm_barrio_panel'):
+        meta.setdefault(k, [n, u, a])
+        if b:
+            panel.setdefault(str(b), {})[k] = v
+        elif d:
+            dist.setdefault(str(d), {})[k] = v
+        else:
+            ciudad[k] = v
+    dato = {}
+    for a, b, k, v in con.execute('SELECT anio, cod_barrio, indicador, valor FROM cm_barrio_dato'):
+        dato.setdefault(k, []).append([a, b, v])
+    yA = con.execute('SELECT max(anio) FROM cm_aviso WHERE anio < CAST(strftime(\'%Y\',\'now\') AS INTEGER)').fetchone()[0] if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_aviso'").fetchone() else None
+    avcat = [list(r) for r in con.execute('SELECT cod_barrio, categoria, sum(avisos) FROM cm_aviso WHERE anio=? AND cod_barrio IS NOT NULL GROUP BY 1, 2', (yA,))] if yA else []
+    avcd = [list(r) for r in con.execute('SELECT anio, cod_distrito, categoria, sum(avisos) FROM cm_aviso WHERE cod_distrito IS NOT NULL AND anio >= 2018 GROUP BY 1, 2, 3')] if yA else []
+    syr = []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_syr'").fetchone():
+        syr = [list(r) for r in con.execute('SELECT anio, cod_distrito, cod_barrio, tipo, sum(solicitudes) FROM cm_syr WHERE anio IS NOT NULL GROUP BY 1, 2, 3, 4')]
+    src = {}
+    for k, t, w in [('barrios', 'cm_barrio', '1'), ('panel', 'cm_barrio_panel', '1'), ('poblacion', 'cm_poblacion', '1'),
+                    ('avisos', 'cm_aviso', '1'), ('syr', 'cm_syr', '1')]:
+        if con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone():
+            src[k] = srcs(con, t, w)
+    for k in dato:
+        src['dato_' + k] = srcs(con, 'cm_barrio_dato', f"indicador='{k}'")
+    for v in src.values():
+        usados.update(v)
+    return dict(barrios=B, panel=panel, meta=meta, distrito=dist, ciudad=ciudad, dato=dato, avisos_anio_cat=yA, avisos_cat=avcat,
+                avisos_distrito=avcd, syr=syr, src=src)
+
+
+def tablas(con):
+    """Qué hay guardado: cada tabla limpia con sus filas, años, descargas y fecha de la última descarga."""
+    T = {}
+    nombres = [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'cm\\_%' ESCAPE '\\' AND name <> 'cm_tablas'")]
+    desc = dict(con.execute('SELECT tabla, descripcion FROM cm_tablas').fetchall())
+    for t in nombres:
+        cols = [r[1] for r in con.execute(f'PRAGMA table_info("{t}")')]
+        n = con.execute(f'SELECT count(*) FROM "{t}"').fetchone()[0]
+        a0 = a1 = None
+        if 'anio' in cols:
+            a0, a1 = con.execute(f'SELECT min(anio), max(anio) FROM "{t}" WHERE anio > 1900').fetchone()
+        nd = ult = None
+        if '_descarga_id' in cols:
+            nd, ult = con.execute(f'SELECT count(DISTINCT d.id), max(d.fecha) FROM descarga d WHERE d.id IN (SELECT DISTINCT _descarga_id FROM "{t}")').fetchone()
+        T[t] = dict(n=n, d=desc.get(t, ''), a0=a0, a1=a1, nd=nd, u=(ult or '')[:10])
+    return T
+
+
 def main():
     con = P.abrir()
     OUT.mkdir(parents=True, exist_ok=True)
     usados = set()
-    for nombre, fn in [('ciudadano', ciudadano), ('via', via), ('servicios', servicios), ('ayudas', ayudas)]:
+    for nombre, fn in [('ciudadano', ciudadano), ('via', via), ('servicios', servicios), ('ayudas', ayudas), ('barrios', barrios)]:
         d = fn(con, usados)
         txt = json.dumps(d, ensure_ascii=False, separators=(',', ':'))
         (OUT / f'{nombre}.json').write_text(txt, encoding='utf-8')
         print(f'{nombre:10} {len(txt) / 1024:8.0f} KB')
+    txt = json.dumps(tablas(con), ensure_ascii=False, separators=(',', ':'))
+    (OUT / 'tablas.json').write_text(txt, encoding='utf-8')
+    print(f'tablas     {len(txt) / 1024:8.0f} KB')
     F = {}
     for r in filas(con, f"SELECT * FROM v_procedencia WHERE descarga_id IN ({','.join(map(str, sorted(usados)))})"):
         F[r['descarga_id']] = dict(f=r['fuente'], k=r['clave'], o=r['organismo'], fi=r['url_ficha'], l=r['licencia'], r=r['recurso'],

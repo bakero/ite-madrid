@@ -538,6 +538,8 @@ body.sx-on nav{display:none}
 .inil2 a:hover{border-color:#6f9fd0}.inil2 .sxico{grid-row:span 2}.inil2 b{color:#123f73}.inil2 .sub{font-size:13px}
 @media (max-width:900px){.sxres,.inimap{grid-template-columns:1fr}.inzl{font-size:11px;padding:3px 7px}}
 .sx .chf .chT{display:none}
+.sxficha{margin-top:22px}.sxficha td{vertical-align:top;font-size:13px}.sxficha td:nth-child(2){min-width:220px}.sxficha td:nth-child(4),.sxficha td:nth-child(5){min-width:200px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:999px;margin-right:3px}.tag.ok{background:#d3f9d8;color:#2b8a3e}.tag.mid{background:#fff3bf;color:#8a6d00}.tag.bad{background:#ffe3e3;color:#c92a2a}
 </style>
 </head>
 <body>
@@ -1909,7 +1911,7 @@ function renderDistrito(){const el=document.getElementById('mdBody');
 const VIEWS=['mapa','distrito','urgente','panel','inversion','informe','ayuda','ficha','inicio','ciudadano','via','seguridad','servicios','social','ayudas','edificios','completo'];const SECV=['inicio','ciudadano','via','seguridad','servicios','social','ayudas','edificios','completo'];
 const secQ=()=>{const p=(location.hash.match(/[?&]p=([\w-]+)/)||[])[1],a=[];if(p)a.push('p='+p);if(DSEL!=null)a.push('d='+DSEL);return a.length?'?'+a.join('&'):''};
 function secRender(v){const a=document.querySelector(`#secBar a[data-s="${v}"]`);document.title=(a?a.textContent+' · ':'')+TITLE0;loadScript('secciones.js').then(()=>window.SEC.render(v)).catch(()=>{document.getElementById('sx-'+v).innerHTML='<p class="chw">No se ha podido cargar esta sección. Prueba a recargar la página.</p>'})}
-window.CM={esc,nf,eurS,difP,grp,barChart,choro,setDistrict,DISTN,get DSEL(){return DSEL},get nEdif(){return KEYMAP.size},geo:()=>({DIST,distP}),get edif(){return buildings.map(b=>({cd:b.cd,s:b.s}))}};
+window.CM={esc,nf,eurS,difP,grp,barChart,choro,setDistrict,DISTN,get DSEL(){return DSEL},get nEdif(){return KEYMAP.size},geo:()=>({DIST,distP}),get edif(){return buildings.map(b=>({cd:b.cd,s:b.s,b:b.barrio?+b.barrio:null,y:b.year}))},barGeo:()=>{if(!window.BARG)window.BARG=[...BARR.values()].map(b=>{const lines=b.lines.map(l=>l.map(p=>proj(p[0],p[1])));let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,sx=0,sy=0,n=0;lines.forEach(l=>l.forEach(p=>{x0=Math.min(x0,p[0]);y0=Math.min(y0,p[1]);x1=Math.max(x1,p[0]);y1=Math.max(y1,p[1]);sx+=p[0];sy+=p[1];n++}));return {cod:+b.cod,cd:+b.cd,nom:b.nom,lines,bb:[x0,y0,x1,y1],cx:sx/n,cy:sy/n}});return window.BARG}};
 function secBarSync(v){const s=SECV.includes(v)?v:v==='ayuda'?'ayuda':'edificios';document.body.classList.toggle('sx-on',SECV.includes(v)||v==='ayuda');document.querySelectorAll('#secBar a[data-s]').forEach(a=>{const on=a.dataset.s===s;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');if(a.dataset.s!=='ayuda')a.href='#'+a.dataset.s+dQ()})}let NOTFOUND=false;const TITLE0=document.title;
 function route(){let v=(location.hash||'#inicio').slice(1),ek=null,vq=null;if(v.includes('?')){vq=new URLSearchParams(v.split('?')[1]);v=v.split('?')[0]}if(v.startsWith('edificio=')){ek=decodeURIComponent(v.slice(9));v='mapa'}if(v.startsWith('ficha=')){ek=decodeURIComponent(v.slice(6));if(KEYMAP.has(ek))v='ficha';else{v='mapa';NOTFOUND=true;ek=null}}if(v==='mapa'&&ek&&!KEYMAP.has(ek)){NOTFOUND=true;ek=null}if(!VIEWS.includes(v))v='inicio';CURV=v;const DCH=vq&&vq.has('d')?setDistrict(vq.get('d'),{render:false}):false;if(DCH)DSC=null;
   VIEWS.forEach(x=>document.getElementById('view-'+x).classList.toggle('on',x===v));secBarSync(v);
