@@ -249,8 +249,13 @@ def ayudas(con, usados):
                 FROM cm_subvencion WHERE anio >= 2019 {w} GROUP BY upper(beneficiario) ORDER BY 4 DESC LIMIT 25''')]
             sub['lineas'][str(cd)] = [list(r) for r in con.execute(f'''SELECT coalesce(nullif(linea,''),'Sin clasificar'), count(*), round(sum(importe))
                 FROM cm_subvencion WHERE anio >= 2019 {w} GROUP BY 1 ORDER BY 3 DESC LIMIT 12''')]
-    return dict(recibidas=rec, fondos_europeos=fe, convenios=conv, subvenciones=sub,
-                src=dict(recibidas=s_a, fondos=s_f, convenios=s_c, subvenciones=s_s))
+    pue, s_u = [], []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_proyecto_ue'").fetchone():
+        pue = [list(r) for r in con.execute('SELECT acronimo, titulo, inicio, fin, aportacion_ue_ayto, coste_total_proyecto, url, _descarga_id FROM cm_proyecto_ue ORDER BY inicio DESC')]
+        s_u = srcs(con, 'cm_proyecto_ue')
+        usados.update(s_u)
+    return dict(recibidas=rec, fondos_europeos=fe, convenios=conv, subvenciones=sub, proyectos_ue=pue,
+                src=dict(recibidas=s_a, fondos=s_f, convenios=s_c, subvenciones=s_s, proyectos_ue=s_u))
 
 
 def main():
