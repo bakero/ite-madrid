@@ -142,7 +142,33 @@ def via(con, usados):
     asf = [[r['anio'], r['cd'], r['n'], r0(r['sup']), r0(r['precio'])] for r in filas(con, 'SELECT anio, cod_distrito cd, count(*) n, sum(superficie_m2) sup, sum(precio_aprox) precio FROM cm_asfalto GROUP BY 1,2')]
     asf_calles = [[r['anio'], r['cod_distrito'], r['calle'], r['tramo'], r['estado'], r0(r['precio_aprox']), r['lat'], r['lng'], r['_descarga_id']]
                   for r in filas(con, 'SELECT * FROM cm_asfalto ORDER BY anio DESC, cod_distrito, calle')]
-    return dict(asfalto=asf, asfalto_calles=asf_calles, licencias=lic, calles=calles, inversiones=inv, obras=obras, programas=dict(VIA),
+    T3 = {}
+    def L(sql):
+        return [list(r) for r in con.execute(sql)]
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_accidente_anio'").fetchone():
+        T3['accidentes'] = L('SELECT anio, cod_distrito, accidentes, heridos_leves, heridos_graves, fallecidos, atropellos, con_alcohol FROM cm_accidente_anio WHERE cod_distrito IS NOT NULL ORDER BY 1, 2')
+        T3['accidentes_lugar'] = {}
+        for cd in [0] + list(range(1, 22)):
+            w = '' if cd == 0 else f' AND cod_distrito = {cd}'
+            T3['accidentes_lugar'][str(cd)] = L(f'''SELECT lugar, count(DISTINCT accidente) n, count(DISTINCT CASE WHEN gravedad IN ('grave','fallecido') THEN accidente END) g,
+                count(DISTINCT CASE WHEN tipo_accidente LIKE 'Atropello%' THEN accidente END) a
+                FROM cm_accidente WHERE anio >= 2022 AND lugar IS NOT NULL AND lugar <> ''{w} GROUP BY 1 ORDER BY 2 DESC LIMIT 20''')
+        T3['accidentes_src'] = srcs(con, 'cm_accidente_anio')
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_multa_circulacion'").fetchone():
+        T3['multas'] = L('SELECT anio, boletines, round(recaudacion_voluntaria) FROM cm_multa_circulacion ORDER BY 1')
+        T3['multas_src'] = srcs(con, 'cm_multa_circulacion')
+        T3['limpieza'] = L('SELECT anio, cod_distrito, count(*), round(sum(importe)) FROM cm_sancion_limpieza WHERE anio >= 2016 GROUP BY 1, 2 ORDER BY 1, 2')
+        T3['limpieza_src'] = srcs(con, 'cm_sancion_limpieza')
+        T3['arbolado'] = L('SELECT anio, cod_distrito, arboles, recien_plantados, viejos FROM cm_arbolado ORDER BY 1, 2')
+        T3['arbolado_src'] = srcs(con, 'cm_arbolado')
+        T3['farolas'] = L('SELECT cod_distrito, farolas FROM cm_farola WHERE cod_distrito IS NOT NULL ORDER BY 1')
+        T3['farolas_src'] = srcs(con, 'cm_farola')
+        T3['senales'] = L('SELECT cod_distrito, tipo, en_servicio, altas_desde_2020 FROM cm_senal WHERE cod_distrito IS NOT NULL ORDER BY 1, 2')
+        T3['senales_src'] = srcs(con, 'cm_senal')
+    for k, v in T3.items():
+        if k.endswith('_src'):
+            usados.update(v)
+    return dict(asfalto=asf, asfalto_calles=asf_calles, t3=T3, licencias=lic, calles=calles, inversiones=inv, obras=obras, programas=dict(VIA),
                 inversion_via_distrito=gasto_via, gasto_via_ciudad=ciudad_via,
                 src=dict(licencias=s_l, inversiones=s_i, obras=s_o, inversion_via=s_v, gasto_via=s_g, asfalto=s_as))
 
@@ -150,6 +176,12 @@ def via(con, usados):
 def servicios(con, usados):
     s = srcs(con, 'cm_contrato')
     usados.update(s)
+    enc, s_en = [], []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_encargo'").fetchone():
+        enc = [list(r) for r in con.execute('''SELECT tipo, fecha, anio, area, substr(objeto,1,260), encargado, round(importe,2), documento, _descarga_id
+                                              FROM cm_encargo ORDER BY anio DESC, fecha DESC''')]
+        s_en = srcs(con, 'cm_encargo')
+        usados.update(s_en)
     nom = "CASE WHEN persona_fisica=1 THEN 'Persona física' ELSE max(adjudicatario) END"
     clave = "CASE WHEN persona_fisica=1 THEN 'PF' ELSE COALESCE(NULLIF(nif,''), upper(adjudicatario)) END"
     por_anio = [[r['anio'], r['tipo_registro'], r['n'], r0(r['v'])] for r in
@@ -182,7 +214,7 @@ def servicios(con, usados):
         SELECT servicio, cod_distrito cd, count(*) n, CAST(avg(dias_espera) AS INTEGER) med, max(dias_espera) mx FROM cm_lista_espera GROUP BY 1,2''')]
     fecha_espera = con.execute('SELECT max(fecha_datos) FROM cm_lista_espera').fetchone()[0]
     return dict(por_anio=por_anio, por_distrito=por_dist, ranking=ranking, pagos_anio=pag_anio, pagos=pagos,
-                espera=espera, espera_fecha=fecha_espera, src=dict(contratos=s, pagos=s_p, espera=s_e))
+                espera=espera, espera_fecha=fecha_espera, encargos=enc, src=dict(contratos=s, pagos=s_p, espera=s_e, encargos=s_en))
 
 
 def ayudas(con, usados):
@@ -198,7 +230,20 @@ def ayudas(con, usados):
              (r['otras_entidades_firmantes'] or '')[:160], r0(r['obligacion_ayuntamiento']), r0(r['obligacion_otras']),
              r['documento_del_convenio'], r['_descarga_id']]
             for r in filas(con, 'SELECT * FROM cm_convenio ORDER BY fecha_suscripcion DESC')]
-    return dict(recibidas=rec, fondos_europeos=fe, convenios=conv, src=dict(recibidas=s_a, fondos=s_f, convenios=s_c))
+    sub, s_s = {}, []
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_subvencion'").fetchone():
+        s_s = srcs(con, 'cm_subvencion')
+        usados.update(s_s)
+        sub['anio'] = [list(r) for r in con.execute('SELECT anio, cod_distrito, count(*), round(sum(importe)) FROM cm_subvencion WHERE anio IS NOT NULL GROUP BY 1, 2 ORDER BY 1, 2')]
+        sub['ranking'], sub['lineas'] = {}, {}
+        for cd in [0] + list(range(1, 22)):
+            w = '' if cd == 0 else f'AND cod_distrito = {cd}'
+            sub['ranking'][str(cd)] = [list(r) for r in con.execute(f'''SELECT beneficiario, max(nif), count(*), round(sum(importe)), min(anio), max(anio)
+                FROM cm_subvencion WHERE anio >= 2019 {w} GROUP BY upper(beneficiario) ORDER BY 4 DESC LIMIT 25''')]
+            sub['lineas'][str(cd)] = [list(r) for r in con.execute(f'''SELECT coalesce(nullif(linea,''),'Sin clasificar'), count(*), round(sum(importe))
+                FROM cm_subvencion WHERE anio >= 2019 {w} GROUP BY 1 ORDER BY 3 DESC LIMIT 12''')]
+    return dict(recibidas=rec, fondos_europeos=fe, convenios=conv, subvenciones=sub,
+                src=dict(recibidas=s_a, fondos=s_f, convenios=s_c, subvenciones=s_s))
 
 
 def main():

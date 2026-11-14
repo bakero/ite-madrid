@@ -32,7 +32,7 @@ def plano(s):
 
 
 CLAVES = sorted([(plano(d), i + 1) for i, d in enumerate(DISTRITOS)] +
-                [('FUENCARRAL', 8), ('MONCLOA', 9), ('SAN BLAS', 20), ('CANILLEJAS', 20)], key=lambda x: -len(x[0]))
+                [('PUENTE VALLECAS', 13), ('VILLA VALLECAS', 18), ('FUENCARRAL', 8), ('MONCLOA', 9), ('SAN BLAS', 20), ('CANILLEJAS', 20)], key=lambda x: -len(x[0]))
 
 
 def num(x):
@@ -386,6 +386,7 @@ def main():
               'Operación Asfalto 2020–2026: tramos asfaltados (Geoportal); 2025 con precio aproximado')
     deuda_pmp(con)
     contexto_comunidad(con)
+    tanda3(con)
     con.commit()
 
 
@@ -404,6 +405,111 @@ def bdns_completar(con):
                           AND a.fecha = substr(fechaconcesion,9,2)||'/'||substr(fechaconcesion,6,2)||'/'||substr(fechaconcesion,1,4)
                           AND abs(coalesce(a.importe,0) - num(b.importe)) < 1)''')
     print('   BDNS añade', con.execute('SELECT count(*) FROM cm_ayuda_recibida').fetchone()[0] - n0, 'concesiones nuevas')
+
+
+def tanda3(con):
+    """Accidentes, sanciones de limpieza, multas de circulación, arbolado, farolas, señales, subvenciones concedidas y encargos."""
+    ex = lambda t: con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone()
+    A = 'ds_300228_accidentes_de_trafico'
+    if ex(A):
+        # Una fila por persona implicada. Accidente = num_expediente (desde 2019) o n_parte (hasta 2018).
+        # Gravedad: hasta 2018 HL/HG/MT; desde 2019 cod_lesividad 3 = ingreso > 24 h (grave), 4 = fallecido en 24 h,
+        # 1, 2, 5, 6, 7 = asistencia leve; 14 = sin asistencia.
+        tabla(con, 'cm_accidente', f"""
+            SELECT CAST(_periodo AS INTEGER) AS anio, cod_distrito(coalesce(cod_distrito, distrito), distrito) AS cod_distrito,
+                   coalesce(nullif(num_expediente,''), _periodo||'-'||n_parte) AS accidente,
+                   upper(trim(coalesce(nullif(localizacion,''), lugar_accidente))) AS lugar,
+                   tipo_accidente, tipo_vehiculo, upper(tipo_persona) AS tipo_persona,
+                   CASE WHEN lesividad='MT' OR cod_lesividad='4' THEN 'fallecido'
+                        WHEN lesividad='HG' OR cod_lesividad='3' THEN 'grave'
+                        WHEN lesividad='HL' OR cod_lesividad IN ('1','2','5','6','7') THEN 'leve' ELSE 'sin lesión' END AS gravedad,
+                   CASE WHEN positiva_alcohol='S' THEN 1 ELSE 0 END AS alcohol,
+                   CASE WHEN positiva_droga IN ('1','S') THEN 1 ELSE 0 END AS droga,
+                   num(coordenada_x_utm) AS x_utm, num(coordenada_y_utm) AS y_utm, _descarga_id
+            FROM "{A}" WHERE _periodo GLOB '[0-9][0-9][0-9][0-9]'""",
+              'Accidentes de tráfico con víctimas o daños atendidos por Policía Municipal: una fila por persona implicada, con gravedad homogénea')
+        tabla(con, 'cm_accidente_anio', """
+            SELECT anio, cod_distrito, count(DISTINCT accidente) AS accidentes,
+                   sum(gravedad='leve') AS heridos_leves, sum(gravedad='grave') AS heridos_graves, sum(gravedad='fallecido') AS fallecidos,
+                   count(DISTINCT CASE WHEN tipo_accidente LIKE 'Atropello%' THEN accidente END) AS atropellos,
+                   count(DISTINCT CASE WHEN alcohol=1 THEN accidente END) AS con_alcohol,
+                   min(_descarga_id) AS _descarga_id
+            FROM cm_accidente GROUP BY 1, 2""", 'Accidentes de tráfico por año y distrito')
+    S = [t for t in ('ds_300144_sanciones_limpieza', 'ds_300144_sanciones_limpieza_via_publica',
+                     'ds_300144_sanciones_limpieza_via_publica_y_zonas_verdes', 'ds_300144_sanciones_limpieza_zonas_verdes') if ex(t)]
+    if S:
+        partes = []
+        for t in S:
+            fecha = co(con, t, 'fecha_infraccion', 'fecha_hechos', 'fecha_denuncia')
+            imp = co(con, t, 'importe_sancion', 'sancion', 'cuantia', 'sancion_pecuniaria')
+            partes.append(f"""SELECT CAST(CASE WHEN {fecha} LIKE '____-%' THEN substr({fecha},1,4) WHEN {fecha} LIKE '__/__/____%' THEN substr({fecha},7,4)
+                                      ELSE _periodo END AS INTEGER) AS anio,
+                   cod_distrito(substr(distrito,1,2), distrito) AS cod_distrito, {co(con, t, 'calificacion')} AS calificacion,
+                   num({imp}) AS importe, _descarga_id FROM "{t}" """)
+        tabla(con, 'cm_sancion_limpieza', ' UNION ALL '.join(partes),
+              'Sanciones por la ordenanza de limpieza y zonas verdes (tirar basura, orinar en la calle, pintadas…)')
+    G = 'ds_210041_datos_de_gestion'
+    if ex(G):
+        con.execute('DROP TABLE IF EXISTS cm_multa_circulacion')
+        con.execute('CREATE TABLE cm_multa_circulacion(anio INTEGER, boletines INTEGER, recaudacion_voluntaria REAL, _descarga_id INTEGER)')
+        anio = None
+        for c1, mes, b, r, d in con.execute(f'SELECT col1, mes, numero_total_de_boletines_de_denuncia_formulados, recaudacion_en_via_voluntaria, _descarga_id FROM "{G}" ORDER BY rowid'):
+            if c1 and re.match(r'^\d{4}', str(c1)):
+                anio = int(str(c1)[:4])
+            if anio and (mes or '').strip().upper() == 'TOTAL' and num(b):
+                con.execute('INSERT INTO cm_multa_circulacion VALUES (?,?,?,?)', (anio, int(num(b)), num(r), d))
+        print(f"{'cm_multa_circulacion':32} {con.execute('SELECT count(*) FROM cm_multa_circulacion').fetchone()[0]:>9}")
+    T = 'ds_300264_estado_del_arbolado_en_zonas_verdes_distritos_y_calles'
+    if ex(T):
+        tabla(con, 'cm_arbolado', f"""
+            SELECT CAST(_periodo AS INTEGER) AS anio, cod_distrito(n_distrito, coalesce(nombre_distrito, distrito)) AS cod_distrito,
+                   num(coalesce(n_total_arboles, total_arboles, total_general)) AS arboles,
+                   num(coalesce(recien_plantado_y_no_consolidado, recien_plantado_y_no_consolidado_rplync)) AS recien_plantados,
+                   num(coalesce(viejo, viejo_v)) AS viejos, _descarga_id FROM "{T}"
+            WHERE cod_distrito(n_distrito, coalesce(nombre_distrito, distrito)) IS NOT NULL AND num(coalesce(n_total_arboles, total_arboles, total_general)) > 0""",
+              'Árboles en zonas verdes, distritos y calles por año (sin parques históricos, singulares y forestales)')
+    F = 'ds_300573_unidades_luminosas_farolas'
+    if ex(F):
+        tabla(con, 'cm_farola', f"""SELECT cod_distrito(distrito_n_10_0) AS cod_distrito, count(*) AS farolas, min(_descarga_id) AS _descarga_id
+            FROM "{F}" GROUP BY 1""", 'Unidades luminosas (farolas) por distrito, inventario de 2022')
+    V = 'ds_300273_senales_verticales'
+    if ex(V):
+        tabla(con, 'cm_senal', f"""SELECT cod_distrito(substr(distrito,1,2), distrito) AS cod_distrito, tipo_de_senalizacion AS tipo,
+               sum(CASE WHEN substr(fecha_de_baja,7,2) IN ('99','') OR fecha_de_baja IS NULL THEN 1 ELSE 0 END) AS en_servicio,
+               sum(CASE WHEN substr(fecha_de_alta,7,2) BETWEEN '20' AND '30' THEN 1 ELSE 0 END) AS altas_desde_2020,
+               count(*) AS registros, min(_descarga_id) AS _descarga_id FROM "{V}" GROUP BY 1, 2""",
+              'Señales verticales por distrito y tipo (en servicio = sin fecha de baja real)')
+    S1, S2 = 'ds_300349_subvenciones', 'ds_300349_subvenciones_datos'
+    if ex(S1) and ex(S2):
+        tabla(con, 'cm_subvencion', f"""
+            SELECT CAST(_periodo AS INTEGER) AS anio, fecha_concesion AS fecha,
+                   coalesce(descripcion_organo_gestor, organo_gestor, organogestor) AS organo,
+                   cod_distrito(CASE WHEN upper(coalesce(descripcion_organo_gestor, organo_gestor, organogestor)) LIKE '%DISTRITO%'
+                                     THEN coalesce(descripcion_organo_gestor, organo_gestor, organogestor) END) AS cod_distrito,
+                   CASE WHEN es_pf(n_identificacion_fiscal) OR coalesce(beneficiario,'')='' THEN 'Persona física' ELSE beneficiario END AS beneficiario,
+                   CASE WHEN es_pf(n_identificacion_fiscal) THEN NULL ELSE nullif(n_identificacion_fiscal,'') END AS nif,
+                   coalesce(proyecto_actividad_subvencionada, titulo_convocatoria) AS objeto, funcion_de_la_subvencion AS linea, tipo_concesion AS procedimiento,
+                   num(importe_concedido) AS importe, _descarga_id FROM "{S1}"
+            UNION ALL
+            SELECT CAST(substr(fecha_adjudicacion,1,4) AS INTEGER), fecha_adjudicacion, area_title,
+                   cod_distrito(CASE WHEN upper(area_title) LIKE '%DISTRITO%' THEN area_title END),
+                   CASE WHEN adjudicatario_title LIKE 'Dato Protegido%' THEN 'Persona física' ELSE adjudicatario_title END, NULL,
+                   title, linea_financiacion_title, tipo_procedimiento, num(importe), _descarga_id FROM "{S2}" """,
+              'Subvenciones que concede el Ayuntamiento (2014–2018 y desde 2019); personas físicas sin nombre')
+    E1, E2 = 'ds_300411_encargos_a_medios_propios', 'ds_217975_encomiendas_de_gestion'
+    if ex(E1) and ex(E2):
+        tabla(con, 'cm_encargo', f"""
+            SELECT 'encargo a medio propio' AS tipo, fecha_de_aprobacion AS fecha, CAST(substr(fecha_de_aprobacion,7,4) AS INTEGER) AS anio,
+                   area_de_gobierno_distrito AS area, titulo_objeto AS objeto, encargado AS encargado,
+                   num(obligaciones_economicas_de_la_entidad_que_efectua_el_encargo) AS importe, documentos_de_encargo AS documento, _descarga_id FROM "{E1}"
+            UNION ALL
+            SELECT 'encomienda de gestión', fecha_de_aprobacion,
+                   CAST(CASE WHEN fecha_de_aprobacion LIKE '____-%' THEN substr(fecha_de_aprobacion,1,4) ELSE substr(fecha_de_aprobacion,7,4) END AS INTEGER),
+                   coalesce(area_de_gobierno, area_de_gobierno_distrito_sector_publico, area_de_gobierno_distrito, area_de_gobierno_o_distrito),
+                   titulo_objeto, encomendado, num(coalesce(nullif(presupuesto_obligaciones_economicas,''), obligaciones_economicas_encomendante)),
+                   coalesce(documentos_de_encomienda, documentacion), _descarga_id FROM "{E2}"
+            WHERE coalesce(encomendado,'') NOT IN ('', 'Encomendado') AND coalesce(fecha_de_aprobacion,'') <> ''""",
+              'Encargos a medios propios y encomiendas de gestión (trabajos que el Ayuntamiento encarga a sus empresas municipales)')
 
 
 def contexto_comunidad(con):

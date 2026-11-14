@@ -47,4 +47,16 @@ CATALOGO = [
     dict(id='pensiones_contributivas_pensionistas_por_distritos_y_sexo', portal='cm', corto='pensiones', seccion='Ciudadano', prioridad='P2'),
     dict(id='colectivo_empresarial_base_2015_por_distrito_y_estrato_empleo', portal='cm', corto='empresas', seccion='Ciudadano', prioridad='P2'),
     dict(id='catastro_inmuebles_por_distrito_y_uso', portal='cm', corto='catastro', seccion='Ciudadano', prioridad='P2'),
+    # Tanda 3 (14/11/2026)
+    dict(id='300228-0-accidentes-trafico-detalle', seccion='Via publica', prioridad='P2'),
+    dict(id='210041-0-multas-circulacion-estadisticas', seccion='Via publica', prioridad='P2'),
+    dict(id='300144-0-multas-urbana-zonas-verdes', seccion='Via publica', prioridad='P2'),
+    dict(id='300264-0-arbolado-parques-historico', seccion='Via publica', prioridad='P2'),
+    dict(id='300142-0-poda-arbolado', seccion='Via publica', prioridad='P2'),
+    dict(id='300573-0-unidades-luminosas-farolas', seccion='Via publica', prioridad='P2'),
+    dict(id='300273-0-senales-verticales', seccion='Via publica', prioridad='P2'),
+    dict(id='300349-0-subvenciones', seccion='Ayudas', prioridad='P2'),
+    dict(id='300411-0-encargos-medios-propios', seccion='Servicios', prioridad='P2'),
+    dict(id='217975-0-encomiendas-gestion', seccion='Servicios', prioridad='P2'),
 ]
+

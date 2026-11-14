@@ -56,14 +56,14 @@ const SECS={
   inicio:{t:'Ciudadano Madrid',s:'Los datos públicos de tu ciudad y tu distrito, con el camino para comprobar cada cifra'},
   ciudadano:{t:'Presupuesto',s:'Cuánto ingresa y gasta el Ayuntamiento, en qué y en qué distrito',
     p:[['resumen','Ingresos y gastos'],['distritos','Por distritos'],['deuda','Deuda y pagos'],['ciudades','Otras ciudades']]},
-  via:{t:'Calles y obras',s:'Quién abre la calle, qué se asfalta y cuánto se invierte en la vía pública',
-    p:[['obras','Obras en la calle'],['asfalto','Asfaltado'],['inversion','Inversión']]},
+  via:{t:'Calles y obras',s:'Quién abre la calle, qué se asfalta, cuánto se invierte, accidentes y mobiliario urbano',
+    p:[['obras','Obras en la calle'],['asfalto','Asfaltado'],['inversion','Inversión'],['seguridad','Seguridad vial'],['entorno','Árboles, farolas y limpieza']]},
   servicios:{t:'Contratos',s:'Qué empresas trabajan para el Ayuntamiento, por cuánto y cuánto se les paga',
-    p:[['contratos','Contratos adjudicados'],['pagos','Pagos a proveedores']]},
+    p:[['contratos','Contratos adjudicados'],['pagos','Pagos a proveedores'],['encargos','Encargos a empresas municipales']]},
   social:{t:'Servicios sociales',s:'Ayudas a vecinos y esperas en los servicios para mayores',
     p:[['ayudas','Ayudas a vecinos'],['espera','Listas de espera']]},
-  ayudas:{t:'Fondos y convenios',s:'Dinero que el Ayuntamiento recibe de otras administraciones y acuerdos que firma',
-    p:[['recibidas','Fondos recibidos'],['convenios','Convenios']]}};
+  ayudas:{t:'Fondos y convenios',s:'Dinero que el Ayuntamiento recibe y reparte en subvenciones, y acuerdos que firma',
+    p:[['recibidas','Fondos recibidos'],['subvenciones','Subvenciones que da'],['convenios','Convenios']]}};
 function curP(v){const P=(SECS[v]||{}).p;if(!P)return null;const m=(location.hash.match(/[?&]p=([\w-]+)/)||[])[1];return P.some(x=>x[0]===m)?m:P[0][0]}
 function lk(v,p,cd){const a=[];if(p)a.push('p='+p);if(cd!==null&&(cd!==undefined?cd:CM.DSEL)!=null)a.push('d='+(cd!==undefined?cd:CM.DSEL));return '#'+v+(a.length?'?'+a.join('&'):'')}
 const cab=(v,extra)=>{const S=SECS[v],cp=curP(v);
@@ -188,6 +188,9 @@ async function via(el){const V=await get('via');
   const frase=`Desde abril de 2017 se han cerrado ${N(tot)} licencias de obras en la vía pública de ${amb()} (calas, canalizaciones de agua, gas, electricidad y telecomunicaciones, alcantarillado y averías).`+(calles[0]?` La calle con más intervenciones es ${calles[0][0].toLowerCase().replace(/(^|\s)\S/g,m=>m.toUpperCase()).replace(/ (De|Del|La|Las|Los|El)(?= )/g,m=>m.toLowerCase())}, con ${N(calles[0][1])}.`:'');
   const pg=curP('via'),invT=CM.DSEL==null?porD.reduce((a,r)=>a+r.v,0):(porD.find(r=>r.cd===CM.DSEL)||{}).v;
   if(pg==='asfalto'){el.innerHTML=cab('via')+asfalto(V);return}
+  if(pg==='seguridad'){el.innerHTML=cab('via')+seguridad(V);const A=V.t3.accidentes,yU=Math.max(...A.map(r=>r[0]))-1;
+    choro('sxM4',Array.from({length:21},(_,i)=>i+1).map(cd=>({cd,v:A.filter(r=>r[0]===yU&&r[1]===cd).reduce((a,r)=>a+r[2],0)})),{cd:CM.DSEL,per:String(yU),fmt:v=>nf(v),u:'accidentes',aviso:'Total del distrito, no por habitante ni por kilómetro de calle.',fuente:'Accidentes de tráfico (datos.madrid.es 300228)'});return}
+  if(pg==='entorno'){el.innerHTML=cab('via')+entorno(V);return}
   if(pg==='inversion'){
     el.innerHTML=`${cab('via')}
   <div class="kpis">${kpi(M(invT),`invertido en vía pública en ${yv}`,'calles, zonas verdes, alumbrado, tráfico y limpieza',[`<b>Cálculo:</b> pagos de los proyectos de inversión con distrito asignado de los programas de vías públicas, parques y jardines, alumbrado, tráfico y limpieza.<br><b>Fuente:</b> «Proyectos de inversión» de la ejecución presupuestaria de datos.madrid.es.`,V.src.inversion_via])}
@@ -204,7 +207,41 @@ async function via(el){const V=await get('via');
    ${card('Calles con más intervenciones',tabla(['Calle','Total','Averías','Calas','Canaliz.','Desde'],calles.slice(0,15).map(c=>[esc(c[0]),N(c[1]),nf(c[4]),nf(c[5]),nf(c[6]),c[3]]),{num:[1,2,3,4]}),srcBtn(V.src.licencias),
       `${esc(amb())} · misma calle escrita de varias formas, agrupada`)}</div>
   ${card('Obras públicas planificadas y en ejecución',obras.length?tabla(['Obra','Calles','Empresa','Presupuesto','Inicio','Fin'],obras.map(o=>[esc(o.nombre),esc((o.calles||'').slice(0,120)),esc(o.empresa||'—'),o.presupuesto?eurS(+String(o.presupuesto).replace(',','.')):'—',esc(o.inicio||''),esc(o.fin||'')]),{num:[3]}):'<p class="sub">No hay obras de este ámbito en el listado actual.</p>',srcBtn(obras.map(o=>o.src)))}
-  ${mas('via',[['asfalto','Calles asfaltadas cada año'],['inversion','Cuánto se invierte en calles, parques y alumbrado']])}`}
+  ${mas('via',[['asfalto','Calles asfaltadas cada año'],['inversion','Cuánto se invierte en calles, parques y alumbrado'],['seguridad','Accidentes y multas'],['entorno','Árboles, farolas, señales y sanciones de limpieza']])}`}
+
+function seguridad(V){const T=V.t3,cd=CM.DSEL;if(!T.accidentes)return '<p class="sub">Sin datos.</p>';
+  const A=T.accidentes.filter(r=>cd==null||r[1]===cd),años=[...new Set(T.accidentes.map(r=>r[0]))].sort(),yU=last(años)-1;
+  const sum=(y,i)=>A.filter(r=>r[0]===y).reduce((a,r)=>a+(r[i]||0),0);
+  const sAcc=años.map(y=>[y,sum(y,2),y===last(años)]),sGr=años.filter(y=>y>=2019).map(y=>[y,sum(y,4),sum(y,5)]);
+  const Lg=T.accidentes_lugar[String(cd||0)]||[],M2=T.multas||[],mU=M2.filter(r=>r[0]<new Date().getFullYear()).slice(-1)[0];
+  const tit=s=>s.toLowerCase().replace(/(^|[\s(\/])\S/g,m=>m.toUpperCase());
+  return `<p class="lead">En ${yU} hubo ${N(sum(yU,2))} accidentes de tráfico en ${esc(amb())}: ${N(sum(yU,4))} heridos graves y ${N(sum(yU,5))} fallecidos. ${N(sum(yU,6))} fueron atropellos.</p>
+  <div class="kpis">${kpi(N(sum(yU,2)),`accidentes en ${yU}`,`${N(sum(yU,6))} atropellos · ${N(sum(yU,7))} con alcohol positivo`,[`<b>Cálculo:</b> accidentes distintos (número de expediente) atendidos por la Policía Municipal en el año, con o sin heridos.<br><b>Ojo:</b> hasta 2018 solo se publicaban los accidentes con víctimas; por eso desde 2019 el número casi se duplica.<br><b>Fuente:</b> «Accidentes de tráfico de la ciudad de Madrid» de datos.madrid.es.`,T.accidentes_src])}
+   ${kpi(N(sum(yU,4)),`heridos graves en ${yU}`,'ingreso hospitalario de más de 24 horas',[`<b>Cálculo:</b> personas con lesividad «ingreso superior a 24 horas» (código 3).<br><b>Ojo:</b> hasta 2018 se usaba la clasificación «herido grave» del atestado, que no es comparable.<br><b>Fuente:</b> datos.madrid.es.`,T.accidentes_src])}
+   ${kpi(N(sum(yU,5)),`fallecidos en ${yU}`,'en las 24 horas siguientes',[`<b>Cálculo:</b> personas con lesividad «fallecido en 24 horas» (código 4); no incluye a quien muere días después en el hospital.<br><b>Fuente:</b> datos.madrid.es.`,T.accidentes_src])}
+   ${cd==null&&mU?kpi(N(mU[1]),`multas de circulación en ${mU[0]}`,`${M(mU[2])} cobrados en periodo voluntario`,[`<b>Cálculo:</b> «número total de boletines de denuncia formulados» y «recaudación en vía voluntaria» de la fila TOTAL de cada año. Solo hay datos para toda la ciudad.<br><b>Fuente:</b> «Multas de circulación» (estadísticas) de datos.madrid.es.`,T.multas_src]):''}</div>
+  <div class="grid2">${card('Accidentes por año',colChart(sAcc,{u:'accidentes',title:'Accidentes por año',unit:'el último año, incompleto · desde 2019 incluye accidentes sin heridos'}),srcBtn(T.accidentes_src))}
+   ${card('Heridos graves y fallecidos (desde 2019)',barChart(sGr,[{n:'Heridos graves',c:'#e8590c',i:1},{n:'Fallecidos',c:'#1d2228',i:2}],{stack:true,title:'Víctimas graves',unit:'personas · el último año, incompleto'}).replace(/ M€|€/g,''),srcBtn(T.accidentes_src))}</div>
+  <div class="grid2"><div class="card"><h2 class="sxh">Accidentes por distrito (${yU})</h2><div id="sxM4"></div>${srcBtn(T.accidentes_src)}</div>
+   ${card('Cruces y calles con más accidentes (desde 2022)',tabla(['Lugar','Accidentes','Con heridos graves o muertos','Atropellos'],Lg.slice(0,15).map(r=>[esc(tit(r[0])),N(r[1]),N(r[2]),N(r[3])]),{num:[1,2,3]}),srcBtn(T.accidentes_src),esc(amb())+' · la dirección tal como la escribe el atestado')}</div>
+  ${cd==null&&M2.length?card('Multas de circulación por año',barChart(M2.map(r=>[r[0],r[2]]),[{n:'Cobrado en periodo voluntario',c:AZ,i:1}],{title:'Recaudación',unit:'toda la ciudad · el año en curso, incompleto'}),srcBtn(T.multas_src),`Boletines de denuncia: ${M2.slice(-4).map(r=>r[0]+': '+N(r[1])).join(' · ')}.`):''}`}
+
+function entorno(V){const T=V.t3,cd=CM.DSEL,f=r=>cd==null||r[1]===cd;if(!T.arbolado)return '<p class="sub">Sin datos.</p>';
+  const yA=Math.max(...T.arbolado.map(r=>r[0])),aU=T.arbolado.filter(r=>r[0]===yA&&f(r));
+  const arb=aU.reduce((a,r)=>a+r[2],0),rec=aU.reduce((a,r)=>a+(r[3]||0),0);
+  const serA=[...new Set(T.arbolado.map(r=>r[0]))].sort().map(y=>[y,T.arbolado.filter(r=>r[0]===y&&f(r)).reduce((a,r)=>a+r[2],0)]);
+  const far=T.farolas.filter(r=>cd==null||r[0]===cd).reduce((a,r)=>a+r[1],0);
+  const S=T.senales.filter(r=>cd==null||r[0]===cd),sen=S.reduce((a,r)=>a+r[2],0),tipos={};S.forEach(r=>tipos[r[1]]=(tipos[r[1]]||0)+r[2]);
+  const Lm=T.limpieza.filter(f),aL=[...new Set(Lm.map(r=>r[0]))].sort(),serL=aL.map(y=>[y,Lm.filter(r=>r[0]===y).reduce((a,r)=>a+r[2],0)]);
+  const tabD=Array.from({length:21},(_,i)=>i+1).map(c=>Object.assign([`<a href="${lk('via','entorno',c)}">${esc(DISTN[c])}</a>`,N((T.arbolado.find(r=>r[0]===yA&&r[1]===c)||[])[2]),N((T.arbolado.find(r=>r[0]===yA&&r[1]===c)||[])[3]),N((T.farolas.find(r=>r[0]===c)||[])[1]),N(T.senales.filter(r=>r[0]===c).reduce((a,r)=>a+r[2],0))],{on:c===cd}));
+  return `<div class="kpis">${kpi(N(arb),`árboles en calles y zonas verdes (${yA})`,`${N(rec)} recién plantados`,[`<b>Cálculo:</b> total de árboles del inventario de zonas verdes, distritos y calles; no incluye parques históricos, singulares y forestales (Retiro, Casa de Campo…).<br><b>Fuente:</b> «Arbolado en parques y zonas verdes de Madrid» de datos.madrid.es.`,T.arbolado_src])}
+   ${kpi(N(far),'farolas','inventario de 2022',[`<b>Cálculo:</b> unidades luminosas del inventario municipal de alumbrado, por distrito.<br><b>Fuente:</b> «Unidades luminosas (farolas)» de datos.madrid.es (último fichero publicado: 2022).`,T.farolas_src])}
+   ${kpi(N(sen),'señales de tráfico en servicio','sin fecha de baja',[`<b>Cálculo:</b> señales verticales del inventario sin fecha de baja real (las que tienen «31/12/99» siguen en servicio).<br><b>Fuente:</b> «Señalización vertical» de datos.madrid.es.`,T.senales_src])}
+   ${kpi(N((serL.find(r=>r[0]===new Date().getFullYear()-1)||[])[1]),`sanciones de limpieza en ${new Date().getFullYear()-1}`,'tirar basura, orinar en la calle, pintadas…',[`<b>Cálculo:</b> expedientes sancionadores de la ordenanza de limpieza de los espacios públicos y zonas verdes, por fecha de la infracción.<br><b>Fuente:</b> «Denuncias y sanciones sobre limpieza urbana y zonas verdes» de datos.madrid.es.`,T.limpieza_src])}</div>
+  <div class="grid2">${card('Árboles por año',colChart(serA,{u:'árboles',title:'Árboles',unit:'calles y zonas verdes · 2018 sin datos'}),srcBtn(T.arbolado_src))}
+   ${card('Sanciones de limpieza por año',colChart(serL,{u:'sanciones',title:'Sanciones',unit:'por año de la infracción · el año en curso, incompleto'}),srcBtn(T.limpieza_src))}</div>
+  <div class="grid2">${card('Señales por tipo',hbars(Object.entries(tipos).sort((a,b)=>b[1]-a[1]),N,{c:'#6f9fd0'}),srcBtn(T.senales_src))}
+   ${card('Por distrito',tabla(['Distrito',`Árboles (${yA})`,'Recién plantados','Farolas','Señales'],tabD,{num:[1,2,3,4]}),srcBtn([...T.arbolado_src,...T.farolas_src,...T.senales_src]))}</div>`}
 
 function asfalto(V){const cd=CM.DSEL,A=V.asfalto.filter(r=>cd==null||r[1]===cd),años=[...new Set(V.asfalto.map(r=>r[0]))].sort();
   const serie=años.map(y=>[y,A.filter(r=>r[0]===y).reduce((x,r)=>x+r[2],0)]),yU=last(años);
@@ -226,6 +263,10 @@ async function servicios(el){const S=await get('servicios');
   const nm=nrow.reduce((a,r)=>a+r[4],0);
   const frase=`${CM.DSEL==null?'El Ayuntamiento, sus organismos y empresas':'La Junta de '+DISTN[CM.DSEL]} inscribió desde 2015 ${N(n)} contratos por ${M(tot)} (IVA incluido), de ellos ${N(nm)} contratos menores.`+(R[0]?` El mayor adjudicatario por importe es ${R[0][0]}, con ${M(R[0][3])}.`:'');
   if(curP('servicios')==='pagos'){el.innerHTML=cab('servicios')+pagos(S);return}
+  if(curP('servicios')==='encargos'){const E=S.encargos||[];
+    el.innerHTML=`${cab('servicios')}<p class="sub">Trabajos que el Ayuntamiento encarga directamente, sin concurso, a sus propias empresas y organismos (EMVS, Madrid Destino, Informática del Ayuntamiento…). Son de toda la ciudad: no se reparten por distritos.</p>
+    <div class="kpis">${kpi(N(E.length),'encargos y encomiendas publicados','desde 2014',[`<b>Cálculo:</b> encargos a medios propios personificados (desde 2018) y encomiendas de gestión (2014–2026) publicados por el Ayuntamiento, incluidas modificaciones y prórrogas.<br><b>Fuente:</b> «Encargos a medios propios personificados» y «Encomiendas de gestión» de datos.madrid.es.`,S.src.encargos])}${kpi(M(E.reduce((a,r)=>a+(r[6]||0),0)),'importe total','lo que se compromete a pagar el Ayuntamiento')}</div>
+    ${card('Encargos y encomiendas',tabla(['Fecha','Tipo','Quién encarga','A quién','Para qué','Importe'],E.map(r=>[esc(r[1]||''),esc(r[0]),esc(r[3]||''),esc(r[5]||''),r[7]&&/^https?:/.test(r[7])?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4]),r[6]?eurS(r[6]):'—']),{num:[5]}),srcBtn(S.src.encargos))}`;return}
   el.innerHTML=`${cab('servicios',`<p class="lead">${esc(frase)}</p>`)}
   <div class="kpis">${kpi(N(n),'contratos desde 2015','registro de contratos y contratos menores')}${kpi(M(tot),'importe adjudicado','IVA incluido')}${kpi(N(nm),'contratos menores',`${nf(100*nm/Math.max(n,1),0)} % del número de contratos`)}</div>
   ${CM.DSEL!=null?'<p class="chw">En un distrito solo se cuentan los contratos de su Junta. Los contratos de las Áreas que dan servicio a toda la ciudad (limpieza, recogida de basuras…) están en el ámbito Madrid.</p>':''}
@@ -233,7 +274,7 @@ async function servicios(el){const S=await get('servicios');
    ${card('Número de contratos por año',barChart(nrow,ks.map((k,i)=>({n:TR[k][0],c:TR[k][1],i:i+1})),{stack:true,title:'Contratos por año',unit:'contratos inscritos'}),srcBtn(S.src.contratos))}</div>
   ${card(`Empresas con más importe adjudicado · ${esc(amb())}`,tabla(['Empresa','NIF','Contratos','Importe','Menores','Años'],R.map(r=>[esc(r[0]),esc(r[1]||'—'),N(r[2]),M(r[3]),nf(r[4]),r[5]===r[6]?r[5]:r[5]+'–'+r[6]]),{num:[2,3,4]}),srcBtn(S.src.contratos),
     'Importe adjudicado, no pagado. Las personas físicas no se muestran por su nombre. Las UTE cuentan aparte de sus socias.')}
-  ${mas('servicios',[['pagos','Lo que se paga de verdad y a quién']])}`}
+  ${mas('servicios',[['pagos','Lo que se paga de verdad y a quién'],['encargos','Trabajos encargados a las empresas municipales']])}`}
 function pagos(S){const cd=CM.DSEL,P=S.pagos[String(cd||0)]||[],PA=S.pagos_anio.filter(r=>cd==null||r[1]===cd),años=[...new Set(PA.map(r=>r[0]))].sort();
   const serie=años.map(y=>[y,PA.filter(r=>r[0]===y).reduce((x,r)=>x+(r[2]||0),0)]),yU=last(años);
   return `<p class="sub">El contrato fija cuánto se puede gastar; aquí está lo que el Ayuntamiento reconoce que debe pagar cada año a cada proveedor, entidad o administración.</p>
@@ -266,6 +307,14 @@ async function ayudas(el){const A=await get('ayudas');
   const cv=A.convenios.filter(r=>CM.DSEL==null||r[3]===CM.DSEL),cy={};cv.forEach(r=>{if(r[1])cy[r[1]]=(cy[r[1]]||0)+1});
   const cRows=Object.keys(cy).map(Number).sort().map(y=>[y,cy[y]]);
   const frase=`Otras administraciones han concedido al Ayuntamiento, sus organismos y empresas ${nf(rec.length)} ayudas por ${M(rec.reduce((a,r)=>a+(r[7]||0),0))} según su registro. Además, ha obtenido ${M(A.fondos_europeos.reduce((a,r)=>a+(r[3]||0),0))} de fondos europeos (Plan de Recuperación y FEDER) en ${nf(A.fondos_europeos.length)} proyectos.`;
+  if(curP('ayudas')==='subvenciones'){const SB=A.subvenciones||{},cd=CM.DSEL,Y=(SB.anio||[]).filter(r=>cd==null||r[1]===cd),años=[...new Set(Y.map(r=>r[0]))].sort();
+    const ser=años.map(y=>[y,Y.filter(r=>r[0]===y).reduce((a,r)=>a+(r[3]||0),0)]),yC=last(años.filter(y=>y<new Date().getFullYear())),uc=(ser.find(r=>r[0]===yC)||[])[1]||0,nc=Y.filter(r=>r[0]===yC).reduce((a,r)=>a+r[2],0);
+    const Rk=(SB.ranking||{})[String(cd||0)]||[],Ln=(SB.lineas||{})[String(cd||0)]||[];
+    el.innerHTML=`${cab('ayudas')}${cd!=null?'<p class="chw">En un distrito solo se cuentan las subvenciones que concede su Junta. Las de las Áreas de gobierno están en el ámbito Madrid.</p>':''}
+    <div class="kpis">${kpi(M(uc),`concedidos en subvenciones en ${yC}`,`${N(nc)} subvenciones`,[`<b>Cálculo:</b> suma del importe concedido de las subvenciones del Ayuntamiento${cd!=null?' cuyo órgano gestor es la Junta del distrito':''}, por año de concesión.<br><b>Fuente:</b> «Subvenciones» de datos.madrid.es (2014–2018 y desde 2019). Las personas físicas aparecen sin nombre.`,A.src.subvenciones])}</div>
+    <div class="grid2">${card('Subvenciones concedidas por año',barChart(ser,[{n:'Importe concedido',c:AZ,i:1}],{title:'Subvenciones por año',unit:'el año en curso, incompleto · 2014 y 2015 parecen incompletos'}),srcBtn(A.src.subvenciones))}
+     ${card('Para qué (desde 2019)',hbars(Ln.map(r=>[r[0].charAt(0)+r[0].slice(1).toLowerCase(),r[2]]),M,{c:'#6f9fd0'}),srcBtn(A.src.subvenciones))}</div>
+    ${card('Quién recibe más (desde 2019)',tabla(['Beneficiario','Subvenciones','Importe','Años'],Rk.map(r=>[esc(r[0]),N(r[2]),M(r[3]),r[4]===r[5]?r[4]:r[4]+'–'+r[5]]),{num:[1,2]}),srcBtn(A.src.subvenciones),'«Persona física» agrupa a todos los particulares (becas, ayudas…), que el portal publica sin nombre.')}`;return}
   if(curP('ayudas')==='convenios'){
     el.innerHTML=`${cab('ayudas')}<div class="kpis">${kpi(nf(cv.length),'convenios firmados desde nov. 2018','con empresas, entidades y administraciones',[`<b>Cálculo:</b> convenios inscritos en el registro municipal${CM.DSEL!=null?' cuyo órgano firmante es la Junta del distrito':''}.<br><b>Fuente:</b> «Convenios inscritos» de datos.madrid.es.`,A.src.convenios])}</div>
   <div class="grid2">${card('Convenios por año',barChart(cRows,[{n:'Convenios',c:AZ,i:1}],{title:'Convenios por año',unit:'convenios inscritos (2018 desde noviembre)'}).replace(/ M€|€/g,''),srcBtn(A.src.convenios))}
@@ -279,7 +328,7 @@ async function ayudas(el){const A=await get('ayudas');
   ${CM.DSEL!=null?'<p class="chw">Las ayudas recibidas son para toda la ciudad: no se asignan a distritos. Los fondos europeos y convenios sí se filtran cuando el organismo indica el distrito.</p>':''}
   ${card('Ayudas recibidas de otras administraciones',tabla(['Concede','Convocatoria','Fecha','Beneficiario','Importe','Bases'],rec.slice(0,60).map(r=>[esc(r[1])+'<br><span class="sub">'+esc(r[2]||'')+'</span>',esc(r[3]),esc(r[4]||''),esc(r[6]||''),eurS(r[7]),r[9]?`<a href="${esc(r[9])}" target="_blank" rel="noopener">BOE/BOCM</a>`:'—']),{num:[4]})+(rec.length>60?`<p class="sub">Las 60 de mayor importe de ${nf(rec.length)}.</p>`:''),srcBtn(A.src.recibidas))}
   ${card('Fondos europeos',tabla(['Programa','Proyecto','Año','Concedido','Ámbito'],fe.slice(0,60).map(r=>[esc(r[0]),r[9]?`<a href="${esc(r[9])}" target="_blank" rel="noopener">${esc(r[1])}</a>`:esc(r[1]),r[2]||'—',eurS(r[3]),esc(r[6]||'')]),{num:[3]}),srcBtn(A.src.fondos),'Kohesio (portal de la Comisión Europea) se añadirá para contrastar cuando se pueda acceder a él.')}
-  ${mas('ayudas',[['convenios','Convenios con empresas y entidades']])}`}
+  ${mas('ayudas',[['subvenciones','Subvenciones que reparte el Ayuntamiento'],['convenios','Convenios con empresas y entidades']])}`}
 
 // ---------- Inicio ----------
 async function inicio(el){
@@ -299,10 +348,10 @@ async function inicio(el){
   ${ambBar('inicio')}</div>
   <div class="inig">
    ${bloque('ciudadano','€','Presupuesto',sel?nf(sel.pag_hab)+' €/hab.':N(uh.hab_gasto)+' €/hab.',sel?`por habitante gastó la Junta de ${esc(DISTN[cd])} en ${D[0].anio} (media de los distritos: ${nf(D.reduce((a,r)=>a+r.pag_hab,0)/D.length)} €)`:`por habitante gastó el Ayuntamiento en ${u.anio}: ${M(u.gasto)} en total`,'Ingresos y gastos · Por distritos · Deuda y pagos · Otras ciudades')}
-   ${bloque('via','⛏','Calles y obras',N(lic)+' licencias',`de obras en la vía pública en ${yA} · ${N(asf)} tramos asfaltados en ${yAs}`,'Obras en la calle · Asfaltado · Inversión')}
-   ${bloque('servicios','✎','Contratos',M(conImp),`adjudicados en ${yA} en ${N(conN)} contratos${cd!=null?' de la Junta':''}`,'Contratos adjudicados · Pagos a proveedores')}
+   ${bloque('via','⛏','Calles y obras',N(lic)+' licencias',`de obras en la vía pública en ${yA} · ${N(asf)} tramos asfaltados en ${yAs}`,'Obras en la calle · Asfaltado · Inversión · Seguridad vial · Árboles, farolas y limpieza')}
+   ${bloque('servicios','✎','Contratos',M(conImp),`adjudicados en ${yA} en ${N(conN)} contratos${cd!=null?' de la Junta':''}`,'Contratos adjudicados · Pagos a proveedores · Encargos a empresas municipales')}
    ${bloque('social','♥','Servicios sociales',N(esp)+' personas',`mayores en lista de espera · ${N(asN)} ayudas a vecinos en ${yA}`,'Ayudas a vecinos · Listas de espera')}
-   ${bloque('ayudas','⇄','Fondos y convenios',M(fe),`de fondos europeos para la ciudad · ${N(cv)} convenios firmados desde 2018`,'Fondos recibidos · Convenios')}
+   ${bloque('ayudas','⇄','Fondos y convenios',M(fe),`de fondos europeos para la ciudad · ${N(cv)} convenios firmados desde 2018`,'Fondos recibidos · Subvenciones que da · Convenios')}
    <a class="inib" href="#mapa${cd!=null?'?d='+cd:''}"><span class="inii" aria-hidden="true">⌂</span><span class="init">Edificios municipales</span><span class="iniv">${CM.nEdif?N(CM.nEdif)+' edificios':'Mapa ITE'}</span><span class="inix">colegios, centros culturales, de mayores, deportivos… y el estado de su inspección técnica (ITE)</span><span class="inil">Mapa ITE · Mi distrito · Más urgentes · Cifras ITE · Inversión en edificios · Informe PDF</span></a>
   </div>
   <p class="sub">Las cifras de cada bloque son del último año completo disponible. Cómo se obtiene cada dato: <a href="#ayuda">Ayuda y datos</a>.</p>`}
