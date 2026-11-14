@@ -224,7 +224,7 @@ def servicios(con, usados):
         SELECT servicio, cod_distrito cd, count(*) n, CAST(avg(dias_espera) AS INTEGER) med, max(dias_espera) mx FROM cm_lista_espera GROUP BY 1,2''')]
     fecha_espera = con.execute('SELECT max(fecha_datos) FROM cm_lista_espera').fetchone()[0]
     return dict(por_anio=por_anio, por_distrito=por_dist, ranking=ranking, pagos_anio=pag_anio, pagos=pagos,
-                espera=espera, espera_fecha=fecha_espera, encargos=enc, src=dict(contratos=s, pagos=s_p, espera=s_e, encargos=s_en))
+                espera=espera, espera_fecha=fecha_espera, encargos=enc, contratos_tipo=contratos_tipo(con), src=dict(contratos=s, pagos=s_p, espera=s_e, encargos=s_en))
 
 
 def ayudas(con, usados):
@@ -296,6 +296,111 @@ def barrios(con, usados):
                 avisos_distrito=avcd, syr=syr, src=src)
 
 
+def euro(con, usados):
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name='cm_euro_distrito'").fetchone():
+        return {}
+    import importlib.util, sys as _s
+    _s.path.insert(0, str(P.ROOT / 'scripts' / 'datos'))
+    from reparto import CRITERIO
+    src = sorted(set(srcs(con, 'cm_pago', 'anio >= 2023') + srcs(con, 'cm_gasto', 'anio >= 2023') + srcs(con, 'cm_inversion_proyecto', 'anio >= 2023')
+                     + srcs(con, 'cm_poblacion') + srcs(con, 'cm_barrio_panel')))
+    usados.update(src)
+    L = lambda q: [list(r) for r in con.execute(q)]
+    return dict(resumen=L('SELECT anio, tipo, criterio, metodo, round(sum(importe)) FROM cm_euro_resumen GROUP BY 1,2,3,4'),
+                distrito=L('SELECT anio, cod_distrito, tipo, criterio, metodo, round(sum(importe)) FROM cm_euro_distrito GROUP BY 1,2,3,4,5'),
+                barrio=L("SELECT anio, cod_barrio, tipo, CASE WHEN metodo='repartido' THEN 'r' ELSE 'd' END, round(sum(importe)) FROM cm_euro_barrio GROUP BY 1,2,3,4"),
+                criterios=CRITERIO, src=src)
+
+
+CAT_CONTRATO = [  # (tipo, palabras del objeto) — el primero que encaja
+    ('Fiestas, ferias y eventos', r'FIESTA|FESTEJ|VERBENA|CABALGATA|CARNAVAL|SAN ISIDRO|NAVIDE|(ACTIVIDADES|PROGRAMACION|ACTOS|CAMPANA) (DE )?NAVIDAD|ESPECTACUL|CONCIERTO|PASACALLE|ESCENARIO|FERIA|CARPA|FESTIVAL|CERTAMEN|ACTUACION(ES)? (MUSICAL|ARTISTIC|TEATRAL)|ORQUESTA|CHARANGA|FUEGOS ARTIFICIALES|MERCADILLO|SEMANA CULTURAL|DIA INTERNACIONAL|CINE DE VERANO|VELADA|EVENTO'),
+    ('Programación cultural, talleres y actividades', r'PROGRAMACION|ACTIVIDADES (CULTURALES|SOCIOCULTURALES|DE OCIO|INFANTILES|JUVENILES)|TALLER|CURSO|CENTRO(S)? CULTURAL|EXPOSICION|TEATRO|MUSICA|DANZA|LECTURA|BIBLIOTECA|CINE'),
+    ('Limpieza de edificios', r'LIMPIEZA.*(EDIFICIO|COLEGIO|DEPENDENCIA|CENTRO|INSTALACION|EQUIPAMIENTO|LOCAL)'),
+    ('Vigilancia, conserjería y control', r'VIGILANCIA|SEGURIDAD (Y|DE) (LOS )?EDIFICIO|CONSERJ|AUXILIAR(ES)? (DE )?(CONTROL|INFORMACION|SERVICIOS)|CONTROL DE (ACCESO|ENTRADA)|INFORMACION Y CONTROL'),
+    ('Mantenimiento de edificios', r'MANTENIMIENTO|CONSERVACION'),
+    ('Obras en edificios', r'(OBRA|REFORMA|ADECUACION|REHABILITACION|ACONDICIONAMIENTO|SUSTITUCION|IMPERMEABILIZACION|CUBIERTA|ACCESIBILIDAD).*(COLEGIO|CEIP|EDIFICIO|CENTRO|POLIDEPORTIVO|INSTALACION|BIBLIOTECA|ESCUELA|PABELLON|PISCINA|SEDE|JUNTA)'),
+    ('Obras en calles y espacios públicos', r'OBRA|ACERA|PAVIMENT|ASFALT|CALZADA|VIA PUBLICA|CALLE|PLAZA|PARQUE|JARDIN|ZONA VERDE|ARBOLADO'),
+    ('Servicios sociales y mayores', r'AYUDA A DOMICILIO|CENTRO(S)? DE DIA|MAYORES|TELEASISTENCIA|COMEDOR|ATENCION SOCIAL|INFANCIA|FAMILIA|SIN HOGAR|INSERCION|INTERVENCION SOCIAL|VULNERAB|DEPENDENCIA'),
+    ('Deportes', r'DEPORT|POLIDEPORT|PISCINA|MONITOR|ESCUELAS? DEPORTIVA'),
+    ('Educación', r'ESCUELA INFANTIL|EDUCATIV|ABSENTISMO|COLEGIO|ESCOLAR'),
+    ('Suministros y equipamiento', r'SUMINISTRO|ADQUISICION|MOBILIARIO|MATERIAL|VESTUARIO|COMBUSTIBLE|ENERGIA|ELECTRICIDAD|VEHICULO'),
+]
+
+
+def cat_contrato(obj):
+    import re as _re, unicodedata as _u
+    t = _u.normalize('NFD', (obj or '').upper()).encode('ascii', 'ignore').decode()
+    for n, rx in CAT_CONTRATO:
+        if _re.search(rx, t):
+            return n
+    return 'Otros servicios'
+
+
+def contratos_tipo(con):
+    import collections
+    agg = collections.Counter(); cnt = collections.Counter(); ev = []
+    for anio, cd, obj, adj, nif, imp, fecha, org, pf, tr in con.execute(
+            'SELECT anio, cod_distrito, objeto, adjudicatario, nif, importe_iva_inc, fecha, organo, persona_fisica, tipo_registro FROM cm_contrato WHERE anio >= 2015'):
+        c = cat_contrato(obj)
+        agg[(anio, cd or 0, c)] += imp or 0; cnt[(anio, cd or 0, c)] += 1
+        if c == 'Fiestas, ferias y eventos':
+            ev.append([anio, cd, (fecha or '')[:10], (obj or '')[:240], 'Persona física' if pf else adj, None if pf else nif, round(imp or 0, 2), tr])
+    ev = [r for r in ev if r[0] and r[0] >= 2019]
+    ev.sort(key=lambda r: (r[0], r[6] or 0), reverse=True)
+    return dict(tipos=[[a, d, c, cnt[(a, d, c)], round(v)] for (a, d, c), v in agg.items()], eventos=ev,
+                reglas=[[n, rx] for n, rx in CAT_CONTRATO])
+
+
+def edif(con, usados):
+    import re as _re, unicodedata as _u
+    ex = lambda t: con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone()
+    L = lambda q, *a: [list(r) for r in con.execute(q, a)]
+    o, src = {}, {}
+    if ex('cm_energia'):
+        o['energia'] = L("SELECT anio, cod_distrito, count(DISTINCT edificio), round(sum(consumo)) FROM cm_energia WHERE clase='Energía activa' AND unidades='kWh' GROUP BY 1,2")
+        yE = con.execute("SELECT max(anio) FROM cm_energia WHERE anio < CAST(strftime('%Y','now') AS INTEGER)").fetchone()[0]
+        o['energia_anio'] = yE
+        o['energia_edif'] = L("""SELECT cod_distrito, cod_barrio, edificio, tipo_edificio, round(sum(CASE WHEN clase='Energía activa' AND unidades='kWh' THEN consumo END)),
+                                 round(sum(CASE WHEN clase LIKE 'Gas%' AND unidades='kWh' THEN consumo END)) FROM cm_energia WHERE anio=? GROUP BY 1,2,3,4""", yE)
+        src['energia'] = srcs(con, 'cm_energia')
+    if ex('cm_fotovoltaica'):
+        o['solar'] = L('SELECT anio, centro, uso, potencia_kwp, round(kwh), lat, lng FROM cm_fotovoltaica ORDER BY anio, kwh DESC'); src['solar'] = srcs(con, 'cm_fotovoltaica')
+    if ex('cm_orden_conservacion'):
+        o['ordenes'] = L('SELECT anio, cod_distrito, motivo, ordenes FROM cm_orden_conservacion'); src['ordenes'] = srcs(con, 'cm_orden_conservacion')
+    if ex('cm_ruina'):
+        o['ruinas'] = L('SELECT anio, cod_distrito, motivo, causa, emplazamiento FROM cm_ruina ORDER BY anio DESC'); src['ruinas'] = srcs(con, 'cm_ruina')
+    if ex('cm_disciplina'):
+        o['disciplina'] = L('SELECT anio, cod_distrito, clase, sum(expedientes), round(sum(importe)) FROM cm_disciplina WHERE anio >= 2014 GROUP BY 1,2,3'); src['disciplina'] = srcs(con, 'cm_disciplina')
+    if ex('cm_licencia_urbanistica'):
+        o['licencias'] = L('SELECT anio, cod_distrito, tipo, sum(licencias) FROM cm_licencia_urbanistica GROUP BY 1,2,3'); src['licencias'] = srcs(con, 'cm_licencia_urbanistica')
+    if ex('cm_local_cedido'):
+        o['cedidos'] = L('SELECT cod_distrito, barrio, direccion, bien, superficie_m2, titulo_cesion, titular, finalidad FROM cm_local_cedido ORDER BY cod_distrito'); src['cedidos'] = srcs(con, 'cm_local_cedido')
+    if ex('cm_taller'):
+        per = con.execute("SELECT periodo FROM cm_taller WHERE periodo IS NOT NULL GROUP BY 1 ORDER BY max(_descarga_id) DESC LIMIT 1").fetchone()[0]
+        o['talleres_periodo'] = per
+        o['talleres'] = L('SELECT cod_distrito, grupo, talleres, plazas, ocupadas FROM cm_taller WHERE periodo=?', per); src['talleres'] = srcs(con, 'cm_taller')
+    if ex('cm_evento_agenda'):
+        o['agenda'] = L("SELECT substr(fecha,1,10), titulo, cod_distrito, barrio, lugar, gratuito, tipo, url FROM cm_evento_agenda ORDER BY fecha")
+        o['agenda_fecha'] = con.execute("SELECT max(d.fecha) FROM descarga d WHERE d.id IN (SELECT _descarga_id FROM cm_evento_agenda)").fetchone()[0]
+        src['agenda'] = srcs(con, 'cm_evento_agenda')
+    if ex('cm_uso_deportivo'):
+        pl = lambda x: _re.sub(r'[^A-Z0-9 ]', '', _u.normalize('NFD', (x or '').upper()).encode('ascii', 'ignore').decode())
+        dn = {pl(n): c for c, n in con.execute('SELECT cod, nombre FROM cm_distrito')}
+        cen = [(pl(n), dn.get(pl(d))) for n, d in con.execute("SELECT nombre, distrito FROM centros WHERE tipo_edificio LIKE '%eport%' OR nombre LIKE '%eportiv%'")]
+        def dist_de(n):
+            k = pl(n).replace('CENTRO DEPORTIVO MUNICIPAL', '').replace('CDM', '').strip()
+            for nn, d in cen:
+                if k and k in nn:
+                    return d
+            return None
+        o['deporte'] = [[a, c, r, dist_de(c)] for a, c, r in con.execute('SELECT anio, centro_deportivo, reservas FROM cm_uso_deportivo')]
+        src['deporte'] = srcs(con, 'cm_uso_deportivo')
+    o['src'] = src
+    for v in src.values():
+        usados.update(v)
+    return o
+
+
 def tablas(con):
     """Qué hay guardado: cada tabla limpia con sus filas, años, descargas y fecha de la última descarga."""
     T = {}
@@ -321,7 +426,7 @@ def main():
     con = P.abrir()
     OUT.mkdir(parents=True, exist_ok=True)
     usados = set()
-    for nombre, fn in [('ciudadano', ciudadano), ('via', via), ('servicios', servicios), ('ayudas', ayudas), ('barrios', barrios)]:
+    for nombre, fn in [('ciudadano', ciudadano), ('via', via), ('servicios', servicios), ('ayudas', ayudas), ('barrios', barrios), ('euro', euro), ('edif', edif)]:
         d = fn(con, usados)
         txt = json.dumps(d, ensure_ascii=False, separators=(',', ':'))
         (OUT / f'{nombre}.json').write_text(txt, encoding='utf-8')

@@ -387,6 +387,7 @@ def main():
     deuda_pmp(con)
     contexto_comunidad(con)
     tanda3(con)
+    tanda4(con)
     con.commit()
 
 
@@ -510,6 +511,67 @@ def tanda3(con):
                    coalesce(documentos_de_encomienda, documentacion), _descarga_id FROM "{E2}"
             WHERE coalesce(encomendado,'') NOT IN ('', 'Encomendado') AND coalesce(fecha_de_aprobacion,'') <> ''""",
               'Encargos a medios propios y encomiendas de gestión (trabajos que el Ayuntamiento encarga a sus empresas municipales)')
+
+
+def tanda4(con):
+    """Edificios municipales (energía, placas, cesiones), estado de los edificios del distrito (órdenes, ruinas, disciplina, licencias),
+    talleres, agenda de eventos y uso de instalaciones deportivas."""
+    ex = lambda t: con.execute('SELECT 1 FROM sqlite_master WHERE name=?', (t,)).fetchone()
+    T = 'ds_300430_consumo_de_energia_en_edificios_municipales'
+    if ex(T):
+        tabla(con, 'cm_energia', f"""SELECT CAST(ano AS INTEGER) AS anio, cod_distrito(codigo_distrito, distrito) AS cod_distrito,
+                 CAST(codigo_barrio AS INTEGER) AS cod_barrio, edificio, tipoedificio AS tipo_edificio, clase, unidades,
+                 sum(num(consumo)) AS consumo, min(_descarga_id) AS _descarga_id
+            FROM "{T}" WHERE clase IN ('Energía activa','Gas') OR clase LIKE 'Gas%' GROUP BY 1,2,3,4,5,6,7""",
+              'Consumo de energía de los edificios municipales con contador telemedido, por año, edificio y tipo (electricidad activa, gas)')
+    T = 'ds_300427_generacion_de_energia_solar_fotovoltaica_en_edificios_y'
+    if ex(T):
+        tabla(con, 'cm_fotovoltaica', f"""SELECT CAST(ano AS INTEGER) AS anio, centro, uso, max(num(potencia_kwp)) AS potencia_kwp, sum(num(energia_producida_kwh)) AS kwh,
+                 max(coord(latitud)) AS lat, max(coord(longitud)) AS lng, min(_descarga_id) AS _descarga_id FROM "{T}" GROUP BY 1,2,3""",
+              'Energía solar fotovoltaica producida en edificios y centros municipales por año')
+    T = 'ds_300377_ordenes_de_ejecucion'
+    if ex(T):
+        tabla(con, 'cm_orden_conservacion', f"""SELECT CAST(coalesce(nullif(ano,''),_periodo) AS INTEGER) AS anio, cod_distrito(codigo_distrito, distrito) AS cod_distrito,
+                 motivo, count(*) AS ordenes, min(_descarga_id) AS _descarga_id FROM "{T}" GROUP BY 1,2,3""",
+              'Órdenes de ejecución para el deber de conservación y rehabilitación de edificios (todos los edificios, no solo municipales)')
+    T = 'ds_300378_edificios_declarados_en_ruina_legal_y_fisica'
+    if ex(T):
+        tabla(con, 'cm_ruina', f"""SELECT CAST(coalesce(nullif(ano,''),_periodo) AS INTEGER) AS anio, cod_distrito(distrito) AS cod_distrito, motivo, causa,
+                 emplazamiento_principal AS emplazamiento, _descarga_id FROM "{T}" """, 'Edificios declarados en ruina legal o física')
+    T1, T2 = 'ds_300234_medidas_restablecimiento_de_la_legalidad_por_los_distri', 'ds_300234_sanciones_firmes_por_los_distritos'
+    if ex(T1) and ex(T2):
+        tabla(con, 'cm_disciplina', f"""
+            SELECT CAST(coalesce(substr(fecha_de_alta,-4), _periodo) AS INTEGER) AS anio, cod_distrito(distrito) AS cod_distrito, 'medida de restablecimiento' AS clase,
+                   tipo_de_expediente AS tipo, count(*) AS expedientes, NULL AS importe, min(_descarga_id) AS _descarga_id FROM "{T1}" GROUP BY 1,2,3,4
+            UNION ALL
+            SELECT CAST(coalesce(substr(fecha_de_alta,-4), _periodo) AS INTEGER), cod_distrito(distrito), 'sanción firme', tipo_de_expediente, count(*),
+                   sum(num(importe_ultimo_abonare)), min(_descarga_id) FROM "{T2}" GROUP BY 1,2,3,4""",
+              'Disciplina urbanística de las Juntas: medidas de restablecimiento de la legalidad y sanciones firmes')
+    T = 'ds_640505_licencias_urbanisticas'
+    if ex(T):
+        tabla(con, 'cm_licencia_urbanistica', f"""SELECT CAST(fecha_alta_ano AS INTEGER) AS anio, cod_distrito(organo_competente) AS cod_distrito, organo_competente AS organo,
+                 tipo, resolucion, nivel_proteccion, count(*) AS licencias, min(_descarga_id) AS _descarga_id FROM "{T}" GROUP BY 1,2,3,4,5,6""",
+              'Licencias urbanísticas otorgadas o resueltas, por año de alta, órgano (Junta o Área), tipo y resolución')
+    T = 'ds_300405_autorizaciones_y_concesiones_sobre_inmuebles_y_locales'
+    if ex(T):
+        tabla(con, 'cm_local_cedido', f"""SELECT cod_distrito(codigo_distrito, distrito) AS cod_distrito, barrio, clase_via||' '||nombre_via||' '||coalesce(numero,'') AS direccion,
+                 descripcion_bien_cedido AS bien, num(superficie) AS superficie_m2, titulo_cesion, procedimiento_cesion, titular_uso AS titular,
+                 CASE WHEN es_pf(nif) THEN NULL ELSE nif END AS nif, finalidad_uso AS finalidad, _descarga_id FROM "{T}" """,
+              'Inmuebles y locales de las Juntas cedidos a entidades (autorizaciones y concesiones vigentes)')
+    T = 'ds_50064_cursos_y_talleres_en_los_centros_culturales_de_los_dist'
+    if ex(T):
+        tabla(con, 'cm_taller', f"""SELECT _periodo AS periodo, cod_distrito(distrito_cod, distrito_desc) AS cod_distrito, grupo_desc AS grupo, count(*) AS talleres,
+                 sum(num(num_maximo_asistentes)) AS plazas, sum(num(num_plazas_ocupadas)) AS ocupadas, min(_descarga_id) AS _descarga_id FROM "{T}" GROUP BY 1,2,3""",
+              'Cursos y talleres de los centros culturales de los distritos: plazas y plazas ocupadas por periodo')
+    partes = [f"""SELECT fecha, titulo, distrito_instalacion AS distrito, cod_distrito(distrito_instalacion) AS cod_distrito, barrio_instalacion AS barrio,
+                 nombre_instalacion AS lugar, gratuito, tipo, content_url AS url, _descarga_id FROM "{t}" """
+              for t in ('ds_300107_agenda_de_actividades_y_eventos', 'ds_206974_actividades_culturales_y_de_ocio_municipal_en_los_proxi') if ex(t)]
+    if partes:
+        tabla(con, 'cm_evento_agenda', ' UNION '.join(partes), 'Agenda municipal de actividades y eventos (foto de los próximos días en la fecha de descarga)')
+    T = 'ds_300086_ocupacion_de_unidades_deportivas'
+    if ex(T):
+        tabla(con, "cm_uso_deportivo", f"""SELECT CAST(substr(fecha,1,4) AS INTEGER) AS anio, centro_deportivo, count(*) AS reservas, min(_descarga_id) AS _descarga_id
+            FROM "{T}" GROUP BY 1, 2""", 'Reservas y usos de las unidades deportivas por centro deportivo y año')
 
 
 def contexto_comunidad(con):

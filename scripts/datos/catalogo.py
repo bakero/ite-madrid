@@ -58,5 +58,23 @@ CATALOGO = [
     dict(id='300349-0-subvenciones', seccion='Ayudas', prioridad='P2'),
     dict(id='300411-0-encargos-medios-propios', seccion='Servicios', prioridad='P2'),
     dict(id='217975-0-encomiendas-gestion', seccion='Servicios', prioridad='P2'),
+    # Tanda 4 (14/11/2026): edificios municipales, urbanismo, cultura y eventos
+    dict(id='300430-0-consumo-energia-edificios', seccion='Edificios', prioridad='P2'),
+    dict(id='300427-0-generacion-fotovoltaica-edificio', seccion='Edificios', prioridad='P2'),
+    dict(id='300405-0-locales-cedidos', seccion='Edificios', prioridad='P2'),
+    dict(id='300363-0-contratos-arrendamiento', seccion='Edificios', prioridad='P2'),
+    dict(id='300377-0-conservacion-rehabilitacion', seccion='Edificios', prioridad='P2'),
+    dict(id='300378-0-edificios-ruina', seccion='Edificios', prioridad='P2'),
+    dict(id='300234-0-urbanismo-sanciones-medidas', seccion='Edificios', prioridad='P2'),
+    dict(id='640505-0-licencias-urbanisticas-otorgadas', seccion='Edificios', prioridad='P2'),
+    dict(id='300107-0-agenda-actividades-eventos', seccion='Cultura', prioridad='P2'),
+    dict(id='206974-0-agenda-eventos-culturales-100', seccion='Cultura', prioridad='P2'),
+    dict(id='200304-0-centros-culturales', seccion='Cultura', prioridad='P2'),
+    dict(id='50064-0-talleres-culturales-cursos', seccion='Cultura', prioridad='P2'),
+    dict(id='300086-0-deportes-utilizacion-unidades', seccion='Edificios', prioridad='P2'),
+    dict(id='300166-0-inspecciones-aparcamientos', seccion='Edificios', prioridad='P2'),
+    dict(id='300526-0-promociones-viviendas-emvs', seccion='Edificios', prioridad='P2'),
+    dict(id='300694-0-viviendas-turisticas-geoportal', seccion='Edificios', prioridad='P2'),
 ]
+
 
